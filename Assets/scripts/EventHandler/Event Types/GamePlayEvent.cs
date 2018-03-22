@@ -6,6 +6,7 @@ using UnityEngine;
 
 public abstract class GamePlayEvent : BaseEvent
 {
+
 	public class TestEvent : GamePlayEvent
 	{
 		public Color col { get; private set; }
@@ -18,5 +19,21 @@ public abstract class GamePlayEvent : BaseEvent
 			this.vec3 = vec3;
 			this.stri = stri;
 		}
+	}
+
+	public class TestEvent2 : GamePlayEvent
+	{
+		public int myInt { get; private set;}
+
+		public TestEvent2 (int myInt)
+		{
+			this.myInt = myInt;
+		}
+	}
+
+
+	public class TestEvent3: GamePlayEvent
+	{
+
 	}
 }

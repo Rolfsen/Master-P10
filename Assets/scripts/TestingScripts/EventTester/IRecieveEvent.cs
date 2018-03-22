@@ -13,12 +13,10 @@ public class IRecieveEvent : MonoBehaviour {
 		rend = GetComponent<Renderer>();
 	}
 
-
 	private void EventRecieved (object sender, GamePlayEvent.TestEvent e)
 	{
 		Debug.Log(e.stri);
 		rend.material.color = e.col;
 	}
-
 }
 //		EventBus.AddListener<UIEvent.ToggleGodMode>(OnUpdateText);
