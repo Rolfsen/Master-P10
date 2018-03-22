@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class IAlsoRecieveEvent : MonoBehaviour {
 
-	int myIndex;
-	Renderer rend;
 
 	private void Awake()
 	{
 		EventBus.AddListener<GamePlayEvent.TestEvent>(EventRecieved);
-		rend = GetComponent<Renderer>();
 	}
 
 
