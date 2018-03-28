@@ -1,0 +1,179 @@
+fileFormatVersion: 2
+guid: 1c2fc72daa9d84c45b5e1b8fad894aaf
+timeCreated: 1489784615
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Plane
+    100002: Plane_001
+    100004: Plane_002
+    100006: Plane_003
+    100008: water_01
+    100010: //RootNode
+    100012: waterfall_01_000
+    100014: waterfall_04
+    100016: waterfall_01
+    100018: waterfall_02
+    100020: waterfall_02_001
+    100022: waterfall_03
+    100024: waterfall_01_001
+    100026: waterfall_03_001
+    100028: waterfall_04_001
+    100030: water_02
+    400000: Plane
+    400002: Plane_001
+    400004: Plane_002
+    400006: Plane_003
+    400008: water_01
+    400010: //RootNode
+    400012: waterfall_01_000
+    400014: waterfall_04
+    400016: waterfall_01
+    400018: waterfall_02
+    400020: waterfall_02_001
+    400022: waterfall_03
+    400024: waterfall_01_001
+    400026: waterfall_03_001
+    400028: waterfall_04_001
+    400030: water_02
+    2300000: Plane
+    2300002: Plane_001
+    2300004: Plane_002
+    2300006: Plane_003
+    2300008: water_01
+    2300010: waterfall_01_000
+    2300012: waterfall_04
+    2300014: waterfall_01
+    2300016: waterfall_02
+    2300018: waterfall_02_001
+    2300020: waterfall_03
+    2300022: waterfall_01_001
+    2300024: waterfall_03_001
+    2300026: waterfall_04_001
+    2300028: water_02
+    3300000: Plane
+    3300002: Plane_001
+    3300004: Plane_002
+    3300006: Plane_003
+    3300008: water_01
+    3300010: waterfall_01_000
+    3300012: waterfall_04
+    3300014: waterfall_01
+    3300016: waterfall_02
+    3300018: waterfall_02_001
+    3300020: waterfall_03
+    3300022: waterfall_01_001
+    3300024: waterfall_03_001
+    3300026: waterfall_04_001
+    3300028: water_02
+    4300000: waterfall_04
+    4300002: waterfall_01_000
+    4300004: Plane_003
+    4300006: Plane_002
+    4300008: Plane_001
+    4300010: Plane
+    4300012: water_01
+    4300014: waterfall_02_001
+    4300016: waterfall_03
+    4300018: waterfall_01
+    4300020: waterfall_02
+    4300022: waterfall_04_001
+    4300024: waterfall_01_001
+    4300026: waterfall_03_001
+    4300028: water_02
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: unnamed
+    second: {fileID: 2100000, guid: a9e0fc24c7db7d442864249df3435d1a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: water_01_material__water_UV
+    second: {fileID: 2100000, guid: bd2e37d1adc16f24eb49a80f50087e91, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: waterfall_01_material
+    second: {fileID: 2100000, guid: 299c722cc1f8e8d4e88a11af21d3a700, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

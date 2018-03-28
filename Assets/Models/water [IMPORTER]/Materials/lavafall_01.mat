@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: lavafall_01
+  m_Shader: {fileID: 4800000, guid: 05fe21c4f69bac741920dec693562644, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3500
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Foam:
+        m_Texture: {fileID: 2800000, guid: 5fdc3268fe0d5514bbe874b997e89107, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LavaWobbleNoise:
+        m_Texture: {fileID: 2800000, guid: c013628570860cf408e32c638e0a5eda, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LavaWobbleNoise_copy_copy:
+        m_Texture: {fileID: 2800000, guid: c013628570860cf408e32c638e0a5eda, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Maintex:
+        m_Texture: {fileID: 2800000, guid: 5fdc3268fe0d5514bbe874b997e89107, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaintexSide:
+        m_Texture: {fileID: 2800000, guid: 782b4e5f7e347334e85a83026df95ed6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Overlay:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OverlayMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture:
+        m_Texture: {fileID: 2800000, guid: 5fdc3268fe0d5514bbe874b997e89107, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _WobbleNoise:
+        m_Texture: {fileID: 2800000, guid: c013628570860cf408e32c638e0a5eda, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _node_5355:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _1: 1
+    - _2: 1
+    - _BlendSharpness: 10
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _Detail: 10
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _EmissionIntensity: 0.4
+    - _FoamShoreTransparencyBlend: 0.1
+    - _Fog1MapIntensity: 0.5
+    - _Fog1Offset: 0.25
+    - _Fog1speed: 0.5
+    - _Fog2MapIntensity: 0.5
+    - _Fog2speed: 1.5
+    - _GlossMapScale: 1
+    - _Glossiness: 0
+    - _GlossyReflections: 1
+    - _LavaWobble: 0.03
+    - _LavaWobble_copy_copy: 0.03
+    - _MaintexSpeed: 0.05
+    - _MaintexUSpeed: 0
+    - _MaintexUSpeed_copy: 0
+    - _MaintexVSpeed: 0.1
+    - _MaintexVSpeed_copy: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _Scale: 1
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _TextureScale: 0.6
+    - _TotalOpacityIntensity: 1
+    - _UVSec: 0
+    - _Water1MapIntensity: 1
+    - _Water1Offset: 0.25
+    - _Water1speed: 0.5
+    - _Water2MapIntensity: 0.5
+    - _Water2speed: 1.5
+    - _Wobble: 0
+    - _ZWrite: 1
+    - _node_5109: 0.556
+    - _node_8961: 0.5
+    m_Colors:
+    - _Color: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
+    - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MaintexColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OverlayColor: {r: 1, g: 1, b: 1, a: 1}
+    - _WaterColor: {r: 1, g: 1, b: 1, a: 1}
