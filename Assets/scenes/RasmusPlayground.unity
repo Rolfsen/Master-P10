@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 11390094}
   - component: {fileID: 11390093}
   - component: {fileID: 11390097}
+  - component: {fileID: 11390098}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -209,6 +210,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8affc9bbb30d8e84b8c10df040cffb37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11390098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 11390092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e596f0d6597fdc4e86206f5f165c674, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalWaterSpend: 0
+  WaterUsingTasks:
+  - taskName: 
+    waterUsage: []
+  - taskName: 
+    waterUsage: []
+  - taskName: 
+    waterUsage: []
+  - taskName: 
+    waterUsage: []
 --- !u!1 &257660405
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +330,9 @@ MonoBehaviour:
   newCol: {r: 0, g: 0, b: 0, a: 0}
   newVec: {x: 0, y: 0, z: 0}
   newString: 
+  waterUse: 0
+  task: 0
+  eventInt2: 0
 --- !u!1 &435682369
 GameObject:
   m_ObjectHideFlags: 0
