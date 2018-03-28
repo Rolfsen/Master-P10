@@ -32,6 +32,17 @@ ModelImporter:
     100048: Plane_023
     100050: Plane_024
     100052: Plane_025
+    100054: Plane_026
+    100056: Plane_027
+    100058: Plane_028
+    100060: Plane_042
+    100062: Plane_043
+    100064: Plane_044
+    100066: Plane_045
+    100068: Plane_046
+    100070: Plane_047
+    100072: Plane_048
+    100074: Plane_049
     400000: //RootNode
     400002: Plane
     400004: Plane_001
@@ -59,6 +70,17 @@ ModelImporter:
     400048: Plane_023
     400050: Plane_024
     400052: Plane_025
+    400054: Plane_026
+    400056: Plane_027
+    400058: Plane_028
+    400060: Plane_042
+    400062: Plane_043
+    400064: Plane_044
+    400066: Plane_045
+    400068: Plane_046
+    400070: Plane_047
+    400072: Plane_048
+    400074: Plane_049
     2100000: unnamed
     2100002: human_proportion_material
     2100004: bedroom_floor_01_material_001
@@ -66,6 +88,23 @@ ModelImporter:
     2100008: kitchen_floor_01_material
     2100010: bedroom_floor_01_material
     2100012: livingroom_floor_01_material
+    2100014: window_frame_01_material
+    2100016: window_glass_01_material
+    2100018: window_socket_01_material
+    2100020: wall_05_material
+    2100022: wall_exterior_material
+    2100024: wall_inner_material
+    2100026: wall_03_material
+    2100028: wall_04_material
+    2100030: wall_02_material
+    2100032: wall_01_material
+    2100034: floor_01_material
+    2100036: floor_02_material
+    2100038: floor_03_material
+    2100040: floor_04_material
+    2100042: floor_05_material
+    2100044: door_01_material
+    2100046: door_01_frame_material
     2300000: Plane
     2300002: Plane_001
     2300004: Plane_002
@@ -92,6 +131,17 @@ ModelImporter:
     2300046: Plane_023
     2300048: Plane_024
     2300050: Plane_025
+    2300052: Plane_026
+    2300054: Plane_027
+    2300056: Plane_028
+    2300058: Plane_042
+    2300060: Plane_043
+    2300062: Plane_044
+    2300064: Plane_045
+    2300066: Plane_046
+    2300068: Plane_047
+    2300070: Plane_048
+    2300072: Plane_049
     3300000: Plane
     3300002: Plane_001
     3300004: Plane_002
@@ -118,6 +168,17 @@ ModelImporter:
     3300046: Plane_023
     3300048: Plane_024
     3300050: Plane_025
+    3300052: Plane_026
+    3300054: Plane_027
+    3300056: Plane_028
+    3300058: Plane_042
+    3300060: Plane_043
+    3300062: Plane_044
+    3300064: Plane_045
+    3300066: Plane_046
+    3300068: Plane_047
+    3300070: Plane_048
+    3300072: Plane_049
     4300000: Plane_025
     4300002: Plane_024
     4300004: Plane_015
@@ -144,14 +205,25 @@ ModelImporter:
     4300046: Plane_003
     4300048: Plane_002
     4300050: Plane
+    4300052: Plane_026
+    4300054: Plane_049
+    4300056: Plane_048
+    4300058: Plane_047
+    4300060: Plane_046
+    4300062: Plane_045
+    4300064: Plane_044
+    4300066: Plane_043
+    4300068: Plane_042
+    4300070: Plane_028
+    4300072: Plane_027
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
-    materialName: 0
+    materialName: 1
     materialSearch: 1
-    materialLocation: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -179,10 +251,10 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    importVisibility: 1
+    importVisibility: 0
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
