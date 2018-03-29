@@ -30,5 +30,10 @@ public class ISendEvent : MonoBehaviour {
 		{
 			EventBus.TriggerEvent(this, new GamePlayEvent.TaskComplete(task,waterUse, taskName));
 		}
+
+		if(Input.GetKeyDown(KeyCode.N))
+		{
+			
+		}
 	}
 }

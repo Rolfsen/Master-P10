@@ -48,5 +48,33 @@ public abstract class GamePlayEvent : BaseEvent
 		public int taskNumber { get; private set; }
 		public float waterUsed { get; private set; }
 		public string taskName { get; private set; }
-	} 
+	}
+
+	public class StartTaskToilet : GamePlayEvent
+	{
+		
+	}
+
+	public class StartTaskBath : GamePlayEvent
+	{
+
+	}
+
+	public class StartTaskCooking : GamePlayEvent
+	{
+
+	}
+
+	public class StartTaskCleaning : GamePlayEvent
+	{
+
+	}
+	public class StartTaskFixing : GamePlayEvent
+	{
+
+	}
+	public class StartTaskInstalling : GamePlayEvent
+	{
+
+	}
 }
