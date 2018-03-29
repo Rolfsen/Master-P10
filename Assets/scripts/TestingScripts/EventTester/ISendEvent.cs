@@ -33,7 +33,11 @@ public class ISendEvent : MonoBehaviour {
 
 		if(Input.GetKeyDown(KeyCode.N))
 		{
-			
+			EventBus.TriggerEvent(this, new GamePlayEvent.StartTaskBath());
+		}
+		if (Input.GetKeyDown(KeyCode.M))
+		{
+			EventBus.TriggerEvent(this, new GamePlayEvent.StartTaskFixing());
 		}
 	}
 }
