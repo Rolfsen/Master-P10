@@ -35,6 +35,4 @@ public class Narrator : MonoBehaviour {
 		narrator.clip = clip;
 		narrator.Play();
 	}
-
-
 }
