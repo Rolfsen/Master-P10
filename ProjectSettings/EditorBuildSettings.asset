@@ -4,10 +4,4 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/scenes/RasmusPlayground.unity
-    guid: e0f23786280087b419f6030ad455c854
-  - enabled: 1
-    path: Assets/scenes/RasmusPlayground 1.unity
-    guid: 98f9365f8950eb5438854b78d4904d5d
+  m_Scenes: []
