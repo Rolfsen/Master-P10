@@ -43,6 +43,26 @@ ModelImporter:
     100070: Plane_047
     100072: Plane_048
     100074: Plane_049
+    100076: Circle
+    100078: Circle_001
+    100080: Circle_002
+    100082: Circle_003
+    100084: Circle_004
+    100086: Circle_005
+    100088: Circle_006
+    100090: Circle_007
+    100092: Circle_009
+    100094: Circle_010
+    100096: Circle_013
+    100098: Circle_014
+    100100: Circle_015
+    100102: Circle_016
+    100104: asdasd
+    100106: house
+    100108: marker
+    100110: shower
+    100112: shower_handle
+    100114: water_ui_shower
     400000: //RootNode
     400002: Plane
     400004: Plane_001
@@ -81,6 +101,26 @@ ModelImporter:
     400070: Plane_047
     400072: Plane_048
     400074: Plane_049
+    400076: Circle
+    400078: Circle_001
+    400080: Circle_002
+    400082: Circle_003
+    400084: Circle_004
+    400086: Circle_005
+    400088: Circle_006
+    400090: Circle_007
+    400092: Circle_009
+    400094: Circle_010
+    400096: Circle_013
+    400098: Circle_014
+    400100: Circle_015
+    400102: Circle_016
+    400104: asdasd
+    400106: house
+    400108: marker
+    400110: shower
+    400112: shower_handle
+    400114: water_ui_shower
     2100000: unnamed
     2100002: human_proportion_material
     2100004: bedroom_floor_01_material_001
@@ -142,6 +182,26 @@ ModelImporter:
     2300068: Plane_047
     2300070: Plane_048
     2300072: Plane_049
+    2300074: Circle
+    2300076: Circle_001
+    2300078: Circle_002
+    2300080: Circle_003
+    2300082: Circle_004
+    2300084: Circle_005
+    2300086: Circle_006
+    2300088: Circle_007
+    2300090: Circle_009
+    2300092: Circle_010
+    2300094: Circle_013
+    2300096: Circle_014
+    2300098: Circle_015
+    2300100: Circle_016
+    2300102: asdasd
+    2300104: house
+    2300106: marker
+    2300108: shower
+    2300110: shower_handle
+    2300112: water_ui_shower
     3300000: Plane
     3300002: Plane_001
     3300004: Plane_002
@@ -179,6 +239,26 @@ ModelImporter:
     3300068: Plane_047
     3300070: Plane_048
     3300072: Plane_049
+    3300074: Circle
+    3300076: Circle_001
+    3300078: Circle_002
+    3300080: Circle_003
+    3300082: Circle_004
+    3300084: Circle_005
+    3300086: Circle_006
+    3300088: Circle_007
+    3300090: Circle_009
+    3300092: Circle_010
+    3300094: Circle_013
+    3300096: Circle_014
+    3300098: Circle_015
+    3300100: Circle_016
+    3300102: asdasd
+    3300104: house
+    3300106: marker
+    3300108: shower
+    3300110: shower_handle
+    3300112: water_ui_shower
     4300000: Plane_025
     4300002: Plane_024
     4300004: Plane_015
@@ -216,9 +296,149 @@ ModelImporter:
     4300068: Plane_042
     4300070: Plane_028
     4300072: Plane_027
+    4300074: Circle_016
+    4300076: Circle_015
+    4300078: Circle_014
+    4300080: Circle_013
+    4300082: Circle_010
+    4300084: Circle_009
+    4300086: Circle_007
+    4300088: Circle_006
+    4300090: Circle_005
+    4300092: Circle_004
+    4300094: Circle_003
+    4300096: Circle_002
+    4300098: Circle_001
+    4300100: Circle
+    4300102: shower
+    4300104: shower_handle
+    4300106: house
+    4300108: water_ui_shower
+    4300110: marker
+    4300112: asdasd
     7400000: Default Take
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: door_01_frame_material
+    second: {fileID: 2100000, guid: dc8530c8b94a11a458b80100faaaa311, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: door_01_material
+    second: {fileID: 2100000, guid: a234823a16cc221468be489d54b9cdc6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: floor_01_material
+    second: {fileID: 2100000, guid: 6c693b585c239b74089faaf1c3c05d96, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: floor_02_material
+    second: {fileID: 2100000, guid: 0224746f323fd454191ec33f4a397a98, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: floor_03_material
+    second: {fileID: 2100000, guid: d30f2b5603b8cb54ab7d60442eba2950, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: floor_04_material
+    second: {fileID: 2100000, guid: a838433fa675a174db7f45200bc15298, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: floor_05_material
+    second: {fileID: 2100000, guid: 57731459578377b4e831537b5871d3f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass_01_material
+    second: {fileID: 2100000, guid: 5ff3c6fbf406b0d49ada2fc3a710acae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: human_proportion_material
+    second: {fileID: 2100000, guid: 1baf2bc06a785184c919d5f38b376259, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: marker_01_material
+    second: {fileID: 2100000, guid: 44d1135038e98854baf205d6d0bf4643, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shower_01_material
+    second: {fileID: 2100000, guid: 5417866fd88251c4ca30892c4c824b82, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stairs_01_material
+    second: {fileID: 2100000, guid: 642dfdc773c03b045afc993a74501ba1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_01_material
+    second: {fileID: 2100000, guid: 59565a5d91d10ab4b92695ec17bb1a10, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_02_material
+    second: {fileID: 2100000, guid: 82cd3aff06f167e4d90cc8b9f6f453f1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_03_material
+    second: {fileID: 2100000, guid: f6e6ea457e4dcb84c87d0e0f994eb54c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_04_material
+    second: {fileID: 2100000, guid: cb105de0b605df649a5448ac4cf3530a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_05_material
+    second: {fileID: 2100000, guid: 027dc7e57196a2d49845e22f863ed8ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_exterior_01_material
+    second: {fileID: 2100000, guid: d7c046bb416dfa94981e89b10454d31a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_exterior_02_material
+    second: {fileID: 2100000, guid: 6191bffca9b2e214ca001b3ab7e388e4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_inner_01_material
+    second: {fileID: 2100000, guid: 038db2fe0b1987b46ad1cc83f73f9a01, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: water_meter_shower_material
+    second: {fileID: 2100000, guid: 293ca43963821fd478abee95aa820e77, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: window_frame_01_material
+    second: {fileID: 2100000, guid: 8942fcba50e867c4e8db3102691a6878, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: window_glass_01_material
+    second: {fileID: 2100000, guid: e1f4c2fd7ae1ba54695a9e05932cf0e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: window_socket_01_material
+    second: {fileID: 2100000, guid: bb3ac014c9a0d5c4d95cfbf273a8c404, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
