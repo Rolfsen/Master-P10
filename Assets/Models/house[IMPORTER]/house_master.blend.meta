@@ -73,6 +73,16 @@ ModelImporter:
     100130: soap
     100132: soap_holder
     100134: torso
+    100136: counters
+    100138: fridge
+    100140: fridge_hatch_01
+    100142: fridge_hatch_02
+    100144: oven
+    100146: oven_hatch
+    100148: shower_handle_002
+    100150: sink_faucet
+    100152: sink_handle
+    100154: water_ui_sink
     400000: //RootNode
     400002: Plane
     400004: Plane_001
@@ -141,6 +151,16 @@ ModelImporter:
     400130: soap
     400132: soap_holder
     400134: torso
+    400136: counters
+    400138: fridge
+    400140: fridge_hatch_01
+    400142: fridge_hatch_02
+    400144: oven
+    400146: oven_hatch
+    400148: shower_handle_002
+    400150: sink_faucet
+    400152: sink_handle
+    400154: water_ui_sink
     2100000: unnamed
     2100002: human_proportion_material
     2100004: bedroom_floor_01_material_001
@@ -232,6 +252,16 @@ ModelImporter:
     2300128: soap
     2300130: soap_holder
     2300132: torso
+    2300134: counters
+    2300136: fridge
+    2300138: fridge_hatch_01
+    2300140: fridge_hatch_02
+    2300142: oven
+    2300144: oven_hatch
+    2300146: shower_handle_002
+    2300148: sink_faucet
+    2300150: sink_handle
+    2300152: water_ui_sink
     3300000: Plane
     3300002: Plane_001
     3300004: Plane_002
@@ -299,6 +329,16 @@ ModelImporter:
     3300128: soap
     3300130: soap_holder
     3300132: torso
+    3300134: counters
+    3300136: fridge
+    3300138: fridge_hatch_01
+    3300140: fridge_hatch_02
+    3300142: oven
+    3300144: oven_hatch
+    3300146: shower_handle_002
+    3300148: sink_faucet
+    3300150: sink_handle
+    3300152: water_ui_sink
     4300000: Plane_025
     4300002: Plane_024
     4300004: Plane_015
@@ -366,6 +406,16 @@ ModelImporter:
     4300128: hand_right_closed
     4300130: hand_right_open
     4300132: torso
+    4300134: fridge_hatch_02
+    4300136: fridge_hatch_01
+    4300138: oven_hatch
+    4300140: counters
+    4300142: oven
+    4300144: fridge
+    4300146: water_ui_sink
+    4300148: sink_faucet
+    4300150: shower_handle_002
+    4300152: sink_handle
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
@@ -379,6 +429,16 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: body_skin_material
     second: {fileID: 2100000, guid: c274c4207973c6244a53985c702f3dfa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: counter_01_material
+    second: {fileID: 2100000, guid: 5a063ff1d52a32d4c8adadd3ad97cb3e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: counter_02_material
+    second: {fileID: 2100000, guid: 52d43382c748d154591e85b6f28421ba, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -417,6 +477,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: fridge_material
+    second: {fileID: 2100000, guid: 1f50f0c7c804f3e41a649f970fcf3827, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: glass_01_material
     second: {fileID: 2100000, guid: 5ff3c6fbf406b0d49ada2fc3a710acae, type: 2}
   - first:
@@ -432,8 +497,33 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: oven_01_material
+    second: {fileID: 2100000, guid: d559a72249155964596eae1d6055f3e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: oven_02_material
+    second: {fileID: 2100000, guid: ac2d044475bd59e49b61f0b41d5e3f28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: oven_glass_01_material
+    second: {fileID: 2100000, guid: 4e6276823b429de419796b43ded12934, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: shower_01_material
     second: {fileID: 2100000, guid: 5417866fd88251c4ca30892c4c824b82, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sink_01_material
+    second: {fileID: 2100000, guid: 1586e1f1946e59742842a7d5c4392da6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sink_material
+    second: {fileID: 2100000, guid: efc96b1d48f3b84468b1ff4c739d3dc4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -489,6 +579,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: water_meter_shower_material
     second: {fileID: 2100000, guid: 293ca43963821fd478abee95aa820e77, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: water_meter_sink_material
+    second: {fileID: 2100000, guid: 204def176629d32418ab274989cd317f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

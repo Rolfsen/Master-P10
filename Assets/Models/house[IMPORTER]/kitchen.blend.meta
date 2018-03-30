@@ -1,0 +1,223 @@
+fileFormatVersion: 2
+guid: ccafa39671b51cd4eb0f9e3eedd5508b
+timeCreated: 1522403722
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Plane
+    100004: Plane_001
+    100006: Plane_002
+    100008: Plane_003
+    100010: Plane_004
+    100012: Plane_005
+    100014: counters
+    100016: fridge
+    100018: fridge_hatch_01
+    100020: fridge_hatch_02
+    100022: oven
+    100024: oven_hatch
+    100026: sink_faucet
+    100028: sink_handle
+    100030: water_ui_sink
+    400000: //RootNode
+    400002: Plane
+    400004: Plane_001
+    400006: Plane_002
+    400008: Plane_003
+    400010: Plane_004
+    400012: Plane_005
+    400014: counters
+    400016: fridge
+    400018: fridge_hatch_01
+    400020: fridge_hatch_02
+    400022: oven
+    400024: oven_hatch
+    400026: sink_faucet
+    400028: sink_handle
+    400030: water_ui_sink
+    2100000: fridge_material
+    2100002: oven_01_material
+    2100004: oven_glass_01_material
+    2100006: oven_02_material
+    2100008: sink_material
+    2100010: counter_01_material
+    2100012: counter_02_material
+    2300000: Plane
+    2300002: Plane_001
+    2300004: Plane_002
+    2300006: Plane_003
+    2300008: Plane_004
+    2300010: Plane_005
+    2300012: counters
+    2300014: fridge
+    2300016: fridge_hatch_01
+    2300018: fridge_hatch_02
+    2300020: oven
+    2300022: oven_hatch
+    2300024: sink_faucet
+    2300026: sink_handle
+    2300028: water_ui_sink
+    3300000: Plane
+    3300002: Plane_001
+    3300004: Plane_002
+    3300006: Plane_003
+    3300008: Plane_004
+    3300010: Plane_005
+    3300012: counters
+    3300014: fridge
+    3300016: fridge_hatch_01
+    3300018: fridge_hatch_02
+    3300020: oven
+    3300022: oven_hatch
+    3300024: sink_faucet
+    3300026: sink_handle
+    3300028: water_ui_sink
+    4300000: Plane_005
+    4300002: Plane_004
+    4300004: Plane_003
+    4300006: Plane_002
+    4300008: Plane_001
+    4300010: Plane
+    4300012: fridge_hatch_02
+    4300014: fridge_hatch_01
+    4300016: oven_hatch
+    4300018: oven
+    4300020: fridge
+    4300022: counters
+    4300024: water_ui_sink
+    4300026: sink_handle
+    4300028: sink_faucet
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: counter_01_material
+    second: {fileID: 2100000, guid: 5a063ff1d52a32d4c8adadd3ad97cb3e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: counter_02_material
+    second: {fileID: 2100000, guid: 52d43382c748d154591e85b6f28421ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fridge_material
+    second: {fileID: 2100000, guid: 1f50f0c7c804f3e41a649f970fcf3827, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass_01_material
+    second: {fileID: 2100000, guid: 5ff3c6fbf406b0d49ada2fc3a710acae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: oven_01_material
+    second: {fileID: 2100000, guid: d559a72249155964596eae1d6055f3e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: oven_02_material
+    second: {fileID: 2100000, guid: ac2d044475bd59e49b61f0b41d5e3f28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: oven_glass_01_material
+    second: {fileID: 2100000, guid: 4e6276823b429de419796b43ded12934, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sink_01_material
+    second: {fileID: 2100000, guid: 1586e1f1946e59742842a7d5c4392da6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sink_material
+    second: {fileID: 2100000, guid: efc96b1d48f3b84468b1ff4c739d3dc4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: water_meter_sink_material
+    second: {fileID: 2100000, guid: 204def176629d32418ab274989cd317f, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
