@@ -10,11 +10,15 @@ ModelImporter:
     100004: shower_handle
     100006: water_ui_shower
     100008: shower
+    100010: soap
+    100012: soap_holder
     400000: Plane
     400002: //RootNode
     400004: shower_handle
     400006: water_ui_shower
     400008: shower
+    400010: soap
+    400012: soap_holder
     2100000: water_meter_shower_material
     2100002: shower_01_material
     2100004: glass_01_material
@@ -22,14 +26,20 @@ ModelImporter:
     2300002: shower_handle
     2300004: water_ui_shower
     2300006: shower
+    2300008: soap
+    2300010: soap_holder
     3300000: Plane
     3300002: shower_handle
     3300004: water_ui_shower
     3300006: shower
+    3300008: soap
+    3300010: soap_holder
     4300000: water_ui_shower
     4300002: shower_handle
     4300004: Plane
     4300006: shower
+    4300008: soap
+    4300010: soap_holder
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
@@ -43,6 +53,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: shower_01_material
     second: {fileID: 2100000, guid: 5417866fd88251c4ca30892c4c824b82, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: soap_material
+    second: {fileID: 2100000, guid: 5b79000aa7fc7d041b599a23bd482383, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

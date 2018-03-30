@@ -63,6 +63,16 @@ ModelImporter:
     100110: shower
     100112: shower_handle
     100114: water_ui_shower
+    100116: hand_left_closed
+    100118: hand_left_open
+    100120: hand_right_closed
+    100122: hand_right_closed_001
+    100124: hand_right_closed_002
+    100126: hand_right_open
+    100128: hand_right_open_001
+    100130: soap
+    100132: soap_holder
+    100134: torso
     400000: //RootNode
     400002: Plane
     400004: Plane_001
@@ -121,6 +131,16 @@ ModelImporter:
     400110: shower
     400112: shower_handle
     400114: water_ui_shower
+    400116: hand_left_closed
+    400118: hand_left_open
+    400120: hand_right_closed
+    400122: hand_right_closed_001
+    400124: hand_right_closed_002
+    400126: hand_right_open
+    400128: hand_right_open_001
+    400130: soap
+    400132: soap_holder
+    400134: torso
     2100000: unnamed
     2100002: human_proportion_material
     2100004: bedroom_floor_01_material_001
@@ -202,6 +222,16 @@ ModelImporter:
     2300108: shower
     2300110: shower_handle
     2300112: water_ui_shower
+    2300114: hand_left_closed
+    2300116: hand_left_open
+    2300118: hand_right_closed
+    2300120: hand_right_closed_001
+    2300122: hand_right_closed_002
+    2300124: hand_right_open
+    2300126: hand_right_open_001
+    2300128: soap
+    2300130: soap_holder
+    2300132: torso
     3300000: Plane
     3300002: Plane_001
     3300004: Plane_002
@@ -259,6 +289,16 @@ ModelImporter:
     3300108: shower
     3300110: shower_handle
     3300112: water_ui_shower
+    3300114: hand_left_closed
+    3300116: hand_left_open
+    3300118: hand_right_closed
+    3300120: hand_right_closed_001
+    3300122: hand_right_closed_002
+    3300124: hand_right_open
+    3300126: hand_right_open_001
+    3300128: soap
+    3300130: soap_holder
+    3300132: torso
     4300000: Plane_025
     4300002: Plane_024
     4300004: Plane_015
@@ -316,9 +356,29 @@ ModelImporter:
     4300108: water_ui_shower
     4300110: marker
     4300112: asdasd
+    4300114: soap_holder
+    4300116: hand_right_closed_002
+    4300118: soap
+    4300120: hand_right_open_001
+    4300122: hand_right_closed_001
+    4300124: hand_left_closed
+    4300126: hand_left_open
+    4300128: hand_right_closed
+    4300130: hand_right_open
+    4300132: torso
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body_black_material
+    second: {fileID: 2100000, guid: 6e3b61af09c60394083494c6fca3bbfc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body_skin_material
+    second: {fileID: 2100000, guid: c274c4207973c6244a53985c702f3dfa, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -374,6 +434,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: shower_01_material
     second: {fileID: 2100000, guid: 5417866fd88251c4ca30892c4c824b82, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: soap_material
+    second: {fileID: 2100000, guid: 5b79000aa7fc7d041b599a23bd482383, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
