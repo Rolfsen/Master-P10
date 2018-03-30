@@ -145,16 +145,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalWaterSpend: 0
   WaterUsingTasks:
-  - taskName: 
+  - taskName: Bathing
     waterUsage: []
-  - taskName: 
+  - taskName: Fixing
     waterUsage: []
-  - taskName: 
+  - taskName: Cleaning
     waterUsage: []
-  - taskName: 
+  - taskName: Cooking
     waterUsage: []
-  - taskName: 
+  - taskName: Something
     waterUsage: []
+  tmp: []
 --- !u!23 &153847347
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -221,11 +222,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &184791395 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1742152090753822, guid: 6f10b0310c9424b47a11fab857c46fb8,
+    type: 2}
+  m_PrefabInternal: {fileID: 743681551}
 --- !u!224 &184791399 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224328165626940980, guid: 6f10b0310c9424b47a11fab857c46fb8,
     type: 2}
   m_PrefabInternal: {fileID: 743681551}
+--- !u!114 &184791400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 184791395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 925736030e360284e982c39777d73f6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: []
 --- !u!1 &221054730
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,7 +1519,6 @@ GameObject:
   - component: {fileID: 1969543811}
   - component: {fileID: 1969543810}
   - component: {fileID: 1969543809}
-  - component: {fileID: 1969543808}
   - component: {fileID: 1969543807}
   m_Layer: 0
   m_Name: Cube
@@ -1524,17 +1541,6 @@ MonoBehaviour:
   waterUse: 0
   task: 0
   taskName: 
---- !u!114 &1969543808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1969543806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 925736030e360284e982c39777d73f6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1969543809
 MeshRenderer:
   m_ObjectHideFlags: 0
