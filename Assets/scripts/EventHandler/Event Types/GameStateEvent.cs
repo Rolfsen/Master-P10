@@ -36,4 +36,14 @@ public abstract class GameStateEvent : BaseEvent
 		public string taskName { get; private set; }
 		public int numberOfTasks { get; private set;}
 	}
+
+	public class StartUpSetTaskVars : GameStateEvent
+	{
+		public StartUpSetTaskVars(List<string> taskNames)
+		{
+			this.taskNames = taskNames;
+		}
+
+		public List<string> taskNames { get; private set; }
+	}
 }

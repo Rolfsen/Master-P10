@@ -12,6 +12,7 @@ public class ProgressUI : MonoBehaviour
 		text = GetComponentsInChildren<Text>();
 
 		EventBus.AddListener<GameStateEvent.WaterUsageUpdated>(UpdateText);
+		EventBus.AddListener<GameStateEvent.StartUpSetTaskVars>(SetStartUpText);
 	}
 
 
@@ -19,5 +20,13 @@ public class ProgressUI : MonoBehaviour
 	{
 		text[e.taskNumber].text = e.taskName + " " + e.bestWaterUsageForTask;
 		text[e.numberOfTasks].text = "Total Water Usage: " + e.totalWaterUsed.ToString();	
+	}
+
+	private void SetStartUpText (object sender, GameStateEvent.StartUpSetTaskVars e)
+	{
+		for (int i = 0; i < e.taskNames.Count; i++)
+		{
+			text[i].text = e.taskNames[i];
+		}
 	}
 }
