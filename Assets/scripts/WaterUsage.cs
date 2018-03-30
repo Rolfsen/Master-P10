@@ -16,6 +16,7 @@ public class WaterUsage : MonoBehaviour {
 	[SerializeField]float totalWaterSpend;
 	[SerializeField] List<WaterTask> WaterUsingTasks;
 
+
 	private void Awake()
 	{
 		EventBus.AddListener<GamePlayEvent.TaskComplete>(UpdateWaterUsage);
@@ -35,5 +36,6 @@ public class WaterUsage : MonoBehaviour {
 				totalWaterSpend += task.waterUsage[0];
 			}
 		}
+		EventBus.TriggerEvent(this,new GameStateEvent.WaterUsageUpdated(WaterUsingTasks[e.taskNumber].waterUsage[0], totalWaterSpend,e.taskNumber,e.taskName,WaterUsingTasks.Count));
 	}
 }
