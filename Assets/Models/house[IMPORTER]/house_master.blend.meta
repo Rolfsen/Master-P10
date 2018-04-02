@@ -63,6 +63,39 @@ ModelImporter:
     100110: shower
     100112: shower_handle
     100114: water_ui_shower
+    100116: hand_left_closed
+    100118: hand_left_open
+    100120: hand_right_closed
+    100122: hand_right_closed_001
+    100124: hand_right_closed_002
+    100126: hand_right_open
+    100128: hand_right_open_001
+    100130: soap
+    100132: soap_holder
+    100134: torso
+    100136: counters
+    100138: fridge
+    100140: fridge_hatch_01
+    100142: fridge_hatch_02
+    100144: oven
+    100146: oven_hatch
+    100148: shower_handle_002
+    100150: sink_faucet
+    100152: sink_handle
+    100154: water_ui_sink
+    100156: hand_right_closed_003
+    100158: potato_peeler
+    100160: potato_01
+    100162: potato_02
+    100164: potato_03
+    100166: bowl
+    100168: bucket
+    100170: hand_right_closed_004
+    100172: hand_right_closed_005
+    100174: mop_end
+    100176: mop_rod
+    100178: mop_socket
+    100180: water_ui_bucket
     400000: //RootNode
     400002: Plane
     400004: Plane_001
@@ -121,6 +154,39 @@ ModelImporter:
     400110: shower
     400112: shower_handle
     400114: water_ui_shower
+    400116: hand_left_closed
+    400118: hand_left_open
+    400120: hand_right_closed
+    400122: hand_right_closed_001
+    400124: hand_right_closed_002
+    400126: hand_right_open
+    400128: hand_right_open_001
+    400130: soap
+    400132: soap_holder
+    400134: torso
+    400136: counters
+    400138: fridge
+    400140: fridge_hatch_01
+    400142: fridge_hatch_02
+    400144: oven
+    400146: oven_hatch
+    400148: shower_handle_002
+    400150: sink_faucet
+    400152: sink_handle
+    400154: water_ui_sink
+    400156: hand_right_closed_003
+    400158: potato_peeler
+    400160: potato_01
+    400162: potato_02
+    400164: potato_03
+    400166: bowl
+    400168: bucket
+    400170: hand_right_closed_004
+    400172: hand_right_closed_005
+    400174: mop_end
+    400176: mop_rod
+    400178: mop_socket
+    400180: water_ui_bucket
     2100000: unnamed
     2100002: human_proportion_material
     2100004: bedroom_floor_01_material_001
@@ -202,6 +268,39 @@ ModelImporter:
     2300108: shower
     2300110: shower_handle
     2300112: water_ui_shower
+    2300114: hand_left_closed
+    2300116: hand_left_open
+    2300118: hand_right_closed
+    2300120: hand_right_closed_001
+    2300122: hand_right_closed_002
+    2300124: hand_right_open
+    2300126: hand_right_open_001
+    2300128: soap
+    2300130: soap_holder
+    2300132: torso
+    2300134: counters
+    2300136: fridge
+    2300138: fridge_hatch_01
+    2300140: fridge_hatch_02
+    2300142: oven
+    2300144: oven_hatch
+    2300146: shower_handle_002
+    2300148: sink_faucet
+    2300150: sink_handle
+    2300152: water_ui_sink
+    2300154: hand_right_closed_003
+    2300156: potato_peeler
+    2300158: potato_01
+    2300160: potato_02
+    2300162: potato_03
+    2300164: bowl
+    2300166: bucket
+    2300168: hand_right_closed_004
+    2300170: hand_right_closed_005
+    2300172: mop_end
+    2300174: mop_rod
+    2300176: mop_socket
+    2300178: water_ui_bucket
     3300000: Plane
     3300002: Plane_001
     3300004: Plane_002
@@ -259,6 +358,39 @@ ModelImporter:
     3300108: shower
     3300110: shower_handle
     3300112: water_ui_shower
+    3300114: hand_left_closed
+    3300116: hand_left_open
+    3300118: hand_right_closed
+    3300120: hand_right_closed_001
+    3300122: hand_right_closed_002
+    3300124: hand_right_open
+    3300126: hand_right_open_001
+    3300128: soap
+    3300130: soap_holder
+    3300132: torso
+    3300134: counters
+    3300136: fridge
+    3300138: fridge_hatch_01
+    3300140: fridge_hatch_02
+    3300142: oven
+    3300144: oven_hatch
+    3300146: shower_handle_002
+    3300148: sink_faucet
+    3300150: sink_handle
+    3300152: water_ui_sink
+    3300154: hand_right_closed_003
+    3300156: potato_peeler
+    3300158: potato_01
+    3300160: potato_02
+    3300162: potato_03
+    3300164: bowl
+    3300166: bucket
+    3300168: hand_right_closed_004
+    3300170: hand_right_closed_005
+    3300172: mop_end
+    3300174: mop_rod
+    3300176: mop_socket
+    3300178: water_ui_bucket
     4300000: Plane_025
     4300002: Plane_024
     4300004: Plane_015
@@ -316,9 +448,72 @@ ModelImporter:
     4300108: water_ui_shower
     4300110: marker
     4300112: asdasd
+    4300114: soap_holder
+    4300116: hand_right_closed_002
+    4300118: soap
+    4300120: hand_right_open_001
+    4300122: hand_right_closed_001
+    4300124: hand_left_closed
+    4300126: hand_left_open
+    4300128: hand_right_closed
+    4300130: hand_right_open
+    4300132: torso
+    4300134: fridge_hatch_02
+    4300136: fridge_hatch_01
+    4300138: oven_hatch
+    4300140: counters
+    4300142: oven
+    4300144: fridge
+    4300146: water_ui_sink
+    4300148: sink_faucet
+    4300150: shower_handle_002
+    4300152: sink_handle
+    4300154: hand_right_closed_003
+    4300156: potato_peeler
+    4300158: potato_01
+    4300160: potato_02
+    4300162: potato_03
+    4300164: bowl
+    4300166: hand_right_closed_005
+    4300168: water_ui_bucket
+    4300170: bucket
+    4300172: mop_rod
+    4300174: mop_socket
+    4300176: mop_end
+    4300178: hand_right_closed_004
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body_black_material
+    second: {fileID: 2100000, guid: 6e3b61af09c60394083494c6fca3bbfc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body_skin_material
+    second: {fileID: 2100000, guid: c274c4207973c6244a53985c702f3dfa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bowl_material
+    second: {fileID: 2100000, guid: 28269f833860a75498e7e2c11d8ca2e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bucket_material
+    second: {fileID: 2100000, guid: 24dbe828014de1242a4bf624a5b37cfc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: counter_01_material
+    second: {fileID: 2100000, guid: 5a063ff1d52a32d4c8adadd3ad97cb3e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: counter_02_material
+    second: {fileID: 2100000, guid: 52d43382c748d154591e85b6f28421ba, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -357,6 +552,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: fridge_material
+    second: {fileID: 2100000, guid: 1f50f0c7c804f3e41a649f970fcf3827, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: glass_01_material
     second: {fileID: 2100000, guid: 5ff3c6fbf406b0d49ada2fc3a710acae, type: 2}
   - first:
@@ -372,8 +572,63 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: mop_cloth_material
+    second: {fileID: 2100000, guid: 00e7e2e04bfb6164c8a9383835d372db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mop_material
+    second: {fileID: 2100000, guid: 8679b855d4ebf2041b180f83ac76c833, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: oven_01_material
+    second: {fileID: 2100000, guid: d559a72249155964596eae1d6055f3e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: oven_02_material
+    second: {fileID: 2100000, guid: ac2d044475bd59e49b61f0b41d5e3f28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: oven_glass_01_material
+    second: {fileID: 2100000, guid: 4e6276823b429de419796b43ded12934, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: potato_material
+    second: {fileID: 2100000, guid: 212c2f91705eed3428a539f0150d5aa5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: potato_peeler_blade_material
+    second: {fileID: 2100000, guid: c314944c810d40a4992da39560dbc8db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: potato_peeler_handle_material
+    second: {fileID: 2100000, guid: e6e31fbd5d14a4e45a04f857bfca5d13, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: shower_01_material
     second: {fileID: 2100000, guid: 5417866fd88251c4ca30892c4c824b82, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sink_01_material
+    second: {fileID: 2100000, guid: 1586e1f1946e59742842a7d5c4392da6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sink_material
+    second: {fileID: 2100000, guid: efc96b1d48f3b84468b1ff4c739d3dc4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: soap_material
+    second: {fileID: 2100000, guid: 5b79000aa7fc7d041b599a23bd482383, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -422,8 +677,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: water_meter_bucket_material
+    second: {fileID: 2100000, guid: 0bc63665c96eb2a45a2280c20f6abd5d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: water_meter_shower_material
     second: {fileID: 2100000, guid: 293ca43963821fd478abee95aa820e77, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: water_meter_sink_material
+    second: {fileID: 2100000, guid: 204def176629d32418ab274989cd317f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

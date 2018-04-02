@@ -18,4 +18,42 @@ public abstract class GameStateEvent : BaseEvent
 			this.buildIndex = buildIndex;
 		}
 	}
+
+	public class WaterUsageUpdated : GameStateEvent
+	{
+		public WaterUsageUpdated(float bestWaterUsageForTask, float totalWaterUsed, int taskNumber, string taskName, int numberOfTasks)
+		{
+			this.bestWaterUsageForTask = bestWaterUsageForTask;
+			this.totalWaterUsed = totalWaterUsed;
+			this.taskNumber = taskNumber;
+			this.taskName = taskName;
+			this.numberOfTasks = numberOfTasks;
+		}
+
+		public float bestWaterUsageForTask { get; private set; }
+		public float totalWaterUsed { get; private set; }
+		public int taskNumber { get; private set; }
+		public string taskName { get; private set; }
+		public int numberOfTasks { get; private set;}
+	}
+
+	public class StartUpSetTaskVars : GameStateEvent
+	{
+		public StartUpSetTaskVars(List<string> taskNames)
+		{
+			this.taskNames = taskNames;
+		}
+
+		public List<string> taskNames { get; private set; }
+	}
+
+	public class SetWayPointStateEvent : GameStateEvent
+	{
+		public SetWayPointStateEvent(List<int> activeIDs)
+		{
+			this.activeIDs = activeIDs;
+		}
+
+		public List<int> activeIDs { get; private set; }
+	}
 }

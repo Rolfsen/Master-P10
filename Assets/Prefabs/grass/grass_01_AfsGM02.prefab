@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33002772845149532}
   - component: {fileID: 23739184079557652}
   - component: {fileID: 95596044384219782}
+  - component: {fileID: 114388972904699372}
   m_Layer: 0
   m_Name: grass_01_AfsGM02
   m_TagString: Untagged
@@ -36,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1854661102433544}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.3725734, y: 4.5, z: -17.591442}
+  m_LocalPosition: {x: -10.662941, y: 1.072, z: -2.9951172}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,7 +83,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1854661102433544}
-  m_Mesh: {fileID: 4300000, guid: 021cad205d27c9b478b8a5ab93189c85, type: 3}
+  m_Mesh: {fileID: 4300000, guid: acc4f6f1a2428a94faadc5b69941e946, type: 2}
 --- !u!95 &95596044384219782
 Animator:
   serializedVersion: 3
@@ -100,3 +101,192 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114388972904699372
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1854661102433544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 244de86e001f04c23be71034613874c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalMesh: {fileID: 4300000, guid: 021cad205d27c9b478b8a5ab93189c85, type: 3}
+  Master: {fileID: 0}
+  usingMastersBounds: 0
+  UseDebugMaterial: 0
+  DebugMode: 0
+  SnapShotColors:
+  - {r: 1, g: 1, b: 0, a: 0.05}
+  - {r: 1, g: 1, b: 0, a: 0.1}
+  - {r: 1, g: 1, b: 0, a: 0.1}
+  - {r: 1, g: 1, b: 0, a: 0.05}
+  - {r: 1, g: 1, b: 0, a: 0}
+  - {r: 1, g: 1, b: 0, a: 0}
+  SnapShotAvailable: 1
+  BendingModeSelected: 3
+  Scale: 2
+  hasBeenSaved: 1
+  savePath: E:/Master-P10/Assets/Prefabs/grass/grass_01_newmesh.asset
+  fileName: grass_01_newmesh.asset
+  hasSubmeshes: 0
+  mergeSubMeshes: 0
+  has2ndUV: 1
+  delete2ndUV: 0
+  storeUV4: 0
+  convert2simpletree: 0
+  convert2foliage: 0
+  sourceTex0: {fileID: 0}
+  sourceTex1: {fileID: 0}
+  sourceTexDiffuse: {fileID: 0}
+  textureSplitHalf: 0
+  showTextureCombine: 0
+  TextureSplitSelected: 0
+  generateUV2: 0
+  diffuseTexPath: 
+  transTexPath: 
+  combinedTexPath: 
+  simpleTreeConverted: 0
+  foliageTreeConverted: 0
+  foliageTreeUV4Converted: 0
+  Set1stBendingSelected: 1
+  Mask2ndBendingSelected: 1
+  adjustScale: 0
+  adjustVertexColors: 0
+  adjustBending: 1
+  FoldSetBending: 0
+  showGizmos: 1
+  maxBendingValueY: 0.1
+  maxBendingValueX: 0
+  curvY:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  curvX:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  curvZ:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  curvRed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  curvGreen:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  curvBlue:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  curvAlpha:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Set1stBendingAlongY: 1
+  Set1stBendingRelative2Pivot: 0
+  VertexBlueVals: []
+  VertexBlueValsStored: 1
+  hasChanged: 0
