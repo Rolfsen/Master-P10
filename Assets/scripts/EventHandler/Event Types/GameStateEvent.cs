@@ -46,4 +46,14 @@ public abstract class GameStateEvent : BaseEvent
 
 		public List<string> taskNames { get; private set; }
 	}
+
+	public class SetWayPointStateEvent : GameStateEvent
+	{
+		public SetWayPointStateEvent(List<int> activeIDs)
+		{
+			this.activeIDs = activeIDs;
+		}
+
+		public List<int> activeIDs { get; private set; }
+	}
 }
