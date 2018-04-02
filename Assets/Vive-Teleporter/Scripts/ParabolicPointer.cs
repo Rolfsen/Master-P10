@@ -97,6 +97,7 @@ public class ParabolicPointer : MonoBehaviour {
             bool cast = nav.Linecast(last, next, out endOnNavmesh, out castHit, out norm);
             if (cast)
             {
+                // raycast here maybe?
                 outPts.Add(castHit);
                 normal = norm;
                 return endOnNavmesh;
@@ -106,7 +107,6 @@ public class ParabolicPointer : MonoBehaviour {
 
             last = next;
         }
-
         normal = Vector3.up;
         return false;
     }

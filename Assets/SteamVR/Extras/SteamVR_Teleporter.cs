@@ -61,7 +61,7 @@ public class SteamVR_Teleporter : MonoBehaviour
 			// Set defaults
 			bool hasGroundTarget = false;
 			float dist = 0f;
-			if (teleportType == TeleportType.TeleportTypeUseTerrain) // If we picked to use the terrain
+			if (teleportType == TeleportType.TeleportTypeUseTerrain ) // If we picked to use the terrain
 			{
 				RaycastHit hitInfo;
 				TerrainCollider tc = Terrain.activeTerrain.GetComponent<TerrainCollider>();
