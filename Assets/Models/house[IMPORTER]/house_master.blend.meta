@@ -89,6 +89,13 @@ ModelImporter:
     100162: potato_02
     100164: potato_03
     100166: bowl
+    100168: bucket
+    100170: hand_right_closed_004
+    100172: hand_right_closed_005
+    100174: mop_end
+    100176: mop_rod
+    100178: mop_socket
+    100180: water_ui_bucket
     400000: //RootNode
     400002: Plane
     400004: Plane_001
@@ -173,6 +180,13 @@ ModelImporter:
     400162: potato_02
     400164: potato_03
     400166: bowl
+    400168: bucket
+    400170: hand_right_closed_004
+    400172: hand_right_closed_005
+    400174: mop_end
+    400176: mop_rod
+    400178: mop_socket
+    400180: water_ui_bucket
     2100000: unnamed
     2100002: human_proportion_material
     2100004: bedroom_floor_01_material_001
@@ -280,6 +294,13 @@ ModelImporter:
     2300160: potato_02
     2300162: potato_03
     2300164: bowl
+    2300166: bucket
+    2300168: hand_right_closed_004
+    2300170: hand_right_closed_005
+    2300172: mop_end
+    2300174: mop_rod
+    2300176: mop_socket
+    2300178: water_ui_bucket
     3300000: Plane
     3300002: Plane_001
     3300004: Plane_002
@@ -363,6 +384,13 @@ ModelImporter:
     3300160: potato_02
     3300162: potato_03
     3300164: bowl
+    3300166: bucket
+    3300168: hand_right_closed_004
+    3300170: hand_right_closed_005
+    3300172: mop_end
+    3300174: mop_rod
+    3300176: mop_socket
+    3300178: water_ui_bucket
     4300000: Plane_025
     4300002: Plane_024
     4300004: Plane_015
@@ -446,6 +474,13 @@ ModelImporter:
     4300160: potato_02
     4300162: potato_03
     4300164: bowl
+    4300166: hand_right_closed_005
+    4300168: water_ui_bucket
+    4300170: bucket
+    4300172: mop_rod
+    4300174: mop_socket
+    4300176: mop_end
+    4300178: hand_right_closed_004
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
@@ -464,6 +499,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: bowl_material
     second: {fileID: 2100000, guid: 28269f833860a75498e7e2c11d8ca2e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bucket_material
+    second: {fileID: 2100000, guid: 24dbe828014de1242a4bf624a5b37cfc, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -529,6 +569,16 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: marker_01_material
     second: {fileID: 2100000, guid: 44d1135038e98854baf205d6d0bf4643, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mop_cloth_material
+    second: {fileID: 2100000, guid: 00e7e2e04bfb6164c8a9383835d372db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mop_material
+    second: {fileID: 2100000, guid: 8679b855d4ebf2041b180f83ac76c833, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -624,6 +674,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: wall_inner_01_material
     second: {fileID: 2100000, guid: 038db2fe0b1987b46ad1cc83f73f9a01, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: water_meter_bucket_material
+    second: {fileID: 2100000, guid: 0bc63665c96eb2a45a2280c20f6abd5d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

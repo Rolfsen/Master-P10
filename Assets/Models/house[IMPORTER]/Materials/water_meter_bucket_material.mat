@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: water_meter_sink_material
+  m_Name: water_meter_bucket_material
   m_Shader: {fileID: 4800000, guid: 9fb8fe16853f4fd44bcc6814c173a721, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
