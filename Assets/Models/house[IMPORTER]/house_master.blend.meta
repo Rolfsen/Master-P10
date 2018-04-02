@@ -83,6 +83,12 @@ ModelImporter:
     100150: sink_faucet
     100152: sink_handle
     100154: water_ui_sink
+    100156: hand_right_closed_003
+    100158: potato_peeler
+    100160: potato_01
+    100162: potato_02
+    100164: potato_03
+    100166: bowl
     400000: //RootNode
     400002: Plane
     400004: Plane_001
@@ -161,6 +167,12 @@ ModelImporter:
     400150: sink_faucet
     400152: sink_handle
     400154: water_ui_sink
+    400156: hand_right_closed_003
+    400158: potato_peeler
+    400160: potato_01
+    400162: potato_02
+    400164: potato_03
+    400166: bowl
     2100000: unnamed
     2100002: human_proportion_material
     2100004: bedroom_floor_01_material_001
@@ -262,6 +274,12 @@ ModelImporter:
     2300148: sink_faucet
     2300150: sink_handle
     2300152: water_ui_sink
+    2300154: hand_right_closed_003
+    2300156: potato_peeler
+    2300158: potato_01
+    2300160: potato_02
+    2300162: potato_03
+    2300164: bowl
     3300000: Plane
     3300002: Plane_001
     3300004: Plane_002
@@ -339,6 +357,12 @@ ModelImporter:
     3300148: sink_faucet
     3300150: sink_handle
     3300152: water_ui_sink
+    3300154: hand_right_closed_003
+    3300156: potato_peeler
+    3300158: potato_01
+    3300160: potato_02
+    3300162: potato_03
+    3300164: bowl
     4300000: Plane_025
     4300002: Plane_024
     4300004: Plane_015
@@ -416,6 +440,12 @@ ModelImporter:
     4300148: sink_faucet
     4300150: shower_handle_002
     4300152: sink_handle
+    4300154: hand_right_closed_003
+    4300156: potato_peeler
+    4300158: potato_01
+    4300160: potato_02
+    4300162: potato_03
+    4300164: bowl
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
@@ -429,6 +459,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: body_skin_material
     second: {fileID: 2100000, guid: c274c4207973c6244a53985c702f3dfa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bowl_material
+    second: {fileID: 2100000, guid: 28269f833860a75498e7e2c11d8ca2e0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -509,6 +544,21 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: oven_glass_01_material
     second: {fileID: 2100000, guid: 4e6276823b429de419796b43ded12934, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: potato_material
+    second: {fileID: 2100000, guid: 212c2f91705eed3428a539f0150d5aa5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: potato_peeler_blade_material
+    second: {fileID: 2100000, guid: c314944c810d40a4992da39560dbc8db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: potato_peeler_handle_material
+    second: {fileID: 2100000, guid: e6e31fbd5d14a4e45a04f857bfca5d13, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
