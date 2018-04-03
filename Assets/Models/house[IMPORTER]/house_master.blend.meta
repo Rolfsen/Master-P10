@@ -98,6 +98,8 @@ ModelImporter:
     100180: water_ui_bucket
     100182: hand_right_closed_007
     100184: vacuum
+    100186: shower_002
+    100188: shower_head
     400000: //RootNode
     400002: Plane
     400004: Plane_001
@@ -191,6 +193,8 @@ ModelImporter:
     400180: water_ui_bucket
     400182: hand_right_closed_007
     400184: vacuum
+    400186: shower_002
+    400188: shower_head
     2100000: unnamed
     2100002: human_proportion_material
     2100004: bedroom_floor_01_material_001
@@ -307,6 +311,8 @@ ModelImporter:
     2300178: water_ui_bucket
     2300180: hand_right_closed_007
     2300182: vacuum
+    2300184: shower_002
+    2300186: shower_head
     3300000: Plane
     3300002: Plane_001
     3300004: Plane_002
@@ -399,6 +405,8 @@ ModelImporter:
     3300178: water_ui_bucket
     3300180: hand_right_closed_007
     3300182: vacuum
+    3300184: shower_002
+    3300186: shower_head
     4300000: Plane_025
     4300002: Plane_024
     4300004: Plane_015
@@ -491,9 +499,16 @@ ModelImporter:
     4300178: hand_right_closed_004
     4300180: vacuum
     4300182: hand_right_closed_007
+    4300184: shower_002
+    4300186: shower_head
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black_material
+    second: {fileID: 2100000, guid: c40b9da95c6d0d0479fee1ba40f4ede9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -627,6 +642,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: showerhead_material
+    second: {fileID: 2100000, guid: 607e908315e4c644298a366930d926cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: sink_01_material
     second: {fileID: 2100000, guid: 1586e1f1946e59742842a7d5c4392da6, type: 2}
   - first:
@@ -644,6 +664,21 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: stairs_01_material
     second: {fileID: 2100000, guid: 642dfdc773c03b045afc993a74501ba1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: vacuum_01_material
+    second: {fileID: 2100000, guid: d777a042301f97a4ba88c03b7fab43d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: vacuum_02_material
+    second: {fileID: 2100000, guid: 43dd60eac70d5644eb48a60884f25ab4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: vacuum_03_material
+    second: {fileID: 2100000, guid: bc0045bb8a23f834fabeb43fb866bc63, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
