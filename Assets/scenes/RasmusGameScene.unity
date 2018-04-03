@@ -465,6 +465,7 @@ GameObject:
   - component: {fileID: 498177188}
   - component: {fileID: 498177187}
   - component: {fileID: 498177185}
+  - component: {fileID: 498177186}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -498,6 +499,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: d29b34a5f9594d34bb4f73eb58e6cc69, type: 2}
+--- !u!114 &498177186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 498177183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76332566689b0ed4d835102259c31965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bath: {fileID: 8300000, guid: cc7ab4a865f4eb849a42c90d2972366d, type: 3}
+  fixing: {fileID: 8300000, guid: 05640291fbe52fe4f8b2437eab1a42ac, type: 3}
+  rate: 1
+  volume: 100
+  voiceID: 1
 --- !u!81 &498177187
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1541,6 +1558,7 @@ MonoBehaviour:
   waterUse: 0
   task: 0
   taskName: 
+  narrativeText: 
 --- !u!23 &1969543809
 MeshRenderer:
   m_ObjectHideFlags: 0
