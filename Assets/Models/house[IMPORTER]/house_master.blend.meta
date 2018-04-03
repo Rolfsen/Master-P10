@@ -100,6 +100,9 @@ ModelImporter:
     100184: vacuum
     100186: shower_002
     100188: shower_head
+    100190: house_001
+    100192: house_roof
+    100194: Circle_000
     400000: //RootNode
     400002: Plane
     400004: Plane_001
@@ -195,6 +198,9 @@ ModelImporter:
     400184: vacuum
     400186: shower_002
     400188: shower_head
+    400190: house_001
+    400192: house_roof
+    400194: Circle_000
     2100000: unnamed
     2100002: human_proportion_material
     2100004: bedroom_floor_01_material_001
@@ -313,6 +319,9 @@ ModelImporter:
     2300182: vacuum
     2300184: shower_002
     2300186: shower_head
+    2300188: house_001
+    2300190: house_roof
+    2300192: Circle_000
     3300000: Plane
     3300002: Plane_001
     3300004: Plane_002
@@ -407,6 +416,9 @@ ModelImporter:
     3300182: vacuum
     3300184: shower_002
     3300186: shower_head
+    3300188: house_001
+    3300190: house_roof
+    3300192: Circle_000
     4300000: Plane_025
     4300002: Plane_024
     4300004: Plane_015
@@ -501,6 +513,9 @@ ModelImporter:
     4300182: hand_right_closed_007
     4300184: shower_002
     4300186: shower_head
+    4300188: house_001
+    4300190: house_roof
+    4300192: Circle_000
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
@@ -529,6 +544,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: bucket_material
     second: {fileID: 2100000, guid: 24dbe828014de1242a4bf624a5b37cfc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ceiling_01_material
+    second: {fileID: 2100000, guid: df84a2aa53fcb6d4597997e32e33e0a2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -622,6 +642,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: pipes_joint_material
+    second: {fileID: 2100000, guid: 7c7e1fe5eaee4db419742841fb5dee5b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pipes_material
+    second: {fileID: 2100000, guid: db14d29ff6baa064b9972b228491a3cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: potato_material
     second: {fileID: 2100000, guid: 212c2f91705eed3428a539f0150d5aa5, type: 2}
   - first:
@@ -634,6 +664,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: potato_peeler_handle_material
     second: {fileID: 2100000, guid: e6e31fbd5d14a4e45a04f857bfca5d13, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: roof_exterior_01_material
+    second: {fileID: 2100000, guid: 4c62dfc77415e834f997a8205ebf4350, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -719,6 +754,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: wall_exterior_02_material
     second: {fileID: 2100000, guid: 6191bffca9b2e214ca001b3ab7e388e4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_exterior_03_material
+    second: {fileID: 2100000, guid: b5c41b827feb2cb47af1658e6acbb381, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
