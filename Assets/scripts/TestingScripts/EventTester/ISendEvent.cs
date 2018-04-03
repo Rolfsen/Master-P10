@@ -10,6 +10,7 @@ public class ISendEvent : MonoBehaviour
 	public int task;
 	public string taskName;
 
+	public string narrativeText;
 
 
 	private void Update()
@@ -17,6 +18,10 @@ public class ISendEvent : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.W))
 		{
 			EventBus.TriggerEvent(this, new GamePlayEvent.TaskComplete(task, waterUse));
+		}
+		if (Input.GetKeyDown(KeyCode.S))
+		{
+			EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(narrativeText));
 		}
 	}
 }
