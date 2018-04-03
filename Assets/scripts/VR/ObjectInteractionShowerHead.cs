@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectInteraction : MonoBehaviour {
+public class ObjectInteractionShowerHead : MonoBehaviour
+{
     public Rigidbody rigidBody;
 
     private bool isInteractedWith;
     private Interactions attachedJoystick;
     private Transform interactionPoint;
-    
+
     private Vector3 posDelta;
     private float velocityFactor = 200f;
     private float rotationFactor = 400f;
@@ -16,15 +17,17 @@ public class ObjectInteraction : MonoBehaviour {
     private float angle;
     private Vector3 axis;
 
-	void Start () {
+    void Start()
+    {
         rigidBody = GetComponent<Rigidbody>();
         interactionPoint = new GameObject().transform;
         velocityFactor /= rigidBody.mass;
         rotationFactor /= rigidBody.mass;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         ObjectHelper();
     }
     /// <summary>
@@ -35,17 +38,18 @@ public class ObjectInteraction : MonoBehaviour {
         if (attachedJoystick && isInteractedWith)
         {
 
-            posDelta = attachedJoystick.transform.position - interactionPoint.position;
-            this.rigidBody.velocity = posDelta * velocityFactor * Time.fixedDeltaTime;//fixedDelta because of rigid body 
+            //posDelta = attachedJoystick.transform.position - interactionPoint.position;
+            //this.rigidBody.velocity = posDelta * velocityFactor * Time.fixedDeltaTime;//fixedDelta because of rigid body 
 
             rotationDelta = attachedJoystick.transform.rotation * Quaternion.Inverse(interactionPoint.rotation); //giving rotation of the joystick
             rotationDelta.ToAngleAxis(out angle, out axis); //angle and axis to rotate around
 
-            if(angle>180)
+            if (angle > 180)
             {
                 angle -= 360;
             }
 
+           
             this.rigidBody.angularVelocity = (Time.fixedDeltaTime * angle * axis) * rotationFactor;
         }
     }
@@ -61,7 +65,7 @@ public class ObjectInteraction : MonoBehaviour {
     }
     public void EndInteraction(Interactions joyStick)
     {
-        if(joyStick == attachedJoystick) //make sure its not the other joystick stopping the interaction by accident
+        if (joyStick == attachedJoystick) //make sure its not the other joystick stopping the interaction by accident
         {
             attachedJoystick = null;
             isInteractedWith = false;
