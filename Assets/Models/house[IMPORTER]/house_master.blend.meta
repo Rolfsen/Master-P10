@@ -113,6 +113,10 @@ ModelImporter:
     100210: table_01
     100212: bathtub
     100214: box_01
+    100216: house_002
+    100218: projektor
+    100220: table_02
+    100222: AIwater
     400000: //RootNode
     400002: Plane
     400004: Plane_001
@@ -221,6 +225,10 @@ ModelImporter:
     400210: table_01
     400212: bathtub
     400214: box_01
+    400216: house_002
+    400218: projektor
+    400220: table_02
+    400222: AIwater
     2100000: unnamed
     2100002: human_proportion_material
     2100004: bedroom_floor_01_material_001
@@ -352,6 +360,10 @@ ModelImporter:
     2300208: table_01
     2300210: bathtub
     2300212: box_01
+    2300214: house_002
+    2300216: projektor
+    2300218: table_02
+    2300220: AIwater
     3300000: Plane
     3300002: Plane_001
     3300004: Plane_002
@@ -459,6 +471,10 @@ ModelImporter:
     3300208: table_01
     3300210: bathtub
     3300212: box_01
+    3300214: house_002
+    3300216: projektor
+    3300218: table_02
+    3300220: AIwater
     4300000: Plane_025
     4300002: Plane_024
     4300004: Plane_015
@@ -566,9 +582,23 @@ ModelImporter:
     4300208: table_01
     4300210: bathtub
     4300212: box_01
+    4300214: house_002
+    4300216: table_02
+    4300218: projektor
+    4300220: AIwater
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ai_01_material
+    second: {fileID: 2100000, guid: 3971f81ccff8b5044b4cd53b5b0020fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ai_02_material
+    second: {fileID: 2100000, guid: 1d8eb30fd1502bc419784c680f3610f6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -677,6 +707,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: glass_02_material
+    second: {fileID: 2100000, guid: 63822a1ea9244c94ea147dee934a956b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: human_proportion_material
     second: {fileID: 2100000, guid: 1baf2bc06a785184c919d5f38b376259, type: 2}
   - first:
@@ -734,6 +769,26 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: potato_peeler_handle_material
     second: {fileID: 2100000, guid: e6e31fbd5d14a4e45a04f857bfca5d13, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: projector_cone_material
+    second: {fileID: 2100000, guid: 0467fdf6eb702a3489c6fc73a6e81020, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: projektor_01_material
+    second: {fileID: 2100000, guid: 8825b4dc7897aaf429dbcee19bba57cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: projektor_02_material
+    second: {fileID: 2100000, guid: 58be067f07f819a4ea73b8b94efff7da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: projektor_03_material
+    second: {fileID: 2100000, guid: 61e74f3df591c4c46a3b1c65ea4d44f3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
