@@ -11,8 +11,8 @@ public class ObjectInteraction : MonoBehaviour {
     private Transform interactionPoint;
     
     private Vector3 posDelta;
-    private float velocityFactor = 500f;
-    private float rotationFactor = 400f;
+    public float velocityFactor = 200f;
+    public float rotationFactor = 200f;
     [SerializeField]
     private Quaternion rotationDelta;
     public float angle;
@@ -33,12 +33,48 @@ public class ObjectInteraction : MonoBehaviour {
     /// <summary>
     /// FIX THE RANGE OF WHAT IT SNAPS TO!
     /// </summary>
+    /// 
+    
     public void ObjectHelper()
     {
         if (attachedJoystick && isInteractedWith)
         {
 
             posDelta = attachedJoystick.transform.position - interactionPoint.position;
+           
+            if (velocityFactor * Time.fixedDeltaTime*10 > 20f)
+            {
+                this.rigidBody.velocity = posDelta * velocityFactor * Time.fixedDeltaTime;//fixedDelta because of rigid body 
+
+            }
+
+           
+            rotationDelta = attachedJoystick.transform.rotation * Quaternion.Inverse(interactionPoint.rotation); //giving rotation of the joystick
+            rotationDelta.ToAngleAxis(out angle, out axis); //angle and axis to rotate around
+
+            if(angle>180)
+            {
+                //Debug.Log("does this ever happen");
+                angle -= 360;
+            }
+            if (Time.fixedDeltaTime * rotationFactor * 10 > 20) { 
+                this.rigidBody.angularVelocity = (Time.fixedDeltaTime * angle * axis) * rotationFactor;
+            }
+        }
+    }
+
+    /*
+      public void ObjectHelper()
+    {
+        if (attachedJoystick && isInteractedWith)
+        {
+
+            posDelta = attachedJoystick.transform.position - interactionPoint.position;
+            Vector3 hel = new Vector3(10f, 10f, 10f);
+            if (velocityFactor * Time.fixedDeltaTime > 10f)
+            {
+
+            }
             this.rigidBody.velocity = posDelta * velocityFactor * Time.fixedDeltaTime;//fixedDelta because of rigid body 
 
             rotationDelta = attachedJoystick.transform.rotation * Quaternion.Inverse(interactionPoint.rotation); //giving rotation of the joystick
@@ -53,7 +89,7 @@ public class ObjectInteraction : MonoBehaviour {
             this.rigidBody.angularVelocity = (Time.fixedDeltaTime * angle * axis) * rotationFactor;
         }
     }
-
+         */
     public void BeginInteraction(Interactions joyStick)
     {
         attachedJoystick = joyStick;

@@ -66,12 +66,17 @@ public abstract class GameStateEvent : BaseEvent
     {
 
     }
-    public class OldShowerHeadInPlaceEvent : GameStateEvent
+    public class OldShowerHeadInPlacedInBoxEvent : GameStateEvent
     {
 
     }
 
-    public class NewShowerHeadEvent : GameStateEvent
+    public class NewShowePickedUpEvent : GameStateEvent
+    {
+
+    }
+
+    public class NewShowerHeadRightPlaceEvent : GameStateEvent
     {
 
     }

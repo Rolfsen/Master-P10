@@ -20,8 +20,8 @@ public class RightPlaceForOldHead : MonoBehaviour {
             rigidBody.useGravity = true;
             rigidBody.mass = 1;
             //maybe destroy it?
-            //EventBus.TriggerEvent(this, new GameStateEvent.OldShowerHeadInPlaceEvent());
-            //EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You placed the head on the right spot."));
+            EventBus.TriggerEvent(this, new GameStateEvent.OldShowerHeadInPlacedInBoxEvent());
+            EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You placed the head on the right spot."));
         }
         
     }

@@ -13,10 +13,11 @@ public class ShowerInteractions : MonoBehaviour {
     private Rigidbody rigidBody;
     Collider sphery;
     bool unPluged = false;
+    ObjectInteraction OI;
     void Start() {
 
         rigidBody = GetComponent<Rigidbody>();
-        
+        OI = gameObject.GetComponent<ObjectInteraction>();
         transformer = gameObject.GetComponent<Transform>();
         
     }
@@ -24,9 +25,11 @@ public class ShowerInteractions : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         
-        if(unPluged==true)
+        
+        if (unPluged==true)
         {
-            transformer.position = colin.transform.position;
+            
+            transformer.position = colin.transform.position; //Return BACK TO NORMAL
         }
         showerUnPlug();
        // ClosestItemInteract();
@@ -78,7 +81,7 @@ public class ShowerInteractions : MonoBehaviour {
                //GetComponent<SphereCollider>().enabled = false; //for not having light
 
                 EventBus.TriggerEvent(this,new GameStateEvent.ShowerHeadScrewedOffEvent());
-                EventBus.TriggerEvent(this,new NarrativeEvent.TextToSpeechNarratorEvent("You screwed the shit off"));
+                EventBus.TriggerEvent(this,new NarrativeEvent.TextToSpeechNarratorEvent("You took the shower head off, place it in the box"));
                 //unfreeze them now
             }
         }
