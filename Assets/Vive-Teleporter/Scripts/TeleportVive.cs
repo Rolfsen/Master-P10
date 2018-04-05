@@ -199,6 +199,7 @@ public class TeleportVive : MonoBehaviour {
                 // If the user has decided to cancel (ie squeezes grip button) then remove visual indicators and do nothing
                 if (shouldTeleport && Pointer.PointOnNavMesh)
                 {
+					Debug.Log("Alter if statement so it depends also depend on Raycast tag");
                     // Begin teleport sequence
                     CurrentTeleportState = TeleportState.Teleporting;
                     TeleportTimeMarker = Time.time;
