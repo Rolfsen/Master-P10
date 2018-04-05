@@ -29,16 +29,21 @@ public class NewShowerRightSpot : MonoBehaviour {
             newHead = col.gameObject;
             newHead.transform.position = new Vector3(-0.62f, 2.1f, -0.07f);
             newHead.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
+           // rigidBody.sleepThreshold = 1;//dunno
             rigidBody.isKinematic = true;
             rigidBody.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX 
                 | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
             rigidBody.useGravity = false;
             isOnPlace = true;
-
             if (isOnPlace)
             {
                 rigidBody.isKinematic = false;
             }
+
+            EventBus.TriggerEvent(this, new GameStateEvent.NewShowerHeadScrewedOnEvent());
+            EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You screwed the shit on!"));
+
+          
             col.GetComponent<SphereCollider>().enabled = false;
             // rigidBody.isKinematic = false;
             //rigidBody.constraints = RigidbodyConstraints.FreezePositionZ;

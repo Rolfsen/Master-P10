@@ -56,4 +56,33 @@ public abstract class GameStateEvent : BaseEvent
 
 		public List<int> activeIDs { get; private set; }
 	}
+
+    public class ShowerHeadGameStarts : GameStateEvent
+    {
+
+    }
+
+    public class ShowerHeadScrewedOffEvent : GameStateEvent
+    {
+
+    }
+    public class OldShowerHeadInPlaceEvent : GameStateEvent
+    {
+
+    }
+
+    public class NewShowerHeadEvent : GameStateEvent
+    {
+
+    }
+
+    public class NewShowerHeadScrewedOnEvent : GameStateEvent
+    {
+
+    }
+
+    public class ShowerHeadGameEndsEvent : GameStateEvent
+    {
+
+    }
 }
