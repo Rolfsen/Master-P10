@@ -7,16 +7,19 @@ public class ObjectInteraction : MonoBehaviour {
 
     private bool isInteractedWith;
     private Interactions attachedJoystick;
+    [SerializeField]
     private Transform interactionPoint;
     
     private Vector3 posDelta;
-    private float velocityFactor = 200f;
+    private float velocityFactor = 500f;
     private float rotationFactor = 400f;
+    [SerializeField]
     private Quaternion rotationDelta;
-    private float angle;
+    public float angle;
     private Vector3 axis;
+    
 
-	void Start () {
+    void Start () {
         rigidBody = GetComponent<Rigidbody>();
         interactionPoint = new GameObject().transform;
         velocityFactor /= rigidBody.mass;
@@ -43,6 +46,7 @@ public class ObjectInteraction : MonoBehaviour {
 
             if(angle>180)
             {
+                //Debug.Log("does this ever happen");
                 angle -= 360;
             }
 
