@@ -117,6 +117,9 @@ ModelImporter:
     100218: projektor
     100220: table_02
     100222: AIwater
+    100224: couch_01
+    100226: chair_01
+    100228: table_03
     400000: //RootNode
     400002: Plane
     400004: Plane_001
@@ -229,6 +232,9 @@ ModelImporter:
     400218: projektor
     400220: table_02
     400222: AIwater
+    400224: couch_01
+    400226: chair_01
+    400228: table_03
     2100000: unnamed
     2100002: human_proportion_material
     2100004: bedroom_floor_01_material_001
@@ -364,6 +370,9 @@ ModelImporter:
     2300216: projektor
     2300218: table_02
     2300220: AIwater
+    2300222: couch_01
+    2300224: chair_01
+    2300226: table_03
     3300000: Plane
     3300002: Plane_001
     3300004: Plane_002
@@ -475,6 +484,9 @@ ModelImporter:
     3300216: projektor
     3300218: table_02
     3300220: AIwater
+    3300222: couch_01
+    3300224: chair_01
+    3300226: table_03
     4300000: Plane_025
     4300002: Plane_024
     4300004: Plane_015
@@ -586,6 +598,9 @@ ModelImporter:
     4300216: table_02
     4300218: projektor
     4300220: AIwater
+    4300222: couch_01
+    4300224: chair_01
+    4300226: table_03
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
@@ -647,8 +662,38 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: bucket_water_material
+    second: {fileID: 2100000, guid: 74d9c5ea6b314e74ea41c18027e5f6e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: ceiling_01_material
     second: {fileID: 2100000, guid: df84a2aa53fcb6d4597997e32e33e0a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: chair_leg_01_material
+    second: {fileID: 2100000, guid: e7c9ab5dd28707445b4e2a92f9718064, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: chair_seat_01_material
+    second: {fileID: 2100000, guid: 486eff0985cb89444a4afc547dfb92ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: couch_01_material
+    second: {fileID: 2100000, guid: ee4caf91d98f56145aab5672dfb75666, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: couch_02_material
+    second: {fileID: 2100000, guid: d6f8244ec88d2524684866383ac1baa2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: couch_03_material
+    second: {fileID: 2100000, guid: f05fefd5f3599cf45a6f1840ed1559af, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -837,8 +882,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: table_leg_03_material
+    second: {fileID: 2100000, guid: f02d645cf1aad814f98718ca2fb11b21, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: table_screw_material
     second: {fileID: 2100000, guid: 4ea2b4befa9126842915e0bbdbccc7d0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: table_top_01_material
+    second: {fileID: 2100000, guid: 32698393e2e64ef49b836ef5ec27580b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: table_top_02_material
+    second: {fileID: 2100000, guid: e749d72accd2db24799f2256114713bc, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
