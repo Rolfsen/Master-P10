@@ -3,16 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ShowerInteractions : MonoBehaviour {
-
-    public string showMeCol;
-    public ObjectInteraction OI;
+    
     [SerializeField]
     private Quaternion rotationDelta;
     private Transform transformer;
     private Vector3 vecy;
-    public int count = 0;
-    public float hi = 0;
-    public Vector3 takeTheTranfsormIfItDoesntWork;
+    private int count = 0;
     [SerializeField]
     private Rigidbody rigidBody;
     Collider sphery;
@@ -20,29 +16,40 @@ public class ShowerInteractions : MonoBehaviour {
     void Start() {
 
         rigidBody = GetComponent<Rigidbody>();
-        OI = gameObject.GetComponent<ObjectInteraction>();
+        
         transformer = gameObject.GetComponent<Transform>();
         
     }
-
+    Collider colin;
     // Update is called once per frame
     void Update() {
         
+        if(unPluged==true)
+        {
+            transformer.position = colin.transform.position;
+        }
         showerUnPlug();
        // ClosestItemInteract();
         //HighlightShower();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider col)
     {
-        Debug.Log("Shine");//highlighting
+        colin = col;
+
+        if (unPluged == false)
+        {
+            //Debug.Log("Shine");//highlighting
+            //transformer.position = col.transform.position;
+        }
+        else
+        { 
+            
+        }
     }
    
 
-    void OnCollisionEnter(Collision col)
-    {
-        
-    }
+   
     
     void showerUnPlug()
     {
@@ -61,13 +68,17 @@ public class ShowerInteractions : MonoBehaviour {
             {
                 Debug.Log("Angle is too high");
                 unPluged = true;
-                //rigidBody.isKinematic = true;
-                rigidBody.constraints = RigidbodyConstraints.None;
-                rigidBody.useGravity = true;
-                rigidBody.mass = 1;
+                
+                rigidBody.isKinematic = true;
+                
+                //rigidBody.constraints = RigidbodyConstraints.None;
+                //rigidBody.useGravity = true;
+                //rigidBody.mass = 1;
                 count = 0;
-                GetComponent<SphereCollider>().enabled = false;
+               //GetComponent<SphereCollider>().enabled = false; //for not having light
 
+                EventBus.TriggerEvent(this,new GameStateEvent.ShowerHeadScrewedOffEvent());
+                EventBus.TriggerEvent(this,new NarrativeEvent.TextToSpeechNarratorEvent("You screwed the shit off"));
                 //unfreeze them now
             }
         }
