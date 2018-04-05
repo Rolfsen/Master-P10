@@ -100,6 +100,23 @@ ModelImporter:
     100184: vacuum
     100186: shower_002
     100188: shower_head
+    100190: house_001
+    100192: house_roof
+    100194: Circle_000
+    100196: bolt_01
+    100198: bolt_02
+    100200: bolt_03
+    100202: bolt_04
+    100204: hand_right_closed_006
+    100206: pipes
+    100208: wrench
+    100210: table_01
+    100212: bathtub
+    100214: box_01
+    100216: house_002
+    100218: projektor
+    100220: table_02
+    100222: AIwater
     400000: //RootNode
     400002: Plane
     400004: Plane_001
@@ -195,6 +212,23 @@ ModelImporter:
     400184: vacuum
     400186: shower_002
     400188: shower_head
+    400190: house_001
+    400192: house_roof
+    400194: Circle_000
+    400196: bolt_01
+    400198: bolt_02
+    400200: bolt_03
+    400202: bolt_04
+    400204: hand_right_closed_006
+    400206: pipes
+    400208: wrench
+    400210: table_01
+    400212: bathtub
+    400214: box_01
+    400216: house_002
+    400218: projektor
+    400220: table_02
+    400222: AIwater
     2100000: unnamed
     2100002: human_proportion_material
     2100004: bedroom_floor_01_material_001
@@ -313,6 +347,23 @@ ModelImporter:
     2300182: vacuum
     2300184: shower_002
     2300186: shower_head
+    2300188: house_001
+    2300190: house_roof
+    2300192: Circle_000
+    2300194: bolt_01
+    2300196: bolt_02
+    2300198: bolt_03
+    2300200: bolt_04
+    2300202: hand_right_closed_006
+    2300204: pipes
+    2300206: wrench
+    2300208: table_01
+    2300210: bathtub
+    2300212: box_01
+    2300214: house_002
+    2300216: projektor
+    2300218: table_02
+    2300220: AIwater
     3300000: Plane
     3300002: Plane_001
     3300004: Plane_002
@@ -407,6 +458,23 @@ ModelImporter:
     3300182: vacuum
     3300184: shower_002
     3300186: shower_head
+    3300188: house_001
+    3300190: house_roof
+    3300192: Circle_000
+    3300194: bolt_01
+    3300196: bolt_02
+    3300198: bolt_03
+    3300200: bolt_04
+    3300202: hand_right_closed_006
+    3300204: pipes
+    3300206: wrench
+    3300208: table_01
+    3300210: bathtub
+    3300212: box_01
+    3300214: house_002
+    3300216: projektor
+    3300218: table_02
+    3300220: AIwater
     4300000: Plane_025
     4300002: Plane_024
     4300004: Plane_015
@@ -501,9 +569,46 @@ ModelImporter:
     4300182: hand_right_closed_007
     4300184: shower_002
     4300186: shower_head
+    4300188: house_001
+    4300190: house_roof
+    4300192: Circle_000
+    4300194: hand_right_closed_006
+    4300196: wrench
+    4300198: bolt_01
+    4300200: bolt_03
+    4300202: bolt_02
+    4300204: bolt_04
+    4300206: pipes
+    4300208: table_01
+    4300210: bathtub
+    4300212: box_01
+    4300214: house_002
+    4300216: table_02
+    4300218: projektor
+    4300220: AIwater
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ai_01_material
+    second: {fileID: 2100000, guid: 3971f81ccff8b5044b4cd53b5b0020fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ai_02_material
+    second: {fileID: 2100000, guid: 1d8eb30fd1502bc419784c680f3610f6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bathtub_01_material
+    second: {fileID: 2100000, guid: 5d01bb6ddfa1c3c4a874725d20174c7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bathtub_02_material
+    second: {fileID: 2100000, guid: e569389b8401efd449d7a56c2646eaa4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -522,13 +627,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: bolt_material
+    second: {fileID: 2100000, guid: a03f829ff668cd8409191279b0baf70f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: bowl_material
     second: {fileID: 2100000, guid: 28269f833860a75498e7e2c11d8ca2e0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: box_01_material
+    second: {fileID: 2100000, guid: d49a9c961626c544caba24ea10804681, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: bucket_material
     second: {fileID: 2100000, guid: 24dbe828014de1242a4bf624a5b37cfc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ceiling_01_material
+    second: {fileID: 2100000, guid: df84a2aa53fcb6d4597997e32e33e0a2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -587,6 +707,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: glass_02_material
+    second: {fileID: 2100000, guid: 63822a1ea9244c94ea147dee934a956b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: human_proportion_material
     second: {fileID: 2100000, guid: 1baf2bc06a785184c919d5f38b376259, type: 2}
   - first:
@@ -622,6 +747,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: pipes_joint_material
+    second: {fileID: 2100000, guid: 7c7e1fe5eaee4db419742841fb5dee5b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pipes_material
+    second: {fileID: 2100000, guid: db14d29ff6baa064b9972b228491a3cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: potato_material
     second: {fileID: 2100000, guid: 212c2f91705eed3428a539f0150d5aa5, type: 2}
   - first:
@@ -634,6 +769,31 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: potato_peeler_handle_material
     second: {fileID: 2100000, guid: e6e31fbd5d14a4e45a04f857bfca5d13, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: projector_cone_material
+    second: {fileID: 2100000, guid: 0467fdf6eb702a3489c6fc73a6e81020, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: projektor_01_material
+    second: {fileID: 2100000, guid: 8825b4dc7897aaf429dbcee19bba57cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: projektor_02_material
+    second: {fileID: 2100000, guid: 58be067f07f819a4ea73b8b94efff7da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: projektor_03_material
+    second: {fileID: 2100000, guid: 61e74f3df591c4c46a3b1c65ea4d44f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: roof_exterior_01_material
+    second: {fileID: 2100000, guid: 4c62dfc77415e834f997a8205ebf4350, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -664,6 +824,31 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: stairs_01_material
     second: {fileID: 2100000, guid: 642dfdc773c03b045afc993a74501ba1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: table_leg_01_material
+    second: {fileID: 2100000, guid: 9214f1420e3fbf845801da20a9637418, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: table_leg_02_material
+    second: {fileID: 2100000, guid: 70ca36e7e5fd67d4a8a1174c9beeb66b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: table_screw_material
+    second: {fileID: 2100000, guid: 4ea2b4befa9126842915e0bbdbccc7d0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: table_top_material
+    second: {fileID: 2100000, guid: 795aea41fa92a0342952fe5e8a83961c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tub_ref
+    second: {fileID: 2100000, guid: 46179a9aee742a741bd6595ba23bffd5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -722,6 +907,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: wall_exterior_03_material
+    second: {fileID: 2100000, guid: b5c41b827feb2cb47af1658e6acbb381, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: wall_inner_01_material
     second: {fileID: 2100000, guid: 038db2fe0b1987b46ad1cc83f73f9a01, type: 2}
   - first:
@@ -754,6 +944,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: window_socket_01_material
     second: {fileID: 2100000, guid: bb3ac014c9a0d5c4d95cfbf273a8c404, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wrench_material
+    second: {fileID: 2100000, guid: f4ec33a1582b1a84fbee604b52b2572e, type: 2}
   materials:
     importMaterials: 1
     materialName: 1

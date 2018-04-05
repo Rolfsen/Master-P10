@@ -75,4 +75,13 @@ public abstract class GamePlayEvent : BaseEvent
 	{
 
 	}
+	public class ToggleWaterRunningEvent : GamePlayEvent
+	{
+		public ToggleWaterRunningEvent(int id)
+		{
+			this.id = id;
+		}
+
+		public int id { get; private set;}
+	}
 }
