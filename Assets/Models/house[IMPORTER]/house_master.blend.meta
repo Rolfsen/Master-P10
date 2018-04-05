@@ -120,6 +120,8 @@ ModelImporter:
     100224: couch_01
     100226: chair_01
     100228: table_03
+    100230: shelf_01
+    100232: panels_bottom
     400000: //RootNode
     400002: Plane
     400004: Plane_001
@@ -235,6 +237,8 @@ ModelImporter:
     400224: couch_01
     400226: chair_01
     400228: table_03
+    400230: shelf_01
+    400232: panels_bottom
     2100000: unnamed
     2100002: human_proportion_material
     2100004: bedroom_floor_01_material_001
@@ -373,6 +377,8 @@ ModelImporter:
     2300222: couch_01
     2300224: chair_01
     2300226: table_03
+    2300228: shelf_01
+    2300230: panels_bottom
     3300000: Plane
     3300002: Plane_001
     3300004: Plane_002
@@ -487,6 +493,8 @@ ModelImporter:
     3300222: couch_01
     3300224: chair_01
     3300226: table_03
+    3300228: shelf_01
+    3300230: panels_bottom
     4300000: Plane_025
     4300002: Plane_024
     4300004: Plane_015
@@ -601,6 +609,8 @@ ModelImporter:
     4300222: couch_01
     4300224: chair_01
     4300226: table_03
+    4300228: shelf_01
+    4300230: panels_bottom
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
@@ -792,6 +802,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: panels_01_material
+    second: {fileID: 2100000, guid: cb4d45e85785d174e9f1d461f9637c6e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: panels_02_material
+    second: {fileID: 2100000, guid: 95e5b5397d53e5141bd29d1bcb5b934c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: pipes_joint_material
     second: {fileID: 2100000, guid: 7c7e1fe5eaee4db419742841fb5dee5b, type: 2}
   - first:
@@ -839,6 +859,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: roof_exterior_01_material
     second: {fileID: 2100000, guid: 4c62dfc77415e834f997a8205ebf4350, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shelf_01_material
+    second: {fileID: 2100000, guid: 1e6a1a34aa30cfc4ea2489e4f19219f0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
