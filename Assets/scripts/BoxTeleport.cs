@@ -58,6 +58,8 @@ public class BoxTeleport : MonoBehaviour
 				}
 				prevWaypoint = currentHit.GetComponent<InitialWaypointControl>();
 			}
+
+			// Don't Hit a waypoint with raycast
 			else
 			{
 				if (prevWaypoint != null)
@@ -73,15 +75,5 @@ public class BoxTeleport : MonoBehaviour
 			currentHit = null;
 			prevHit = null;
 		}
-	}
-
-	private void WaypointHit ()
-	{
-
-	}
-
-	private void ResetPreviousWaypoint()
-	{
-
 	}
 }
