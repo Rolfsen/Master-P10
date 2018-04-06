@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4881301706049972}
   - component: {fileID: 33988240670866852}
   - component: {fileID: 23367107082891752}
-  - component: {fileID: 136879097354520848}
   m_Layer: 0
   m_Name: decidious_03c_c
   m_TagString: Untagged
@@ -83,16 +82,3 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1898738104346142}
   m_Mesh: {fileID: 4300000, guid: 41e46ac62e2ea104ebe9cacf0c060d06, type: 2}
---- !u!136 &136879097354520848
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1898738104346142}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.75
-  m_Height: 1.98
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.97, z: 0.000000059604645}
