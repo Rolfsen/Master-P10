@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 33868049327351510}
   - component: {fileID: 23067297692273280}
   - component: {fileID: 95948057196455224}
-  - component: {fileID: 64287325001763998}
   m_Layer: 0
   m_Name: rock_tall_03
   m_TagString: Untagged
@@ -83,20 +82,6 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1247127332533026}
-  m_Mesh: {fileID: 4300000, guid: 2c725cb46bc1f9a48a831676163ee6d8, type: 3}
---- !u!64 &64287325001763998
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1247127332533026}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 2c725cb46bc1f9a48a831676163ee6d8, type: 3}
 --- !u!95 &95948057196455224
 Animator:

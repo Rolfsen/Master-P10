@@ -6,18 +6,52 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: projector_cone
+    100004: projektor
     400000: //RootNode
+    400002: projector_cone
+    400004: projektor
     2100000: projektor_01_material
     2100002: projektor_03_material
     2100004: projektor_02_material
     2100006: glass_02_material
     2100008: projector_cone_material
     2300000: //RootNode
+    2300002: projector_cone
+    2300004: projektor
     3300000: //RootNode
+    3300002: projector_cone
+    3300004: projektor
     4300000: projektor
+    4300002: projector_cone
     7400000: Default Take
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass_02_material
+    second: {fileID: 2100000, guid: 63822a1ea9244c94ea147dee934a956b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: projector_cone_material
+    second: {fileID: 2100000, guid: 0467fdf6eb702a3489c6fc73a6e81020, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: projektor_01_material
+    second: {fileID: 2100000, guid: 8825b4dc7897aaf429dbcee19bba57cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: projektor_02_material
+    second: {fileID: 2100000, guid: 58be067f07f819a4ea73b8b94efff7da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: projektor_03_material
+    second: {fileID: 2100000, guid: 61e74f3df591c4c46a3b1c65ea4d44f3, type: 2}
   materials:
     importMaterials: 1
     materialName: 1

@@ -122,6 +122,9 @@ ModelImporter:
     100228: table_03
     100230: shelf_01
     100232: panels_bottom
+    100234: lamp_01
+    100236: projector_cone
+    100238: toilet
     400000: //RootNode
     400002: Plane
     400004: Plane_001
@@ -239,6 +242,9 @@ ModelImporter:
     400228: table_03
     400230: shelf_01
     400232: panels_bottom
+    400234: lamp_01
+    400236: projector_cone
+    400238: toilet
     2100000: unnamed
     2100002: human_proportion_material
     2100004: bedroom_floor_01_material_001
@@ -379,6 +385,9 @@ ModelImporter:
     2300226: table_03
     2300228: shelf_01
     2300230: panels_bottom
+    2300232: lamp_01
+    2300234: projector_cone
+    2300236: toilet
     3300000: Plane
     3300002: Plane_001
     3300004: Plane_002
@@ -495,6 +504,9 @@ ModelImporter:
     3300226: table_03
     3300228: shelf_01
     3300230: panels_bottom
+    3300232: lamp_01
+    3300234: projector_cone
+    3300236: toilet
     4300000: Plane_025
     4300002: Plane_024
     4300004: Plane_015
@@ -611,6 +623,9 @@ ModelImporter:
     4300226: table_03
     4300228: shelf_01
     4300230: panels_bottom
+    4300232: lamp_01
+    4300234: projector_cone
+    4300236: toilet
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
@@ -639,6 +654,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: black_material
     second: {fileID: 2100000, guid: c40b9da95c6d0d0479fee1ba40f4ede9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blulb_01_material
+    second: {fileID: 2100000, guid: 158fbb161c6d3f448989057bd025039f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -769,6 +789,16 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: human_proportion_material
     second: {fileID: 2100000, guid: 1baf2bc06a785184c919d5f38b376259, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lamp_01_material
+    second: {fileID: 2100000, guid: 88b19c0643e8d1b42816c0482c0139f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lamp_02_material
+    second: {fileID: 2100000, guid: 2b626cf85b1b12549975bf6f8f600c89, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -929,6 +959,21 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: table_top_material
     second: {fileID: 2100000, guid: 795aea41fa92a0342952fe5e8a83961c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: toilet_01_material
+    second: {fileID: 2100000, guid: 2554c73fcbf8cf64fb586f696fc1e226, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: toilet_02_material
+    second: {fileID: 2100000, guid: 734c86bfaa1d8204299305223fd41c1a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: toilet_03_material
+    second: {fileID: 2100000, guid: 6cfe2534b6eb2d647806404add5c1a6d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

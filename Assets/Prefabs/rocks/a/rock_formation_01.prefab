@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 33248651135515088}
   - component: {fileID: 23665110915988114}
   - component: {fileID: 95610024214164800}
-  - component: {fileID: 64097418746551754}
   m_Layer: 0
   m_Name: rock_formation_01
   m_TagString: Untagged
@@ -83,20 +82,6 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1386383283688822}
-  m_Mesh: {fileID: 4300000, guid: df4e0e449fea2fa4087e9a5f5215645e, type: 3}
---- !u!64 &64097418746551754
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1386383283688822}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: df4e0e449fea2fa4087e9a5f5215645e, type: 3}
 --- !u!95 &95610024214164800
 Animator:

@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 33578180458070908}
   - component: {fileID: 23393842780241552}
   - component: {fileID: 95418444877870178}
-  - component: {fileID: 64818261009353024}
   m_Layer: 0
   m_Name: rock_round_06
   m_TagString: Untagged
@@ -83,20 +82,6 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1682353051822744}
-  m_Mesh: {fileID: 4300000, guid: 4004276f4eb9bcc4e8c86af1a49fdf11, type: 3}
---- !u!64 &64818261009353024
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1682353051822744}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 4004276f4eb9bcc4e8c86af1a49fdf11, type: 3}
 --- !u!95 &95418444877870178
 Animator:

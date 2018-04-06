@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 33550292711142500}
   - component: {fileID: 23092610156114360}
   - component: {fileID: 95897878949794330}
-  - component: {fileID: 64063674802102804}
   m_Layer: 0
   m_Name: rock_flat_04
   m_TagString: Untagged
@@ -83,20 +82,6 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1135627457928806}
-  m_Mesh: {fileID: 4300000, guid: 6f5c12b1b41e89f48aa14b1175129d31, type: 3}
---- !u!64 &64063674802102804
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1135627457928806}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 6f5c12b1b41e89f48aa14b1175129d31, type: 3}
 --- !u!95 &95897878949794330
 Animator:
