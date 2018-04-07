@@ -57,6 +57,8 @@ public abstract class GameStateEvent : BaseEvent
 		public List<int> activeIDs { get; private set; }
 	}
 
+    //ShowerGame
+
     public class ShowerHeadGameStarts : GameStateEvent
     {
 
@@ -87,6 +89,29 @@ public abstract class GameStateEvent : BaseEvent
     }
 
     public class ShowerHeadGameEndsEvent : GameStateEvent
+    {
+
+    }
+
+    //PipeGame
+
+    public class PipeGameStartsEvent : GameStateEvent
+    {
+
+    }
+
+
+    public class AfterPickUpWrench : GameStateEvent
+    {
+
+    }
+
+    public class APipeIsFixed : GameStateEvent
+    {
+
+    }
+
+    public class PipeGameHasEnded : GameStateEvent
     {
 
     }

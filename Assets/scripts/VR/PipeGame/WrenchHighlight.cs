@@ -21,15 +21,6 @@ public class WrenchHighlight : MonoBehaviour {
             {
                 Debug.Log("Shine new thingy");//highlight
                 //gameObject.transform.parent.position = new Vector3(0f, 0f, 0f);
-            if (isHeld == false)
-                {
-                    EventBus.TriggerEvent(this, new GameStateEvent.NewShowePickedUpEvent());
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Now place it on the old shower head spot."));
-                }
-                
-                isHeld = true;
-
-
                 //rigidBody.useGravity = true;
               
             }

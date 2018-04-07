@@ -9,6 +9,7 @@ public class WrenchInteractions : MonoBehaviour
     Rigidbody rigidBody;
     Quaternion deltaRotation;
     bool isHeld=false;
+    bool isPlayedSound = false;
     // Use this for initialization
     void Start()
     {
@@ -23,6 +24,12 @@ public class WrenchInteractions : MonoBehaviour
         {
             transformer.position = colin.gameObject.transform.position;
             transformer.rotation = colin.gameObject.transform.rotation;
+            if(isPlayedSound == false)
+            {
+                EventBus.TriggerEvent(this, new GameStateEvent.AfterPickUpWrench());
+                EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Now fix the pipes boiiiiiiii"));
+                isPlayedSound = true;
+            }
         }
     }
 
@@ -32,6 +39,7 @@ public class WrenchInteractions : MonoBehaviour
         
         if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
         {
+
             colin = col;
             deltaRotation = colin.gameObject.transform.rotation;
             isHeld = true;
