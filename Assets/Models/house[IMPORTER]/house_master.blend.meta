@@ -125,6 +125,9 @@ ModelImporter:
     100234: lamp_01
     100236: projector_cone
     100238: toilet
+    100240: hand_right_open_002
+    100242: sink_02
+    100244: doors
     400000: //RootNode
     400002: Plane
     400004: Plane_001
@@ -245,6 +248,9 @@ ModelImporter:
     400234: lamp_01
     400236: projector_cone
     400238: toilet
+    400240: hand_right_open_002
+    400242: sink_02
+    400244: doors
     2100000: unnamed
     2100002: human_proportion_material
     2100004: bedroom_floor_01_material_001
@@ -388,6 +394,9 @@ ModelImporter:
     2300232: lamp_01
     2300234: projector_cone
     2300236: toilet
+    2300238: hand_right_open_002
+    2300240: sink_02
+    2300242: doors
     3300000: Plane
     3300002: Plane_001
     3300004: Plane_002
@@ -507,6 +516,9 @@ ModelImporter:
     3300232: lamp_01
     3300234: projector_cone
     3300236: toilet
+    3300238: hand_right_open_002
+    3300240: sink_02
+    3300242: doors
     4300000: Plane_025
     4300002: Plane_024
     4300004: Plane_015
@@ -626,6 +638,9 @@ ModelImporter:
     4300232: lamp_01
     4300234: projector_cone
     4300236: toilet
+    4300238: hand_right_open_002
+    4300240: sink_02
+    4300242: doors
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
@@ -744,6 +759,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: door_01_material
     second: {fileID: 2100000, guid: a234823a16cc221468be489d54b9cdc6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: door_handle_01_material
+    second: {fileID: 2100000, guid: 3bfe320268065314b894089fdb783bbc, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -912,6 +932,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: sink_02_material
+    second: {fileID: 2100000, guid: 36a265c4b8a030b4783f6e3e0166b81a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sink_03_material
+    second: {fileID: 2100000, guid: 2d78d8a48442cd94d9ed3fc001bb6955, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: sink_material
     second: {fileID: 2100000, guid: efc96b1d48f3b84468b1ff4c739d3dc4, type: 2}
   - first:
@@ -974,6 +1004,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: toilet_03_material
     second: {fileID: 2100000, guid: 6cfe2534b6eb2d647806404add5c1a6d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: toilet_water_material
+    second: {fileID: 2100000, guid: e7d96ef92ec201644b9256dcc289593d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
