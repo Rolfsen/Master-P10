@@ -48,6 +48,7 @@ public abstract class GamePlayEvent : BaseEvent
 		public float waterUsed { get; private set; }
 	}
 
+
 	public class StartTaskToilet : GamePlayEvent
 	{
 		
@@ -83,5 +84,37 @@ public abstract class GamePlayEvent : BaseEvent
 		}
 
 		public int id { get; private set;}
+	}
+
+	public class MinigameManager : GamePlayEvent
+	{
+		public MinigameManager(int id)
+		{
+			this.id = id;
+		}
+
+		public int id { get; private set; }
+	}
+
+	public class PlayerEnteredActiveMinigameArea : GamePlayEvent
+	{
+
+	}
+
+	public class PlayerLeftActiveMinigameArea : GamePlayEvent
+	{
+
+	}
+
+	public class StartMinigame : GamePlayEvent
+	{
+		public StartMinigame(int id)
+		{
+			this.id = id;
+		}
+
+		public int id { get; private set; }
+		
+
 	}
 }
