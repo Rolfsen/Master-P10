@@ -9,10 +9,12 @@ ModelImporter:
     100002: house
     100004: house_roof
     100006: panels_bottom
+    100008: doors
     400000: //RootNode
     400002: house
     400004: house_roof
     400006: panels_bottom
+    400008: doors
     2100000: wall_05_material
     2100002: wall_exterior_01_material
     2100004: wall_inner_01_material
@@ -36,13 +38,16 @@ ModelImporter:
     2300002: house
     2300004: house_roof
     2300006: panels_bottom
+    2300008: doors
     3300000: //RootNode
     3300002: house
     3300004: house_roof
     3300006: panels_bottom
+    3300008: doors
     4300000: house
     4300002: house_roof
     4300004: panels_bottom
+    4300006: doors
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
@@ -61,6 +66,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: door_01_material
     second: {fileID: 2100000, guid: a234823a16cc221468be489d54b9cdc6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: door_handle_01_material
+    second: {fileID: 2100000, guid: 3bfe320268065314b894089fdb783bbc, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
