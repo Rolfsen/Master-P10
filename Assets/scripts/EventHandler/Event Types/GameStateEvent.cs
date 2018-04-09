@@ -115,4 +115,22 @@ public abstract class GameStateEvent : BaseEvent
     {
 
     }
+
+    //Cooking Game
+
+    public class CookingStart : GameStateEvent
+    {
+
+    }
+
+    public class TheSinkIsOn : GameStateEvent
+    {
+
+    }
+
+    public class TheSinkIsOff : GameStateEvent
+    {
+
+    }
+
 }
