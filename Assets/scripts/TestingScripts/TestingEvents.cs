@@ -30,7 +30,7 @@ public class TestingEvents : MonoBehaviour {
 
 	void StartingMinigame (object sender, GamePlayEvent.StartMinigame e )
 	{
-		Debug.Log("Hello");
+
 		EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Minigame " + e.id + " started"));
 	}
 }
