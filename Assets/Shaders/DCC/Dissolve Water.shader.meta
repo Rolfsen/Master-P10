@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0e45595a73730ea4e9bf976337bb5b4f
+timeCreated: 1513715396
+licenseType: Free
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _Maintex: {fileID: 2800000, guid: 166596c1c4410427a8b4936910f5c1f9, type: 3}
+  - _DissolveRamp: {fileID: 2800000, guid: ce27195f30a15f341811cc7e48f8f668, type: 3}
+  - _Overlay: {fileID: 2800000, guid: a6413edcec50bd34b93c506373c83fe1, type: 3}
+  - _OverlayMask: {fileID: 2800000, guid: 051d2a9667ced154e9f1b4f730916cc2, type: 3}
+  - _DissolveNoise: {fileID: 2800000, guid: c013628570860cf408e32c638e0a5eda, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
