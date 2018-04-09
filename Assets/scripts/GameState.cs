@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class  GameState : MonoBehaviour {
 
-	public enum Gamestates {minigame, goTo,goTo2,goto3}
+	public static int currentMinigameID;
+	public static string currentMinigameName;
+	public static bool isMinigameRunning;
 
 
 	private void Awake()
 	{
-
+		currentMinigameID = 0;
+		currentMinigameName = "Installing Shower Head";
+		isMinigameRunning = false;
 	}
 }
