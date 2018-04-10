@@ -11,8 +11,8 @@ public class ObjectInteraction : MonoBehaviour {
     private Transform interactionPoint;
     
     private Vector3 posDelta;
-    public float velocityFactor = 200f;
-    public float rotationFactor = 200f;
+    public float velocityFactor = 400f;
+    public float rotationFactor = 400f;
     [SerializeField]
     private Quaternion rotationDelta;
     public float angle;
@@ -42,11 +42,10 @@ public class ObjectInteraction : MonoBehaviour {
 
             posDelta = attachedJoystick.transform.position - interactionPoint.position;
            
-            if (velocityFactor * Time.fixedDeltaTime*10 > 20f)
-            {
-                this.rigidBody.velocity = posDelta * velocityFactor * Time.fixedDeltaTime;//fixedDelta because of rigid body 
+            
+            this.rigidBody.velocity = posDelta * velocityFactor * Time.fixedDeltaTime;//fixedDelta because of rigid body 
 
-            }
+            
 
            
             rotationDelta = attachedJoystick.transform.rotation * Quaternion.Inverse(interactionPoint.rotation); //giving rotation of the joystick
@@ -54,12 +53,12 @@ public class ObjectInteraction : MonoBehaviour {
 
             if(angle>180)
             {
-                //Debug.Log("does this ever happen");
+                Debug.Log("does this ever happen");
                 angle -= 360;
             }
-            if (Time.fixedDeltaTime * rotationFactor * 10 > 20) { 
+            
                 this.rigidBody.angularVelocity = (Time.fixedDeltaTime * angle * axis) * rotationFactor;
-            }
+            
         }
     }
 

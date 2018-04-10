@@ -42,13 +42,13 @@ public class Interactions : MonoBehaviour {
         if (controller.GetPressDown(triggerButton))
         {
             isPressed = true;
-            Debug.Log("TRIGER IS TRUE");
+            //Debug.Log("TRIGER IS TRUE");
         }
         else if(controller.GetPressUp(triggerButton))
         {
             isPressed = false;
 
-            Debug.Log("TRIGER IS FALSE");
+            //Debug.Log("TRIGER IS FALSE");
         }
         
         

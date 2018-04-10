@@ -19,13 +19,13 @@ public class SimpleInteractions : MonoBehaviour
         if (controller.GetPressDown(triggerButton))
         {
             isPressed = true;
-            Debug.Log("TRIGER IS TRUE");
+            //Debug.Log("TRIGER IS TRUE");
         }
         else if (controller.GetPressUp(triggerButton))
         {
             isPressed = false;
 
-            Debug.Log("TRIGER IS FALSE");
+           // Debug.Log("TRIGER IS FALSE");
         }
 
 
@@ -33,5 +33,26 @@ public class SimpleInteractions : MonoBehaviour
     void Update()
     {
         IsPressed();
+    }
+
+    
+    private void OnTriggerEnter(Collider collider)
+    {
+        ObjectInteraction collidedItem = collider.GetComponent<ObjectInteraction>();
+        if (collidedItem)
+        {
+            //objectsHoveringOverList.Add(collidedItem);
+        }
+
+        //pickUp = collider.gameObject;
+    }
+
+    private void OnTriggerExit(Collider collider)
+    {
+        ObjectInteraction collidedItem = collider.GetComponent<ObjectInteraction>();
+        if (collidedItem)
+        {
+            //objectsHoveringOverList.Remove(collidedItem);
+        }
     }
 }
