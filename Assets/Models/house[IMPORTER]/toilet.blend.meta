@@ -6,16 +6,55 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: toilet
+    100004: toilet_flush
+    100006: toilet_flush_frame
     400000: //RootNode
+    400002: toilet
+    400004: toilet_flush
+    400006: toilet_flush_frame
     2100000: toilet_01_material
     2100002: toilet_03_material
     2100004: toilet_02_material
     2300000: //RootNode
+    2300002: toilet
+    2300004: toilet_flush
+    2300006: toilet_flush_frame
     3300000: //RootNode
+    3300002: toilet
+    3300004: toilet_flush
+    3300006: toilet_flush_frame
     4300000: toilet
+    4300002: toilet_flush_frame
+    4300004: toilet_flush
     7400000: Default Take
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: toilet_01_material
+    second: {fileID: 2100000, guid: 2554c73fcbf8cf64fb586f696fc1e226, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: toilet_02_material
+    second: {fileID: 2100000, guid: 734c86bfaa1d8204299305223fd41c1a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: toilet_03_material
+    second: {fileID: 2100000, guid: 6cfe2534b6eb2d647806404add5c1a6d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: toilet_04_material
+    second: {fileID: 2100000, guid: bd5e78208d5a0184c9fe41d0a3703928, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: toilet_water_material
+    second: {fileID: 2100000, guid: e7d96ef92ec201644b9256dcc289593d, type: 2}
   materials:
     importMaterials: 1
     materialName: 1

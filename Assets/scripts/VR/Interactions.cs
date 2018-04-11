@@ -19,7 +19,7 @@ public class Interactions : MonoBehaviour {
 
     public HashSet<ObjectInteraction> objectsHoveringOver = new HashSet<ObjectInteraction>();//maybe use a better way than HashSet
     public List<ObjectInteraction> objectsHoveringOverList = new List<ObjectInteraction>();
-
+    public bool isPressed = false;
     private ObjectInteraction closestItem;
     private ObjectInteraction interactingItem;
     private float minDistance;
@@ -36,11 +36,28 @@ public class Interactions : MonoBehaviour {
 
         }
     }
+
+    void IsPressed()
+    {
+        if (controller.GetPressDown(triggerButton))
+        {
+            isPressed = true;
+            //Debug.Log("TRIGER IS TRUE");
+        }
+        else if(controller.GetPressUp(triggerButton))
+        {
+            isPressed = false;
+
+            //Debug.Log("TRIGER IS FALSE");
+        }
+        
+        
+    }
     void Update()
     {
         SceneChange();
-        
 
+        IsPressed();
         ClosestItemInteract();
 
     }

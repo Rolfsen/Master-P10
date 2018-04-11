@@ -31,6 +31,7 @@ GameObject:
   - component: {fileID: 114500672308007506}
   - component: {fileID: 114816538321934438}
   - component: {fileID: 114509210114577060}
+  - component: {fileID: 114652096043715384}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: Untagged
@@ -105,6 +106,7 @@ GameObject:
   - component: {fileID: 114100603800212360}
   - component: {fileID: 114981892013979960}
   - component: {fileID: 114692912965301506}
+  - component: {fileID: 114783176317638376}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: Untagged
@@ -197,7 +199,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 146900}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.37, y: 0, z: -0.21}
+  m_LocalPosition: {x: 3.147, y: 0, z: 4.244}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 458974}
@@ -640,6 +642,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsHoveringOverList: []
+  isPressed: 0
+--- !u!114 &114652096043715384
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73eb734fecef5854fb6b8b2ac41bb305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPressed: 0
 --- !u!114 &114692912965301506
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -658,6 +673,18 @@ MonoBehaviour:
   padPressed: 0
   padTouched: 0
   gripped: 0
+--- !u!114 &114783176317638376
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73eb734fecef5854fb6b8b2ac41bb305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPressed: 0
 --- !u!114 &114816538321934438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -683,6 +710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsHoveringOverList: []
+  isPressed: 0
 --- !u!114 &114981892013979960
 MonoBehaviour:
   m_ObjectHideFlags: 1
