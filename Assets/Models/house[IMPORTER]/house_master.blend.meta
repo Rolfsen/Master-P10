@@ -266,6 +266,7 @@ ModelImporter:
     100516: hand_right_open_003
     100518: toilet_flush
     100520: toilet_flush_frame
+    100522: counters_001
     400000: //RootNode
     400002: Plane
     400004: Plane_001
@@ -527,6 +528,7 @@ ModelImporter:
     400516: hand_right_open_003
     400518: toilet_flush
     400520: toilet_flush_frame
+    400522: counters_001
     2100000: unnamed
     2100002: human_proportion_material
     2100004: bedroom_floor_01_material_001
@@ -811,6 +813,7 @@ ModelImporter:
     2300514: hand_right_open_003
     2300516: toilet_flush
     2300518: toilet_flush_frame
+    2300520: counters_001
     3300000: Plane
     3300002: Plane_001
     3300004: Plane_002
@@ -1071,6 +1074,7 @@ ModelImporter:
     3300514: hand_right_open_003
     3300516: toilet_flush
     3300518: toilet_flush_frame
+    3300520: counters_001
     4300000: Plane_025
     4300002: Plane_024
     4300004: Plane_015
@@ -1331,6 +1335,7 @@ ModelImporter:
     4300514: toilet_flush
     4300516: hand_right_open_003
     4300518: toilet_flush_frame
+    4300520: counters_001
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
@@ -1467,6 +1472,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: faucet_01_material
+    second: {fileID: 2100000, guid: 61727bae5c0f631418388d659c29127a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: floor_01_material
     second: {fileID: 2100000, guid: 6c693b585c239b74089faaf1c3c05d96, type: 2}
   - first:
@@ -1584,6 +1594,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: potato_material
     second: {fileID: 2100000, guid: 212c2f91705eed3428a539f0150d5aa5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: potato_peeler_01_material
+    second: {fileID: 2100000, guid: c1ca29a40b45fee439bd1748d8bdf10f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -1754,6 +1769,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: vacuum_material
     second: {fileID: 2100000, guid: ab4406c74be235745b6a07faed60515c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: valve_01_material
+    second: {fileID: 2100000, guid: 46ac48d8cd6223e419ec4359a83b39b6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
