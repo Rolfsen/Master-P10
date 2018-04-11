@@ -19,7 +19,6 @@ public class StartMinigameScirpt : MonoBehaviour {
 	{
 		if (canStartMinigame && Input.GetKeyDown(KeyCode.K) && !GameState.isMinigameRunning)
 		{
-
 			EventBus.TriggerEvent(this, new GamePlayEvent.StartMinigame(id));
 			EventBus.TriggerEvent(this, new GamePlayEvent.MinigameManager(-1));
 			GameState.isMinigameRunning = true;
