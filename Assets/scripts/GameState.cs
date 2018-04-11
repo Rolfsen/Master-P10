@@ -8,6 +8,12 @@ public class  GameState : MonoBehaviour {
 	public static string currentMinigameName;
 	public static bool isMinigameRunning;
 
+	[SerializeField]public List<bool> replayableMinigame;
+	private List<bool> replayedMinigames;
+
+	List<string> minigameNames;
+
+
 	int prevID;
 	string prevName;
 	bool prevState;
@@ -15,9 +21,14 @@ public class  GameState : MonoBehaviour {
 	private void Awake()
 	{
 		currentMinigameID = 0;
-		currentMinigameName = "Installing Game";
-		isMinigameRunning = false;
+	//	UpdateCurrentMinigame();
 	}
+
+	/*void UpdateCurrentMinigame ()
+	{
+		currentMinigameName = minigameNames[currentMinigameID];
+		isMinigameRunning = false;
+	}*/
 
 	//TODO DELETE THIS
 	private void Update()
