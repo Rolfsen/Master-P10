@@ -20,7 +20,7 @@ public class WaterUsage : MonoBehaviour {
 
 	private void Awake()
 	{
-		EventBus.AddListener<GamePlayEvent.TaskComplete>(UpdateWaterUsage);
+		EventBus.AddListener<MinigameEvents.UpdateWaterUsage>(UpdateWaterUsage);
 	}
 
 	private void Start()
@@ -35,10 +35,10 @@ public class WaterUsage : MonoBehaviour {
 		EventBus.TriggerEvent(this,new GameStateEvent.StartUpSetTaskVars(tmp));
 	}
 
-	private void UpdateWaterUsage (object sender, GamePlayEvent.TaskComplete e)
+	private void UpdateWaterUsage (object sender, MinigameEvents.UpdateWaterUsage e)
 	{
-		WaterUsingTasks[e.taskNumber].waterUsage.Add(e.waterUsed);
-		WaterUsingTasks[e.taskNumber].waterUsage.Sort();
+		WaterUsingTasks[GameManager.currentID].waterUsage.Add(e.waterUsed);
+		WaterUsingTasks[GameManager.currentID].waterUsage.Sort();
 
 		totalWaterSpend = 0;
 
@@ -49,6 +49,6 @@ public class WaterUsage : MonoBehaviour {
 				totalWaterSpend += task.waterUsage[0];
 			}
 		}
-		EventBus.TriggerEvent(this,new GameStateEvent.WaterUsageUpdated(WaterUsingTasks[e.taskNumber].waterUsage[0], totalWaterSpend,e.taskNumber,WaterUsingTasks[e.taskNumber].taskName,WaterUsingTasks.Count));
+		EventBus.TriggerEvent(this,new GameStateEvent.WaterUsageUpdated(WaterUsingTasks[GameManager.currentID].waterUsage[0], totalWaterSpend,GameManager.currentID,WaterUsingTasks[GameManager.currentID].taskName,WaterUsingTasks.Count));
 	}
 }

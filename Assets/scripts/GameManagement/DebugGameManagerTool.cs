@@ -28,7 +28,7 @@ public class DebugGameManagerTool : MonoBehaviour {
 		// Toggle Water
 		if (Input.GetKeyDown(KeyCode.Alpha3))
 		{
-
+			EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
 		}
 	}
 }

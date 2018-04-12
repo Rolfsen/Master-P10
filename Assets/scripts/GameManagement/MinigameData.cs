@@ -18,11 +18,18 @@ public class MinigameData : MonoBehaviour
 	float waterUsed;
 
 	[SerializeField]
+	float waterUsedPerSecond;
+
+	[SerializeField]
 	bool waterUsingTask;
 
 	bool active;
 
 	bool replayed;
+
+	bool isWaterRunning;
+
+	bool complete;
 
 	[SerializeField]
 	private Text waterUsedText;
@@ -30,7 +37,18 @@ public class MinigameData : MonoBehaviour
 	private void Awake()
 	{
 		EventBus.AddListener<MinigameEvents.ChangeActiveMinigameEvent>(ToggleActive);
+		EventBus.AddListener<MinigameEvents.ToggleWaterEvent>(ToggleWaterUsage);
+		EventBus.AddListener<MinigameEvents.EndMinigamEvent>(OnMinigameEnd);
 		replayed = false;
+	}
+
+
+	private void Update()
+	{
+		if (isWaterRunning)
+		{
+			waterUsed += waterUsedPerSecond * Time.deltaTime;
+		}
 	}
 
 	void ToggleActive(object sender, MinigameEvents.ChangeActiveMinigameEvent e)
@@ -49,6 +67,7 @@ public class MinigameData : MonoBehaviour
 	{
 		if (GameManager.currentID == id)
 		{
+			complete = true;
 			// Send Water Used
 			if (waterUsingTask)
 			{
@@ -66,9 +85,25 @@ public class MinigameData : MonoBehaviour
 		}
 	}
 
+
+	private void ToggleWaterUsage(object sender, MinigameEvents.ToggleWaterEvent e)
+	{
+		if (id == GameManager.currentID && !complete)
+		{
+			if (isWaterRunning)
+			{
+				isWaterRunning = false;
+			}
+			else
+			{
+				isWaterRunning = true;
+			}
+		}
+	}
+
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag("Player") && active && !GameManager.isPlaying)
+		if (other.CompareTag("Player") && active && !GameManager.isPlaying && !complete)
 		{
 			EventBus.TriggerEvent(this, new MinigameEvents.StartMinigameEvent());
 		}
