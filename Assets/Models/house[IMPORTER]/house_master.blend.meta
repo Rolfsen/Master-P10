@@ -267,6 +267,11 @@ ModelImporter:
     100518: toilet_flush
     100520: toilet_flush_frame
     100522: counters_001
+    100524: bucket_01
+    100526: bucket_01_water
+    100528: toilet_water
+    100530: windows
+    100532: sink_01
     400000: //RootNode
     400002: Plane
     400004: Plane_001
@@ -529,6 +534,11 @@ ModelImporter:
     400518: toilet_flush
     400520: toilet_flush_frame
     400522: counters_001
+    400524: bucket_01
+    400526: bucket_01_water
+    400528: toilet_water
+    400530: windows
+    400532: sink_01
     2100000: unnamed
     2100002: human_proportion_material
     2100004: bedroom_floor_01_material_001
@@ -814,6 +824,11 @@ ModelImporter:
     2300516: toilet_flush
     2300518: toilet_flush_frame
     2300520: counters_001
+    2300522: bucket_01
+    2300524: bucket_01_water
+    2300526: toilet_water
+    2300528: windows
+    2300530: sink_01
     3300000: Plane
     3300002: Plane_001
     3300004: Plane_002
@@ -1075,6 +1090,11 @@ ModelImporter:
     3300516: toilet_flush
     3300518: toilet_flush_frame
     3300520: counters_001
+    3300522: bucket_01
+    3300524: bucket_01_water
+    3300526: toilet_water
+    3300528: windows
+    3300530: sink_01
     4300000: Plane_025
     4300002: Plane_024
     4300004: Plane_015
@@ -1336,6 +1356,11 @@ ModelImporter:
     4300516: hand_right_open_003
     4300518: toilet_flush_frame
     4300520: counters_001
+    4300522: toilet_water
+    4300524: bucket_01_water
+    4300526: bucket_01
+    4300528: windows
+    4300530: sink_01
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
@@ -1394,6 +1419,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: box_01_material
     second: {fileID: 2100000, guid: d49a9c961626c544caba24ea10804681, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bucket_01_material
+    second: {fileID: 2100000, guid: 6d8f9600619f6e54fb87a60496b9e424, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -1542,8 +1572,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: mop_end_01_material
+    second: {fileID: 2100000, guid: 0cf0631f6a4520f4fbddbd73c5143fd7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: mop_material
     second: {fileID: 2100000, guid: 8679b855d4ebf2041b180f83ac76c833, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mop_rod_01_material
+    second: {fileID: 2100000, guid: b1766fea333d45a44b4e274d114c8ca7, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -1652,6 +1692,21 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: shower_fixture_01_material
+    second: {fileID: 2100000, guid: b399c0dc0a6cbab439acdf0558b19f97, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shower_frame_01_material
+    second: {fileID: 2100000, guid: 2628d9e0126dd844f9514b4337fe7072, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: showerhead_01_material
+    second: {fileID: 2100000, guid: 3db6a2e5502db004c93283460eadcdf4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: showerhead_material
     second: {fileID: 2100000, guid: 607e908315e4c644298a366930d926cb, type: 2}
   - first:
@@ -1674,6 +1729,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: sink_material
     second: {fileID: 2100000, guid: efc96b1d48f3b84468b1ff4c739d3dc4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: soap_holder_01_material
+    second: {fileID: 2100000, guid: b5a82a1c6523c104288e4fa3a9771e72, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -1849,6 +1909,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: window_socket_01_material
     second: {fileID: 2100000, guid: bb3ac014c9a0d5c4d95cfbf273a8c404, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wrench_01_material
+    second: {fileID: 2100000, guid: a840a1e1694cb514f87a7735b8cc147c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
