@@ -547,9 +547,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1279149090021736}
   serializedVersion: 2
-  m_Mass: 5
+  m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -627,8 +627,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 0}
   interactionPoint: {fileID: 0}
-  velocityFactor: 400
-  rotationFactor: 400
+  velocityFactor: 500
+  rotationFactor: 500
   rotationDelta: {x: 0, y: 0, z: 0, w: 0}
   angle: 0
 --- !u!135 &135198533498011792

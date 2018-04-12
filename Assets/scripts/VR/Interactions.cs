@@ -8,7 +8,7 @@ public class Interactions : MonoBehaviour {
     //if we wanna work with a controller we will get the newest object index
     //corresponds to the Enums in the controller script
     private SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
-
+    [SerializeField]
     private SteamVR_TrackedObject trackedObj; //getting the index from the tracked obj
 
     private Valve.VR.EVRButtonId gripButton = Valve.VR.EVRButtonId.k_EButton_Grip;
@@ -23,11 +23,13 @@ public class Interactions : MonoBehaviour {
     private ObjectInteraction closestItem;
     private ObjectInteraction interactingItem;
     private float minDistance;
+   
     void Start()
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
-
+        
     }
+    
     void SceneChange()
     {
         if (controller.GetPressDown(gripButton))
@@ -42,6 +44,7 @@ public class Interactions : MonoBehaviour {
         if (controller.GetPressDown(triggerButton))
         {
             isPressed = true;
+            
             //Debug.Log("TRIGER IS TRUE");
         }
         else if(controller.GetPressUp(triggerButton))

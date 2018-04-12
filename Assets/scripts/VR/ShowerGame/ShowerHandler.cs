@@ -16,23 +16,84 @@ public class ShowerHandler : MonoBehaviour {
     private Collider colin;
     private Transform simpleInteractionsTransform;
     private Quaternion handleRotation;
-    // private Interactions interactionsy;
     SimpleInteractions simpleInteractions;
+    private Rigidbody rigidBody;
+    private float speed = 200f;
+    private bool hasItBeenOn = false;
     // Use this for initialization
     void Start()
     {
-       
+        rigidBody = GetComponent<Rigidbody>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        IsWaterOn();
+        IsWaterOff();
         //RotatingRigidBody();
         //RotateObject();
         //IsDoneWithRotating();
     }
 
+    void IsWaterOn()
+    {
+
+
+        if (hasItBeenOn == false)
+        {
+            rigidBody.isKinematic = false;
+            if (transform.rotation.x > 0.8 || transform.rotation.x < -0.8 ) 
+            {
+                count++;
+                if (count > 50)
+                {
+                    if (isWaterRunning == false)
+                    {
+                        EventBus.TriggerEvent(this, new GameStateEvent.NewShowerHeadScrewedOnEvent());
+                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Good job. You saved like the whales."));
+                    }
+
+
+                    rigidBody.isKinematic = true;
+                    transform.rotation = new Quaternion(0f, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+                    hasItBeenOn = true;
+                    sinkParticle.SetActive(true);
+                    count = 0;
+                    isWaterRunning = true;
+                    //Debug.Log("its on baby");
+                }
+            }
+        }
+    }
+
+    void IsWaterOff()
+    {
+        if (isWaterRunning == true)
+        {
+            rigidBody.isKinematic = false;
+
+            if (transform.rotation.x > 0.8 || transform.rotation.x < -0.8)
+            {
+                count++;
+                if (count > 50)
+                {
+                    if (isWaterRunning == true)
+                    {
+                        EventBus.TriggerEvent(this, new GameStateEvent.WaterInShowerRunning());//Water is off
+                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Good job. You saved like the whales."));
+                    }
+                    rigidBody.isKinematic = true;
+                    transform.rotation = new Quaternion(0f, transform.rotation.y, transform.rotation.z, transform.rotation.w);//Or destroy the one we have and make a new one, works everytime
+                    sinkParticle.SetActive(false);
+                    count = 0;
+                    isWaterRunning = false;
+                    hasItBeenOn = false;
+                }
+            }
+        }
+    }
     private void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
@@ -43,16 +104,23 @@ public class ShowerHandler : MonoBehaviour {
             //Debug.Log("Stop shining");//highlight
             //gameObject.transform.parent.position = new Vector3(0f, 0f, 0f);
             //col.gameObject.GetComponent<Interactions>().enabled = false;
-            simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
-            simpleInteractionsTransform = col.gameObject.GetComponent<Transform>();
-            handleRotation = simpleInteractionsTransform.rotation;
+            //simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
+           // simpleInteractionsTransform = col.gameObject.GetComponent<Transform>();
+            //handleRotation = simpleInteractionsTransform.rotation;
+
+            
+        
         }
+
+       
     }
     private void OnTriggerStay(Collider col)
     {
+        if(col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+        { 
         simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
-        simpleInteractionsTransform = col.gameObject.GetComponent<Transform>();
-        handleRotation = simpleInteractionsTransform.rotation;
+        //simpleInteractionsTransform = col.gameObject.GetComponent<Transform>();
+        //handleRotation = simpleInteractionsTransform.rotation;
         //col.gameObject.GetComponent<Interactions>().enabled = false;
         if (simpleInteractions.isPressed)
         {
@@ -63,9 +131,10 @@ public class ShowerHandler : MonoBehaviour {
         {
             isTriggerPressed = false;
         }
+        }
     }
 
-    private float speed = 200f;
+   
     private void RotatingRigidBody()
     {
         
@@ -184,9 +253,9 @@ public class ShowerHandler : MonoBehaviour {
 
             colin = col;
             ControllerInRange = false;
-          
+            simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
             //base.transform.rotation = new Quaternion(base.transform.rotation.x, base.transform.rotation.y, base.transform.rotation.z, base.transform.rotation.w);
-            isTriggerPressed = false;
+            //isTriggerPressed = false; //MAYBE NOT!!!!!!!!!!!!!!!!!!!!!!!!!!
             col.gameObject.GetComponent<Interactions>().enabled = true;
             Debug.Log("Stop shining");//highlight
             //gameObject.transform.parent.position = new Vector3(0f, 0f, 0f);
