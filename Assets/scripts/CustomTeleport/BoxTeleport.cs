@@ -33,7 +33,6 @@ public class BoxTeleport : MonoBehaviour
 		Ray ray;
 		RaycastHit hit;
 
-		float raycastAngle = angle;
 
 		ray = new Ray(transform.position, transform.TransformDirection(Vector3.forward) * raycastDist);
 

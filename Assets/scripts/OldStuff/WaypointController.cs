@@ -5,7 +5,7 @@ using UnityEngine;
 public class WaypointController : MonoBehaviour {
 
 	[SerializeField]
-	int ID;
+	int ID = 0;
 	[SerializeField]
 	bool active;
 
@@ -23,6 +23,11 @@ public class WaypointController : MonoBehaviour {
 		else
 		{
 			active = true;
+		}
+
+		if (active)
+		{
+			// show waypoint
 		}
 	}
 }
