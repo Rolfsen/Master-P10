@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 4997845395508368}
   - component: {fileID: 33308708698546090}
   - component: {fileID: 23494043345709310}
+  - component: {fileID: 65453502531008140}
   m_Layer: 0
   m_Name: soap_holder
   m_TagString: Untagged
@@ -112,13 +113,15 @@ GameObject:
   - component: {fileID: 4254893573239008}
   - component: {fileID: 198469532271911328}
   - component: {fileID: 199437442879356190}
+  - component: {fileID: 65438520601428044}
+  - component: {fileID: 114275669815741830}
   m_Layer: 0
   m_Name: particles_water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1616640693151416
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,6 +558,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 110
   m_CollisionDetection: 0
+--- !u!65 &65438520601428044
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1458647927647638}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.785046, y: 0.8410147, z: 2.9936562}
+  m_Center: {x: 0.39252666, y: 0.049370363, z: 0.996826}
+--- !u!65 &65453502531008140
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1046477729638074}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.12, y: 0.07000005, z: 0.18000002}
+  m_Center: {x: 0.17999999, y: 1.0986738, z: 0.28533706}
 --- !u!65 &65911840070974536
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -601,6 +628,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114275669815741830
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1458647927647638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e196a53451f6c44e9ab2f13ba0616ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  count: 0
+  isWet: 0
+  rightPlace: 0
 --- !u!114 &114451299027267396
 MonoBehaviour:
   m_ObjectHideFlags: 1
