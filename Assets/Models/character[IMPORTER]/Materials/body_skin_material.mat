@@ -78,16 +78,23 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture:
+        m_Texture: {fileID: 2800000, guid: 051d2a9667ced154e9f1b4f730916cc2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BlendSharpness: 10
     - _BumpScale: 1
     - _Cutoff: 0.5
+    - _Detail: 2
     - _DetailNormalMapScale: 1
     - _DissolveAmount: 0.6
     - _DissolveColorIntensity: 1
+    - _DissolveDetail: 2
     - _DissolveMax: 5
     - _DissolveMin: -2
     - _DissolveRampTransparency: 1
+    - _DissolveScale: 0.5
     - _DstBlend: 0
     - _Fog1MapIntensity: 0
     - _Fog1Offset: 0.5
@@ -103,12 +110,14 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OverlayIntensity: 0
-    - _OverlayMaskIntensity: 9
-    - _OverlaySpeed: 0.1
+    - _OverlayIntensity: 1
+    - _OverlayMaskIntensity: 5
+    - _OverlayMaskSpeed: 1.6
+    - _OverlaySpeed: 0.4
     - _OverlayUSpeed: 0
     - _OverlayVSpeed: 0.1
     - _Parallax: 0.02
+    - _Scale: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -116,7 +125,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 0.9019, b: 0.7073, a: 1}
+    - _Color: {r: 0.7205882, g: 0.6513319, b: 0.5139489, a: 1}
     - _DissolveColor: {r: 0.39705884, g: 0.34857416, b: 0.14597751, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _MaintexColor: {r: 0.8088235, g: 0.79692906, b: 0.6363538, a: 1}
