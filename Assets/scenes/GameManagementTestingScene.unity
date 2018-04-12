@@ -124,9 +124,6 @@ GameObject:
   - component: {fileID: 284363848}
   - component: {fileID: 284363847}
   - component: {fileID: 284363846}
-  - component: {fileID: 284363850}
-  - component: {fileID: 284363851}
-  - component: {fileID: 284363852}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -197,42 +194,46 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &284363850
+--- !u!1 &332344224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 332344226}
+  - component: {fileID: 332344225}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &332344225
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 284363845}
+  m_GameObject: {fileID: 332344224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae4dcb25bd07869439ef070d189e6967, type: 3}
+  m_Script: {fileID: 11500000, guid: 343e3d50724d10d48b97dd05a57446ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minigameID: 0
-  waypointID: 
---- !u!114 &284363851
-MonoBehaviour:
+--- !u!4 &332344226
+Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 284363845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b39ffa308bae4d468e99cf9d70941d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  replayableMinigame: 
---- !u!114 &284363852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 284363845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e9ffa88f6f6fb47a2953894a233800, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_GameObject: {fileID: 332344224}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &935462609
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,7 +259,7 @@ Transform:
   m_GameObject: {fileID: 935462609}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.68, y: 0.85, z: -7.12}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -271,11 +272,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 935462609}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ce9aa3da5512f8449d9cd45433b834c, type: 3}
+  m_Script: {fileID: 11500000, guid: acbfd05a761b48148ad39f130db4708d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minigameID: 0
-  minigameName: Minigame 1
+  gameName: Install Shower Head
+  id: 0
+  replayable: 0
+  waterUsed: 0
+  waterUsingTask: 0
 --- !u!65 &935462612
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -399,11 +403,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1626123131}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ce9aa3da5512f8449d9cd45433b834c, type: 3}
+  m_Script: {fileID: 11500000, guid: acbfd05a761b48148ad39f130db4708d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minigameID: 1
-  minigameName: Minigame 2
+  gameName: Fixing Leaking Pipes
+  id: 1
+  replayable: 0
+  waterUsed: 0
+  waterUsingTask: 0
 --- !u!65 &1626123133
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -414,7 +421,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 3, y: 3, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1626123134
 Transform:

@@ -5,7 +5,7 @@ using UnityEngine;
 public class StartMinigameScirpt : MonoBehaviour {
 
 	bool canStartMinigame;
-	int id;
+	[SerializeField]int id;
 
 	private void Awake()
 	{

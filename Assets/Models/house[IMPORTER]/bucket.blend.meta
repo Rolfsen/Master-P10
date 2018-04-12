@@ -8,26 +8,46 @@ ModelImporter:
     100000: //RootNode
     100002: bucket
     100004: water_ui_bucket
+    100006: bucket_01
+    100008: bucket_01_water
     400000: //RootNode
     400002: bucket
     400004: water_ui_bucket
+    400006: bucket_01
+    400008: bucket_01_water
     2100000: water_meter_bucket_material
     2100002: bucket_material
     2100004: glass_01_material
     2300000: bucket
     2300002: water_ui_bucket
+    2300004: bucket_01
+    2300006: bucket_01_water
     3300000: bucket
     3300002: water_ui_bucket
+    3300004: bucket_01
+    3300006: bucket_01_water
     4300000: water_ui_bucket
     4300002: bucket
+    4300004: bucket_01_water
+    4300006: bucket_01
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: bucket_01_material
+    second: {fileID: 2100000, guid: 6d8f9600619f6e54fb87a60496b9e424, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: bucket_material
     second: {fileID: 2100000, guid: 24dbe828014de1242a4bf624a5b37cfc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bucket_water_material
+    second: {fileID: 2100000, guid: 74d9c5ea6b314e74ea41c18027e5f6e8, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
