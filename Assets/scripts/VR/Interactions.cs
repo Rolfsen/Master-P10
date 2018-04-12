@@ -34,8 +34,8 @@ public class Interactions : MonoBehaviour {
     {
         if (controller.GetPressDown(gripButton))
         {
-            SceneManager.LoadScene("Testi", LoadSceneMode.Additive);
-
+            //SceneManager.LoadScene("Testi", LoadSceneMode.Additive);
+            //SceneManager.LoadScene;
         }
     }
 

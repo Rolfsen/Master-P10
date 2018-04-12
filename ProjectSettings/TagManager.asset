@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Allowed_Zone
   - Waypoint
+  - Dust
+  - Liquid
   layers:
   - Default
   - TransparentFX
