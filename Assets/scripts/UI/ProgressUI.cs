@@ -16,6 +16,8 @@ public class ProgressUI : MonoBehaviour
 	}
 
 
+
+
 	private void UpdateText(object sender, GameStateEvent.WaterUsageUpdated e)
 	{
 		text[e.taskNumber].text = e.taskName + " " + e.bestWaterUsageForTask;

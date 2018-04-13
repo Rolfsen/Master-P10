@@ -9,6 +9,9 @@ public class MinigameData : MonoBehaviour
 	string gameName;
 
 	[SerializeField]
+	string afterGameText;
+
+	[SerializeField]
 	int id;
 
 	[SerializeField]
@@ -23,11 +26,16 @@ public class MinigameData : MonoBehaviour
 	[SerializeField]
 	bool waterUsingTask;
 
+	[SerializeField]
+	int IdOfNextMinigame;
+
 	bool active;
 
 	bool replayed;
 
 	bool isWaterRunning;
+
+	float bestWaterUsage;
 
 	bool complete;
 
@@ -40,6 +48,7 @@ public class MinigameData : MonoBehaviour
 		EventBus.AddListener<MinigameEvents.ToggleWaterEvent>(ToggleWaterUsage);
 		EventBus.AddListener<MinigameEvents.EndMinigamEvent>(OnMinigameEnd);
 		replayed = false;
+		bestWaterUsage = -1;
 	}
 
 
@@ -48,6 +57,7 @@ public class MinigameData : MonoBehaviour
 		if (isWaterRunning)
 		{
 			waterUsed += waterUsedPerSecond * Time.deltaTime;
+			waterUsedText.text = (int)waterUsed + "L";
 		}
 	}
 
@@ -71,7 +81,11 @@ public class MinigameData : MonoBehaviour
 			// Send Water Used
 			if (waterUsingTask)
 			{
-				EventBus.TriggerEvent(this, new MinigameEvents.UpdateWaterUsage(waterUsed, gameName));
+				if (bestWaterUsage == -1 || bestWaterUsage > waterUsed)
+				{
+					bestWaterUsage = waterUsed;
+				}
+				EventBus.TriggerEvent(this, new MinigameEvents.UpdateWaterUsage(bestWaterUsage, gameName));
 			}
 
 			if (replayable && !replayed)
@@ -80,6 +94,7 @@ public class MinigameData : MonoBehaviour
 			}
 			else
 			{
+				EventBus.TriggerEvent(this,new NarrativeEvent.TextToSpeechNarratorEvent(afterGameText));
 				// Cannot Replay Game
 			}
 		}
@@ -88,7 +103,7 @@ public class MinigameData : MonoBehaviour
 
 	private void ToggleWaterUsage(object sender, MinigameEvents.ToggleWaterEvent e)
 	{
-		if (id == GameManager.currentID && !complete)
+		if (id == GameManager.currentID && !complete && waterUsingTask && GameManager.isPlaying)
 		{
 			if (isWaterRunning)
 			{
@@ -98,6 +113,10 @@ public class MinigameData : MonoBehaviour
 			{
 				isWaterRunning = true;
 			}
+		}
+		else if(!waterUsingTask && GameManager.currentID == id)
+		{
+			EventBus.TriggerEvent(this,new NarrativeEvent.TextToSpeechNarratorEvent("Debug Narration Event: Trying to turn water on for a task that dont use water"));
 		}
 	}
 

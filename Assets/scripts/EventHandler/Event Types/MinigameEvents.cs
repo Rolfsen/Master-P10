@@ -80,13 +80,13 @@ public class MinigameEvents : BaseEvent {
 
 	public class UpdateWaterUsage : MinigameEvents
 	{
-		public UpdateWaterUsage(float waterUsed, string gameName)
+		public UpdateWaterUsage(float bestWaterUsage, string gameName)
 		{
-			this.waterUsed = waterUsed;
+			this.bestWaterUsage = bestWaterUsage;
 			this.gameName = gameName;
 		}
 
-		public float waterUsed { get; private set; }
+		public float bestWaterUsage { get; private set; }
 		public string gameName { get; private set; }
 	}
 }

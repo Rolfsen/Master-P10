@@ -37,7 +37,7 @@ public class WaterUsage : MonoBehaviour {
 
 	private void UpdateWaterUsage (object sender, MinigameEvents.UpdateWaterUsage e)
 	{
-		WaterUsingTasks[GameManager.currentID].waterUsage.Add(e.waterUsed);
+		WaterUsingTasks[GameManager.currentID].waterUsage.Add(e.bestWaterUsage);
 		WaterUsingTasks[GameManager.currentID].waterUsage.Sort();
 
 		totalWaterSpend = 0;
