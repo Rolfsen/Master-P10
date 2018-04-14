@@ -9,6 +9,9 @@ public class MinigameData : MonoBehaviour
 	string gameName;
 
 	[SerializeField]
+	string afterGameText;
+
+	[SerializeField]
 	int id;
 
 	[SerializeField]
@@ -18,11 +21,23 @@ public class MinigameData : MonoBehaviour
 	float waterUsed;
 
 	[SerializeField]
+	float waterUsedPerSecond;
+
+	[SerializeField]
 	bool waterUsingTask;
+
+	[SerializeField]
+	int IdOfNextMinigame;
 
 	bool active;
 
 	bool replayed;
+
+	bool isWaterRunning;
+
+	float bestWaterUsage;
+
+	bool complete;
 
 	[SerializeField]
 	private Text waterUsedText;
@@ -30,7 +45,20 @@ public class MinigameData : MonoBehaviour
 	private void Awake()
 	{
 		EventBus.AddListener<MinigameEvents.ChangeActiveMinigameEvent>(ToggleActive);
+		EventBus.AddListener<MinigameEvents.ToggleWaterEvent>(ToggleWaterUsage);
+		EventBus.AddListener<MinigameEvents.EndMinigamEvent>(OnMinigameEnd);
 		replayed = false;
+		bestWaterUsage = -1;
+	}
+
+
+	private void Update()
+	{
+		if (isWaterRunning)
+		{
+			waterUsed += waterUsedPerSecond * Time.deltaTime;
+			waterUsedText.text = (int)waterUsed + "L";
+		}
 	}
 
 	void ToggleActive(object sender, MinigameEvents.ChangeActiveMinigameEvent e)
@@ -49,10 +77,15 @@ public class MinigameData : MonoBehaviour
 	{
 		if (GameManager.currentID == id)
 		{
+			complete = true;
 			// Send Water Used
 			if (waterUsingTask)
 			{
-				EventBus.TriggerEvent(this, new MinigameEvents.UpdateWaterUsage(waterUsed, gameName));
+				if (bestWaterUsage == -1 || bestWaterUsage > waterUsed)
+				{
+					bestWaterUsage = waterUsed;
+				}
+				EventBus.TriggerEvent(this, new MinigameEvents.UpdateWaterUsage(bestWaterUsage, gameName));
 			}
 
 			if (replayable && !replayed)
@@ -61,14 +94,35 @@ public class MinigameData : MonoBehaviour
 			}
 			else
 			{
+				EventBus.TriggerEvent(this,new NarrativeEvent.TextToSpeechNarratorEvent(afterGameText));
 				// Cannot Replay Game
 			}
 		}
 	}
 
+
+	private void ToggleWaterUsage(object sender, MinigameEvents.ToggleWaterEvent e)
+	{
+		if (id == GameManager.currentID && !complete && waterUsingTask && GameManager.isPlaying)
+		{
+			if (isWaterRunning)
+			{
+				isWaterRunning = false;
+			}
+			else
+			{
+				isWaterRunning = true;
+			}
+		}
+		else if(!waterUsingTask && GameManager.currentID == id)
+		{
+			EventBus.TriggerEvent(this,new NarrativeEvent.TextToSpeechNarratorEvent("Debug Narration Event: Trying to turn water on for a task that dont use water"));
+		}
+	}
+
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag("Player") && active && !GameManager.isPlaying)
+		if (other.CompareTag("Player") && active && !GameManager.isPlaying && !complete)
 		{
 			EventBus.TriggerEvent(this, new MinigameEvents.StartMinigameEvent());
 		}
