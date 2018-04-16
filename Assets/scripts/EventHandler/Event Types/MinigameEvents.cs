@@ -89,4 +89,22 @@ public class MinigameEvents : BaseEvent {
 		public float bestWaterUsage { get; private set; }
 		public string gameName { get; private set; }
 	}
+
+	public class WaitForReplayCurrentGameActionEvent : MinigameEvents
+	{
+
+	}
+
+	public class PrepareForNextMinigameEvent : MinigameEvents
+	{
+
+		public PrepareForNextMinigameEvent(int nextGame, string introductionToNextGame)
+		{
+			this.nextGame = nextGame;
+			this.introductionToNextGame = introductionToNextGame;
+		}
+
+		public int nextGame { get; private set; }
+		public string introductionToNextGame { get; private set; }
+	}
 }

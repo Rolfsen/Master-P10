@@ -29,6 +29,12 @@ public class MinigameData : MonoBehaviour
 	[SerializeField]
 	int IdOfNextMinigame;
 
+	[SerializeField]
+	string introductionToNextMinigame;
+
+	[SerializeField]
+	string startMinigameText;
+
 	bool active;
 
 	bool replayed;
@@ -65,6 +71,7 @@ public class MinigameData : MonoBehaviour
 	{
 		if (e.newID == id)
 		{
+			EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(startMinigameText));
 			active = true;
 		}
 		else
@@ -88,14 +95,16 @@ public class MinigameData : MonoBehaviour
 				EventBus.TriggerEvent(this, new MinigameEvents.UpdateWaterUsage(bestWaterUsage, gameName));
 			}
 
+			EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(afterGameText));
+
 			if (replayable && !replayed)
 			{
 				// Can Replay Game
+				EventBus.TriggerEvent(this, new MinigameEvents.WaitForReplayCurrentGameActionEvent());
 			}
 			else
 			{
-				EventBus.TriggerEvent(this,new NarrativeEvent.TextToSpeechNarratorEvent(afterGameText));
-				// Cannot Replay Game
+				EventBus.TriggerEvent(this, new MinigameEvents.PrepareForNextMinigameEvent(IdOfNextMinigame,introductionToNextMinigame));
 			}
 		}
 	}
