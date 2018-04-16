@@ -1758,6 +1758,56 @@ Prefab:
       propertyPath: m_RootOrder
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 108736906637335790, guid: 8f77194238eddab488718f28dfb5ebeb,
+        type: 2}
+      propertyPath: m_Shadows.m_Bias
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 108811671655905434, guid: 8f77194238eddab488718f28dfb5ebeb,
+        type: 2}
+      propertyPath: m_Shadows.m_Bias
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 108736906637335790, guid: 8f77194238eddab488718f28dfb5ebeb,
+        type: 2}
+      propertyPath: m_Shadows.m_NormalBias
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 108811671655905434, guid: 8f77194238eddab488718f28dfb5ebeb,
+        type: 2}
+      propertyPath: m_Shadows.m_NormalBias
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 108736906637335790, guid: 8f77194238eddab488718f28dfb5ebeb,
+        type: 2}
+      propertyPath: m_Shadows.m_NearPlane
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108811671655905434, guid: 8f77194238eddab488718f28dfb5ebeb,
+        type: 2}
+      propertyPath: m_Shadows.m_NearPlane
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108736906637335790, guid: 8f77194238eddab488718f28dfb5ebeb,
+        type: 2}
+      propertyPath: m_Range
+      value: 1.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 108811671655905434, guid: 8f77194238eddab488718f28dfb5ebeb,
+        type: 2}
+      propertyPath: m_Range
+      value: 1.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 108736906637335790, guid: 8f77194238eddab488718f28dfb5ebeb,
+        type: 2}
+      propertyPath: m_Intensity
+      value: 1.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 108811671655905434, guid: 8f77194238eddab488718f28dfb5ebeb,
+        type: 2}
+      propertyPath: m_Intensity
+      value: 1.18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f77194238eddab488718f28dfb5ebeb, type: 2}
   m_IsPrefabParent: 0
@@ -2294,11 +2344,11 @@ Prefab:
       objectReference: {fileID: 1494015419}
     - target: {fileID: 4285599023775208, guid: c9f422b0822723048aa4e7450c67f5b8, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 1.914
+      value: -1.618
       objectReference: {fileID: 0}
     - target: {fileID: 4285599023775208, guid: c9f422b0822723048aa4e7450c67f5b8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.102
+      value: -0.126
       objectReference: {fileID: 0}
     - target: {fileID: 4285599023775208, guid: c9f422b0822723048aa4e7450c67f5b8, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2306,23 +2356,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4285599023775208, guid: c9f422b0822723048aa4e7450c67f5b8, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.119208686
+      value: -0.050410476
       objectReference: {fileID: 0}
     - target: {fileID: 4285599023775208, guid: c9f422b0822723048aa4e7450c67f5b8, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.21254036
+      value: 0.9038944
       objectReference: {fileID: 0}
     - target: {fileID: 4285599023775208, guid: c9f422b0822723048aa4e7450c67f5b8, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.026133912
+      value: -0.11114169
       objectReference: {fileID: 0}
     - target: {fileID: 4285599023775208, guid: c9f422b0822723048aa4e7450c67f5b8, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -0.9695014
+      value: -0.40997723
       objectReference: {fileID: 0}
     - target: {fileID: 4285599023775208, guid: c9f422b0822723048aa4e7450c67f5b8, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -335.27
+      value: -491.20502
       objectReference: {fileID: 0}
     - target: {fileID: 4285599023775208, guid: c9f422b0822723048aa4e7450c67f5b8, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
