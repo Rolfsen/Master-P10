@@ -272,6 +272,7 @@ ModelImporter:
     100528: toilet_water
     100530: windows
     100532: sink_01
+    100534: sink_02_001
     400000: //RootNode
     400002: Plane
     400004: Plane_001
@@ -539,6 +540,7 @@ ModelImporter:
     400528: toilet_water
     400530: windows
     400532: sink_01
+    400534: sink_02_001
     2100000: unnamed
     2100002: human_proportion_material
     2100004: bedroom_floor_01_material_001
@@ -829,6 +831,7 @@ ModelImporter:
     2300526: toilet_water
     2300528: windows
     2300530: sink_01
+    2300532: sink_02_001
     3300000: Plane
     3300002: Plane_001
     3300004: Plane_002
@@ -1095,6 +1098,7 @@ ModelImporter:
     3300526: toilet_water
     3300528: windows
     3300530: sink_01
+    3300532: sink_02_001
     4300000: Plane_025
     4300002: Plane_024
     4300004: Plane_015
@@ -1361,6 +1365,7 @@ ModelImporter:
     4300526: bucket_01
     4300528: windows
     4300530: sink_01
+    4300532: sink_02_001
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
