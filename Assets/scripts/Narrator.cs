@@ -4,12 +4,15 @@ using UnityEngine;
 using SpeechLib;
 
 
-public class Narrator : MonoBehaviour {
+public class Narrator : MonoBehaviour
+{
 
 	private AudioSource narrator;
 
-	[SerializeField]private AudioClip bath;
-	[SerializeField]private AudioClip fixing;
+	[SerializeField]
+	private AudioClip bath;
+	[SerializeField]
+	private AudioClip fixing;
 
 	[SerializeField]
 	SpVoice ttsVoice;
@@ -38,28 +41,15 @@ public class Narrator : MonoBehaviour {
 		ttsVoice.Volume = volume;
 		ttsVoice.Rate = rate;
 		ttsVoice.Voice = ttsVoice.GetVoices().Item(voiceID);
-
-
-		
 	}
 
 
-	// Only for debugging
-	private void Update()
+	private void PrepareForNextGame(object sender, MinigameEvents.PrepareForNextMinigameEvent e)
 	{
-
+		StartCoroutine(SoundQuarantine(e.nextGame));
 	}
 
-	private void PrepareForNextGame (object sender, MinigameEvents.PrepareForNextMinigameEvent e)
-	{
-		// Make sure current streamline is over.
-		if (ttsVoice.Status.RunningState != SpeechRunState.SRSEIsSpeaking)
-		{
-
-		}
-	}
-
-	private void TextToSpeechTalk (object sender, NarrativeEvent.TextToSpeechNarratorEvent e)
+	private void TextToSpeechTalk(object sender, NarrativeEvent.TextToSpeechNarratorEvent e)
 	{
 		ttsVoice.Speak(e.text, SpeechVoiceSpeakFlags.SVSFlagsAsync);
 	}
@@ -71,13 +61,23 @@ public class Narrator : MonoBehaviour {
 
 	private void GoToFixingVoice(object sender, GamePlayEvent.StartTaskFixing e)
 	{
-		PlaySound(fixing);				
+		PlaySound(fixing);
 	}
 
-	private void PlaySound (AudioClip clip)
+	private void PlaySound(AudioClip clip)
 	{
 
 		narrator.clip = clip;
 		narrator.Play();
+	}
+
+	// Delay the game until narrator is done speaking
+	IEnumerator SoundQuarantine(int nextGame)
+	{
+		while (ttsVoice.Status.RunningState != SpeechRunState.SRSEDone)
+		{
+			yield return null;
+		}
+		EventBus.TriggerEvent(this, new MinigameEvents.ChangeActiveMinigameEvent(nextGame));
 	}
 }
