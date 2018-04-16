@@ -113,6 +113,32 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &113656216 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114894212417481842, guid: 6f10b0310c9424b47a11fab857c46fb8,
+    type: 2}
+  m_PrefabInternal: {fileID: 2023180894}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!1 &159694820 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1742152090753822, guid: 6f10b0310c9424b47a11fab857c46fb8,
+    type: 2}
+  m_PrefabInternal: {fileID: 2023180894}
+--- !u!114 &159694821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 159694820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1cee2d25e056e44281fae2ac3103a07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiText:
+  - {fileID: 966234182}
+  - {fileID: 2073092308}
+  - {fileID: 113656216}
 --- !u!1 &284363845
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,11 +315,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameName: Install Shower Head
+  afterGameText: 
   id: 0
   replayable: 0
   waterUsed: 0
   waterUsedPerSecond: 0.5
   waterUsingTask: 1
+  IdOfNextMinigame: 0
   waterUsedText: {fileID: 0}
 --- !u!65 &935462612
 BoxCollider:
@@ -307,6 +335,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &966234182 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114497417441145962, guid: 6f10b0310c9424b47a11fab857c46fb8,
+    type: 2}
+  m_PrefabInternal: {fileID: 2023180894}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1273563915
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,11 +456,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameName: Fixing Leaking Pipes
+  afterGameText: 
   id: 1
   replayable: 0
   waterUsed: 0
   waterUsedPerSecond: 32
   waterUsingTask: 0
+  IdOfNextMinigame: 0
   waterUsedText: {fileID: 0}
 --- !u!65 &1626123133
 BoxCollider:
@@ -453,6 +489,111 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2023180894
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 224328165626940980, guid: 6f10b0310c9424b47a11fab857c46fb8,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224328165626940980, guid: 6f10b0310c9424b47a11fab857c46fb8,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224328165626940980, guid: 6f10b0310c9424b47a11fab857c46fb8,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -7.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 224328165626940980, guid: 6f10b0310c9424b47a11fab857c46fb8,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224328165626940980, guid: 6f10b0310c9424b47a11fab857c46fb8,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224328165626940980, guid: 6f10b0310c9424b47a11fab857c46fb8,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224328165626940980, guid: 6f10b0310c9424b47a11fab857c46fb8,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224328165626940980, guid: 6f10b0310c9424b47a11fab857c46fb8,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 224328165626940980, guid: 6f10b0310c9424b47a11fab857c46fb8,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 224328165626940980, guid: 6f10b0310c9424b47a11fab857c46fb8,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 224328165626940980, guid: 6f10b0310c9424b47a11fab857c46fb8,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 224328165626940980, guid: 6f10b0310c9424b47a11fab857c46fb8,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 224328165626940980, guid: 6f10b0310c9424b47a11fab857c46fb8,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224328165626940980, guid: 6f10b0310c9424b47a11fab857c46fb8,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224328165626940980, guid: 6f10b0310c9424b47a11fab857c46fb8,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224328165626940980, guid: 6f10b0310c9424b47a11fab857c46fb8,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224328165626940980, guid: 6f10b0310c9424b47a11fab857c46fb8,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224328165626940980, guid: 6f10b0310c9424b47a11fab857c46fb8,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224328165626940980, guid: 6f10b0310c9424b47a11fab857c46fb8,
+        type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 6f10b0310c9424b47a11fab857c46fb8, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &2053914570
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,3 +711,9 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2073092308 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114524979999291512, guid: 6f10b0310c9424b47a11fab857c46fb8,
+    type: 2}
+  m_PrefabInternal: {fileID: 2023180894}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}

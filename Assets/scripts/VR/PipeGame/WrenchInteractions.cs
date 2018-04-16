@@ -6,15 +6,12 @@ public class WrenchInteractions : MonoBehaviour
 {
     Collider colin;
     Transform transformer;
-    Rigidbody rigidBody;
-    Quaternion deltaRotation;
     bool isHeld=false;
     bool isPlayedSound = false;
     // Use this for initialization
     void Start()
     {
         transformer = gameObject.GetComponent<Transform>();
-        rigidBody = gameObject.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -41,7 +38,7 @@ public class WrenchInteractions : MonoBehaviour
         {
 
             colin = col;
-            deltaRotation = colin.gameObject.transform.rotation;
+            
             isHeld = true;
             GetComponent<Collider>().enabled = false;
            

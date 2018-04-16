@@ -8,6 +8,8 @@ TagManager:
   - Waypoint
   - Dust
   - Liquid
+  - Bucket
+  - VacuumRightSpot
   layers:
   - Default
   - TransparentFX

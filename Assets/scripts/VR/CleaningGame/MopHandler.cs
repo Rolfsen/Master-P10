@@ -10,10 +10,12 @@ public class MopHandler : MonoBehaviour {
     [SerializeField]
     private int count;
     [SerializeField]
-    bool isOnRightSpot = false;
+    //bool isOnRightSpot = false;
     bool isInRange = false;
     bool isPlayedSound = false;
-    bool isHeld = false;
+    // bool isHeld = false;
+    bool isOnRightSpot = false;
+    public bool isControllerPressed = false;
     // Use this for initialization
     void Start()
     {
@@ -44,24 +46,27 @@ public class MopHandler : MonoBehaviour {
                 if (isPlayedSound == false)
                 {
                     EventBus.TriggerEvent(this, new GameStateEvent.GettingTheSoap());
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop the vacuum"));
+                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop the mop now"));
                     isPlayedSound = true;
                 }
-                isHeld = true;
+                //isHeld = true;
 
             }
 
+            if (simpleInteractions.isPressed == false)
+            {
+                transform.position = new Vector3(colin.gameObject.transform.position.x, 0.2f, colin.gameObject.transform.position.z);
+                transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
+            }
 
-            /*
-            if (simpleInteractions.isPressed == false && isOnRightSpot == true)
+            if (simpleInteractions.isPressed == false && isOnRightSpot == true) //PLACED ON THE RIGHT SPOT THAT IS CALLED BUCKET
             {
 
-                transform.position = new Vector3(0.311f, 1.193f, 2.067f);
+                transform.position = new Vector3(-2.779388f, 0.1f, 2.182f);
                 transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
-                isHeld = false;
+                
                 isInRange = false;
             }
-            */
         }
     }
 
@@ -72,6 +77,7 @@ public class MopHandler : MonoBehaviour {
         if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
         {
             simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
+            isControllerPressed = simpleInteractions.isPressed;
             colin = col;
             //deltaRotation = colin.gameObject.transform.rotation;
             isInRange = true;
@@ -84,10 +90,15 @@ public class MopHandler : MonoBehaviour {
     {
         if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
         {
+            isControllerPressed = simpleInteractions.isPressed;
             colin = col;
             isInRange = true;
             simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
 
+        }
+        if(col.gameObject.tag == "Bucket")
+        {
+            isOnRightSpot = true;
         }
     }
 
@@ -95,5 +106,9 @@ public class MopHandler : MonoBehaviour {
     {
         
         isInRange = false;
+        if (col.gameObject.tag == "Bucket")
+        {
+            isOnRightSpot = false;
+        }
     }
 }

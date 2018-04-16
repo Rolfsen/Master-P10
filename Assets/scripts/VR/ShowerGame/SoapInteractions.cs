@@ -24,9 +24,6 @@ public class SoapInteractions : MonoBehaviour {
     bool isInRange = false;
     bool isPlayedSound = false;
     bool isHeld = false;
-    [SerializeField]
-    GameObject soapHandler;
-    Collider soapHandlerCollider;
     // Use this for initialization
     void Start()
     {
