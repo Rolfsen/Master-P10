@@ -115,7 +115,7 @@ Material:
     m_Colors:
     - _BottomColor: {r: 1, g: 1, b: 1, a: 1}
     - _BottomEmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Color: {r: 0.2529, g: 0.1607, b: 0.0764, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _TopColor: {r: 1, g: 1, b: 1, a: 1}

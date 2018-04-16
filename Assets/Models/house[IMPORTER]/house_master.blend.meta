@@ -274,6 +274,10 @@ ModelImporter:
     100532: sink_01
     100534: sink_02_001
     100536: vacuum_001
+<<<<<<< HEAD
+=======
+    100538: house_orig
+>>>>>>> master
     400000: //RootNode
     400002: Plane
     400004: Plane_001
@@ -543,6 +547,10 @@ ModelImporter:
     400532: sink_01
     400534: sink_02_001
     400536: vacuum_001
+<<<<<<< HEAD
+=======
+    400538: house_orig
+>>>>>>> master
     2100000: unnamed
     2100002: human_proportion_material
     2100004: bedroom_floor_01_material_001
@@ -835,6 +843,10 @@ ModelImporter:
     2300530: sink_01
     2300532: sink_02_001
     2300534: vacuum_001
+<<<<<<< HEAD
+=======
+    2300536: house_orig
+>>>>>>> master
     3300000: Plane
     3300002: Plane_001
     3300004: Plane_002
@@ -1103,6 +1115,10 @@ ModelImporter:
     3300530: sink_01
     3300532: sink_02_001
     3300534: vacuum_001
+<<<<<<< HEAD
+=======
+    3300536: house_orig
+>>>>>>> master
     4300000: Plane_025
     4300002: Plane_024
     4300004: Plane_015
@@ -1371,6 +1387,10 @@ ModelImporter:
     4300530: sink_01
     4300532: sink_02_001
     4300534: vacuum_001
+<<<<<<< HEAD
+=======
+    4300536: house_orig
+>>>>>>> master
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
@@ -1453,7 +1473,11 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: chair_01_material
+<<<<<<< HEAD
     second: {fileID: 2100000, guid: 434509f425237e648aa96ffbc8f5b4ad, type: 2}
+=======
+    second: {fileID: 2100000, guid: aabceda496715dd44aaff4f767b2e243, type: 2}
+>>>>>>> master
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -1613,7 +1637,11 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: oven_bulb_glass_01_material
+<<<<<<< HEAD
     second: {fileID: 2100000, guid: 1df526a1f22361842a4457522b1da31b, type: 2}
+=======
+    second: {fileID: 2100000, guid: 981b68512d173ed4b9ae166eda71ca44, type: 2}
+>>>>>>> master
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -1768,7 +1796,11 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: table_02_material
+<<<<<<< HEAD
     second: {fileID: 2100000, guid: a3fdfbf56927a2d4d888f3dbcf657488, type: 2}
+=======
+    second: {fileID: 2100000, guid: 903be2ee42aa0b74daac0829cd60c400, type: 2}
+>>>>>>> master
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
