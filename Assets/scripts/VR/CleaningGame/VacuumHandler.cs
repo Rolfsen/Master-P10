@@ -5,7 +5,6 @@ using UnityEngine;
 public class VacuumHandler : MonoBehaviour
 {
     Collider colin;
-    Transform transformer;
     Rigidbody rigidBody;
     Quaternion deltaRotation;
     SimpleInteractions simpleInteractions;
@@ -15,7 +14,9 @@ public class VacuumHandler : MonoBehaviour
     bool isOnRightSpot = false;
     bool isInRange = false;
     bool isPlayedSound = false;
-    bool isHeld = false;
+   
+
+    public bool isControllerPressed = false;
     // Use this for initialization
     void Start()
     {
@@ -26,9 +27,13 @@ public class VacuumHandler : MonoBehaviour
     void Update()
     {
         IsHeld();
+        IsHeld();
     }
 
-
+    void IsControllerPressed()
+    {
+        isControllerPressed = simpleInteractions.isPressed;
+    }
     private void IsHeld()
     {
         if (isInRange == true)
@@ -45,18 +50,22 @@ public class VacuumHandler : MonoBehaviour
                     EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop the vacuum"));
                     isPlayedSound = true;
                 }
-                isHeld = true;
+                
 
             }
 
-           
+            if (simpleInteractions.isPressed == false)
+            {
+                transform.position = new Vector3(colin.gameObject.transform.position.x, 1.193f, colin.gameObject.transform.position.z);
+                transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
+            }
 
             if (simpleInteractions.isPressed == false && isOnRightSpot == true)
             {
 
-                transform.position = new Vector3(0.311f, 1.193f, 2.067f);
+                transform.position = new Vector3(0.363f, 0.435f, 2.056f);
                 transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
-                isHeld = false;
+               
                 isInRange = false;
             }
         }
@@ -73,6 +82,10 @@ public class VacuumHandler : MonoBehaviour
             //deltaRotation = colin.gameObject.transform.rotation;
             isInRange = true;
             //GetComponent<Collider>().enabled = true;
+            if (col.gameObject.tag == "VacuumRightSpot")
+            {
+                isOnRightSpot = true;
+            }
 
         }
     }
@@ -83,13 +96,21 @@ public class VacuumHandler : MonoBehaviour
         {
             isInRange = true;
             simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
-           
+            if (col.gameObject.tag == "VacuumRightSpot")
+            {
+                isOnRightSpot = true;
+            }
         }
     }
 
     private void OnTriggerExit(Collider col)
     {
         isInRange = false;
+        if (col.gameObject.tag == "VacuumRightSpot")
+        {
+            isOnRightSpot = false;
+        }
+
     }
 }
     /*

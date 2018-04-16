@@ -7,7 +7,7 @@ public class SimpleInteractions : MonoBehaviour
     private SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
 
     private SteamVR_TrackedObject trackedObj; //getting the index from the tracked obj
-    private Valve.VR.EVRButtonId gripButton = Valve.VR.EVRButtonId.k_EButton_Grip;
+    
     private Valve.VR.EVRButtonId triggerButton = Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
     public bool isPressed = false;
     void Start()
