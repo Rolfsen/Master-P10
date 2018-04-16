@@ -28,6 +28,7 @@ public class Narrator : MonoBehaviour {
 		EventBus.AddListener<GamePlayEvent.StartTaskBath>(GoToBathVoice);
 		EventBus.AddListener<GamePlayEvent.StartTaskFixing>(GoToFixingVoice);
 		EventBus.AddListener<NarrativeEvent.TextToSpeechNarratorEvent>(TextToSpeechTalk);
+		EventBus.AddListener<MinigameEvents.PrepareForNextMinigameEvent>(PrepareForNextGame);
 		narrator = GetComponent<AudioSource>();
 	}
 
@@ -37,6 +38,25 @@ public class Narrator : MonoBehaviour {
 		ttsVoice.Volume = volume;
 		ttsVoice.Rate = rate;
 		ttsVoice.Voice = ttsVoice.GetVoices().Item(voiceID);
+
+
+		
+	}
+
+
+	// Only for debugging
+	private void Update()
+	{
+
+	}
+
+	private void PrepareForNextGame (object sender, MinigameEvents.PrepareForNextMinigameEvent e)
+	{
+		// Make sure current streamline is over.
+		if (ttsVoice.Status.RunningState != SpeechRunState.SRSEIsSpeaking)
+		{
+
+		}
 	}
 
 	private void TextToSpeechTalk (object sender, NarrativeEvent.TextToSpeechNarratorEvent e)
