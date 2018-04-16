@@ -273,6 +273,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+--- !u!114 &755290689 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114570569033980204, guid: 6f10b0310c9424b47a11fab857c46fb8,
+    type: 2}
+  m_PrefabInternal: {fileID: 2023180894}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &935462609
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,14 +321,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameName: Install Shower Head
-  afterGameText: 
+  afterGameText: Hello Hello Hello afwefaefasefasgsegaseg 243123123
   id: 0
   replayable: 0
   waterUsed: 0
   waterUsedPerSecond: 0.5
   waterUsingTask: 1
   IdOfNextMinigame: 0
-  waterUsedText: {fileID: 0}
+  introductionToNextMinigame: 
+  startMinigameText: 
+  waterUsedText: {fileID: 755290689}
 --- !u!65 &935462612
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -463,6 +471,8 @@ MonoBehaviour:
   waterUsedPerSecond: 32
   waterUsingTask: 0
   IdOfNextMinigame: 0
+  introductionToNextMinigame: 
+  startMinigameText: 
   waterUsedText: {fileID: 0}
 --- !u!65 &1626123133
 BoxCollider:
