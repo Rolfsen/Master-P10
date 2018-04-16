@@ -32,6 +32,9 @@ public class MinigameData : MonoBehaviour
 	[SerializeField]
 	string introductionToNextMinigame;
 
+	[SerializeField]
+	string startMinigameText;
+
 	bool active;
 
 	bool replayed;
@@ -68,6 +71,7 @@ public class MinigameData : MonoBehaviour
 	{
 		if (e.newID == id)
 		{
+			EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(startMinigameText));
 			active = true;
 		}
 		else

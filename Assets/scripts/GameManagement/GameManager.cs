@@ -22,8 +22,8 @@ public class GameManager : MonoBehaviour {
 	private void Update()
 	{
 		// Debug
-		print(currentID);
-		print(isPlaying);
+		//print(currentID);
+		//print(isPlaying);
 	}
 
 	void UpdateGameStatus (object sender, MinigameEvents.ChangeActiveMinigameEvent e)
