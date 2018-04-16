@@ -13,7 +13,7 @@ public class HandleInteractions : MonoBehaviour {
     private bool isWaterRunning = false;
     private bool ControllerInRange = false;
     private bool isTriggerPressed = false;
-  
+    private float speed = 20f;
     // private Interactions interactionsy;
     SimpleInteractions interactionsy;
     // Use this for initialization
@@ -57,8 +57,19 @@ public class HandleInteractions : MonoBehaviour {
                 isTriggerPressed = false;
             }
     }
+    private void OnTriggerExit(Collider col)
+    {
+        if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+        {
 
-    private float speed = 20f;
+            //colin = col;
+            ControllerInRange = false;
+            col.gameObject.GetComponent<Interactions>().enabled = true;
+            Debug.Log("Stop shining");//highlight
+            //gameObject.transform.parent.position = new Vector3(0f, 0f, 0f);
+        }
+    }
+   
     private void RotateObject()
     {
         if (isTriggerPressed)
@@ -97,18 +108,7 @@ public class HandleInteractions : MonoBehaviour {
         }
     }
 
-    private void OnTriggerExit(Collider col)
-    {
-        if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
-        {
-
-            //colin = col;
-            ControllerInRange = false;
-            col.gameObject.GetComponent<Interactions>().enabled = true;
-            Debug.Log("Stop shining");//highlight
-            //gameObject.transform.parent.position = new Vector3(0f, 0f, 0f);
-        }
-    }
+   
 
     void IsDoneWithRotating()
     {
