@@ -10,6 +10,7 @@ public class SimpleInteractions : MonoBehaviour
     
     private Valve.VR.EVRButtonId triggerButton = Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
     public bool isPressed = false;
+    public bool isHoldingSomething = false;
     void Start()
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
