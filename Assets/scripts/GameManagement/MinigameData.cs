@@ -26,14 +26,20 @@ public class MinigameData : MonoBehaviour
 	[SerializeField]
 	bool waterUsingTask;
 
-	[SerializeField]
-	int IdOfNextMinigame;
+	public int IdOfNextMinigame;
 
 	[SerializeField]
 	string introductionToNextMinigame;
 
 	[SerializeField]
 	string startMinigameText;
+
+
+	[SerializeField]
+	private Text waterUsedText;
+
+	[SerializeField]
+	GameObject RestartMinigame;
 
 	bool active;
 
@@ -44,17 +50,16 @@ public class MinigameData : MonoBehaviour
 	float bestWaterUsage;
 
 	bool complete;
-
-	[SerializeField]
-	private Text waterUsedText;
-
 	private void Awake()
 	{
 		EventBus.AddListener<MinigameEvents.ChangeActiveMinigameEvent>(ToggleActive);
 		EventBus.AddListener<MinigameEvents.ToggleWaterEvent>(ToggleWaterUsage);
 		EventBus.AddListener<MinigameEvents.EndMinigamEvent>(OnMinigameEnd);
+		EventBus.AddListener<MinigameEvents.SingleExecuteWaterUsageEvent>(SingleTimeWaterEvent);
+		EventBus.AddListener<MinigameEvents.ReplyCurrentMinigameSelectedEvent>(ReplayGame);
 		replayed = false;
 		bestWaterUsage = -1;
+		waterUsedText.text = 0.0f + "L";
 	}
 
 
@@ -72,6 +77,7 @@ public class MinigameData : MonoBehaviour
 		if (e.newID == id)
 		{
 			EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(startMinigameText));
+			waterUsedText.text = (int)waterUsed + "L";
 			active = true;
 		}
 		else
@@ -100,7 +106,8 @@ public class MinigameData : MonoBehaviour
 			if (replayable && !replayed)
 			{
 				// Can Replay Game
-				EventBus.TriggerEvent(this, new MinigameEvents.WaitForReplayCurrentGameActionEvent());
+				EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Do you wanna retry this minigame?"));
+				EventBus.TriggerEvent(this, new MinigameEvents.WaitForReplayCurrentGameActionEvent(RestartMinigame));
 			}
 			else
 			{
@@ -129,11 +136,31 @@ public class MinigameData : MonoBehaviour
 		}
 	}
 
+	private void SingleTimeWaterEvent(object sender, MinigameEvents.SingleExecuteWaterUsageEvent e)
+	{
+		if (id == GameManager.currentID && !complete && waterUsingTask && GameManager.isPlaying)
+		{
+			waterUsed += e.waterAmount;
+			waterUsedText.text = (int)waterUsed + "L";
+		}
+	}
+
+	private void ReplayGame (object sender, MinigameEvents.ReplyCurrentMinigameSelectedEvent e)
+	{
+		waterUsed = 0f;
+		complete = false;
+		replayed = true;
+	}
+
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Player") && active && !GameManager.isPlaying && !complete)
 		{
 			EventBus.TriggerEvent(this, new MinigameEvents.StartMinigameEvent());
+		}
+		else
+		{
+			Debug.Log(active + " " + complete);
 		}
 	}
 }

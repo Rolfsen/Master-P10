@@ -16,5 +16,4 @@ public class ManagaProjector : MonoBehaviour {
 	{
 		uiText[GameManager.currentID].text = e.gameName + " " + (int)e.bestWaterUsage + "L";
 	} 
-
 }

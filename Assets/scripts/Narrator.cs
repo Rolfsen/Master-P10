@@ -32,6 +32,7 @@ public class Narrator : MonoBehaviour
 		EventBus.AddListener<GamePlayEvent.StartTaskFixing>(GoToFixingVoice);
 		EventBus.AddListener<NarrativeEvent.TextToSpeechNarratorEvent>(TextToSpeechTalk);
 		EventBus.AddListener<MinigameEvents.PrepareForNextMinigameEvent>(PrepareForNextGame);
+		EventBus.AddListener<MinigameEvents.WaitForReplayCurrentGameActionEvent>(WaitForPlayerReplayChoice);
 		narrator = GetComponent<AudioSource>();
 	}
 
@@ -71,6 +72,11 @@ public class Narrator : MonoBehaviour
 		narrator.Play();
 	}
 
+	public void WaitForPlayerReplayChoice(object sender, MinigameEvents.WaitForReplayCurrentGameActionEvent e)
+	{
+		StartCoroutine(ActivateReplayUI(e.confirmationMenu));
+	}
+
 	// Delay the game until narrator is done speaking
 	IEnumerator SoundQuarantine(int nextGame)
 	{
@@ -79,5 +85,14 @@ public class Narrator : MonoBehaviour
 			yield return null;
 		}
 		EventBus.TriggerEvent(this, new MinigameEvents.ChangeActiveMinigameEvent(nextGame));
+	}
+
+	IEnumerator ActivateReplayUI(GameObject obj)
+	{
+		while (ttsVoice.Status.RunningState != SpeechRunState.SRSEDone)
+		{
+			yield return null;
+		}
+		obj.SetActive(true);
 	}
 }

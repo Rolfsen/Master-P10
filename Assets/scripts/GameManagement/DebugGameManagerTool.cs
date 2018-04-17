@@ -8,6 +8,8 @@ public class DebugGameManagerTool : MonoBehaviour {
 	[SerializeField]
 	int id;
 
+	[SerializeField]
+	int amountOfWater;
 
 
 	private void Update()
@@ -29,6 +31,11 @@ public class DebugGameManagerTool : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Alpha3))
 		{
 			EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
+		}
+		
+		if (Input.GetKeyDown(KeyCode.Alpha4))
+		{
+			EventBus.TriggerEvent(this, new MinigameEvents.SingleExecuteWaterUsageEvent(amountOfWater));
 		}
 	}
 }

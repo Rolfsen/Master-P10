@@ -42,14 +42,12 @@ public class MinigameEvents : BaseEvent {
 	
 	public class SingleExecuteWaterUsageEvent : MinigameEvents
 	{
-		public SingleExecuteWaterUsageEvent(int waterAmount, int minigameID)
+		public SingleExecuteWaterUsageEvent(int waterAmount)
 		{
 			this.waterAmount = waterAmount;
-			this.minigameID = minigameID;
 		}
 
 		public int waterAmount { get; private set;}
-		public int minigameID { get; private set;}
 	}
 
 	public class GetDateFromMinigame : MinigameEvents
@@ -92,6 +90,12 @@ public class MinigameEvents : BaseEvent {
 
 	public class WaitForReplayCurrentGameActionEvent : MinigameEvents
 	{
+		public WaitForReplayCurrentGameActionEvent(GameObject confirmationMenu)
+		{
+			this.confirmationMenu = confirmationMenu;
+		}
+
+		public GameObject confirmationMenu { get; private set; }
 
 	}
 
@@ -106,5 +110,10 @@ public class MinigameEvents : BaseEvent {
 
 		public int nextGame { get; private set; }
 		public string introductionToNextGame { get; private set; }
+	}
+
+	public class ReplyCurrentMinigameSelectedEvent : MinigameEvents
+	{
+
 	}
 }
