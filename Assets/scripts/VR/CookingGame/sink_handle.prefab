@@ -21,11 +21,11 @@ GameObject:
   - component: {fileID: 4865802746349992}
   - component: {fileID: 33753910953735760}
   - component: {fileID: 23574809835810230}
-  - component: {fileID: 114838395087941208}
-  - component: {fileID: 54479280099109222}
   - component: {fileID: 65994662649513666}
   - component: {fileID: 135942685567315002}
-  - component: {fileID: 114298532395193960}
+  - component: {fileID: 54944343609380188}
+  - component: {fileID: 114735665438617482}
+  - component: {fileID: 114621812079632628}
   m_Layer: 0
   m_Name: sink_handle
   m_TagString: Untagged
@@ -87,7 +87,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1965934084838236}
   m_Mesh: {fileID: 4300026, guid: ccafa39671b51cd4eb0f9e3eedd5508b, type: 3}
---- !u!54 &54479280099109222
+--- !u!54 &54944343609380188
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -98,9 +98,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 110
   m_CollisionDetection: 0
 --- !u!65 &65994662649513666
 BoxCollider:
@@ -114,7 +114,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.09705496, y: 0.13205981, z: 0.090914786}
   m_Center: {x: -0.000021457672, y: 0.002551794, z: -0.00620839}
---- !u!114 &114298532395193960
+--- !u!114 &114621812079632628
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -122,28 +122,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1965934084838236}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 264bf5618603d1d4b9aba9aed7e41f98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sinkParticle: {fileID: 0}
-  count: 0
---- !u!114 &114838395087941208
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1965934084838236}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe09549e3bfb84949a29aafbcfc118d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 0}
   interactionPoint: {fileID: 0}
-  velocityFactor: 2000
-  rotationFactor: 2000
+  velocityFactor: 400
+  rotationFactor: 400
   rotationDelta: {x: 0, y: 0, z: 0, w: 0}
   angle: 0
+--- !u!114 &114735665438617482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1965934084838236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef12ce59f065e344be74f6aeeb2b1ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sinkParticle: {fileID: 0}
+  count: 0
 --- !u!135 &135942685567315002
 SphereCollider:
   m_ObjectHideFlags: 1

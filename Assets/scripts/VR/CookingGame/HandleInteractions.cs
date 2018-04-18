@@ -64,7 +64,6 @@ public class HandleInteractions : MonoBehaviour {
 
             //colin = col;
             ControllerInRange = false;
-            col.gameObject.GetComponent<Interactions>().enabled = true;
             Debug.Log("Stop shining");//highlight
             //gameObject.transform.parent.position = new Vector3(0f, 0f, 0f);
         }

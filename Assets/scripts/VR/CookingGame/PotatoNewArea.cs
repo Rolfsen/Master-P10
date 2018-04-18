@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PotatoNewArea : MonoBehaviour {
+    [SerializeField]
     int count = 0;
 	// Use this for initialization
 	void Start () {
@@ -16,7 +17,7 @@ public class PotatoNewArea : MonoBehaviour {
 
     private void OnTriggerEnter(Collider col)
         {
-            if(col.gameObject.tag == "PeeledPotato")
+            if(col.gameObject.tag == "PeeledPotato" && col.gameObject.GetComponent<PotatoInteractions>().isCleanedDone == true)
             {
             count++;
             if(count==3)
