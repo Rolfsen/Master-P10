@@ -35,15 +35,15 @@ public class PeelerInteractions : MonoBehaviour {
 
     private void IsHeld()
     {
-        if (isInRange == true)
+        if (isInRange == true) // OnTriggerStay?
         {
-            if (simpleInteractions.isPressed == true)
+            if (simpleInteractions.isPressed == true) // I guess the problem is here? and same place at the other code
             {
 
                 //transform.position = new Vector3(colin.gameObject.transform.position.x, colin.gameObject.transform.position.y, colin.gameObject.transform.position.z);
                 //transform.rotation = new Quaternion(colin.gameObject.transform.rotation.y, colin.gameObject.transform.rotation.y, colin.gameObject.transform.rotation.y, colin.gameObject.transform.rotation.y);
-                transform.position = colin.gameObject.transform.position;
-                transform.rotation = colin.gameObject.transform.rotation;
+                transform.position = colin.transform.position;
+                transform.rotation = colin.transform.rotation;
                 isItHoldingSomething = true;
                 if (isPlayedSound == false)
                 {

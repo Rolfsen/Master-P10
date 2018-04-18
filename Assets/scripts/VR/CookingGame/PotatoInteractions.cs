@@ -28,7 +28,7 @@ public class PotatoInteractions : MonoBehaviour
     [SerializeField]
     bool isItHoldingMe = false;
 
-    enum HandStates { hold, notHold, };
+    enum HandStates { hold, notHold };
 
     HandStates thisPotato;
 
@@ -44,8 +44,8 @@ public class PotatoInteractions : MonoBehaviour
     {
        // if (activeMinigame)
        // {
-            IsHeld();
-            IsPotatoClean();
+            IsHeld(); 
+            IsPotatoClean(); // Do initial check here, no reason for calling using a function call if it ends up doing nothing but the check
             IsItPeeled();
        // }
     }
@@ -57,7 +57,7 @@ public class PotatoInteractions : MonoBehaviour
 
     private void IsItPeeled()
     {
-        if (peelMeter >= 3 && isPeeled == false)
+        if (peelMeter >= 3 && isPeeled == false) // I don't like this is in update - should be possible to only check each time you peel it
         {
 
             Debug.Log("potato is peeled now");
@@ -69,7 +69,7 @@ public class PotatoInteractions : MonoBehaviour
 
     private void IsHeld()
     {
-        if (isInRange == true)
+        if (isInRange == true) // So onTriggerStay?
         {
             if (isControllerPressed == true)
             {
@@ -110,7 +110,7 @@ public class PotatoInteractions : MonoBehaviour
 
     private void IsPotatoClean()
     {
-        if (isCleaned == true)
+        if (isCleaned == true) // isBeingWashed is better, isCleaned make it sounds like it is now clean
         {
 
             cleanMeter++;
@@ -154,8 +154,8 @@ public class PotatoInteractions : MonoBehaviour
             isCleaned = true;
         }
 
-        if (col.gameObject.tag == "Peeler" && peelMeter <= 3)
-        {
+        if (col.gameObject.tag == "Peeler" && peelMeter <= 3) // col.gameObject.CompareTag("Peeler") use this
+		{
             Debug.Log("its getting peeled");
             peelingStarts = true;
             peelMeter++;
@@ -182,7 +182,7 @@ public class PotatoInteractions : MonoBehaviour
             }
 
         }
-        if (col.gameObject.name == "PotatoPlace")
+        if (col.gameObject.name == "PotatoPlace") // You should probably not have this on stay but enter
         {
             isOnRightSpot = true;
         }
