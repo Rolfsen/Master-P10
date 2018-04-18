@@ -214,7 +214,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 284363845}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 1.47, z: -12.294}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -259,7 +259,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &332344227
 MonoBehaviour:
@@ -273,82 +273,144 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  amountOfWater: 0
+--- !u!1001 &536934746
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4952095023302540, guid: a2c061a238afbd94fb83805fb9f6dc96, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 4952095023302540, guid: a2c061a238afbd94fb83805fb9f6dc96, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4952095023302540, guid: a2c061a238afbd94fb83805fb9f6dc96, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -7.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4952095023302540, guid: a2c061a238afbd94fb83805fb9f6dc96, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4952095023302540, guid: a2c061a238afbd94fb83805fb9f6dc96, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4952095023302540, guid: a2c061a238afbd94fb83805fb9f6dc96, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4952095023302540, guid: a2c061a238afbd94fb83805fb9f6dc96, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4952095023302540, guid: a2c061a238afbd94fb83805fb9f6dc96, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114981290948970316, guid: a2c061a238afbd94fb83805fb9f6dc96,
+        type: 2}
+      propertyPath: waterUsedText
+      value: 
+      objectReference: {fileID: 755290689}
+    - target: {fileID: 114981290948970316, guid: a2c061a238afbd94fb83805fb9f6dc96,
+        type: 2}
+      propertyPath: afterGameText
+      value: 'The minigame is complete '
+      objectReference: {fileID: 0}
+    - target: {fileID: 114981290948970316, guid: a2c061a238afbd94fb83805fb9f6dc96,
+        type: 2}
+      propertyPath: startMinigameText
+      value: I just started my install game
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a2c061a238afbd94fb83805fb9f6dc96, type: 2}
+  m_IsPrefabParent: 0
+--- !u!114 &656237205 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114449919349886600, guid: 6f10b0310c9424b47a11fab857c46fb8,
+    type: 2}
+  m_PrefabInternal: {fileID: 2023180894}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &755290689 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114570569033980204, guid: 6f10b0310c9424b47a11fab857c46fb8,
     type: 2}
   m_PrefabInternal: {fileID: 2023180894}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
---- !u!1 &935462609
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 935462610}
-  - component: {fileID: 935462612}
-  - component: {fileID: 935462611}
-  m_Layer: 0
-  m_Name: MinigameInitiation
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &935462610
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 935462609}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.68, y: 0.85, z: -7.12}
-  m_LocalScale: {x: 3, y: 3, z: 3}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &935462611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 935462609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acbfd05a761b48148ad39f130db4708d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameName: Install Shower Head
-  afterGameText: Hello Hello Hello afwefaefasefasgsegaseg 243123123
-  id: 0
-  replayable: 0
-  waterUsed: 0
-  waterUsedPerSecond: 0.5
-  waterUsingTask: 1
-  IdOfNextMinigame: 0
-  introductionToNextMinigame: 
-  startMinigameText: 
-  waterUsedText: {fileID: 755290689}
---- !u!65 &935462612
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 935462609}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &966234182 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114497417441145962, guid: 6f10b0310c9424b47a11fab857c46fb8,
     type: 2}
   m_PrefabInternal: {fileID: 2023180894}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!1 &1184620450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1184620453}
+  - component: {fileID: 1184620452}
+  - component: {fileID: 1184620451}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1184620451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1184620450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1184620452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1184620450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 5
+--- !u!4 &1184620453
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1184620450}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1273563915
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,70 +497,92 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1626123131
-GameObject:
+--- !u!1001 &1858959169
+Prefab:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1626123134}
-  - component: {fileID: 1626123133}
-  - component: {fileID: 1626123132}
-  m_Layer: 0
-  m_Name: MinigameInitiation (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1626123132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1626123131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acbfd05a761b48148ad39f130db4708d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameName: Fixing Leaking Pipes
-  afterGameText: 
-  id: 1
-  replayable: 0
-  waterUsed: 0
-  waterUsedPerSecond: 32
-  waterUsingTask: 0
-  IdOfNextMinigame: 0
-  introductionToNextMinigame: 
-  startMinigameText: 
-  waterUsedText: {fileID: 0}
---- !u!65 &1626123133
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1626123131}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 3, z: 3}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &1626123134
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1626123131}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.44, y: 0.85, z: -7.66}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4952095023302540, guid: a2c061a238afbd94fb83805fb9f6dc96, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.9552426
+      objectReference: {fileID: 0}
+    - target: {fileID: 4952095023302540, guid: a2c061a238afbd94fb83805fb9f6dc96, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4952095023302540, guid: a2c061a238afbd94fb83805fb9f6dc96, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -6.8728905
+      objectReference: {fileID: 0}
+    - target: {fileID: 4952095023302540, guid: a2c061a238afbd94fb83805fb9f6dc96, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4952095023302540, guid: a2c061a238afbd94fb83805fb9f6dc96, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4952095023302540, guid: a2c061a238afbd94fb83805fb9f6dc96, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4952095023302540, guid: a2c061a238afbd94fb83805fb9f6dc96, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4952095023302540, guid: a2c061a238afbd94fb83805fb9f6dc96, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1275906717459260, guid: a2c061a238afbd94fb83805fb9f6dc96, type: 2}
+      propertyPath: m_Name
+      value: MinigameInitiation (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114981290948970316, guid: a2c061a238afbd94fb83805fb9f6dc96,
+        type: 2}
+      propertyPath: gameName
+      value: Fixing Pipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 114981290948970316, guid: a2c061a238afbd94fb83805fb9f6dc96,
+        type: 2}
+      propertyPath: afterGameText
+      value: NANANANANA DEATHBRINGER HERE I AM
+      objectReference: {fileID: 0}
+    - target: {fileID: 114981290948970316, guid: a2c061a238afbd94fb83805fb9f6dc96,
+        type: 2}
+      propertyPath: id
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114981290948970316, guid: a2c061a238afbd94fb83805fb9f6dc96,
+        type: 2}
+      propertyPath: replayable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114981290948970316, guid: a2c061a238afbd94fb83805fb9f6dc96,
+        type: 2}
+      propertyPath: waterUsedPerSecond
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114981290948970316, guid: a2c061a238afbd94fb83805fb9f6dc96,
+        type: 2}
+      propertyPath: IdOfNextMinigame
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114981290948970316, guid: a2c061a238afbd94fb83805fb9f6dc96,
+        type: 2}
+      propertyPath: waterUsedText
+      value: 
+      objectReference: {fileID: 656237205}
+    - target: {fileID: 114981290948970316, guid: a2c061a238afbd94fb83805fb9f6dc96,
+        type: 2}
+      propertyPath: startMinigameText
+      value: The pipe game was just started, go to area
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a2c061a238afbd94fb83805fb9f6dc96, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &2023180894
 Prefab:
   m_ObjectHideFlags: 0
@@ -544,17 +628,17 @@ Prefab:
     - target: {fileID: 224328165626940980, guid: 6f10b0310c9424b47a11fab857c46fb8,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224328165626940980, guid: 6f10b0310c9424b47a11fab857c46fb8,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -0.85
+      value: -2.59
       objectReference: {fileID: 0}
     - target: {fileID: 224328165626940980, guid: 6f10b0310c9424b47a11fab857c46fb8,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 1.25
+      value: 3.18
       objectReference: {fileID: 0}
     - target: {fileID: 224328165626940980, guid: 6f10b0310c9424b47a11fab857c46fb8,
         type: 2}
