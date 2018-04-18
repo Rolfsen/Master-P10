@@ -318,6 +318,16 @@ Prefab:
       propertyPath: waterUsedText
       value: 
       objectReference: {fileID: 755290689}
+    - target: {fileID: 114981290948970316, guid: a2c061a238afbd94fb83805fb9f6dc96,
+        type: 2}
+      propertyPath: afterGameText
+      value: 'The minigame is complete '
+      objectReference: {fileID: 0}
+    - target: {fileID: 114981290948970316, guid: a2c061a238afbd94fb83805fb9f6dc96,
+        type: 2}
+      propertyPath: startMinigameText
+      value: I just started my install game
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a2c061a238afbd94fb83805fb9f6dc96, type: 2}
   m_IsPrefabParent: 0
@@ -565,6 +575,11 @@ Prefab:
       propertyPath: waterUsedText
       value: 
       objectReference: {fileID: 656237205}
+    - target: {fileID: 114981290948970316, guid: a2c061a238afbd94fb83805fb9f6dc96,
+        type: 2}
+      propertyPath: startMinigameText
+      value: The pipe game was just started, go to area
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a2c061a238afbd94fb83805fb9f6dc96, type: 2}
   m_IsPrefabParent: 0

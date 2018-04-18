@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour {
 		isPlaying = false;
 
 		// Debug Narration Event: Delete For Final Test
-		EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Debug Narration Event: New Active Minigame with ID " + e.newID));
+		//EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Debug Narration Event: New Active Minigame with ID " + e.newID));
 	}
 
 	void StartMinigame (object sender, MinigameEvents.StartMinigameEvent e)
@@ -40,6 +40,6 @@ public class GameManager : MonoBehaviour {
 		print("Started Minigame");
 		isPlaying = true;
 		// Debug Narration Event: Delete For Final Test
-		EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Debug Narration Event: Minigame Initiated with ID: " + currentID ));
+		//EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Debug Narration Event: Minigame Initiated with ID: " + currentID ));
 	}
 }
