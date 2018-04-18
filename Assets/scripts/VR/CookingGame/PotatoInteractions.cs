@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PotatoInteractions : MonoBehaviour {
+public class PotatoInteractions : MonoBehaviour
+{
 
     Collider colin;
     Rigidbody rigidBody;
@@ -15,27 +16,46 @@ public class PotatoInteractions : MonoBehaviour {
     bool isOnRightSpot = false;
     public bool isControllerPressed = false;
     [SerializeField]
-    GameObject otherPotato1,otherPotato2;
+    GameObject otherPotato1, otherPotato2;
     bool isCleaned = false;
     public bool isCleanedDone = false;
     int cleanMeter = 0;
-    void Start()
-    {
-
-    }
-
-
-    void Update()
-    {
-        IsHeld();
-        IsPotatoClean();
-        IsItPeeled();
-    }
-   
     bool peelingStarts = false;
     bool isPeeled = false;
     int peelMeter;
-    void IsItPeeled()
+    [SerializeField]
+    bool isItHoldingSomething = false;
+    [SerializeField]
+    bool isItHoldingMe = false;
+
+    enum HandStates { hold, notHold, };
+
+    HandStates thisPotato;
+
+    bool activeMinigame;
+
+    private void Awake()
+    {
+        activeMinigame = false;
+        EventBus.AddListener<MinigameEvents.StartMinigameEvent>(ToggleActive);
+    }
+
+    void Update()
+    {
+       // if (activeMinigame)
+       // {
+            IsHeld();
+            IsPotatoClean();
+            IsItPeeled();
+       // }
+    }
+
+    private void ToggleActive(object sender, MinigameEvents.StartMinigameEvent e)
+    {
+        activeMinigame = true;
+    }
+
+    private void IsItPeeled()
     {
         if (peelMeter >= 3 && isPeeled == false)
         {
@@ -60,7 +80,7 @@ public class PotatoInteractions : MonoBehaviour {
                 otherPotato2.GetComponent<PotatoInteractions>().enabled = false;
                 if (isPlayedSound == false)
                 {
-                    
+
                     EventBus.TriggerEvent(this, new GameStateEvent.GettingTheSoap());
                     EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop the potato now"));
                     isPlayedSound = true;
@@ -74,9 +94,9 @@ public class PotatoInteractions : MonoBehaviour {
                 transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
             }
             */
-            if (simpleInteractions.isPressed == false && isOnRightSpot == true && isCleanedDone==true && isPeeled==true) //PLACED ON THE RIGHT SPOT THAT IS CALLED BUCKET
+            if (simpleInteractions.isPressed == false && isOnRightSpot == true && isCleanedDone == true && isPeeled == true) //PLACED ON THE RIGHT SPOT THAT IS CALLED BUCKET
             {
-                
+
                 transform.position = new Vector3(2.333f, 1.066f, 4.722f);
                 transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
                 otherPotato1.GetComponent<PotatoInteractions>().enabled = true;
@@ -87,10 +107,21 @@ public class PotatoInteractions : MonoBehaviour {
             }
         }
     }
-    [SerializeField]
-    bool isItHoldingSomething = false;
-    [SerializeField]
-    bool isItHoldingMe = false;
+
+    private void IsPotatoClean()
+    {
+        if (isCleaned == true)
+        {
+
+            cleanMeter++;
+            if (cleanMeter > 100)
+            {
+                Debug.Log("its clean now");
+                isCleanedDone = true;
+                cleanMeter = 0;
+            }
+        }
+    }
 
     private void OnTriggerEnter(Collider col)
     {
@@ -105,7 +136,7 @@ public class PotatoInteractions : MonoBehaviour {
 
             }
             else if (isItHoldingSomething == false)
-            { 
+            {
                 col.gameObject.GetComponent<Interactions>().enabled = false;
                 simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
                 isControllerPressed = simpleInteractions.isPressed;
@@ -117,7 +148,7 @@ public class PotatoInteractions : MonoBehaviour {
 
         }
 
-        if(col.gameObject.name == "SinkWater")
+        if (col.gameObject.name == "SinkWater")
         {
             Debug.Log("i am getting washed");
             isCleaned = true;
@@ -131,20 +162,7 @@ public class PotatoInteractions : MonoBehaviour {
 
         }
     }
-    void IsPotatoClean()
-    {
-        if(isCleaned==true)
-        {
-            
-            cleanMeter++;
-            if(cleanMeter>100)
-            {
-                Debug.Log("its clean now");
-                isCleanedDone = true;
-                cleanMeter = 0;
-            }
-        }
-    }
+
     private void OnTriggerStay(Collider col)
     {
         if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
@@ -155,7 +173,7 @@ public class PotatoInteractions : MonoBehaviour {
 
             }
             if (isItHoldingSomething == false)
-            { 
+            {
                 isControllerPressed = simpleInteractions.isPressed;
                 colin = col;
                 isInRange = true;
@@ -172,17 +190,17 @@ public class PotatoInteractions : MonoBehaviour {
 
     private void OnTriggerExit(Collider col)
     {
-        if(col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
-            { 
-                
-                 col.gameObject.GetComponent<Interactions>().enabled = true;
+        if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+        {
+
+            col.gameObject.GetComponent<Interactions>().enabled = true;
             if (col.gameObject.tag == "IsHolding")
-                {
+            {
 
                 isItHoldingSomething = false;
                 col.gameObject.tag = "Untagged";
             }
-            
+
         }
 
         isInRange = false;
