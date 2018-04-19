@@ -8,6 +8,7 @@ public class WrenchInteractions : MonoBehaviour
     Transform transformer;
     bool isHeld=false;
     bool isPlayedSound = false;
+    Vector3 rotEu;
     // Use this for initialization
     void Start()
     {
@@ -19,9 +20,15 @@ public class WrenchInteractions : MonoBehaviour
     {
         if(isHeld == true)
         {
-            transformer.position = colin.gameObject.transform.position;
-            transformer.rotation = colin.gameObject.transform.rotation;
-            if(isPlayedSound == false)
+            
+            //transform.rotation = Quaternion.Euler(rot);
+            //transformer.position = colin.gameObject.transform.position;
+            // transformer.rotation = colin.gameObject.transform.rotation;
+            transformer.position = new Vector3(colin.gameObject.transform.position.x, colin.gameObject.transform.position.y, colin.gameObject.transform.position.z);
+
+            
+            transformer.rotation = Quaternion.Euler(new Vector3(colin.gameObject.transform.rotation.eulerAngles.x, colin.gameObject.transform.rotation.eulerAngles.y , colin.gameObject.transform.rotation.eulerAngles.z));
+            if (isPlayedSound == false)
             {
                 EventBus.TriggerEvent(this, new GameStateEvent.AfterPickUpWrench());
                 EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Now fix the pipes boiiiiiiii"));
@@ -40,11 +47,19 @@ public class WrenchInteractions : MonoBehaviour
             colin = col;
             
             isHeld = true;
-            GetComponent<Collider>().enabled = false;
+            col.GetComponent<Collider>().enabled = false;
            
         }
     }
+    private void OnTriggerStay(Collider col)
+    {
+        
+    }
 
+    private void OnTriggerExit(Collider col)
+    {
+        col.GetComponent<Collider>().enabled = false;
+    }
 }
 
 /*

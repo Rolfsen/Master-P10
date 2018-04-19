@@ -6,7 +6,6 @@ public class VacuumHandler : MonoBehaviour
 {
     Collider colin;
     Rigidbody rigidBody;
-    Quaternion deltaRotation;
     SimpleInteractions simpleInteractions;
     [SerializeField]
     private int count;
@@ -16,7 +15,7 @@ public class VacuumHandler : MonoBehaviour
     bool isPlayedSound = false;
    
 
-    public bool isControllerPressed = false;
+   public bool isControllerPressed = false;
     // Use this for initialization
     void Start()
     {
@@ -27,12 +26,12 @@ public class VacuumHandler : MonoBehaviour
     void Update()
     {
         IsHeld();
-        IsHeld();
+        //IsControllerPressed();
     }
 
     void IsControllerPressed()
     {
-        isControllerPressed = simpleInteractions.isPressed;
+        //isControllerPressed = simpleInteractions.isPressed;
     }
     private void IsHeld()
     {
@@ -42,8 +41,8 @@ public class VacuumHandler : MonoBehaviour
             {
                 // soapHandlerCollider = soapHandler.GetComponent<Collider>();
                 // soapHandlerCollider.enabled = false;
-                transform.position = new Vector3(colin.gameObject.transform.position.x, 1.193f, colin.gameObject.transform.position.z);
-                transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
+                transform.position = new Vector3(colin.gameObject.transform.position.x, 1.190f, colin.gameObject.transform.position.z);
+                transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y+transform.rotation.y, transform.rotation.z, transform.rotation.w);
                 if (isPlayedSound == false)
                 {
                     EventBus.TriggerEvent(this, new GameStateEvent.GettingTheSoap());
@@ -53,7 +52,7 @@ public class VacuumHandler : MonoBehaviour
                 
 
             }
-
+            
             if (simpleInteractions.isPressed == false)
             {
                 transform.position = new Vector3(colin.gameObject.transform.position.x, 1.193f, colin.gameObject.transform.position.z);
@@ -70,7 +69,7 @@ public class VacuumHandler : MonoBehaviour
             }
         }
     }
-
+    
     private void OnTriggerEnter(Collider col)
     {
 
@@ -78,15 +77,18 @@ public class VacuumHandler : MonoBehaviour
         if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
         {
             simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
+            isControllerPressed = simpleInteractions.isPressed;
             colin = col;
             //deltaRotation = colin.gameObject.transform.rotation;
             isInRange = true;
             //GetComponent<Collider>().enabled = true;
-            if (col.gameObject.tag == "VacuumRightSpot")
-            {
-                isOnRightSpot = true;
-            }
+           
 
+        }
+
+        else if (col.gameObject.tag == "VacuumRightSpot")
+        {
+            isOnRightSpot = true;
         }
     }
 
@@ -94,12 +96,15 @@ public class VacuumHandler : MonoBehaviour
     {
         if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
         {
+            isControllerPressed = simpleInteractions.isPressed;
+            colin = col;
             isInRange = true;
             simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
-            if (col.gameObject.tag == "VacuumRightSpot")
-            {
-                isOnRightSpot = true;
-            }
+
+        }
+        else if (col.gameObject.tag == "VacuumRightSpot")
+        {
+            isOnRightSpot = true;
         }
     }
 

@@ -8,12 +8,15 @@ public class PipeInteractions : MonoBehaviour {
     Quaternion rotationDelta;
     [SerializeField]
     private int count;
+    Rigidbody rigidBody;
 
     private bool isFixed = false;
     // Use this for initialization
     void Start () {
         transformer = GetComponent<Transform>();
-	}
+        rigidBody = GetComponent<Rigidbody>();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -34,6 +37,7 @@ public class PipeInteractions : MonoBehaviour {
                     EventBus.TriggerEvent(this, new GameStateEvent.APipeIsFixed());
                     EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Now fix the rest"));
                 }
+                rigidBody.isKinematic = true;
                 Debug.Log("succesfull rotation");
                 isFixed = true;
                 pipeParticle.SetActive(false);

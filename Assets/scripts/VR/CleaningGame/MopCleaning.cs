@@ -48,7 +48,7 @@ public class MopCleaning : MonoBehaviour {
                     mopCleanMeter++;
                     Debug.Log(mopCleanMeter);
                     colin.gameObject.SetActive(false);
-                    
+                    correctSurface = false;
                     EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("The spot is clear"));
                     isCleaningNowSound = false;
                     count = 0;
@@ -86,13 +86,16 @@ public class MopCleaning : MonoBehaviour {
             correctSurface = true;
             colin = col;
         }
-        if(col.gameObject.tag == "Bucket")
+       else if(col.gameObject.tag == "Bucket")
         {
             EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("The mop is clean now"));
             isMopDirty = false;
             isMopDirtySound = false;
             mopCleanMeter = 0;
-           
+            //PUT THE WATER HERE
+            EventBus.TriggerEvent(this, new MinigameEvents.SingleExecuteWaterUsageEvent(4));
+            //EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent()); when water is turned on
+
             Debug.Log("ur mop is clean now");
         }
     }
