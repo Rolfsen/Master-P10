@@ -121,12 +121,9 @@ Shader "DCC/Dissolve Overlay" {
                 float4 node_3266 = _Time;
                 float2 node_5279 = (i.uv0+(float2(_OverlayUSpeed,_OverlayVSpeed)*(_OverlaySpeed*node_3266.g)));
                 float4 _Overlay_var = tex2D(_Overlay,TRANSFORM_TEX(node_5279, _Overlay));
-                float3 node_8360 = (_Overlay_var.rgb*_OverlayColor.rgb);
                 float4 node_9150 = tex2D(_Maintex,TRANSFORM_TEX(i.uv0, _Maintex));
                 float4 _OverlayMask_var = tex2D(_OverlayMask,TRANSFORM_TEX(i.uv0, _OverlayMask));
-                float node_3900 = saturate((_OverlayMask_var.r*_OverlayMaskIntensity));
-                float3 node_6177 = lerp(node_8360,(_MaintexColor.rgb*node_9150.rgb),lerp((1.0 - _OverlayIntensity),1.0,node_3900));
-                float3 diffuseColor = lerp(node_6177,_DissolveColor.rgb,(_DissolveColorIntensity*saturate(node_6083)));
+                float3 diffuseColor = lerp(lerp((_Overlay_var.rgb*_OverlayColor.rgb),(_MaintexColor.rgb*node_9150.rgb),lerp((1.0 - _OverlayIntensity),1.0,saturate((_OverlayMask_var.r*_OverlayMaskIntensity)))),_DissolveColor.rgb,(_DissolveColorIntensity*saturate(node_6083)));
                 float3 diffuse = (directDiffuse + indirectDiffuse) * diffuseColor;
 /// Final Color:
                 float3 finalColor = diffuse;
@@ -225,12 +222,9 @@ Shader "DCC/Dissolve Overlay" {
                 float4 node_3266 = _Time;
                 float2 node_5279 = (i.uv0+(float2(_OverlayUSpeed,_OverlayVSpeed)*(_OverlaySpeed*node_3266.g)));
                 float4 _Overlay_var = tex2D(_Overlay,TRANSFORM_TEX(node_5279, _Overlay));
-                float3 node_8360 = (_Overlay_var.rgb*_OverlayColor.rgb);
                 float4 node_9150 = tex2D(_Maintex,TRANSFORM_TEX(i.uv0, _Maintex));
                 float4 _OverlayMask_var = tex2D(_OverlayMask,TRANSFORM_TEX(i.uv0, _OverlayMask));
-                float node_3900 = saturate((_OverlayMask_var.r*_OverlayMaskIntensity));
-                float3 node_6177 = lerp(node_8360,(_MaintexColor.rgb*node_9150.rgb),lerp((1.0 - _OverlayIntensity),1.0,node_3900));
-                float3 diffuseColor = lerp(node_6177,_DissolveColor.rgb,(_DissolveColorIntensity*saturate(node_6083)));
+                float3 diffuseColor = lerp(lerp((_Overlay_var.rgb*_OverlayColor.rgb),(_MaintexColor.rgb*node_9150.rgb),lerp((1.0 - _OverlayIntensity),1.0,saturate((_OverlayMask_var.r*_OverlayMaskIntensity)))),_DissolveColor.rgb,(_DissolveColorIntensity*saturate(node_6083)));
                 float3 diffuse = directDiffuse * diffuseColor;
 /// Final Color:
                 float3 finalColor = diffuse;

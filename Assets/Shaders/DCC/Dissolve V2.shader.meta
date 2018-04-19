@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 33301dc73060fa44292a389a56ed300c
+timeCreated: 1513715396
+licenseType: Free
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _DissolveRamp: {fileID: 2800000, guid: 6fa2da5812151d44080768c7ba24c1fd, type: 3}
+  - _DissolveNoise: {fileID: 2800000, guid: 05424ee8b833b064ab273c2b70d23ea0, type: 3}
+  - _Maintex: {fileID: 2800000, guid: 191a11b8e4471d7479b650889ce7bd23, type: 3}
+  - _DissolveTexture: {fileID: 2800000, guid: 30f3a350ae91f59429d2aa1f165d209e, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
