@@ -25,9 +25,11 @@ GameObject:
   - component: {fileID: 54030692464642022}
   - component: {fileID: 135363046563793272}
   - component: {fileID: 114838852123302686}
+  - component: {fileID: 114586633126942682}
+  - component: {fileID: 114065428024409856}
   m_Layer: 0
   m_Name: potato_01 (1)
-  m_TagString: Untagged
+  m_TagString: Potato
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,13 +120,39 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114838852123302686
+--- !u!114 &114065428024409856
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1386547726380084}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa5cdb38aee6304fb157aceebecee87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114586633126942682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1386547726380084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dabb49b613215d2448c60af144acf9f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  count: 0
+  isControllerPressed: 0
+  otherPotato1: {fileID: 0}
+  otherPotato2: {fileID: 0}
+--- !u!114 &114838852123302686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1386547726380084}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe09549e3bfb84949a29aafbcfc118d1, type: 3}
   m_Name: 

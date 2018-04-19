@@ -25,9 +25,11 @@ GameObject:
   - component: {fileID: 54314840102669866}
   - component: {fileID: 135378788503575396}
   - component: {fileID: 114236168598828416}
+  - component: {fileID: 114596212220162042}
+  - component: {fileID: 114504028496433172}
   m_Layer: 0
   m_Name: potato_02 (1)
-  m_TagString: Untagged
+  m_TagString: Potato
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,7 +126,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1103426616500236}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe09549e3bfb84949a29aafbcfc118d1, type: 3}
   m_Name: 
@@ -135,6 +137,32 @@ MonoBehaviour:
   rotationFactor: 2000
   rotationDelta: {x: 0, y: 0, z: 0, w: 0}
   angle: 0
+--- !u!114 &114504028496433172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1103426616500236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa5cdb38aee6304fb157aceebecee87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114596212220162042
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1103426616500236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dabb49b613215d2448c60af144acf9f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  count: 0
+  isControllerPressed: 0
+  otherPotato1: {fileID: 0}
+  otherPotato2: {fileID: 0}
 --- !u!135 &135378788503575396
 SphereCollider:
   m_ObjectHideFlags: 1

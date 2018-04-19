@@ -22,9 +22,13 @@ GameObject:
   - component: {fileID: 33243453808791108}
   - component: {fileID: 23190658609501482}
   - component: {fileID: 95667621848711616}
+  - component: {fileID: 135927201703259608}
+  - component: {fileID: 65971173184259518}
+  - component: {fileID: 114208471144616524}
+  - component: {fileID: 54423372055343762}
   m_Layer: 0
   m_Name: potato_peeler (1)
-  m_TagString: Untagged
+  m_TagString: Peeler
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,6 +88,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1699984564050008}
   m_Mesh: {fileID: 4300000, guid: f8df1ea4ab79d604ab3552e5bfe60528, type: 3}
+--- !u!54 &54423372055343762
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1699984564050008}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &65971173184259518
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1699984564050008}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04, y: 0.029999997, z: 0.18999298}
+  m_Center: {x: 0, y: -9.313226e-10, z: 0.04288449}
 --- !u!95 &95667621848711616
 Animator:
   serializedVersion: 3
@@ -101,3 +132,28 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114208471144616524
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1699984564050008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd536b7470d1634696e08d095e7a036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  count: 0
+  isControllerPressed: 0
+--- !u!135 &135927201703259608
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1699984564050008}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.08017582
+  m_Center: {x: -0.000000015107803, y: -0.0025101304, z: 0.038931757}

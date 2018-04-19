@@ -4,12 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 public class MinigameData : MonoBehaviour
 {
+	public int IdOfNextMinigame;
 
-	[SerializeField]
-	string gameName;
 
-	[SerializeField]
-	string afterGameText;
 
 	[SerializeField]
 	int id;
@@ -18,20 +15,23 @@ public class MinigameData : MonoBehaviour
 	bool replayable;
 
 	[SerializeField]
+	bool waterUsingTask;
+
+	[SerializeField]
 	float waterUsed;
 
 	[SerializeField]
 	float waterUsedPerSecond;
 
 	[SerializeField]
-	bool waterUsingTask;
+	string gameName;
 
-	public int IdOfNextMinigame;
-
-	[SerializeField]
+	[SerializeField, Multiline]
+	string afterGameText;
+	[SerializeField,Multiline]
 	string introductionToNextMinigame;
 
-	[SerializeField]
+	[SerializeField,Multiline]
 	string startMinigameText;
 
 
