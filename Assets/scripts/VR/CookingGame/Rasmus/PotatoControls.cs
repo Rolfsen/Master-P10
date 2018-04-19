@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class PotatoControls : MonoBehaviour
 {
+	[SerializeField]
+	List<float> dissolveValues;
+
 
 	[SerializeField]
-	int peels;
+	int peels = 3;
 	[SerializeField]
-	float waterNeededForPeeledPotato;
+	float waterNeededForPeeledPotato = 1f;
 	[SerializeField]
-	float waterNeededForUnPeeledPotato;
+	float waterNeededForUnPeeledPotato = 2f;
+	[SerializeField]
+	float waterStrength = 0.5f;
 
 	[SerializeField, Multiline]
 	string warningPotatoNotPeeled = "You need to peel the potato before it is ready";
@@ -30,9 +35,19 @@ public class PotatoControls : MonoBehaviour
 
 	bool isReady;
 
+	Renderer rend;
 
 	SimpleInteractions controller;
 	Transform objectToFollow;
+
+
+	int b = 0;
+
+	private void Start()
+	{
+		rend = GetComponent<Renderer>();
+		rend.material.shader = Shader.Find("DCC/Dissolve V2");
+	}
 
 	private void Update()
 	{
@@ -42,6 +57,20 @@ public class PotatoControls : MonoBehaviour
 			transform.position = objectToFollow.position;
 			transform.rotation = objectToFollow.rotation;
 		}
+	}
+
+	private void WashingUnPeeledPotato ()
+	{
+		waterCollidedWithPotatoUnPeeled += waterStrength;
+		if (waterCollidedWithPotatoPeeled > waterNeededForPeeledPotato)
+		{
+			isPotatoClean = true;
+		}
+	}
+
+	private void WashingPeeledPotato ()
+	{
+		waterCollidedWithPotatoPeeled += waterStrength;
 	}
 
 	private void OnTriggerStay(Collider other)
@@ -69,7 +98,14 @@ public class PotatoControls : MonoBehaviour
 		{
 			if (isCurrentlyCarried)
 			{
-
+				if (isPotatoPeeled && waterCollidedWithPotatoPeeled < waterNeededForPeeledPotato)
+				{
+					WashingPeeledPotato();
+				}
+				else if (!isPotatoPeeled && waterNeededForUnPeeledPotato < waterCollidedWithPotatoUnPeeled)
+				{
+					WashingUnPeeledPotato();
+				}
 			}
 		}
 	}
@@ -89,6 +125,10 @@ public class PotatoControls : MonoBehaviour
 				{
 					Debug.Log("The Potato is now peeled");
 					isPotatoPeeled = true;
+				}
+				else
+				{
+					rend.material.SetFloat("_DissolveAmount", dissolveValues[peeledOff]);
 				}
 			}
 		}
