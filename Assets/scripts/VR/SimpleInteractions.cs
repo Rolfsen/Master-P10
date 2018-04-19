@@ -17,7 +17,7 @@ public class SimpleInteractions : MonoBehaviour
     }
     void IsPressed()
     {
-        if (controller.GetPressDown(triggerButton))
+        if (controller.GetPressDown(triggerButton) || Input.GetKeyDown(KeyCode.A))
         {
             isPressed = true;
             //Debug.Log("TRIGER IS TRUE");

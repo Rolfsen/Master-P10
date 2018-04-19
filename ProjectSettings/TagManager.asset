@@ -15,6 +15,7 @@ TagManager:
   - PeeledPotato
   - Peeler
   - IsHolding
+  - Water
   layers:
   - Default
   - TransparentFX
