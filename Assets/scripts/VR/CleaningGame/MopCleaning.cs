@@ -12,7 +12,7 @@ public class MopCleaning : MonoBehaviour {
     GameObject dustObject;
     [SerializeField]
     GameObject rodObject;
-    
+    bool isMopDirty = false;
     MopHandler mopHandler;
     // Use this for initialization
     void Start () {
@@ -26,28 +26,48 @@ public class MopCleaning : MonoBehaviour {
         IsMopDirty();
         
     }
+    bool isCleaningNowSound = false;
+    bool isMopDirtySound = false;
+    bool isMopCleanNowSound = false;
+
     void IsOnRightSurface()
     {
-        if (correctSurface == true && mopHandler.isControllerPressed == true)
+        if (isMopDirty == false)
         {
-            count++;
-            if (count > 50)
+            if (correctSurface == true && mopHandler.isControllerPressed == true)
             {
-                mopCleanMeter++;
-                Debug.Log(mopCleanMeter);
-                colin.gameObject.SetActive(false);
-                count = 0;
+                if (isCleaningNowSound == false)
+                {
+                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You are cleaning a spot"));
+                    isCleaningNowSound = true;
+                }
+                count++;
+              
+                if (count > 200)
+                {
+                    mopCleanMeter++;
+                    Debug.Log(mopCleanMeter);
+                    colin.gameObject.SetActive(false);
+                    
+                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("The spot is clear"));
+                    isCleaningNowSound = false;
+                    count = 0;
+                }
             }
         }
     }
     
     void IsMopDirty()
     {
-        if(mopCleanMeter>4 && mopHandler.isControllerPressed == true && correctSurface == true)
+        if(mopCleanMeter>4)
         {
-            Instantiate(dustObject, new Vector3(transform.position.x + Random.Range(-2.0f, 2.0f), transform.position.y, transform.position.z + Random.Range(-2.0f, 2.0f)), Quaternion.identity);
-            Instantiate(dustObject, new Vector3(transform.position.x + Random.Range(-2.0f, 2.0f), transform.position.y, transform.position.z + Random.Range(-2.0f, 2.0f)), Quaternion.identity);
             
+            if (isMopDirtySound == false)
+            {
+                EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("The mop is dirty now"));
+                isMopDirtySound = true;
+            }
+            isMopDirty = true;
         }
     }
     private void OnTriggerStay(Collider col)
@@ -68,9 +88,21 @@ public class MopCleaning : MonoBehaviour {
         }
         if(col.gameObject.tag == "Bucket")
         {
+            EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("The mop is clean now"));
+            isMopDirty = false;
+            isMopDirtySound = false;
             mopCleanMeter = 0;
+           
             Debug.Log("ur mop is clean now");
         }
     }
     
+    private void OnTriggerExit(Collider col)
+    {
+        correctSurface = false;
+        if(col.gameObject.tag == "Dust" || col.gameObject.tag == "Liquid")
+        { 
+            colin = null;
+        }
+    }
 }

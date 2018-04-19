@@ -41,11 +41,13 @@ public class VacuumCleaning : MonoBehaviour {
 
     void IsNotOnRightSurface()
     {
-        if (wrongSurface == true)
+        if (wrongSurface == true && vacuumHandler.isControllerPressed == true)
         {
             count++;
             if (count > 50)
             {
+                EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Thats the wrong surface"));
+                Debug.Log("wrong surface bro");
                 Instantiate(dustObject, new Vector3(transform.position.x + Random.Range(-2.0f, 2.0f), transform.position.y, transform.position.z + Random.Range(-2.0f, 2.0f)), Quaternion.identity);
                 Instantiate(dustObject, new Vector3(transform.position.x + Random.Range(-2.0f, 2.0f), transform.position.y, transform.position.z + Random.Range(-2.0f, 2.0f)), Quaternion.identity);
                 Instantiate(dustObject, new Vector3(transform.position.x + Random.Range(-2.0f, 2.0f), transform.position.y, transform.position.z + Random.Range(-2.0f, 2.0f)), Quaternion.identity);
@@ -60,7 +62,7 @@ public class VacuumCleaning : MonoBehaviour {
         if (col.gameObject.tag == "Dust")
         {
             correctSurface = true;
-            Debug.Log("i am touching something");
+            //Debug.Log("i am touching something");
             colin = col;
         }
 
@@ -73,10 +75,18 @@ public class VacuumCleaning : MonoBehaviour {
    
     private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Dust" || col.gameObject.tag == "Liquid")
+        if (col.gameObject.tag == "Dust")
         {
             correctSurface = true;
             colin = col;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(colin.gameObject.tag=="Dust")
+        {
+
         }
     }
 }

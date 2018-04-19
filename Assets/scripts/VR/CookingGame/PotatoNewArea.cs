@@ -21,9 +21,9 @@ public class PotatoNewArea : MonoBehaviour {
             {
             count++;
             if(count==3)
-            {
-                Debug.Log("Game is won");
-            }
+                {
+                    Debug.Log("Game is won");
+                }
             }
         }
     }
