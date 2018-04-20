@@ -15,6 +15,12 @@ TagManager:
   - PeeledPotato
   - Peeler
   - IsHolding
+  - Water
+  - PotatoPlace
+  - Wrench
+  - WrenchPlace
+  - NewShowerHead
+  - OldShowerHead
   layers:
   - Default
   - TransparentFX

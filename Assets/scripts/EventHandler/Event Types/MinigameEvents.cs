@@ -42,12 +42,12 @@ public class MinigameEvents : BaseEvent {
 	
 	public class SingleExecuteWaterUsageEvent : MinigameEvents
 	{
-		public SingleExecuteWaterUsageEvent(int waterAmount)
+		public SingleExecuteWaterUsageEvent(float waterAmount)
 		{
 			this.waterAmount = waterAmount;
 		}
 
-		public int waterAmount { get; private set;}
+		public float waterAmount { get; private set;}
 	}
 
 	public class GetDateFromMinigame : MinigameEvents

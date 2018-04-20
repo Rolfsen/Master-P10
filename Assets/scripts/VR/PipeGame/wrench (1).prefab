@@ -60,14 +60,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1512167469726474}
-  m_LocalRotation: {x: 0.24195214, y: 0.24201177, z: 0.6643313, w: 0.6644949}
-  m_LocalPosition: {x: -5.454, y: 0.85049987, z: -0.486}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -5.3, y: 0.85049987, z: -0.486}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4595756476016918}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 40.024002, z: 89.98601}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!4 &4595756476016918
 Transform:
   m_ObjectHideFlags: 1
@@ -237,12 +237,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1512167469726474}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b0d788a8333c7c459bb4b4f70fe0ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trackedObj: {fileID: 0}
   objectsHoveringOverList: []
+  isPressed: 0
 --- !u!114 &114225650553625102
 MonoBehaviour:
   m_ObjectHideFlags: 1

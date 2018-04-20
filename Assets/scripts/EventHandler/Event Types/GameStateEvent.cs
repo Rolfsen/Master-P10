@@ -158,4 +158,14 @@ public abstract class GameStateEvent : BaseEvent
     {
 
     }
+
+	public class PotatoComplete : GameStateEvent
+	{
+
+	}
+
+	public class AllPotatoesComplete : GameStateEvent
+	{
+
+	}
 }

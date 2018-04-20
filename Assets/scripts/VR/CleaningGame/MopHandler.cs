@@ -41,7 +41,7 @@ public class MopHandler : MonoBehaviour {
                 //transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
                 // transform.rotation = new Quaternion(colin.gameObject.transform.rotation.x, 
                 //   colin.gameObject.transform.rotation.y, colin.gameObject.transform.rotation.z, colin.gameObject.transform.rotation.w);
-                transform.position = new Vector3(colin.gameObject.transform.position.x, 0.2f, colin.gameObject.transform.position.z);
+                transform.position = new Vector3(colin.gameObject.transform.position.x, 0.3f, colin.gameObject.transform.position.z);
                 transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
                 if (isPlayedSound == false)
                 {
@@ -52,13 +52,13 @@ public class MopHandler : MonoBehaviour {
                 //isHeld = true;
 
             }
-
+            
             if (simpleInteractions.isPressed == false)
             {
                 transform.position = new Vector3(colin.gameObject.transform.position.x, 0.2f, colin.gameObject.transform.position.z);
                 transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
             }
-
+            
             if (simpleInteractions.isPressed == false && isOnRightSpot == true) //PLACED ON THE RIGHT SPOT THAT IS CALLED BUCKET
             {
 
