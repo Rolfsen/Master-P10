@@ -27,20 +27,12 @@ public class ToggleObjectHighlight : MonoBehaviour {
 	private void Start()
 	{
 		rend = GetComponent<Renderer>();
-		rend.material.shader = Shader.Find("DCC/Silhouette Enhancement");
-		//startVal = rend.material.GetFloat(floatName);
+		rend.material.shader = Shader.Find(shaderName);
+		startVal = rend.material.GetFloat(floatName);
 		
 	}
 
-	private void Update()
-	{
-		//DEBUG
-		float adjustFloat = Mathf.PingPong(Time.time / slowVal, pingVal - minVal) + minVal;
-		print(adjustFloat);
-		rend.material.SetFloat("adwad", adjustFloat);
-	}
-
-	private void OnTriggerEnter(Collider other)
+	private void OnTriggerStay(Collider other)
 	{
 		if (other.CompareTag("Player"))
 		{
