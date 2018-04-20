@@ -24,6 +24,9 @@ public class MinigameData : MonoBehaviour
 	float waterUsedPerSecond;
 
 	[SerializeField]
+	float maxProgressVal;
+
+	[SerializeField]
 	string gameName;
 
 	[SerializeField, Multiline]
@@ -40,6 +43,9 @@ public class MinigameData : MonoBehaviour
 
 	[SerializeField]
 	GameObject RestartMinigame;
+
+	[SerializeField]
+	Renderer progressRenderer;
 
 	bool active;
 
@@ -62,6 +68,10 @@ public class MinigameData : MonoBehaviour
 		waterUsedText.text = 0.0f + "L";
 	}
 
+	private void Start()
+	{
+		progressRenderer.material.shader = Shader.Find("DCC/3d Progress Bar");
+	}
 
 	private void Update()
 	{
@@ -69,6 +79,7 @@ public class MinigameData : MonoBehaviour
 		{
 			waterUsed += waterUsedPerSecond * Time.deltaTime;
 			waterUsedText.text = (int)waterUsed + "L";
+			UpdateProgressBar();
 		}
 	}
 
@@ -142,6 +153,7 @@ public class MinigameData : MonoBehaviour
 		{
 			waterUsed += e.waterAmount;
 			waterUsedText.text = (int)waterUsed + "L";
+			UpdateProgressBar();
 		}
 	}
 
@@ -150,6 +162,12 @@ public class MinigameData : MonoBehaviour
 		waterUsed = 0f;
 		complete = false;
 		replayed = true;
+	}
+
+	private void UpdateProgressBar ()
+	{
+		float progress = Mathf.Min(waterUsed/maxProgressVal,1f);
+		progressRenderer.material.SetFloat("_Progress",progress);	
 	}
 
 	private void OnTriggerEnter(Collider other)
