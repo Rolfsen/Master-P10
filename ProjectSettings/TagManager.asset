@@ -21,6 +21,9 @@ TagManager:
   - WrenchPlace
   - NewShowerHead
   - OldShowerHead
+  - Mop
+  - Vacuum
+  - Soap
   layers:
   - Default
   - TransparentFX

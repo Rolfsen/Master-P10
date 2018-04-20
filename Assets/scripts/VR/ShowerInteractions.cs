@@ -9,7 +9,6 @@ public class ShowerInteractions : MonoBehaviour {
     private Transform transformer;
     private Vector3 vecy;
     private int count = 0;
-    [SerializeField]
     private Rigidbody rigidBody;
     Collider sphery;
     bool unPluged = false;
@@ -32,14 +31,18 @@ public class ShowerInteractions : MonoBehaviour {
             transformer.position = colin.transform.position; //Return BACK TO NORMAL
         }
         showerUnPlug();
-       // ClosestItemInteract();
-        //HighlightShower();
     }
 
     private void OnTriggerEnter(Collider col)
     {
-        colin = col;
-        
+        if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+        {
+            colin = col;
+        }
+        if(col.gameObject.name == "Right_Area_For_Old_Head")
+        {
+            unPluged = false;
+        }
     }
    
 
@@ -62,15 +65,8 @@ public class ShowerInteractions : MonoBehaviour {
             {
                 Debug.Log("Angle is too high");
                 unPluged = true;
-                
                 rigidBody.isKinematic = true;
-                
-                //rigidBody.constraints = RigidbodyConstraints.None;
-                //rigidBody.useGravity = true;
-                //rigidBody.mass = 1;
                 count = 0;
-               //GetComponent<SphereCollider>().enabled = false; //for not having light
-
                 EventBus.TriggerEvent(this,new GameStateEvent.ShowerHeadScrewedOffEvent());
                 EventBus.TriggerEvent(this,new NarrativeEvent.TextToSpeechNarratorEvent("You took the shower head off, place it in the box"));
                 //unfreeze them now

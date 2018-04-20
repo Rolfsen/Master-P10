@@ -28,13 +28,10 @@ public class SimpleInteractions : MonoBehaviour
         if (controller.GetPressDown(triggerButton))
         {
             isPressed = true;
-            //Debug.Log("TRIGER IS TRUE");
         }
         else if (controller.GetPressUp(triggerButton))
         {
             isPressed = false;
-
-           // Debug.Log("TRIGER IS FALSE");
         }
 
 
@@ -42,33 +39,59 @@ public class SimpleInteractions : MonoBehaviour
     void Update()
     {
         IsPressed();
-       // Debug.Log(myColliders[0]);
-        //Debug.Log(myColliders[1]);
     }
 
-    
+
     private void OnTriggerEnter(Collider col)
     {
-        
-        if(col.gameObject.tag == "Wrench")
+
+        if (col.gameObject.tag == "Wrench")
         {
             Debug.Log("its all right now");
             myColliders[1].enabled = true;
             myColliders[0].enabled = false;
         }
-        
-       //pickUp = collider.gameObject;
-       // ObjectInteraction collidedItem = col.GetComponent<ObjectInteraction>();
-       //if (collidedItem)
-       // {
-       //     //objectsHoveringOverList.Add(collidedItem);
-       // }
+
+        //pickUp = collider.gameObject;
+        // ObjectInteraction collidedItem = col.GetComponent<ObjectInteraction>();
+        //if (collidedItem)
+        // {
+        //     //objectsHoveringOverList.Add(collidedItem);
+        // }
     }
     private void OnTriggerStay(Collider col)
     {
 
         ///MAKING THE HANDS STAY IN PLACE
         if (col.gameObject.tag == "Wrench")
+        {
+            leftHand.closeHandLeft.SetActive(true);
+            rightHand.closeHandRight.SetActive(true);
+            leftHand.openHandLeft.SetActive(false);
+            rightHand.openHandRight.SetActive(false);
+            leftHand.enabled = false;
+            rightHand.enabled = false;
+        }
+
+        if (col.gameObject.tag == "Mop")
+        {
+            leftHand.closeHandLeft.SetActive(true);
+            rightHand.closeHandRight.SetActive(true);
+            leftHand.openHandLeft.SetActive(false);
+            rightHand.openHandRight.SetActive(false);
+            leftHand.enabled = false;
+            rightHand.enabled = false;
+        }
+        if (col.gameObject.tag == "Soap")
+        {
+            leftHand.closeHandLeft.SetActive(true);
+            rightHand.closeHandRight.SetActive(true);
+            leftHand.openHandLeft.SetActive(false);
+            rightHand.openHandRight.SetActive(false);
+            leftHand.enabled = false;
+            rightHand.enabled = false;
+        }
+        if (col.gameObject.tag == "Vacuum")
         {
             leftHand.closeHandLeft.SetActive(true);
             rightHand.closeHandRight.SetActive(true);
@@ -99,6 +122,46 @@ public class SimpleInteractions : MonoBehaviour
             leftHand.openHandLeft.SetActive(true);
             rightHand.openHandRight.SetActive(true);
 
+        }
+
+        if (col.gameObject.tag == "Mop")
+        {
+            myColliders[0].enabled = true;
+            myColliders[1].enabled = false;
+            Debug.Log("its all right now");
+            leftHand.enabled = true;
+            rightHand.enabled = true;
+            ///MAKING THE HANDS STAY IN PLACE
+            leftHand.closeHandLeft.SetActive(false);
+            rightHand.closeHandRight.SetActive(false);
+            leftHand.openHandLeft.SetActive(true);
+            rightHand.openHandRight.SetActive(true);
+        }
+        if (col.gameObject.tag == "Vacuum")
+        {
+            myColliders[0].enabled = true;
+            myColliders[1].enabled = false;
+            Debug.Log("its all right now");
+            leftHand.enabled = true;
+            rightHand.enabled = true;
+            ///MAKING THE HANDS STAY IN PLACE
+            leftHand.closeHandLeft.SetActive(false);
+            rightHand.closeHandRight.SetActive(false);
+            leftHand.openHandLeft.SetActive(true);
+            rightHand.openHandRight.SetActive(true);
+        }
+        if (col.gameObject.tag == "Soap")
+        {
+            myColliders[0].enabled = true;
+            myColliders[1].enabled = false;
+            Debug.Log("its all right now");
+            leftHand.enabled = true;
+            rightHand.enabled = true;
+            ///MAKING THE HANDS STAY IN PLACE
+            leftHand.closeHandLeft.SetActive(false);
+            rightHand.closeHandRight.SetActive(false);
+            leftHand.openHandLeft.SetActive(true);
+            rightHand.openHandRight.SetActive(true);
         }
     }
 }

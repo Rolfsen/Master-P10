@@ -42,7 +42,8 @@ public class VacuumHandler : MonoBehaviour
                 // soapHandlerCollider = soapHandler.GetComponent<Collider>();
                 // soapHandlerCollider.enabled = false;
                 transform.position = new Vector3(colin.gameObject.transform.position.x, 1.190f, colin.gameObject.transform.position.z);
-                transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y+transform.rotation.y, transform.rotation.z, transform.rotation.w);
+                transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, colin.gameObject.transform.rotation.eulerAngles.y - 50f, transform.rotation.eulerAngles.z));
+
                 if (isPlayedSound == false)
                 {
                     EventBus.TriggerEvent(this, new GameStateEvent.GettingTheSoap());
@@ -56,7 +57,9 @@ public class VacuumHandler : MonoBehaviour
             if (simpleInteractions.isPressed == false)
             {
                 transform.position = new Vector3(colin.gameObject.transform.position.x, 1.193f, colin.gameObject.transform.position.z);
-                transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
+                transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, colin.gameObject.transform.rotation.eulerAngles.y-50f, transform.rotation.eulerAngles.z));
+
+                //transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y+transform.rotation.y, transform.rotation.z, transform.rotation.w);
             }
 
             if (simpleInteractions.isPressed == false && isOnRightSpot == true)

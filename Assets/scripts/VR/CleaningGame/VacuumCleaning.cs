@@ -18,7 +18,8 @@ public class VacuumCleaning : MonoBehaviour {
     int howLongToCleanDirt = 200;
     [SerializeField]
     bool isCleaningNowSound = false;
-   
+    bool isWrongSurfaceSound = false;
+
     // Use this for initialization
     void Start()
     {
@@ -54,7 +55,6 @@ public class VacuumCleaning : MonoBehaviour {
             }
         }
     }
-    bool isWrongSurfaceSound = false;
     void IsNotOnRightSurface()
     {
        
@@ -118,18 +118,22 @@ public class VacuumCleaning : MonoBehaviour {
         else
         {
             correctSurface = false;
+            wrongSurface = false;
+            colin = null;
         }
     }
 
     private void OnTriggerExit(Collider col)
     {
         
-            correctSurface = false;
+            
             
             if (col.gameObject.tag == "Dust" || col.gameObject.tag == "Liquid")
             {
                 colin = null;
-            isWrongSurfaceSound = false;
+                correctSurface = false;
+                wrongSurface = false;
+                isWrongSurfaceSound = false;
         }
         
     }

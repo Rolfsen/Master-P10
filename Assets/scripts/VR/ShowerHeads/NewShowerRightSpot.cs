@@ -27,7 +27,7 @@ public class NewShowerRightSpot : MonoBehaviour {
             rigidBody = col.gameObject.GetComponent<Rigidbody>();
             transformer = col.gameObject.GetComponent<Transform>();
             newShowerHead = col.gameObject;
-            newShowerHead.transform.position = new Vector3(-3.589f, 2.045f, 3.892f);
+            newShowerHead.transform.position = new Vector3(-3.589f, 2.071f, 3.892f);
             newShowerHead.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
            // rigidBody.sleepThreshold = 1;//dunno
             rigidBody.isKinematic = true;

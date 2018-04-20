@@ -94,6 +94,7 @@ public class SoapInteractions : MonoBehaviour {
             }
         }
     }
+    private bool getWetSound=false;
     private void OnTriggerEnter(Collider col)
     {
 
@@ -112,7 +113,7 @@ public class SoapInteractions : MonoBehaviour {
             isOnRightSpot = true;
         }
 
-        if(col.gameObject.name == "torso" && waterParticle.isWet==true)
+        if (col.gameObject.name == "torso" && waterParticle.isWet == true)
         {
             //EVENT FOR CLEANING STARTS
             Debug.Log("WE ARE STARTING CLEANING");
@@ -120,10 +121,11 @@ public class SoapInteractions : MonoBehaviour {
             EventBus.TriggerEvent(this, new GameStateEvent.StartCleaningSelf());
             EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You are getting cleaner, good job!"));
         }
-        else if(col.gameObject.name == "torso" && waterParticle.isWet == false)
+        else if (col.gameObject.name == "torso" && waterParticle.isWet == false && getWetSound == false)
         {
             EventBus.TriggerEvent(this, new GameStateEvent.NudgePlayerToGetWet());
             EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You need to get wet"));
+            getWetSound = true;
         }
 
     }
@@ -157,7 +159,7 @@ public class SoapInteractions : MonoBehaviour {
             isRightConditionsForCleaning = false;
             //EVENT FOR CLEANING STOPPED
             EventBus.TriggerEvent(this, new GameStateEvent.StopCleaningSelf());
-            EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You stopped cleaning ur self"));
+           // EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You stopped cleaning ur self"));
         }
     
     }

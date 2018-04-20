@@ -41,7 +41,7 @@ public class MopHandler : MonoBehaviour {
                 //transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
                 // transform.rotation = new Quaternion(colin.gameObject.transform.rotation.x, 
                 //   colin.gameObject.transform.rotation.y, colin.gameObject.transform.rotation.z, colin.gameObject.transform.rotation.w);
-                transform.position = new Vector3(colin.gameObject.transform.position.x, 0.3f, colin.gameObject.transform.position.z);
+                transform.position = new Vector3(colin.gameObject.transform.position.x, 0.156f, colin.gameObject.transform.position.z);
                 transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
                 if (isPlayedSound == false)
                 {
@@ -53,20 +53,13 @@ public class MopHandler : MonoBehaviour {
 
             }
             
-            if (simpleInteractions.isPressed == false)
+            if (simpleInteractions.isPressed == false && isOnRightSpot==false)
             {
                 transform.position = new Vector3(colin.gameObject.transform.position.x, 0.2f, colin.gameObject.transform.position.z);
                 transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
             }
             
-            if (simpleInteractions.isPressed == false && isOnRightSpot == true) //PLACED ON THE RIGHT SPOT THAT IS CALLED BUCKET
-            {
-
-                transform.position = new Vector3(-2.779388f, 0.1f, 2.182f);
-                transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
-                
-                isInRange = false;
-            }
+           
         }
     }
 
@@ -84,31 +77,46 @@ public class MopHandler : MonoBehaviour {
             //GetComponent<Collider>().enabled = true;
 
         }
+     
     }
 
     private void OnTriggerStay(Collider col)
     {
         if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
         {
+
             isControllerPressed = simpleInteractions.isPressed;
             colin = col;
             isInRange = true;
             simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
 
         }
-        if(col.gameObject.tag == "Bucket")
+        else if(col.gameObject.tag == "Bucket")
         {
+           
             isOnRightSpot = true;
+            transform.position = new Vector3(colin.gameObject.transform.position.x, 0.4f, colin.gameObject.transform.position.z);
+            transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
+
+
         }
     }
 
     private void OnTriggerExit(Collider col)
     {
         
-        isInRange = false;
+        
         if (col.gameObject.tag == "Bucket")
         {
             isOnRightSpot = false;
         }
+        if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+        {
+            isInRange = false;
+            transform.position = new Vector3(transform.position.x, 0.1f, transform.position.z);
+            transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+
+        }
+
     }
 }
