@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 135616959405524338}
   m_Layer: 0
   m_Name: Controller (right)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 135164447812039828}
   m_Layer: 0
   m_Name: Controller (left)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -246,7 +246,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1857597085889952}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -4.773, y: 0, z: -0.291}
+  m_LocalPosition: {x: 0.76, y: 0, z: -0.291}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4909765643425236}
@@ -1049,8 +1049,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73eb734fecef5854fb6b8b2ac41bb305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftHandObj: {fileID: 0}
-  rightHandObj: {fileID: 0}
+  leftHandObj: {fileID: 1895181091055432}
+  rightHandObj: {fileID: 1874411616047010}
   rightHand: {fileID: 114873286740540036}
   isPressed: 0
   isHoldingSomething: 0

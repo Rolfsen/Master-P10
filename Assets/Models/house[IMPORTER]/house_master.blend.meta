@@ -261,6 +261,7 @@ ModelImporter:
     100510: water_ui_sink
     100512: windows
     100514: wrench
+    100516: toilet_flush_001
     400000: AIwater
     400002: asdasd
     400004: bathtub
@@ -519,6 +520,7 @@ ModelImporter:
     400510: water_ui_sink
     400512: windows
     400514: wrench
+    400516: toilet_flush_001
     2100000: wall_05_material
     2100002: wall_exterior_01_material
     2100004: wall_inner_01_material
@@ -601,6 +603,7 @@ ModelImporter:
     2100158: soap_material
     2100160: water_meter_shower_material
     2100162: marker_01_material
+    2100164: flush_01_material
     2300000: AIwater
     2300002: asdasd
     2300004: bathtub
@@ -858,6 +861,7 @@ ModelImporter:
     2300508: water_ui_sink
     2300510: windows
     2300512: wrench
+    2300514: toilet_flush_001
     3300000: AIwater
     3300002: asdasd
     3300004: bathtub
@@ -1115,6 +1119,7 @@ ModelImporter:
     3300508: water_ui_sink
     3300510: windows
     3300512: wrench
+    3300514: toilet_flush_001
     4300000: house
     4300002: vacuum_001
     4300004: projektor
@@ -1372,6 +1377,7 @@ ModelImporter:
     4300508: hand_right_closed
     4300510: hand_right_open
     4300512: torso
+    4300514: toilet_flush_001
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}

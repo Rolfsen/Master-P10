@@ -41,7 +41,6 @@ public class NewShowerHead : MonoBehaviour {
 
     void IsTheShowerHeadScrewedOn()
     {
-        Debug.Log("its on baby");
         rotationDelta = transformer.rotation;
       
         if (rotationDelta.y > 0.8 || rotationDelta.y < -0.8)

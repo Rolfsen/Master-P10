@@ -42,8 +42,8 @@ public class SimpleInteractions : MonoBehaviour
     void Update()
     {
         IsPressed();
-        Debug.Log(myColliders[0]);
-        Debug.Log(myColliders[1]);
+       // Debug.Log(myColliders[0]);
+        //Debug.Log(myColliders[1]);
     }
 
     
@@ -55,8 +55,6 @@ public class SimpleInteractions : MonoBehaviour
             Debug.Log("its all right now");
             myColliders[1].enabled = true;
             myColliders[0].enabled = false;
-            
-
         }
         
        //pickUp = collider.gameObject;
