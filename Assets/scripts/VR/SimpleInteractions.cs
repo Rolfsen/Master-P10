@@ -7,17 +7,25 @@ public class SimpleInteractions : MonoBehaviour
     private SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
 
     private SteamVR_TrackedObject trackedObj; //getting the index from the tracked obj
-    
+    [SerializeField]
+    private GameObject leftHandObj, rightHandObj;
+    private LeftHand leftHand;
+    [SerializeField]
+    private RightHand rightHand;
     private Valve.VR.EVRButtonId triggerButton = Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
     public bool isPressed = false;
     public bool isHoldingSomething = false;
+    SphereCollider[] myColliders;
     void Start()
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
+        myColliders = gameObject.GetComponents<SphereCollider>();
+        leftHand = leftHandObj.GetComponent<LeftHand>();
+        rightHand = rightHandObj.GetComponent<RightHand>();
     }
     void IsPressed()
     {
-        if (controller.GetPressDown(triggerButton) || Input.GetKeyDown(KeyCode.A))
+        if (controller.GetPressDown(triggerButton))
         {
             isPressed = true;
             //Debug.Log("TRIGER IS TRUE");
@@ -34,26 +42,65 @@ public class SimpleInteractions : MonoBehaviour
     void Update()
     {
         IsPressed();
+        Debug.Log(myColliders[0]);
+        Debug.Log(myColliders[1]);
     }
 
     
-    private void OnTriggerEnter(Collider collider)
+    private void OnTriggerEnter(Collider col)
     {
-        ObjectInteraction collidedItem = collider.GetComponent<ObjectInteraction>();
-        if (collidedItem)
+        
+        if(col.gameObject.tag == "Wrench")
         {
-            //objectsHoveringOverList.Add(collidedItem);
+            Debug.Log("its all right now");
+            myColliders[1].enabled = true;
+            myColliders[0].enabled = false;
+            
+
         }
-
-        //pickUp = collider.gameObject;
+        
+       //pickUp = collider.gameObject;
+       // ObjectInteraction collidedItem = col.GetComponent<ObjectInteraction>();
+       //if (collidedItem)
+       // {
+       //     //objectsHoveringOverList.Add(collidedItem);
+       // }
     }
-
-    private void OnTriggerExit(Collider collider)
+    private void OnTriggerStay(Collider col)
     {
-        ObjectInteraction collidedItem = collider.GetComponent<ObjectInteraction>();
+
+        ///MAKING THE HANDS STAY IN PLACE
+        if (col.gameObject.tag == "Wrench")
+        {
+            leftHand.closeHandLeft.SetActive(true);
+            rightHand.closeHandRight.SetActive(true);
+            leftHand.openHandLeft.SetActive(false);
+            rightHand.openHandRight.SetActive(false);
+            leftHand.enabled = false;
+            rightHand.enabled = false;
+        }
+    }
+    private void OnTriggerExit(Collider col)
+    {
+        ObjectInteraction collidedItem = col.GetComponent<ObjectInteraction>();
         if (collidedItem)
         {
             //objectsHoveringOverList.Remove(collidedItem);
+        }
+
+        if (col.gameObject.tag == "Wrench")
+        {
+            myColliders[0].enabled = true;
+            myColliders[1].enabled = false;
+            Debug.Log("its all right now");
+            leftHand.enabled = true;
+            rightHand.enabled = true;
+            ///MAKING THE HANDS STAY IN PLACE
+            leftHand.closeHandLeft.SetActive(false);
+            rightHand.closeHandRight.SetActive(false);
+            leftHand.openHandLeft.SetActive(true);
+            rightHand.openHandRight.SetActive(true);
+
         }
     }
 }

@@ -9,12 +9,19 @@ public class WrenchInteractions : MonoBehaviour
     bool isHeld=false;
     bool isPlayedSound = false;
     Vector3 rotEu;
+
+    SimpleInteractions simpleInteractions;
+    [SerializeField]
+    bool isOnRightSpot = false;
     // Use this for initialization
+    [SerializeField]
+    float rightSpotX
+        , rightSpotY
+        , rightSpotZ;
     void Start()
     {
         transformer = gameObject.GetComponent<Transform>();
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -34,31 +41,49 @@ public class WrenchInteractions : MonoBehaviour
                 EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Now fix the pipes boiiiiiiii"));
                 isPlayedSound = true;
             }
+            if (simpleInteractions.isPressed == false && isOnRightSpot == true)
+            {
+
+                transformer.position = new Vector3(rightSpotX, rightSpotY, rightSpotZ);
+                transformer.rotation = new Quaternion(0f, 0f, 0f, 0f);
+                isHeld = false;
+                isOnRightSpot = false;
+            }
         }
     }
 
     private void OnTriggerEnter(Collider col)
     {
 
-        
+
         if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
         {
-
+            simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
             colin = col;
-            
+
             isHeld = true;
-            col.GetComponent<Collider>().enabled = false;
-           
+            //col.GetComponent<Collider>().enabled = false;
+        }
+        else if (col.gameObject.tag == "WrenchPlace")
+        {
+            isOnRightSpot = true;
         }
     }
     private void OnTriggerStay(Collider col)
     {
-        
+        if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+        {
+
+            simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
+        }
     }
 
     private void OnTriggerExit(Collider col)
     {
-        col.GetComponent<Collider>().enabled = false;
+          if (col.gameObject.tag == "WrenchPlace")
+        {
+           //mistake prone
+        }//col.GetComponent<Collider>().enabled = false;
     }
 }
 

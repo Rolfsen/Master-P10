@@ -10,16 +10,20 @@ public class PipeInteractions : MonoBehaviour {
     private int count;
     Rigidbody rigidBody;
 
-    private bool isFixed = false;
+    public bool isFixed = false;
+    [SerializeField]
+    private GameObject pipeGameManagerObject;
+    private PipeWin pipeWin;
     // Use this for initialization
     void Start () {
         transformer = GetComponent<Transform>();
         rigidBody = GetComponent<Rigidbody>();
+        pipeWin = pipeGameManagerObject.GetComponent<PipeWin>();
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
         IsDoneWithRotating();
     }
 
@@ -32,13 +36,18 @@ public class PipeInteractions : MonoBehaviour {
             count++;
             if(count>50)
             {
-                if (isFixed == false)
+                if (isFixed == false && pipeWin.count <= 3)
                 {
                     EventBus.TriggerEvent(this, new GameStateEvent.APipeIsFixed());
                     EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Now fix the rest"));
                 }
+                else if (isFixed == false && pipeWin.count == 4) //FINAL WIN EVENT MAYBE CHANGE IT TO pipewin
+                {
+                    EventBus.TriggerEvent(this, new GameStateEvent.APipeIsFixed());
+                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You finished the game"));
+                }
                 rigidBody.isKinematic = true;
-                Debug.Log("succesfull rotation");
+               // Debug.Log("succesfull rotation");
                 isFixed = true;
                 pipeParticle.SetActive(false);
             }

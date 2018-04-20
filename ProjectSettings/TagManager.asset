@@ -17,6 +17,8 @@ TagManager:
   - IsHolding
   - Water
   - PotatoPlace
+  - Wrench
+  - WrenchPlace
   layers:
   - Default
   - TransparentFX
