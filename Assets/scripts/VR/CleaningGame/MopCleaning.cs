@@ -8,8 +8,7 @@ public class MopCleaning : MonoBehaviour {
     Collider colin;
     bool correctSurface = false;
     int mopCleanMeter=0; 
-    [SerializeField]
-    GameObject dustObject;
+    
     [SerializeField]
     GameObject rodObject;
     bool isMopDirty = false;

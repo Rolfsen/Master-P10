@@ -49,6 +49,7 @@ public class PipeInteraction2 : MonoBehaviour {
                     EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You finished the game"));
                 }
                     Debug.Log("succesfull rotation");
+                rigidBody.isKinematic = true;
                 isFixed = true;
                 pipeParticle.SetActive(false);
             }

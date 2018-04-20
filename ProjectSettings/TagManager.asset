@@ -19,6 +19,8 @@ TagManager:
   - PotatoPlace
   - Wrench
   - WrenchPlace
+  - NewShowerHead
+  - OldShowerHead
   layers:
   - Default
   - TransparentFX

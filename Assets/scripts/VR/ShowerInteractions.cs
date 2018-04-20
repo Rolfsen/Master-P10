@@ -39,16 +39,7 @@ public class ShowerInteractions : MonoBehaviour {
     private void OnTriggerEnter(Collider col)
     {
         colin = col;
-
-        if (unPluged == false)
-        {
-            //Debug.Log("Shine");//highlighting
-            //transformer.position = col.transform.position;
-        }
-        else
-        { 
-            
-        }
+        
     }
    
 
@@ -86,97 +77,97 @@ public class ShowerInteractions : MonoBehaviour {
             }
         }
     }
+}
+/*
+public List<ObjectInteraction> objectsHoveringOverList = new List<ObjectInteraction>();
 
-    /*
-    public List<ObjectInteraction> objectsHoveringOverList = new List<ObjectInteraction>();
+private ObjectInteraction closestItem;
+private ObjectInteraction interactingItem;
+private SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
 
-    private ObjectInteraction closestItem;
-    private ObjectInteraction interactingItem;
-    private SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
+private SteamVR_TrackedObject trackedObj; //getting the index from the tracked obj
+private ObjectInteraction closestItem;
+private ObjectInteraction interactingItem;
+private float minDistance;
 
-    private SteamVR_TrackedObject trackedObj; //getting the index from the tracked obj
-    private ObjectInteraction closestItem;
-    private ObjectInteraction interactingItem;
-    private float minDistance;
-
-    private void ClosestItemInteract()
+private void ClosestItemInteract()
+{
+    if (controller == null)
     {
-        if (controller == null)
+        Debug.Log("Controller Not Found");
+        return;
+    }
+
+        minDistance = float.MaxValue;
+
+        float distance;
+        foreach (ObjectInteraction item in objectsHoveringOverList)
         {
-            Debug.Log("Controller Not Found");
-            return;
-        }
-        
-            minDistance = float.MaxValue;
-
-            float distance;
-            foreach (ObjectInteraction item in objectsHoveringOverList)
+            distance = (item.transform.position - transform.position).sqrMagnitude;
+            if (distance < minDistance)
             {
-                distance = (item.transform.position - transform.position).sqrMagnitude;
-                if (distance < minDistance)
-                {
-                    minDistance = distance;
-                    closestItem = item;
-                }
-            
-
-            interactingItem = closestItem;
-            closestItem = null;//if we get this off, we have unlimited touch, until new item
-
-            if (interactingItem != null) //testing if it interacts with another object
-            {
-                if (interactingItem.isInteracting())
-                {
-                    interactingItem.EndInteraction(this);
-                }
-                interactingItem.BeginInteraction(this);
+                minDistance = distance;
+                closestItem = item;
             }
-        }
 
-        if (controller.GetPressUp(triggerButton) && interactingItem != null)
+
+        interactingItem = closestItem;
+        closestItem = null;//if we get this off, we have unlimited touch, until new item
+
+        if (interactingItem != null) //testing if it interacts with another object
         {
-            interactingItem.EndInteraction(this);
+            if (interactingItem.isInteracting())
+            {
+                interactingItem.EndInteraction(this);
+            }
+            interactingItem.BeginInteraction(this);
         }
     }
-    private void OnTriggerEnter(Collider collider)
-    {
-        ObjectInteraction collidedItem = collider.GetComponent<ObjectInteraction>();
-        if (collidedItem)
-        {
-            objectsHoveringOverList.Add(collidedItem);
-        }
 
-        //pickUp = collider.gameObject;
+    if (controller.GetPressUp(triggerButton) && interactingItem != null)
+    {
+        interactingItem.EndInteraction(this);
+    }
+}
+private void OnTriggerEnter(Collider collider)
+{
+    ObjectInteraction collidedItem = collider.GetComponent<ObjectInteraction>();
+    if (collidedItem)
+    {
+        objectsHoveringOverList.Add(collidedItem);
     }
 
-    private void OnTriggerExit(Collider collider)
+    //pickUp = collider.gameObject;
+}
+
+private void OnTriggerExit(Collider collider)
+{
+    ObjectInteraction collidedItem = collider.GetComponent<ObjectInteraction>();
+    if (collidedItem)
     {
-        ObjectInteraction collidedItem = collider.GetComponent<ObjectInteraction>();
-        if (collidedItem)
-        {
-            objectsHoveringOverList.Remove(collidedItem);
-        }
+        objectsHoveringOverList.Remove(collidedItem);
     }
-    */
-    /*
-    public Transform player;
-    public Transform player2; //for later
-    public float distance = 50;
-    private bool playerCloseEnough = false;
-
-    void HighlightShower()
-    {
-
-    
-        if (Vector3.Distance(transformer.position, player.position) < distance || Vector3.Distance(transformer.position, player2.position) < distance)
-        {
-            playerCloseEnough = true;
-        }
-        else
-        {
-            playerCloseEnough = false;
-        }
-    
 }
 */
+/*
+public Transform player;
+public Transform player2; //for later
+public float distance = 50;
+private bool playerCloseEnough = false;
+
+void HighlightShower()
+{
+
+
+    if (Vector3.Distance(transformer.position, player.position) < distance || Vector3.Distance(transformer.position, player2.position) < distance)
+    {
+        playerCloseEnough = true;
+    }
+    else
+    {
+        playerCloseEnough = false;
+    }
+
 }
+*/
+

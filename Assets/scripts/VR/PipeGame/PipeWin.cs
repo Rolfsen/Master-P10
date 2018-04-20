@@ -10,7 +10,6 @@ public class PipeWin : MonoBehaviour {
     PipeInteractions pipe2, pipe4;
     public int count;
     
-    private bool counted;
     void Start () {
         pipe1 = pipeObject1.GetComponent<PipeInteraction2>();
         pipe2 = pipeObject2.GetComponent<PipeInteractions>();

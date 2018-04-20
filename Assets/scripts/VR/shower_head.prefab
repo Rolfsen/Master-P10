@@ -42,7 +42,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1687858986043382}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.622, y: 2.1701858, z: -0.078}
+  m_LocalPosition: {x: -3.58, y: 2.172, z: 3.998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -146,6 +146,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 0}
   interactionPoint: {fileID: 0}
+  velocityFactor: 400
+  rotationFactor: 400
   rotationDelta: {x: 0, y: 0, z: 0, w: 0}
   angle: 0
 --- !u!114 &114683261441937302
@@ -171,12 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8da2551b43112a548a3023ad9ab32705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showMeCol: 
-  OI: {fileID: 0}
   rotationDelta: {x: 0, y: 0, z: 0, w: 0}
-  count: 9
-  hi: 0
-  takeTheTranfsormIfItDoesntWork: {x: 0, y: 0, z: 0}
   rigidBody: {fileID: 0}
 --- !u!135 &135932594283712402
 SphereCollider:
