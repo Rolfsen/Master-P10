@@ -9,7 +9,7 @@ public class DebugGameManagerTool : MonoBehaviour {
 	int id;
 
 	[SerializeField]
-	int amountOfWater;
+	float amountOfWater;
 
 
 	private void Update()
