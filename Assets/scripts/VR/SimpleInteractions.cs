@@ -47,7 +47,6 @@ public class SimpleInteractions : MonoBehaviour
 
         if (col.gameObject.tag == "Wrench")
         {
-            Debug.Log("its all right now");
             myColliders[1].enabled = true;
             myColliders[0].enabled = false;
         }
@@ -67,107 +66,137 @@ public class SimpleInteractions : MonoBehaviour
         {
             if (gameObject.GetComponent<RightHand>() == true)
             {
-                Debug.Log("This works!!!");
-
                 rightHand.closeHandRight.SetActive(true);
                 rightHand.openHandRight.SetActive(false);
                 rightHand.enabled = false;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsHoldingWrench());
+
             }
             if (gameObject.GetComponent<LeftHand>() == true)
             {
                 leftHand.closeHandLeft.SetActive(true);
                 leftHand.openHandLeft.SetActive(false);
                 leftHand.enabled = false;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsHoldingWrench());
+
             }
         }
-        if (col.gameObject.tag == "OldShowerHead" && col.gameObject.GetComponent<ShowerInteractions>().unPluged==true)
+        else if (col.gameObject.tag == "Peeler")
         {
             if (gameObject.GetComponent<RightHand>() == true)
             {
-                Debug.Log("This works!!!");
-               
                 rightHand.closeHandRight.SetActive(true);
                 rightHand.openHandRight.SetActive(false);
                 rightHand.enabled = false;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsHoldingPeeler());
+
             }
             if (gameObject.GetComponent<LeftHand>() == true)
             {
                 leftHand.closeHandLeft.SetActive(true);
                 leftHand.openHandLeft.SetActive(false);
                 leftHand.enabled = false;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsHoldingPeeler());
+
             }
         }
-
-        if (col.gameObject.tag == "NewShowerHead" && col.gameObject.GetComponent<NewShowerHead>().pluggedIn == false)
+        else if (col.gameObject.tag == "OldShowerHead" && col.gameObject.GetComponent<ShowerInteractions>().unPluged==true)
         {
             if (gameObject.GetComponent<RightHand>() == true)
             {
-                Debug.Log("This works!!!");
-
                 rightHand.closeHandRight.SetActive(true);
                 rightHand.openHandRight.SetActive(false);
                 rightHand.enabled = false;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsHoldingOldShowerHead());
+
             }
             if (gameObject.GetComponent<LeftHand>() == true)
             {
                 leftHand.closeHandLeft.SetActive(true);
                 leftHand.openHandLeft.SetActive(false);
                 leftHand.enabled = false;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsHoldingOldShowerHead());
+
             }
         }
-        if (col.gameObject.tag == "Mop")
+
+        else if (col.gameObject.tag == "NewShowerHead" && col.gameObject.GetComponent<NewShowerHead>().pluggedIn == false)
+        {
+            if (gameObject.GetComponent<RightHand>() == true)
+            {
+                rightHand.closeHandRight.SetActive(true);
+                rightHand.openHandRight.SetActive(false);
+                rightHand.enabled = false;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsHoldingNewShowerHead());
+
+            }
+            if (gameObject.GetComponent<LeftHand>() == true)
+            {
+                leftHand.closeHandLeft.SetActive(true);
+                leftHand.openHandLeft.SetActive(false);
+                leftHand.enabled = false;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsHoldingNewShowerHead());
+
+            }
+        }
+        else if (col.gameObject.tag == "Mop")
         {
             if(gameObject.GetComponent<RightHand>()==true)
             {
-                Debug.Log("This works!!!");
-                
                 rightHand.closeHandRight.SetActive(true);
                 rightHand.openHandRight.SetActive(false);
                 rightHand.enabled = false;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsHoldingMop());
+
             }
             if (gameObject.GetComponent<LeftHand>() == true)
             {
                 leftHand.closeHandLeft.SetActive(true);
                 leftHand.openHandLeft.SetActive(false);
                 leftHand.enabled = false;
-            }
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsHoldingMop());
 
-            
+            }
         }
-        if (col.gameObject.tag == "Soap")
+        else if (col.gameObject.tag == "Vacuum")
         {
             if (gameObject.GetComponent<RightHand>() == true)
             {
-                Debug.Log("This works!!!");
-
                 rightHand.closeHandRight.SetActive(true);
                 rightHand.openHandRight.SetActive(false);
                 rightHand.enabled = false;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsHoldingVacuum());
+
             }
             if (gameObject.GetComponent<LeftHand>() == true)
             {
                 leftHand.closeHandLeft.SetActive(true);
                 leftHand.openHandLeft.SetActive(false);
                 leftHand.enabled = false;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsHoldingVacuum());
+
             }
         }
-        if (col.gameObject.tag == "Vacuum")
+        else if (col.gameObject.tag == "Soap")
         {
             if (gameObject.GetComponent<RightHand>() == true)
             {
-                Debug.Log("This works!!!");
-
                 rightHand.closeHandRight.SetActive(true);
                 rightHand.openHandRight.SetActive(false);
                 rightHand.enabled = false;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsHoldingSoap());
+
             }
             if (gameObject.GetComponent<LeftHand>() == true)
             {
                 leftHand.closeHandLeft.SetActive(true);
                 leftHand.openHandLeft.SetActive(false);
                 leftHand.enabled = false;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsHoldingSoap());
+
             }
         }
+        
     }
     private void OnTriggerExit(Collider col)
     {
@@ -181,20 +210,21 @@ public class SimpleInteractions : MonoBehaviour
         {
             myColliders[0].enabled = true;
             myColliders[1].enabled = false;
-            Debug.Log("its all right now");
             if (gameObject.GetComponent<RightHand>() == true)
             {
-                Debug.Log("This works!!!");
-
                 rightHand.closeHandRight.SetActive(false);
                 rightHand.openHandRight.SetActive(true);
                 rightHand.enabled = true;
+
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsNotHoldingWrench());
             }
             if (gameObject.GetComponent<LeftHand>() == true)
             {
                 leftHand.closeHandLeft.SetActive(false);
                 leftHand.openHandLeft.SetActive(true);
                 leftHand.enabled = true;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsNotHoldingWrench());
+
             }
 
 
@@ -202,95 +232,145 @@ public class SimpleInteractions : MonoBehaviour
 
         else if (col.gameObject.tag == "Mop")
         {
-            Debug.Log("its all right now");
         
             if (gameObject.GetComponent<RightHand>() == true)
             {
-                Debug.Log("This works!!!");
 
                 rightHand.closeHandRight.SetActive(false);
                 rightHand.openHandRight.SetActive(true);
                 rightHand.enabled = true;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsNotHoldingMop());
+
             }
             if (gameObject.GetComponent<LeftHand>() == true)
             {
                 leftHand.closeHandLeft.SetActive(false);
                 leftHand.openHandLeft.SetActive(true);
                 leftHand.enabled = true;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsNotHoldingMop());
+
+            }
+        }
+        else if (col.gameObject.tag == "Peeler")
+        {
+
+            if (gameObject.GetComponent<RightHand>() == true)
+            {
+
+                rightHand.closeHandRight.SetActive(false);
+                rightHand.openHandRight.SetActive(true);
+                rightHand.enabled = true;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsNotHoldingPeeler());
+
+            }
+            if (gameObject.GetComponent<LeftHand>() == true)
+            {
+                leftHand.closeHandLeft.SetActive(false);
+                leftHand.openHandLeft.SetActive(true);
+                leftHand.enabled = true;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsNotHoldingPeeler());
+
+            }
+        }
+
+        else if (col.gameObject.tag == "Potato")
+        {
+
+            if (gameObject.GetComponent<RightHand>() == true)
+            {
+
+                rightHand.closeHandRight.SetActive(false);
+                rightHand.openHandRight.SetActive(true);
+                rightHand.enabled = true;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsNotHoldingPotato());
+
+            }
+            if (gameObject.GetComponent<LeftHand>() == true)
+            {
+                leftHand.closeHandLeft.SetActive(false);
+                leftHand.openHandLeft.SetActive(true);
+                leftHand.enabled = true;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsNotHoldingPotato());
+
             }
         }
 
         else if (col.gameObject.tag == "OldShowerHead")
         {
-            Debug.Log("its all right now");
 
             if (gameObject.GetComponent<RightHand>() == true)
             {
-                Debug.Log("This works!!!");
-
                 rightHand.closeHandRight.SetActive(false);
                 rightHand.openHandRight.SetActive(true);
                 rightHand.enabled = true;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsNotHoldingOldShowerHead());
+
             }
             if (gameObject.GetComponent<LeftHand>() == true)
             {
                 leftHand.closeHandLeft.SetActive(false);
                 leftHand.openHandLeft.SetActive(true);
                 leftHand.enabled = true;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsNotHoldingOldShowerHead());
+
             }
         }
         else if (col.gameObject.tag == "NewShowerHead")
         {
-            Debug.Log("its all right now");
-
             if (gameObject.GetComponent<RightHand>() == true)
             {
-                Debug.Log("This works!!!");
-
                 rightHand.closeHandRight.SetActive(false);
                 rightHand.openHandRight.SetActive(true);
                 rightHand.enabled = true;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsNotHoldingNewShowerHead());
+
             }
             if (gameObject.GetComponent<LeftHand>() == true)
             {
                 leftHand.closeHandLeft.SetActive(false);
                 leftHand.openHandLeft.SetActive(true);
                 leftHand.enabled = true;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsNotHoldingNewShowerHead());
+
             }
         }
         else if (col.gameObject.tag == "Vacuum")
         {
-            Debug.Log("its all right now");
+           
             if (gameObject.GetComponent<RightHand>() == true)
             {
-                Debug.Log("This works!!!");
-
                 rightHand.closeHandRight.SetActive(false);
                 rightHand.openHandRight.SetActive(true);
                 rightHand.enabled = true;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsNotHoldingVacuum());
+
             }
             if (gameObject.GetComponent<LeftHand>() == true)
             {
                 leftHand.closeHandLeft.SetActive(false);
                 leftHand.openHandLeft.SetActive(true);
                 leftHand.enabled = true;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsNotHoldingVacuum());
+
             }
         }
         else if (col.gameObject.tag == "Soap")
         {
             if (gameObject.GetComponent<RightHand>() == true)
             {
-                Debug.Log("This works!!!");
-
                 rightHand.closeHandRight.SetActive(false);
                 rightHand.openHandRight.SetActive(true);
                 rightHand.enabled = true;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsNotHoldingSoap());
+
             }
             if (gameObject.GetComponent<LeftHand>() == true)
             {
                 leftHand.closeHandLeft.SetActive(false);
                 leftHand.openHandLeft.SetActive(true);
                 leftHand.enabled = true;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsNotHoldingSoap());
+
             }
         }
     }

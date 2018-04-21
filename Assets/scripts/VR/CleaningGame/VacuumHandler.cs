@@ -43,14 +43,7 @@ public class VacuumHandler : MonoBehaviour
                 // soapHandlerCollider.enabled = false;
                 transform.position = new Vector3(colin.gameObject.transform.position.x, 1.190f, colin.gameObject.transform.position.z);
                 transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, colin.gameObject.transform.rotation.eulerAngles.y - 50f, transform.rotation.eulerAngles.z));
-
-                if (isPlayedSound == false)
-                {
-                    EventBus.TriggerEvent(this, new GameStateEvent.GettingTheSoap());
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop the vacuum"));
-                    isPlayedSound = true;
-                }
-                
+            
 
             }
             
@@ -59,6 +52,12 @@ public class VacuumHandler : MonoBehaviour
                 transform.position = new Vector3(colin.gameObject.transform.position.x, 1.193f, colin.gameObject.transform.position.z);
                 transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, colin.gameObject.transform.rotation.eulerAngles.y-50f, transform.rotation.eulerAngles.z));
 
+                if (isPlayedSound == false)
+                {
+                    EventBus.TriggerEvent(this, new GameStateEvent.VacuumIsBeingHeld());
+                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop the vacuum"));
+                    isPlayedSound = true;
+                }
                 //transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y+transform.rotation.y, transform.rotation.z, transform.rotation.w);
             }
 
@@ -113,12 +112,17 @@ public class VacuumHandler : MonoBehaviour
 
     private void OnTriggerExit(Collider col)
     {
-        isInRange = false;
-        if (col.gameObject.tag == "VacuumRightSpot")
+        if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+        {
+            isInRange = false;
+            EventBus.TriggerEvent(this, new GameStateEvent.VacuumIsNotHeld());
+        }
+
+        else if (col.gameObject.tag == "VacuumRightSpot")
         {
             isOnRightSpot = false;
         }
-
+       
     }
 }
     /*

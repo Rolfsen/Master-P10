@@ -25,6 +25,27 @@ public class MopCleaning : MonoBehaviour {
         IsMopDirty();
         
     }
+
+    bool isItOn = false;
+    void IsMopOn()
+    {
+        if (mopHandler.isControllerPressed == true)
+        {
+            //Sound of being on;
+
+            Debug.Log("starting music");
+            //EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("m"));
+
+            isItOn = true;
+        }
+        else if (isItOn == true && mopHandler.isControllerPressed == false)
+        {
+            isItOn = false;
+            Debug.Log("it stopping");
+            //EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("oomm"));
+        }
+
+    }
     bool isCleaningNowSound = false;
     bool isMopDirtySound = false;
     bool isMopCleanNowSound = false;
@@ -37,6 +58,8 @@ public class MopCleaning : MonoBehaviour {
             {
                 if (isCleaningNowSound == false)
                 {
+
+                    EventBus.TriggerEvent(this, new GameStateEvent.MopIsCleaning());
                     EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You are cleaning a spot"));
                     isCleaningNowSound = true;
                 }
@@ -48,6 +71,7 @@ public class MopCleaning : MonoBehaviour {
                     Debug.Log(mopCleanMeter);
                     colin.gameObject.SetActive(false);
                     correctSurface = false;
+                    EventBus.TriggerEvent(this, new GameStateEvent.MopSpotClear());
                     EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("The spot is clear"));
                     isCleaningNowSound = false;
                     count = 0;
@@ -63,6 +87,8 @@ public class MopCleaning : MonoBehaviour {
             
             if (isMopDirtySound == false)
             {
+                EventBus.TriggerEvent(this, new GameStateEvent.MopIsDirty());
+
                 EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("The mop is dirty now"));
                 isMopDirtySound = true;
             }
@@ -87,12 +113,14 @@ public class MopCleaning : MonoBehaviour {
         }
        else if(col.gameObject.tag == "Bucket")
         {
+            EventBus.TriggerEvent(this, new GameStateEvent.MopIsCleanNow());
+
             EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("The mop is clean now"));
             isMopDirty = false;
             isMopDirtySound = false;
             mopCleanMeter = 0;
             //PUT THE WATER HERE
-            EventBus.TriggerEvent(this, new MinigameEvents.SingleExecuteWaterUsageEvent(4));
+            EventBus.TriggerEvent(this, new MinigameEvents.SingleExecuteWaterUsageEvent(4)); //SMT SMT
             //EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent()); when water is turned on
 
             Debug.Log("ur mop is clean now");
@@ -105,6 +133,8 @@ public class MopCleaning : MonoBehaviour {
         if(col.gameObject.tag == "Dust" || col.gameObject.tag == "Liquid")
         { 
             colin = null;
+
         }
+        
     }
 }

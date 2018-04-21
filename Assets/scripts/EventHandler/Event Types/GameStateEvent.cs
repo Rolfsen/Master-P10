@@ -57,7 +57,7 @@ public abstract class GameStateEvent : BaseEvent
         public List<int> activeIDs { get; private set; }
     }
 
-    //ShowerGame
+    //ShowerHeadGame
 
     public class ShowerHeadGameStarts : GameStateEvent
     {
@@ -116,22 +116,7 @@ public abstract class GameStateEvent : BaseEvent
 
     }
 
-    //Cooking Game
-
-    public class CookingStart : GameStateEvent
-    {
-
-    }
-
-    public class TheSinkIsOn : GameStateEvent
-    {
-
-    }
-
-    public class TheSinkIsOff : GameStateEvent
-    {
-
-    }
+    
 
     //ShowerGame 
     public class WaterInShowerRunning : GameStateEvent
@@ -158,7 +143,7 @@ public abstract class GameStateEvent : BaseEvent
     {
 
     }
-
+    //cooking Game
 	public class PotatoComplete : GameStateEvent
 	{
 
@@ -168,4 +153,151 @@ public abstract class GameStateEvent : BaseEvent
 	{
 
 	}
+
+    public class CookingStart : GameStateEvent
+    {
+
+    }
+
+    public class TheSinkIsOn : GameStateEvent
+    {
+
+    }
+
+    public class TheSinkIsOff : GameStateEvent
+    {
+
+    }
+    //cleaning game
+
+    public class VacuumIsBeingHeld : GameStateEvent
+    {
+
+    }
+
+    public class VacuumIsNotHeld : GameStateEvent
+    {
+
+    }
+    public class VacuumCleaningASpot : GameStateEvent
+    {
+
+    }
+    public class VacuumSpotIsClear : GameStateEvent
+    {
+
+    }
+    public class VacuumWrongSpot : GameStateEvent
+    {
+
+    }
+
+    public class MopIsBeingHeld : GameStateEvent
+    {
+
+    }
+
+    public class MopIsNotBeingHeld : GameStateEvent
+    {
+
+    }
+
+    public class MopIsCleaning: GameStateEvent
+    {
+
+    }
+    public class MopSpotClear : GameStateEvent
+    {
+
+    }
+    public class MopIsDirty : GameStateEvent
+    {
+
+    }
+    public class MopIsCleanNow : GameStateEvent
+    {
+
+    }
+
+    //simpleInteractionsScript
+
+    public class ControllerIsHoldingWrench : GameStateEvent
+    {
+
+    }
+
+    public class ControllerIsHoldingOldShowerHead : GameStateEvent
+    {
+
+    }
+
+    public class ControllerIsHoldingNewShowerHead : GameStateEvent
+    {
+
+    }
+
+    public class ControllerIsHoldingMop : GameStateEvent
+    {
+
+    }
+
+    public class ControllerIsHoldingVacuum : GameStateEvent
+    {
+
+    }
+
+    public class ControllerIsHoldingSoap : GameStateEvent
+    {
+
+    }
+
+    public class ControllerIsHoldingPeeler : GameStateEvent
+    {
+
+    }
+
+    public class ControllerIsHoldingPotato : GameStateEvent
+    {
+
+    }
+
+    public class ControllerIsNotHoldingWrench : GameStateEvent
+    {
+
+    }
+
+    public class ControllerIsNotHoldingOldShowerHead : GameStateEvent
+    {
+
+    }
+
+    public class ControllerIsNotHoldingNewShowerHead : GameStateEvent
+    {
+
+    }
+
+    public class ControllerIsNotHoldingMop : GameStateEvent
+    {
+
+    }
+
+    public class ControllerIsNotHoldingVacuum : GameStateEvent
+    {
+
+    }
+
+    public class ControllerIsNotHoldingSoap : GameStateEvent
+    {
+
+    }
+
+    public class ControllerIsNotHoldingPeeler : GameStateEvent
+    {
+
+    }
+
+    public class ControllerIsNotHoldingPotato : GameStateEvent
+    {
+
+    }
 }

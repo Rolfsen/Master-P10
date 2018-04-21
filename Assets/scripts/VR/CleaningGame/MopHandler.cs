@@ -33,9 +33,16 @@ public class MopHandler : MonoBehaviour {
     {
         if (isInRange == true)
         {
-            if (simpleInteractions.isPressed == true)
+            if (isPlayedSound == false)
             {
                 
+                EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop the mop now"));
+                isPlayedSound = true;
+            }
+
+            if (simpleInteractions.isPressed == true)
+            {
+                EventBus.TriggerEvent(this, new GameStateEvent.MopIsBeingHeld());
                 //transform.position = new Vector3(colin.gameObject.transform.position.x, 
                 //  colin.gameObject.transform.position.y, colin.gameObject.transform.position.z);
                 //transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
@@ -43,20 +50,16 @@ public class MopHandler : MonoBehaviour {
                 //   colin.gameObject.transform.rotation.y, colin.gameObject.transform.rotation.z, colin.gameObject.transform.rotation.w);
                 transform.position = new Vector3(colin.gameObject.transform.position.x, 0.156f, colin.gameObject.transform.position.z);
                 transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
-                if (isPlayedSound == false)
-                {
-                    EventBus.TriggerEvent(this, new GameStateEvent.GettingTheSoap());
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop the mop now"));
-                    isPlayedSound = true;
-                }
+                
                 //isHeld = true;
 
             }
             
-            if (simpleInteractions.isPressed == false && isOnRightSpot==false)
+            else if (simpleInteractions.isPressed == false && isOnRightSpot==false)
             {
                 transform.position = new Vector3(colin.gameObject.transform.position.x, 0.2f, colin.gameObject.transform.position.z);
                 transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
+                EventBus.TriggerEvent(this, new GameStateEvent.MopIsBeingHeld());
             }
             
            
@@ -115,6 +118,7 @@ public class MopHandler : MonoBehaviour {
             isInRange = false;
             transform.position = new Vector3(transform.position.x, 0.1f, transform.position.z);
             transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+            EventBus.TriggerEvent(this, new GameStateEvent.MopIsNotBeingHeld());
 
         }
 

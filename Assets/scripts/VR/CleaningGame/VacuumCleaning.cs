@@ -31,22 +31,46 @@ public class VacuumCleaning : MonoBehaviour {
     {
         IsOnRightSurface();
         IsNotOnRightSurface();
+        IsVacuumOn();
         //Debug.Log(count);
-        
+
+    }
+    bool isItOn = false;
+    void IsVacuumOn()
+    {
+        if(vacuumHandler.isControllerPressed == true)
+        {
+            //Sound of being on;
+
+            Debug.Log("starting music");
+            //EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("m"));
+
+            isItOn = true;
+        }
+        else if(isItOn==true && vacuumHandler.isControllerPressed == false)
+        {
+            isItOn = false;
+            //EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("oomm"));
+        }
+
     }
     void IsOnRightSurface()
     {
         
         if (correctSurface == true && vacuumHandler.isControllerPressed == true)
         {
+            
             if (isCleaningNowSound == false)
             {
+                EventBus.TriggerEvent(this, new GameStateEvent.VacuumCleaningASpot());
                 EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You are cleaning a spot"));
                 isCleaningNowSound = true;
+                
             }
             count++;
             if (count > howLongToClean)
             {
+                EventBus.TriggerEvent(this, new GameStateEvent.VacuumSpotIsClear());
                 EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("It's clean now"));
                 colin.gameObject.SetActive(false);
                 correctSurface = false;
@@ -54,22 +78,27 @@ public class VacuumCleaning : MonoBehaviour {
                 count = 0;
             }
         }
+        
     }
     void IsNotOnRightSurface()
     {
        
         if (wrongSurface == true && vacuumHandler.isControllerPressed == true)
         {
+            if (isWrongSurfaceSound == true)
+            {
+                EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Thats the wrong surface"));
+                isWrongSurfaceSound = false;
+            }
+
             count++;
             if (count > howLongToCleanDirt)
             {
-                if(isWrongSurfaceSound==true)
-                { 
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Thats the wrong surface"));
-                    isWrongSurfaceSound = false;
-                }
+
+                EventBus.TriggerEvent(this, new GameStateEvent.VacuumSpotIsClear());
+                
                 count = 0;
-                Instantiate(dustObject, new Vector3(transform.position.x + Random.Range(-1.0f, 1.0f), 0.142f, transform.position.z + Random.Range(-1.0f, 1.0f)),
+                Instantiate(dustObject, new Vector3(transform.position.x + Random.Range(-0.5f, 0.5f), 0.142f, transform.position.z + Random.Range(-1.0f, 1.0f)),
                     new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w));
                 
                 // Instantiate(dustObject, new Vector3(transform.position.x + Random.Range(-2.0f, 2.0f), transform.position.y, transform.position.z + Random.Range(-2.0f, 2.0f)), Quaternion.identity);
