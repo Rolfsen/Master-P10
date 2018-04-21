@@ -57,11 +57,16 @@ public class SimpleInteractions : MonoBehaviour
         // {
         //     //objectsHoveringOverList.Add(collidedItem);
         // }
+        
     }
     private void OnTriggerStay(Collider col)
     {
+        if(col.gameObject.tag=="Bolt")
+        {
+            //MAKE SOUND FOR WHEN SCREWING THE BOLTS ON
+        }
 
-        ///MAKING THE HANDS STAY IN PLACE
+
         if (col.gameObject.tag == "Wrench")
         {
             if (gameObject.GetComponent<RightHand>() == true)

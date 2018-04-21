@@ -7,8 +7,10 @@ public class MopCleaning : MonoBehaviour {
     int count = 0;
     Collider colin;
     bool correctSurface = false;
-    int mopCleanMeter=0; 
-    
+    int mopCleanMeter=0;
+    bool isCleaningNowSound = false;
+    bool isMopDirtySound = false;
+    bool isMopCleanNowSound = false;
     [SerializeField]
     GameObject rodObject;
     bool isMopDirty = false;
@@ -29,52 +31,57 @@ public class MopCleaning : MonoBehaviour {
     bool isItOn = false;
     void IsMopOn()
     {
-        if (mopHandler.isControllerPressed == true)
+        if (MiniGameManager.isCleaningGameRunning)
         {
-            //Sound of being on;
+            if (mopHandler.isControllerPressed == true)
+            {
+                
 
-            Debug.Log("starting music");
-            //EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("m"));
+                Debug.Log("starting music");
+                //EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("m"));
 
-            isItOn = true;
+                isItOn = true;
+            }
+            else if (isItOn == true && mopHandler.isControllerPressed == false)
+            {
+                //Sound of being on cleaned
+                isItOn = false;
+                Debug.Log("it stopping");
+                //EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("oomm"));
+            }
         }
-        else if (isItOn == true && mopHandler.isControllerPressed == false)
-        {
-            isItOn = false;
-            Debug.Log("it stopping");
-            //EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("oomm"));
-        }
-
     }
-    bool isCleaningNowSound = false;
-    bool isMopDirtySound = false;
-    bool isMopCleanNowSound = false;
+
 
     void IsOnRightSurface()
     {
-        if (isMopDirty == false)
+        if (MiniGameManager.isCleaningGameRunning)
         {
-            if (correctSurface == true && mopHandler.isControllerPressed == true)
+            if (isMopDirty == false)
             {
-                if (isCleaningNowSound == false)
+                if (correctSurface == true && mopHandler.isControllerPressed == true)
                 {
+                    if (isCleaningNowSound == false)
+                    {
+                        //Sound of being on
+                        EventBus.TriggerEvent(this, new GameStateEvent.MopIsCleaning());
+                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You are cleaning a spot"));
+                        isCleaningNowSound = true;
+                    }
+                    count++;
 
-                    EventBus.TriggerEvent(this, new GameStateEvent.MopIsCleaning());
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You are cleaning a spot"));
-                    isCleaningNowSound = true;
-                }
-                count++;
-              
-                if (count > 200)
-                {
-                    mopCleanMeter++;
-                    Debug.Log(mopCleanMeter);
-                    colin.gameObject.SetActive(false);
-                    correctSurface = false;
-                    EventBus.TriggerEvent(this, new GameStateEvent.MopSpotClear());
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("The spot is clear"));
-                    isCleaningNowSound = false;
-                    count = 0;
+                    if (count > 200)
+                    {
+                        //SOUND OF BEING COMPLETE
+                        mopCleanMeter++;
+                        Debug.Log(mopCleanMeter);
+                        colin.gameObject.SetActive(false);
+                        correctSurface = false;
+                        EventBus.TriggerEvent(this, new GameStateEvent.MopSpotClear());
+                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("The spot is clear"));
+                        isCleaningNowSound = false;
+                        count = 0;
+                    }
                 }
             }
         }
@@ -82,59 +89,69 @@ public class MopCleaning : MonoBehaviour {
     
     void IsMopDirty()
     {
-        if(mopCleanMeter>4)
+        if (MiniGameManager.isCleaningGameRunning)
         {
-            
-            if (isMopDirtySound == false)
+            if (mopCleanMeter > 4)
             {
-                EventBus.TriggerEvent(this, new GameStateEvent.MopIsDirty());
 
-                EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("The mop is dirty now"));
-                isMopDirtySound = true;
+                if (isMopDirtySound == false)
+                {
+                    EventBus.TriggerEvent(this, new GameStateEvent.MopIsDirty());
+                    //SOUND OF MOP BEING DIRTY
+                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("The mop is dirty now"));
+                    isMopDirtySound = true;
+                }
+                isMopDirty = true;
             }
-            isMopDirty = true;
         }
     }
     private void OnTriggerStay(Collider col)
     {
-        if(col.gameObject.tag == "Dust" && mopCleanMeter <= 5 || col.gameObject.tag == "Liquid" && mopCleanMeter <= 5)
+        if (MiniGameManager.isCleaningGameRunning)
         {
-            correctSurface = true;
-           // Debug.Log("i am touching something");
-            colin = col;
+            if (col.gameObject.tag == "Dust" && mopCleanMeter <= 5 || col.gameObject.tag == "Liquid" && mopCleanMeter <= 5)
+            {
+                correctSurface = true;
+                colin = col;
+            }
         }
     }
     private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Dust" && mopCleanMeter <= 5 || col.gameObject.tag == "Liquid" && mopCleanMeter <= 5)
+        if (MiniGameManager.isCleaningGameRunning)
         {
-            correctSurface = true;
-            colin = col;
-        }
-       else if(col.gameObject.tag == "Bucket")
-        {
-            EventBus.TriggerEvent(this, new GameStateEvent.MopIsCleanNow());
+            if (col.gameObject.tag == "Dust" && mopCleanMeter <= 5 || col.gameObject.tag == "Liquid" && mopCleanMeter <= 5)
+            {
+                correctSurface = true;
+                colin = col;
+            }
+            else if (col.gameObject.tag == "Bucket")
+            {
+                EventBus.TriggerEvent(this, new GameStateEvent.MopIsCleanNow());
+                //SOUND OF HAVING A CLEAN MOP
+                EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("The mop is clean now"));
+                isMopDirty = false;
+                isMopDirtySound = false;
+                mopCleanMeter = 0;
+                //PUT THE WATER HERE
+                EventBus.TriggerEvent(this, new MinigameEvents.SingleExecuteWaterUsageEvent(4)); //SMT SMT
+                                                                                                 //EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent()); when water is turned on
 
-            EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("The mop is clean now"));
-            isMopDirty = false;
-            isMopDirtySound = false;
-            mopCleanMeter = 0;
-            //PUT THE WATER HERE
-            EventBus.TriggerEvent(this, new MinigameEvents.SingleExecuteWaterUsageEvent(4)); //SMT SMT
-            //EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent()); when water is turned on
-
-            Debug.Log("ur mop is clean now");
+                Debug.Log("ur mop is clean now");
+            }
         }
     }
     
     private void OnTriggerExit(Collider col)
     {
-        correctSurface = false;
-        if(col.gameObject.tag == "Dust" || col.gameObject.tag == "Liquid")
-        { 
-            colin = null;
+        if (MiniGameManager.isCleaningGameRunning)
+        {
+            correctSurface = false;
+            if (col.gameObject.tag == "Dust" || col.gameObject.tag == "Liquid")
+            {
+                colin = null;
 
+            }
         }
-        
     }
 }

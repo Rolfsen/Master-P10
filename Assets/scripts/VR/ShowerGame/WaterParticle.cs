@@ -22,42 +22,54 @@ public class WaterParticle : MonoBehaviour {
 
     private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.name == "torso")
+        if (MiniGameManager.isShowerGameRunning)
         {
-            rightPlace = true;
+            if (col.gameObject.name == "torso")
+            {
+                rightPlace = true;
+            }
         }
     }
 
     private void OnTriggerStay(Collider col)
     {
-        if(col.gameObject.name == "torso")
+        if (MiniGameManager.isShowerGameRunning)
         {
-            rightPlace = true;
+            if (col.gameObject.name == "torso")
+            {
+                rightPlace = true;
+            }
         }
     }
 
     private void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.name == "torso")
+        if (MiniGameManager.isShowerGameRunning)
         {
-            rightPlace = false;
+            if (col.gameObject.name == "torso")
+            {
+                rightPlace = false;
+            }
         }
     }
 
     void IsGettingWet()
     {
-        if(rightPlace == true)
-        { 
-            
-            //PUT THE WATER HERE, HOW MUCH HE USES
-            count++;
-            if (count > 100)
+        if (MiniGameManager.isShowerGameRunning)
+        {
+            if (rightPlace == true)
             {
-                isWet = true;
-                //gameObject.SetActive(false);
-                //GUY IS WET;
-                Debug.Log("i am wet now");
-                count = 0;
+
+                //PUT THE WATER HERE, HOW MUCH HE USES
+                count++;
+                if (count > 100)
+                {
+                    isWet = true;
+                    //gameObject.SetActive(false);
+                    //GUY IS WET;
+                    Debug.Log("i am wet now");
+                    count = 0;
+                }
             }
         }
     }

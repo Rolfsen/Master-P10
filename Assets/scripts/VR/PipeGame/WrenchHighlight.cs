@@ -16,23 +16,27 @@ public class WrenchHighlight : MonoBehaviour {
 
     private void OnTriggerEnter(Collider col)
     {
-       
-            if (col.gameObject.name == "Controller (left)"|| col.gameObject.name == "Controller (right)")
+        if (MiniGameManager.isPipeGameRunning)
+        {
+            if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
                 Debug.Log("Shine new thingy");//highlight
-                //gameObject.transform.parent.position = new Vector3(0f, 0f, 0f);
-                //rigidBody.useGravity = true;
-              
+                                              //gameObject.transform.parent.position = new Vector3(0f, 0f, 0f);
+                                              //rigidBody.useGravity = true;
+
             }
-        
+        }
     }
 
     private void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+        if (MiniGameManager.isPipeGameRunning)
         {
-            Debug.Log("Stop shining");//highlight
-            //gameObject.transform.parent.position = new Vector3(0f, 0f, 0f);
+            if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+            {
+                Debug.Log("Stop shining");//highlight
+                                          //gameObject.transform.parent.position = new Vector3(0f, 0f, 0f);
+            }
         }
     }
 }

@@ -29,29 +29,34 @@ public class PipeInteractions : MonoBehaviour {
 
     void IsDoneWithRotating()
     {
-        rotationDelta = transformer.rotation;
+        //SOUND OF DRIPPING WATER 
 
-        if (rotationDelta.x > 0.8 || rotationDelta.x < -0.8)
+        if (MiniGameManager.isPipeGameRunning)
         {
-            count++;
-            if(count>50)
-            {
-                if (isFixed == false && pipeWin.count <= 3)
-                {
-                    EventBus.TriggerEvent(this, new GameStateEvent.APipeIsFixed());
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Now fix the rest"));
-                }
-                else if (isFixed == false && pipeWin.count == 4) //FINAL WIN EVENT MAYBE CHANGE IT TO pipewin
-                {
-                    EventBus.TriggerEvent(this, new GameStateEvent.APipeIsFixed());
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You finished the game"));
-                }
-                rigidBody.isKinematic = true;
-               // Debug.Log("succesfull rotation");
-                isFixed = true;
-                pipeParticle.SetActive(false);
-            }
+            rotationDelta = transformer.rotation;
 
+            if (rotationDelta.x > 0.8 || rotationDelta.x < -0.8)
+            {
+                count++;
+                if (count > 50)
+                {
+                    if (isFixed == false && pipeWin.count <= 3)
+                    {
+                        EventBus.TriggerEvent(this, new GameStateEvent.APipeIsFixed());
+                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Now fix the rest"));
+                    }
+                    else if (isFixed == false && pipeWin.count == 4) //FINAL WIN EVENT MAYBE CHANGE IT TO pipewin
+                    {
+                        EventBus.TriggerEvent(this, new GameStateEvent.APipeIsFixed());
+                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You finished the game"));
+                    }
+                    rigidBody.isKinematic = true;
+                    // Debug.Log("succesfull rotation");
+                    isFixed = true;
+                    pipeParticle.SetActive(false);
+                }
+
+            }
         }
     }
 }

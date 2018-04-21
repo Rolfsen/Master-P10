@@ -35,39 +35,42 @@ public class VacuumHandler : MonoBehaviour
     }
     private void IsHeld()
     {
-        if (isInRange == true)
-        {
-            if (simpleInteractions.isPressed == true)
+        if(MiniGameManager.isCleaningGameRunning)
+        { 
+            if (isInRange == true)
             {
-                // soapHandlerCollider = soapHandler.GetComponent<Collider>();
-                // soapHandlerCollider.enabled = false;
-                transform.position = new Vector3(colin.gameObject.transform.position.x, 1.190f, colin.gameObject.transform.position.z);
-                transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, colin.gameObject.transform.rotation.eulerAngles.y - 50f, transform.rotation.eulerAngles.z));
-            
-
-            }
-            
-            if (simpleInteractions.isPressed == false)
-            {
-                transform.position = new Vector3(colin.gameObject.transform.position.x, 1.193f, colin.gameObject.transform.position.z);
-                transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, colin.gameObject.transform.rotation.eulerAngles.y-50f, transform.rotation.eulerAngles.z));
-
-                if (isPlayedSound == false)
+                if (simpleInteractions.isPressed == true)
                 {
-                    EventBus.TriggerEvent(this, new GameStateEvent.VacuumIsBeingHeld());
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop the vacuum"));
-                    isPlayedSound = true;
+                    // soapHandlerCollider = soapHandler.GetComponent<Collider>();
+                    // soapHandlerCollider.enabled = false;
+                    transform.position = new Vector3(colin.gameObject.transform.position.x, 1.190f, colin.gameObject.transform.position.z);
+                    transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, colin.gameObject.transform.rotation.eulerAngles.y - 50f, transform.rotation.eulerAngles.z));
+            
+
                 }
-                //transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y+transform.rotation.y, transform.rotation.z, transform.rotation.w);
-            }
+            
+                if (simpleInteractions.isPressed == false)
+                {
+                    transform.position = new Vector3(colin.gameObject.transform.position.x, 1.193f, colin.gameObject.transform.position.z);
+                    transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, colin.gameObject.transform.rotation.eulerAngles.y-50f, transform.rotation.eulerAngles.z));
 
-            if (simpleInteractions.isPressed == false && isOnRightSpot == true)
-            {
+                    if (isPlayedSound == false)
+                    {
+                        EventBus.TriggerEvent(this, new GameStateEvent.VacuumIsBeingHeld());
+                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop the vacuum"));
+                        isPlayedSound = true;
+                    }
+                    //transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y+transform.rotation.y, transform.rotation.z, transform.rotation.w);
+                }
 
-                transform.position = new Vector3(0.363f, 0.435f, 2.056f);
-                transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
+                if (simpleInteractions.isPressed == false && isOnRightSpot == true)
+                {
+
+                    transform.position = new Vector3(0.363f, 0.435f, 2.056f);
+                    transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
                
-                isInRange = false;
+                    isInRange = false;
+                }
             }
         }
     }
@@ -75,52 +78,60 @@ public class VacuumHandler : MonoBehaviour
     private void OnTriggerEnter(Collider col)
     {
 
-
-        if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+        if (MiniGameManager.isCleaningGameRunning)
         {
-            simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
-            isControllerPressed = simpleInteractions.isPressed;
-            colin = col;
-            //deltaRotation = colin.gameObject.transform.rotation;
-            isInRange = true;
-            //GetComponent<Collider>().enabled = true;
-           
+            if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+            {
+                simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
+                isControllerPressed = simpleInteractions.isPressed;
+                colin = col;
+                //deltaRotation = colin.gameObject.transform.rotation;
+                isInRange = true;
+                //GetComponent<Collider>().enabled = true;
 
-        }
 
-        else if (col.gameObject.tag == "VacuumRightSpot")
-        {
-            isOnRightSpot = true;
+            }
+
+            else if (col.gameObject.tag == "VacuumRightSpot")
+            {
+                isOnRightSpot = true;
+            }
         }
     }
 
     private void OnTriggerStay(Collider col)
     {
-        if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+        if (MiniGameManager.isCleaningGameRunning)
         {
-            isControllerPressed = simpleInteractions.isPressed;
-            colin = col;
-            isInRange = true;
-            simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
+            if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+            {
+                isControllerPressed = simpleInteractions.isPressed;
+                colin = col;
+                isInRange = true;
+                simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
 
-        }
-        else if (col.gameObject.tag == "VacuumRightSpot")
-        {
-            isOnRightSpot = true;
+            }
+            else if (col.gameObject.tag == "VacuumRightSpot")
+            {
+                isOnRightSpot = true;
+            }
         }
     }
 
     private void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+        if (MiniGameManager.isCleaningGameRunning)
         {
-            isInRange = false;
-            EventBus.TriggerEvent(this, new GameStateEvent.VacuumIsNotHeld());
-        }
+            if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+            {
+                isInRange = false;
+                EventBus.TriggerEvent(this, new GameStateEvent.VacuumIsNotHeld());
+            }
 
-        else if (col.gameObject.tag == "VacuumRightSpot")
-        {
-            isOnRightSpot = false;
+            else if (col.gameObject.tag == "VacuumRightSpot")
+            {
+                isOnRightSpot = false;
+            }
         }
        
     }

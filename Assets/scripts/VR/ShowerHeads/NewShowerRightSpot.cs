@@ -9,7 +9,8 @@ public class NewShowerRightSpot : MonoBehaviour {
     private Vector3 pos;
     [SerializeField]
     private GameObject newShowerHead;
-    
+    bool isOnPlace = false;
+
     // Use this for initialization
     void Start () {
 		
@@ -19,39 +20,41 @@ public class NewShowerRightSpot : MonoBehaviour {
 	void Update () {
 		
 	}
-    bool isOnPlace = false;
     void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.tag == "NewShowerHead")
+        if (MiniGameManager.isHeadShowerGameRunning)
         {
-            rigidBody = col.gameObject.GetComponent<Rigidbody>();
-            transformer = col.gameObject.GetComponent<Transform>();
-            newShowerHead = col.gameObject;
-            newShowerHead.transform.position = new Vector3(-3.589f, 2.071f, 3.892f);
-            newShowerHead.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
-           // rigidBody.sleepThreshold = 1;//dunno
-            rigidBody.isKinematic = true;
-            rigidBody.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX 
-                | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
-            rigidBody.useGravity = false;
-            if(isOnPlace == false)
+            if (col.gameObject.tag == "NewShowerHead")
             {
+                rigidBody = col.gameObject.GetComponent<Rigidbody>();
+                transformer = col.gameObject.GetComponent<Transform>();
+                newShowerHead = col.gameObject;
+                newShowerHead.transform.position = new Vector3(-3.589f, 2.071f, 3.892f);
+                newShowerHead.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
+                // rigidBody.sleepThreshold = 1;//dunno
+                rigidBody.isKinematic = true;
+                rigidBody.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX
+                    | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
+                rigidBody.useGravity = false;
+                if (isOnPlace == false)
+                {
 
-                EventBus.TriggerEvent(this, new GameStateEvent.NewShowerHeadScrewedOnEvent());
-                EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You screwed the shit on!"));
+                    EventBus.TriggerEvent(this, new GameStateEvent.NewShowerHeadScrewedOnEvent());
+                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You screwed the shit on!"));
 
+                }
+                isOnPlace = true;
+                if (isOnPlace)
+                {
+                    rigidBody.isKinematic = false;
+                }
+
+
+
+                col.GetComponent<SphereCollider>().enabled = false;
+                // rigidBody.isKinematic = false;
+                //rigidBody.constraints = RigidbodyConstraints.FreezePositionZ;
             }
-            isOnPlace = true;
-            if (isOnPlace)
-            {
-                rigidBody.isKinematic = false;
-            }
-
-
-          
-            col.GetComponent<SphereCollider>().enabled = false;
-            // rigidBody.isKinematic = false;
-            //rigidBody.constraints = RigidbodyConstraints.FreezePositionZ;
         }
     }
 }

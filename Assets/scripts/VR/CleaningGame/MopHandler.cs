@@ -31,96 +31,101 @@ public class MopHandler : MonoBehaviour {
 
     private void IsHeld()
     {
-        if (isInRange == true)
+        if (MiniGameManager.isCleaningGameRunning)
         {
-            if (isPlayedSound == false)
+            if (isInRange == true)
             {
-                
-                EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop the mop now"));
-                isPlayedSound = true;
-            }
+                if (isPlayedSound == false)
+                {
 
-            if (simpleInteractions.isPressed == true)
-            {
-                EventBus.TriggerEvent(this, new GameStateEvent.MopIsBeingHeld());
-                //transform.position = new Vector3(colin.gameObject.transform.position.x, 
-                //  colin.gameObject.transform.position.y, colin.gameObject.transform.position.z);
-                //transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
-                // transform.rotation = new Quaternion(colin.gameObject.transform.rotation.x, 
-                //   colin.gameObject.transform.rotation.y, colin.gameObject.transform.rotation.z, colin.gameObject.transform.rotation.w);
-                transform.position = new Vector3(colin.gameObject.transform.position.x, 0.156f, colin.gameObject.transform.position.z);
-                transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
-                
-                //isHeld = true;
+                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop the mop now"));
+                    isPlayedSound = true;
+                }
+
+                if (simpleInteractions.isPressed == true)
+                {
+                    EventBus.TriggerEvent(this, new GameStateEvent.MopIsBeingHeld());
+                    //transform.position = new Vector3(colin.gameObject.transform.position.x, 
+                    //  colin.gameObject.transform.position.y, colin.gameObject.transform.position.z);
+                    //transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
+                    // transform.rotation = new Quaternion(colin.gameObject.transform.rotation.x, 
+                    //   colin.gameObject.transform.rotation.y, colin.gameObject.transform.rotation.z, colin.gameObject.transform.rotation.w);
+                    transform.position = new Vector3(colin.gameObject.transform.position.x, 0.156f, colin.gameObject.transform.position.z);
+                    transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
+
+                    //isHeld = true;
+
+                }
+
+                else if (simpleInteractions.isPressed == false && isOnRightSpot == false)
+                {
+                    transform.position = new Vector3(colin.gameObject.transform.position.x, 0.2f, colin.gameObject.transform.position.z);
+                    transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
+                    EventBus.TriggerEvent(this, new GameStateEvent.MopIsBeingHeld());
+                }
 
             }
-            
-            else if (simpleInteractions.isPressed == false && isOnRightSpot==false)
-            {
-                transform.position = new Vector3(colin.gameObject.transform.position.x, 0.2f, colin.gameObject.transform.position.z);
-                transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
-                EventBus.TriggerEvent(this, new GameStateEvent.MopIsBeingHeld());
-            }
-            
-           
         }
     }
 
     private void OnTriggerEnter(Collider col)
     {
 
-
-        if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+        if (MiniGameManager.isCleaningGameRunning)
         {
-            simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
-            isControllerPressed = simpleInteractions.isPressed;
-            colin = col;
-            //deltaRotation = colin.gameObject.transform.rotation;
-            isInRange = true;
-            //GetComponent<Collider>().enabled = true;
+            if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+            {
+                simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
+                isControllerPressed = simpleInteractions.isPressed;
+                colin = col;
+                //deltaRotation = colin.gameObject.transform.rotation;
+                isInRange = true;
+                //GetComponent<Collider>().enabled = true;
 
+            }
         }
-     
     }
 
     private void OnTriggerStay(Collider col)
     {
-        if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+        if (MiniGameManager.isCleaningGameRunning)
         {
+            if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+            {
 
-            isControllerPressed = simpleInteractions.isPressed;
-            colin = col;
-            isInRange = true;
-            simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
+                isControllerPressed = simpleInteractions.isPressed;
+                colin = col;
+                isInRange = true;
+                simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
 
-        }
-        else if(col.gameObject.tag == "Bucket")
-        {
-           
-            isOnRightSpot = true;
-            transform.position = new Vector3(colin.gameObject.transform.position.x, 0.4f, colin.gameObject.transform.position.z);
-            transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
+            }
+            else if (col.gameObject.tag == "Bucket")
+            {
 
-
+                isOnRightSpot = true;
+                transform.position = new Vector3(colin.gameObject.transform.position.x, 0.4f, colin.gameObject.transform.position.z);
+                transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
+            }
         }
     }
 
     private void OnTriggerExit(Collider col)
     {
-        
-        
-        if (col.gameObject.tag == "Bucket")
-        {
-            isOnRightSpot = false;
-        }
-        if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
-        {
-            isInRange = false;
-            transform.position = new Vector3(transform.position.x, 0.1f, transform.position.z);
-            transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w);
-            EventBus.TriggerEvent(this, new GameStateEvent.MopIsNotBeingHeld());
 
-        }
+        if (MiniGameManager.isCleaningGameRunning)
+        {
+            if (col.gameObject.tag == "Bucket")
+            {
+                isOnRightSpot = false;
+            }
+            if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+            {
+                isInRange = false;
+                transform.position = new Vector3(transform.position.x, 0.1f, transform.position.z);
+                transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+                EventBus.TriggerEvent(this, new GameStateEvent.MopIsNotBeingHeld());
 
+            }
+        }
     }
 }

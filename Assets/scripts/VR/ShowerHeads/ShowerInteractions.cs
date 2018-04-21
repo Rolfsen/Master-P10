@@ -23,26 +23,31 @@ public class ShowerInteractions : MonoBehaviour {
     Collider colin;
     // Update is called once per frame
     void Update() {
-        
-        
-        if (unPluged==true)
+
+        if (MiniGameManager.isHeadShowerGameRunning)
         {
-            
-            transformer.position = colin.transform.position;
-            transform.rotation = colin.transform.rotation;//Return BACK TO NORMAL
+            if (unPluged == true)
+            {
+
+                transformer.position = colin.transform.position;
+                transform.rotation = colin.transform.rotation;//Return BACK TO NORMAL
+            }
+            showerUnPlug();
         }
-        showerUnPlug();
     }
 
     private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+        if (MiniGameManager.isHeadShowerGameRunning)
         {
-            colin = col;
-        }
-        if(col.gameObject.name == "Right_Area_For_Old_Head")
-        {
-            unPluged = false;
+            if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+            {
+                colin = col;
+            }
+            if (col.gameObject.name == "Right_Area_For_Old_Head")
+            {
+                unPluged = false;
+            }
         }
     }
    
@@ -53,7 +58,7 @@ public class ShowerInteractions : MonoBehaviour {
     {
         rotationDelta = transformer.rotation;
 
-
+        //SOUND OF ROTATING
         if (rotationDelta.y > 0.8 || rotationDelta.y < -0.8)
         {
             //Debug.Log("tuka ne sum vlqzal");

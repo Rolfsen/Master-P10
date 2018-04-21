@@ -11,16 +11,21 @@ public class PipeWin : MonoBehaviour {
     public int count;
     
     void Start () {
-        pipe1 = pipeObject1.GetComponent<PipeInteraction2>();
-        pipe2 = pipeObject2.GetComponent<PipeInteractions>();
-        pipe3 = pipeObject3.GetComponent<PipeInteraction2>();
-        pipe4 = pipeObject4.GetComponent<PipeInteractions>();
+        if (MiniGameManager.isPipeGameRunning)
+        {
+            pipe1 = pipeObject1.GetComponent<PipeInteraction2>();
+            pipe2 = pipeObject2.GetComponent<PipeInteractions>();
+            pipe3 = pipeObject3.GetComponent<PipeInteraction2>();
+            pipe4 = pipeObject4.GetComponent<PipeInteractions>();
+        }
     }
 	
 	// Update is called once per frame
 	void Update () {
-        WinConditionPipeGame();
-
+        if (MiniGameManager.isPipeGameRunning)
+        {
+            WinConditionPipeGame();
+        }
     }
 
     void WinConditionPipeGame()

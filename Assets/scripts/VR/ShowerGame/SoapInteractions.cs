@@ -24,6 +24,8 @@ public class SoapInteractions : MonoBehaviour {
     bool isInRange = false;
     bool isPlayedSound = false;
     bool isHeld = false;
+    private bool getWetSound = false;
+
     // Use this for initialization
     void Start()
     {
@@ -45,123 +47,135 @@ public class SoapInteractions : MonoBehaviour {
   
     private void IsHeld()
     {
-        if (isInRange == true)
+        if (MiniGameManager.isShowerGameRunning)
         {
-            if(simpleInteractions.isPressed == true)
+            if (isInRange == true)
             {
-               // soapHandlerCollider = soapHandler.GetComponent<Collider>();
-               // soapHandlerCollider.enabled = false;
-                transformer.position = colin.gameObject.transform.position;
-                transformer.rotation = colin.gameObject.transform.rotation;
-                if (isPlayedSound == false)
+                if (simpleInteractions.isPressed == true)
                 {
-                    EventBus.TriggerEvent(this, new GameStateEvent.GettingTheSoap());
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop it now"));
-                    isPlayedSound = true;
+                    // soapHandlerCollider = soapHandler.GetComponent<Collider>();
+                    // soapHandlerCollider.enabled = false;
+                    transformer.position = colin.gameObject.transform.position;
+                    transformer.rotation = colin.gameObject.transform.rotation;
+                    if (isPlayedSound == false)
+                    {
+                        EventBus.TriggerEvent(this, new GameStateEvent.GettingTheSoap());
+                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop it now"));
+                        isPlayedSound = true;
+                    }
+                    isHeld = true;
+
                 }
-                isHeld = true;
-                
-            }
 
-            if (simpleInteractions.isPressed == false)
-            {
-                transformer.position = colin.gameObject.transform.position;
-                transformer.rotation = colin.gameObject.transform.rotation;
-            }
+                if (simpleInteractions.isPressed == false)
+                {
+                    transformer.position = colin.gameObject.transform.position;
+                    transformer.rotation = colin.gameObject.transform.rotation;
+                }
 
-            if (simpleInteractions.isPressed == false && isOnRightSpot == true )
-            {
-                
-                transformer.position = new Vector3(-3.8109f, 1.2155f, 4.2846f);
-                transformer.rotation = new Quaternion(0f, 0f, 0f, 0f);
-                isHeld = false;
-                isInRange = false;
+                if (simpleInteractions.isPressed == false && isOnRightSpot == true)
+                {
+
+                    transformer.position = new Vector3(-3.8109f, 1.2155f, 4.2846f);
+                    transformer.rotation = new Quaternion(0f, 0f, 0f, 0f);
+                    isHeld = false;
+                    isInRange = false;
+                }
             }
         }
     }
 
     private void IsDoneCleaningSelf()
     {
-        if (isRightConditionsForCleaning == true)
+        if (MiniGameManager.isShowerGameRunning)
         {
-            Debug.Log("i AM CLEANing myself");
-            count++;
-            if (count > 100)
+            if (isRightConditionsForCleaning == true)
             {
-                Debug.Log("i AM CLEAN NOW");
-                isDoneCleaningSelf = true;
-                count = 0;
+                //SOUND OF HAVING URSELF CLEAN
+                Debug.Log("i AM CLEANing myself");
+                count++;
+                if (count > 100)
+                {
+                    Debug.Log("i AM CLEAN NOW");
+                    isDoneCleaningSelf = true;
+                    count = 0;
+                }
             }
         }
     }
-    private bool getWetSound=false;
     private void OnTriggerEnter(Collider col)
     {
 
-
-        if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+        if (MiniGameManager.isShowerGameRunning)
         {
-            simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
-            colin = col;
-            deltaRotation = colin.gameObject.transform.rotation;
-            isInRange = true;
-            //GetComponent<Collider>().enabled = true;
+            if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+            {
+                simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
+                colin = col;
+                deltaRotation = colin.gameObject.transform.rotation;
+                isInRange = true;
+                //GetComponent<Collider>().enabled = true;
 
-        }
-        if(col.gameObject.name == "soap_holder")
-        {
-            isOnRightSpot = true;
-        }
+            }
+            if (col.gameObject.name == "soap_holder")
+            {
+                isOnRightSpot = true;
+            }
 
-        if (col.gameObject.name == "torso" && waterParticle.isWet == true)
-        {
-            //EVENT FOR CLEANING STARTS
-            Debug.Log("WE ARE STARTING CLEANING");
-            isRightConditionsForCleaning = true;
-            EventBus.TriggerEvent(this, new GameStateEvent.StartCleaningSelf());
-            EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You are getting cleaner, good job!"));
+            if (col.gameObject.name == "torso" && waterParticle.isWet == true)
+            {
+                //EVENT FOR CLEANING STARTS
+                Debug.Log("WE ARE STARTING CLEANING");
+                isRightConditionsForCleaning = true;
+                EventBus.TriggerEvent(this, new GameStateEvent.StartCleaningSelf());
+                EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You are getting cleaner, good job!"));
+            }
+            else if (col.gameObject.name == "torso" && waterParticle.isWet == false && getWetSound == false)
+            {
+                EventBus.TriggerEvent(this, new GameStateEvent.NudgePlayerToGetWet());
+                EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You need to get wet"));
+                getWetSound = true;
+            }
         }
-        else if (col.gameObject.name == "torso" && waterParticle.isWet == false && getWetSound == false)
-        {
-            EventBus.TriggerEvent(this, new GameStateEvent.NudgePlayerToGetWet());
-            EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You need to get wet"));
-            getWetSound = true;
-        }
-
     }
     
     private void OnTriggerStay(Collider col)
     {
-        if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+        if (MiniGameManager.isShowerGameRunning)
         {
-            isInRange = true;
-            simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
-
-            if (col.gameObject.name == "torso" && waterParticle.isWet == true)
+            if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
-                Debug.Log("THEY ARE GOOD CONDITIONS");
-                isRightConditionsForCleaning = true;
-            }
+                isInRange = true;
+                simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
 
+                if (col.gameObject.name == "torso" && waterParticle.isWet == true)
+                {
+                    Debug.Log("THEY ARE GOOD CONDITIONS");
+                    isRightConditionsForCleaning = true;
+                }
+
+            }
         }
     }
 
     private void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.name == "soap_holder")
+        if (MiniGameManager.isShowerGameRunning)
         {
-            isOnRightSpot = false;
-            
-        }
+            if (col.gameObject.name == "soap_holder")
+            {
+                isOnRightSpot = false;
 
-        if (col.gameObject.name == "torso")
-        {
-            isRightConditionsForCleaning = false;
-            //EVENT FOR CLEANING STOPPED
-            EventBus.TriggerEvent(this, new GameStateEvent.StopCleaningSelf());
-           // EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You stopped cleaning ur self"));
+            }
+
+            if (col.gameObject.name == "torso")
+            {
+                isRightConditionsForCleaning = false;
+                //EVENT FOR CLEANING STOPPED
+                EventBus.TriggerEvent(this, new GameStateEvent.StopCleaningSelf());
+                // EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You stopped cleaning ur self"));
+            }
         }
-    
     }
 }
 

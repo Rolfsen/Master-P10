@@ -24,76 +24,84 @@ public class NewShowerHead : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        if(isHeld == true)
+        if (MiniGameManager.isHeadShowerGameRunning)
         {
-            rigidBody.isKinematic = true;
-            transformer.position = colin.gameObject.transform.position;
-        }
+            if (isHeld == true)
+            {
+                rigidBody.isKinematic = true;
+                transformer.position = colin.gameObject.transform.position;
+            }
 
-        if(isItOnSpot == true)
-        {
-            OI.rotationFactor = 50f;
-            IsTheShowerHeadScrewedOn();
+            if (isItOnSpot == true)
+            {
+                OI.rotationFactor = 50f;
+                IsTheShowerHeadScrewedOn();
+            }
         }
     }
     
-
+    //maybe needs checks if its on the right spot for the sound to work properly
     void IsTheShowerHeadScrewedOn()
     {
-        rotationDelta = transformer.rotation;
-      
-        if (rotationDelta.y > 0.8 || rotationDelta.y < -0.8)
+        if (MiniGameManager.isHeadShowerGameRunning)
         {
-            count++;
-            if(count>50)
-            { 
-                if(pluggedIn == false)
+            rotationDelta = transformer.rotation;
+            //SOUND OF ROTATING ON
+            if (rotationDelta.y > 0.8 || rotationDelta.y < -0.8)
+            {
+                count++;
+                if (count > 50)
                 {
-                    EventBus.TriggerEvent(this, new GameStateEvent.NewShowerHeadScrewedOnEvent());
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Good job. You saved like the whales."));
+                    if (pluggedIn == false)
+                    {
+                        EventBus.TriggerEvent(this, new GameStateEvent.NewShowerHeadScrewedOnEvent());
+                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Good job. You saved like the whales."));
+                    }
+                    //SOUND OF ROTATING OFF
+                    pluggedIn = true;
+                    rigidBody.isKinematic = true;
+
+
                 }
-                pluggedIn = true;
-                rigidBody.isKinematic = true;
-              
-                
             }
         }
     }
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.name == "Controller (left)" && isItOnSpot == false||
+        if (MiniGameManager.isHeadShowerGameRunning)
+        {
+            if (col.gameObject.name == "Controller (left)" && isItOnSpot == false ||
             col.gameObject.name == "Controller (right)" && isItOnSpot == false)
-        {
-            if(isHeld==false)
             {
-                EventBus.TriggerEvent(this, new GameStateEvent.NewShowePickedUpEvent());
-                EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Now place it on the old shower head spot."));
-            }
-            colin = col;
-            isHeld = true;
+                if (isHeld == false)
+                {
+                    EventBus.TriggerEvent(this, new GameStateEvent.NewShowePickedUpEvent());
+                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Now place it on the old shower head spot."));
+                }
+                colin = col;
+                isHeld = true;
 
-            
-            //rigidBody.useGravity = true;
-            Debug.Log("Shine new thingy");//highlight
-        }
 
-        if(col.gameObject.name == "shower_socket")
-        {
-            if(isItOnSpot == false)
-            { 
-                EventBus.TriggerEvent(this, new GameStateEvent.NewShowerHeadRightPlaceEvent());
-                EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Now turn it around."));
+                //rigidBody.useGravity = true;
+                Debug.Log("Shine new thingy");//highlight
             }
 
-            isHeld = false;
-            isItOnSpot = true;
-            rigidBody.isKinematic = false;
-           
+            if (col.gameObject.name == "shower_socket")
+            {
+                if (isItOnSpot == false)
+                {
+                    EventBus.TriggerEvent(this, new GameStateEvent.NewShowerHeadRightPlaceEvent());
+                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Now turn it around."));
+                }
 
+                isHeld = false;
+                isItOnSpot = true;
+                rigidBody.isKinematic = false;
+
+
+            }
         }
     }
-
 
 }

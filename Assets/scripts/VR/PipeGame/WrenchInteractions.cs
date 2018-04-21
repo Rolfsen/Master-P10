@@ -22,59 +22,65 @@ public class WrenchInteractions : MonoBehaviour
     {
         transformer = gameObject.GetComponent<Transform>();
     }
-    // Update is called once per frame
     void Update()
     {
-        if(isHeld == true)
-        {
-            
-            //transform.rotation = Quaternion.Euler(rot);
-            //transformer.position = colin.gameObject.transform.position;
-            // transformer.rotation = colin.gameObject.transform.rotation;
-            transformer.position = new Vector3(colin.gameObject.transform.position.x, colin.gameObject.transform.position.y, colin.gameObject.transform.position.z);
 
-            
-            transformer.rotation = Quaternion.Euler(new Vector3(colin.gameObject.transform.rotation.eulerAngles.x, colin.gameObject.transform.rotation.eulerAngles.y , colin.gameObject.transform.rotation.eulerAngles.z));
-            if (isPlayedSound == false)
-            {
-                EventBus.TriggerEvent(this, new GameStateEvent.AfterPickUpWrench());
-                EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Now fix the pipes boiiiiiiii"));
-                isPlayedSound = true;
-            }
-            if (simpleInteractions.isPressed == false && isOnRightSpot == true)
-            {
+        WrenchIsHeld();
+        
+    }
 
-                transformer.position = new Vector3(rightSpotX, rightSpotY, rightSpotZ);
-                transformer.rotation = new Quaternion(0f, 0f, 0f, 0f);
-                isHeld = false;
-                isOnRightSpot = false;
+    void WrenchIsHeld()
+    {
+        if(MiniGameManager.isPipeGameRunning)
+        { 
+            if (isHeld == true)
+            {
+                transformer.position = new Vector3(colin.gameObject.transform.position.x, colin.gameObject.transform.position.y, colin.gameObject.transform.position.z);
+                transformer.rotation = Quaternion.Euler(new Vector3(colin.gameObject.transform.rotation.eulerAngles.x, colin.gameObject.transform.rotation.eulerAngles.y, colin.gameObject.transform.rotation.eulerAngles.z));
+                if (isPlayedSound == false)
+                {
+                    EventBus.TriggerEvent(this, new GameStateEvent.AfterPickUpWrench());
+                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Now fix the pipes boiiiiiiii"));
+                    isPlayedSound = true;
+                }
+                if (simpleInteractions.isPressed == false && isOnRightSpot == true)
+                {
+
+                    transformer.position = new Vector3(rightSpotX, rightSpotY, rightSpotZ);
+                    transformer.rotation = new Quaternion(0f, 0f, 0f, 0f);
+                    isHeld = false;
+                    isOnRightSpot = false;
+                }
             }
         }
     }
-
     private void OnTriggerEnter(Collider col)
     {
-
-
-        if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+        if (MiniGameManager.isPipeGameRunning)
         {
-            simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
-            colin = col;
+            if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+            {
+                simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
+                colin = col;
 
-            isHeld = true;
-            //col.GetComponent<Collider>().enabled = false;
-        }
-        else if (col.gameObject.tag == "WrenchPlace")
-        {
-            isOnRightSpot = true;
+                isHeld = true;
+                //col.GetComponent<Collider>().enabled = false;
+            }
+            else if (col.gameObject.tag == "WrenchPlace")
+            {
+                isOnRightSpot = true;
+            }
         }
     }
     private void OnTriggerStay(Collider col)
     {
-        if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+        if (MiniGameManager.isPipeGameRunning)
         {
+            if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+            {
 
-            simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
+                simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
+            }
         }
     }
 
