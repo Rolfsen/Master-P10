@@ -7,7 +7,7 @@ public class NewShowerHead : MonoBehaviour {
     [SerializeField]
     private Quaternion rotationDelta;
     private Rigidbody rigidBody;
-    bool pluggedIn = false;
+    public bool pluggedIn = false;
     bool isItOnSpot = false;
     [SerializeField]
     int count = 0;

@@ -654,8 +654,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 0}
   interactionPoint: {fileID: 0}
-  velocityFactor: 500
-  rotationFactor: 500
+  velocityFactor: 100
+  rotationFactor: 100
   rotationDelta: {x: 0, y: 0, z: 0, w: 0}
   angle: 0
 --- !u!114 &114932079809400076

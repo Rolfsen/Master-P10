@@ -65,40 +65,108 @@ public class SimpleInteractions : MonoBehaviour
         ///MAKING THE HANDS STAY IN PLACE
         if (col.gameObject.tag == "Wrench")
         {
-            leftHand.closeHandLeft.SetActive(true);
-            rightHand.closeHandRight.SetActive(true);
-            leftHand.openHandLeft.SetActive(false);
-            rightHand.openHandRight.SetActive(false);
-            leftHand.enabled = false;
-            rightHand.enabled = false;
+            if (gameObject.GetComponent<RightHand>() == true)
+            {
+                Debug.Log("This works!!!");
+
+                rightHand.closeHandRight.SetActive(true);
+                rightHand.openHandRight.SetActive(false);
+                rightHand.enabled = false;
+            }
+            if (gameObject.GetComponent<LeftHand>() == true)
+            {
+                leftHand.closeHandLeft.SetActive(true);
+                leftHand.openHandLeft.SetActive(false);
+                leftHand.enabled = false;
+            }
+        }
+        if (col.gameObject.tag == "OldShowerHead" && col.gameObject.GetComponent<ShowerInteractions>().unPluged==true)
+        {
+            if (gameObject.GetComponent<RightHand>() == true)
+            {
+                Debug.Log("This works!!!");
+               
+                rightHand.closeHandRight.SetActive(true);
+                rightHand.openHandRight.SetActive(false);
+                rightHand.enabled = false;
+            }
+            if (gameObject.GetComponent<LeftHand>() == true)
+            {
+                leftHand.closeHandLeft.SetActive(true);
+                leftHand.openHandLeft.SetActive(false);
+                leftHand.enabled = false;
+            }
         }
 
+        if (col.gameObject.tag == "NewShowerHead" && col.gameObject.GetComponent<NewShowerHead>().pluggedIn == false)
+        {
+            if (gameObject.GetComponent<RightHand>() == true)
+            {
+                Debug.Log("This works!!!");
+
+                rightHand.closeHandRight.SetActive(true);
+                rightHand.openHandRight.SetActive(false);
+                rightHand.enabled = false;
+            }
+            if (gameObject.GetComponent<LeftHand>() == true)
+            {
+                leftHand.closeHandLeft.SetActive(true);
+                leftHand.openHandLeft.SetActive(false);
+                leftHand.enabled = false;
+            }
+        }
         if (col.gameObject.tag == "Mop")
         {
-            leftHand.closeHandLeft.SetActive(true);
-            rightHand.closeHandRight.SetActive(true);
-            leftHand.openHandLeft.SetActive(false);
-            rightHand.openHandRight.SetActive(false);
-            leftHand.enabled = false;
-            rightHand.enabled = false;
+            if(gameObject.GetComponent<RightHand>()==true)
+            {
+                Debug.Log("This works!!!");
+                
+                rightHand.closeHandRight.SetActive(true);
+                rightHand.openHandRight.SetActive(false);
+                rightHand.enabled = false;
+            }
+            if (gameObject.GetComponent<LeftHand>() == true)
+            {
+                leftHand.closeHandLeft.SetActive(true);
+                leftHand.openHandLeft.SetActive(false);
+                leftHand.enabled = false;
+            }
+
+            
         }
         if (col.gameObject.tag == "Soap")
         {
-            leftHand.closeHandLeft.SetActive(true);
-            rightHand.closeHandRight.SetActive(true);
-            leftHand.openHandLeft.SetActive(false);
-            rightHand.openHandRight.SetActive(false);
-            leftHand.enabled = false;
-            rightHand.enabled = false;
+            if (gameObject.GetComponent<RightHand>() == true)
+            {
+                Debug.Log("This works!!!");
+
+                rightHand.closeHandRight.SetActive(true);
+                rightHand.openHandRight.SetActive(false);
+                rightHand.enabled = false;
+            }
+            if (gameObject.GetComponent<LeftHand>() == true)
+            {
+                leftHand.closeHandLeft.SetActive(true);
+                leftHand.openHandLeft.SetActive(false);
+                leftHand.enabled = false;
+            }
         }
         if (col.gameObject.tag == "Vacuum")
         {
-            leftHand.closeHandLeft.SetActive(true);
-            rightHand.closeHandRight.SetActive(true);
-            leftHand.openHandLeft.SetActive(false);
-            rightHand.openHandRight.SetActive(false);
-            leftHand.enabled = false;
-            rightHand.enabled = false;
+            if (gameObject.GetComponent<RightHand>() == true)
+            {
+                Debug.Log("This works!!!");
+
+                rightHand.closeHandRight.SetActive(true);
+                rightHand.openHandRight.SetActive(false);
+                rightHand.enabled = false;
+            }
+            if (gameObject.GetComponent<LeftHand>() == true)
+            {
+                leftHand.closeHandLeft.SetActive(true);
+                leftHand.openHandLeft.SetActive(false);
+                leftHand.enabled = false;
+            }
         }
     }
     private void OnTriggerExit(Collider col)
@@ -108,60 +176,144 @@ public class SimpleInteractions : MonoBehaviour
         {
             //objectsHoveringOverList.Remove(collidedItem);
         }
-
+        
         if (col.gameObject.tag == "Wrench")
         {
             myColliders[0].enabled = true;
             myColliders[1].enabled = false;
             Debug.Log("its all right now");
-            leftHand.enabled = true;
-            rightHand.enabled = true;
-            ///MAKING THE HANDS STAY IN PLACE
-            leftHand.closeHandLeft.SetActive(false);
-            rightHand.closeHandRight.SetActive(false);
-            leftHand.openHandLeft.SetActive(true);
-            rightHand.openHandRight.SetActive(true);
+            if (gameObject.GetComponent<RightHand>() == true)
+            {
+                Debug.Log("This works!!!");
+
+                rightHand.closeHandRight.SetActive(false);
+                rightHand.openHandRight.SetActive(true);
+                rightHand.enabled = true;
+            }
+            if (gameObject.GetComponent<LeftHand>() == true)
+            {
+                leftHand.closeHandLeft.SetActive(false);
+                leftHand.openHandLeft.SetActive(true);
+                leftHand.enabled = true;
+            }
+
 
         }
 
-        if (col.gameObject.tag == "Mop")
+        else if (col.gameObject.tag == "Mop")
         {
-            myColliders[0].enabled = true;
-            myColliders[1].enabled = false;
             Debug.Log("its all right now");
-            leftHand.enabled = true;
-            rightHand.enabled = true;
-            ///MAKING THE HANDS STAY IN PLACE
-            leftHand.closeHandLeft.SetActive(false);
-            rightHand.closeHandRight.SetActive(false);
-            leftHand.openHandLeft.SetActive(true);
-            rightHand.openHandRight.SetActive(true);
+        
+            if (gameObject.GetComponent<RightHand>() == true)
+            {
+                Debug.Log("This works!!!");
+
+                rightHand.closeHandRight.SetActive(false);
+                rightHand.openHandRight.SetActive(true);
+                rightHand.enabled = true;
+            }
+            if (gameObject.GetComponent<LeftHand>() == true)
+            {
+                leftHand.closeHandLeft.SetActive(false);
+                leftHand.openHandLeft.SetActive(true);
+                leftHand.enabled = true;
+            }
         }
-        if (col.gameObject.tag == "Vacuum")
+
+        else if (col.gameObject.tag == "OldShowerHead")
         {
-            myColliders[0].enabled = true;
-            myColliders[1].enabled = false;
             Debug.Log("its all right now");
-            leftHand.enabled = true;
-            rightHand.enabled = true;
-            ///MAKING THE HANDS STAY IN PLACE
-            leftHand.closeHandLeft.SetActive(false);
-            rightHand.closeHandRight.SetActive(false);
-            leftHand.openHandLeft.SetActive(true);
-            rightHand.openHandRight.SetActive(true);
+
+            if (gameObject.GetComponent<RightHand>() == true)
+            {
+                Debug.Log("This works!!!");
+
+                rightHand.closeHandRight.SetActive(false);
+                rightHand.openHandRight.SetActive(true);
+                rightHand.enabled = true;
+            }
+            if (gameObject.GetComponent<LeftHand>() == true)
+            {
+                leftHand.closeHandLeft.SetActive(false);
+                leftHand.openHandLeft.SetActive(true);
+                leftHand.enabled = true;
+            }
         }
-        if (col.gameObject.tag == "Soap")
+        else if (col.gameObject.tag == "NewShowerHead")
         {
-            myColliders[0].enabled = true;
-            myColliders[1].enabled = false;
             Debug.Log("its all right now");
-            leftHand.enabled = true;
-            rightHand.enabled = true;
-            ///MAKING THE HANDS STAY IN PLACE
-            leftHand.closeHandLeft.SetActive(false);
-            rightHand.closeHandRight.SetActive(false);
-            leftHand.openHandLeft.SetActive(true);
-            rightHand.openHandRight.SetActive(true);
+
+            if (gameObject.GetComponent<RightHand>() == true)
+            {
+                Debug.Log("This works!!!");
+
+                rightHand.closeHandRight.SetActive(false);
+                rightHand.openHandRight.SetActive(true);
+                rightHand.enabled = true;
+            }
+            if (gameObject.GetComponent<LeftHand>() == true)
+            {
+                leftHand.closeHandLeft.SetActive(false);
+                leftHand.openHandLeft.SetActive(true);
+                leftHand.enabled = true;
+            }
+        }
+        else if (col.gameObject.tag == "Vacuum")
+        {
+            Debug.Log("its all right now");
+            if (gameObject.GetComponent<RightHand>() == true)
+            {
+                Debug.Log("This works!!!");
+
+                rightHand.closeHandRight.SetActive(false);
+                rightHand.openHandRight.SetActive(true);
+                rightHand.enabled = true;
+            }
+            if (gameObject.GetComponent<LeftHand>() == true)
+            {
+                leftHand.closeHandLeft.SetActive(false);
+                leftHand.openHandLeft.SetActive(true);
+                leftHand.enabled = true;
+            }
+        }
+        else if (col.gameObject.tag == "Soap")
+        {
+            if (gameObject.GetComponent<RightHand>() == true)
+            {
+                Debug.Log("This works!!!");
+
+                rightHand.closeHandRight.SetActive(false);
+                rightHand.openHandRight.SetActive(true);
+                rightHand.enabled = true;
+            }
+            if (gameObject.GetComponent<LeftHand>() == true)
+            {
+                leftHand.closeHandLeft.SetActive(false);
+                leftHand.openHandLeft.SetActive(true);
+                leftHand.enabled = true;
+            }
         }
     }
 }
+
+
+
+
+
+/*
+            leftHand.closeHandLeft.SetActive(true);
+            rightHand.closeHandRight.SetActive(true);
+            leftHand.openHandLeft.SetActive(false);
+            rightHand.openHandRight.SetActive(false);
+            leftHand.enabled = false;
+            rightHand.enabled = false;
+
+
+        leftHand.enabled = true;
+            rightHand.enabled = true;
+            ///MAKING THE HANDS STAY IN PLACE
+            leftHand.closeHandLeft.SetActive(false);
+            rightHand.closeHandRight.SetActive(false);
+            leftHand.openHandLeft.SetActive(true);
+            rightHand.openHandRight.SetActive(true);
+            */

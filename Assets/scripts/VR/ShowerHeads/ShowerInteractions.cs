@@ -11,7 +11,7 @@ public class ShowerInteractions : MonoBehaviour {
     private int count = 0;
     private Rigidbody rigidBody;
     Collider sphery;
-    bool unPluged = false;
+    public bool unPluged = false;
     ObjectInteraction OI;
     void Start() {
 
@@ -28,7 +28,8 @@ public class ShowerInteractions : MonoBehaviour {
         if (unPluged==true)
         {
             
-            transformer.position = colin.transform.position; //Return BACK TO NORMAL
+            transformer.position = colin.transform.position;
+            transform.rotation = colin.transform.rotation;//Return BACK TO NORMAL
         }
         showerUnPlug();
     }
