@@ -6,18 +6,17 @@ public class PipeWin : MonoBehaviour {
    [SerializeField]
     GameObject pipeObject1, pipeObject2, pipeObject3, pipeObject4;
     // Use this for initialization
-    PipeInteraction2 pipe1,pipe3;
-    PipeInteractions pipe2, pipe4;
+    PipeInteractions pipe1,pipe3;
+    PipeInteraction2 pipe2, pipe4;
     public int count;
     
     void Start () {
-        if (MiniGameManager.isPipeGameRunning)
-        {
-            pipe1 = pipeObject1.GetComponent<PipeInteraction2>();
-            pipe2 = pipeObject2.GetComponent<PipeInteractions>();
-            pipe3 = pipeObject3.GetComponent<PipeInteraction2>();
-            pipe4 = pipeObject4.GetComponent<PipeInteractions>();
-        }
+        
+            pipe1 = pipeObject1.GetComponent<PipeInteractions>();
+            pipe2 = pipeObject2.GetComponent<PipeInteraction2>();
+            pipe3 = pipeObject3.GetComponent<PipeInteractions>();
+            pipe4 = pipeObject4.GetComponent<PipeInteraction2>();
+        
     }
 	
 	// Update is called once per frame
@@ -35,7 +34,7 @@ public class PipeWin : MonoBehaviour {
             count++;
             pipe1 = null;
         }
-        if (pipe2.isFixed == true )
+        else if (pipe2.isFixed == true )
         {
             count++;
             pipe2 = null;
@@ -49,6 +48,11 @@ public class PipeWin : MonoBehaviour {
         {
             count++;
             pipe4 = null;
+        }
+
+        if(count == 4)
+        {
+            EventBus.TriggerEvent(this, new MinigameEvents.EndMinigamEvent());
         }
         
     }

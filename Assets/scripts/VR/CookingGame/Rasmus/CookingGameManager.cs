@@ -26,7 +26,7 @@ public class CookingGameManager : MonoBehaviour {
 
 		if (numberOfPotatoes == readyPotatoes)
 		{
-            EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(allPotatoesHaveBeenPeeledText));
+           // EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(allPotatoesHaveBeenPeeledText));
 			EventBus.TriggerEvent(this, new GameStateEvent.AllPotatoesComplete());
 		}
 	}

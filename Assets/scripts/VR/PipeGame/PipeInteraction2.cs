@@ -9,7 +9,8 @@ public class PipeInteraction2 : MonoBehaviour {
     Quaternion rotationDelta;
     [SerializeField]
     private int count;
-    public bool isFixed = false;
+    [HideInInspector]
+    public bool isFixed;
     [SerializeField]
     private GameObject pipeGameManagerObject;
     private PipeWin pipeWin;
@@ -21,6 +22,7 @@ public class PipeInteraction2 : MonoBehaviour {
         transformer = GetComponent<Transform>();
         pipeWin = pipeGameManagerObject.GetComponent<PipeWin>();
         rigidBody = GetComponent<Rigidbody>();
+        isFixed = false;
     }
 
     // Update is called once per frame

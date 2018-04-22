@@ -26,10 +26,12 @@ public class SoapInteractions : MonoBehaviour {
     bool isHeld = false;
     private bool getWetSound = false;
 
+    [SerializeField]
+    private ShowerHandler showerhandler;
+
     // Use this for initialization
     void Start()
     {
-        
         transformer = gameObject.GetComponent<Transform>();
         rigidBody = gameObject.GetComponent<Rigidbody>();
        
@@ -99,10 +101,24 @@ public class SoapInteractions : MonoBehaviour {
                     Debug.Log("i AM CLEAN NOW");
                     isDoneCleaningSelf = true;
                     count = 0;
+
                 }
             }
         }
     }
+    
+
+
+    void isGameDone()
+    {
+        if(isDoneCleaningSelf && !showerhandler.isWaterRunning)
+        {
+            EventBus.TriggerEvent(this,new MinigameEvents.EndMinigamEvent());
+        }
+    }
+
+
+
     private void OnTriggerEnter(Collider col)
     {
 

@@ -9,7 +9,7 @@ public class ShowerHandler : MonoBehaviour {
     Quaternion rotationDelta;
     [SerializeField]
     private int count;
-    private bool isWaterRunning = false;
+    public bool isWaterRunning = false;
     private bool ControllerInRange = false;
     private bool isTriggerPressed = false;
     private Collider colin;

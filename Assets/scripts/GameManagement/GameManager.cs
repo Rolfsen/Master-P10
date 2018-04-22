@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour {
 	public static int currentID;
 	public static bool isPlaying;
 
+    [SerializeField]
+    int firstMinigame;
+
 	private void Awake()
 	{
 		EventBus.AddListener<MinigameEvents.ChangeActiveMinigameEvent>(UpdateGameStatus);
@@ -15,8 +18,10 @@ public class GameManager : MonoBehaviour {
 
 	private void Start()
 	{
+        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("DEBUG ME MEMEMEMEMME"));
 		currentID = -1;
 		isPlaying = false;
+        EventBus.TriggerEvent(this, new MinigameEvents.ChangeActiveMinigameEvent(firstMinigame));
 	}
 
 	private void Update()

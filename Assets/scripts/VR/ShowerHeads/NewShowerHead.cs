@@ -60,7 +60,7 @@ public class NewShowerHead : MonoBehaviour {
                     //SOUND OF ROTATING OFF
                     pluggedIn = true;
                     rigidBody.isKinematic = true;
-
+                    EventBus.TriggerEvent(this, new MinigameEvents.EndMinigamEvent());
 
                 }
             }
