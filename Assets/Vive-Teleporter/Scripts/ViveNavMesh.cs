@@ -231,7 +231,7 @@ public class ViveNavMesh : MonoBehaviour
                 return true;
             }
 
-			Debug.Log("Telelport Navmesh Code - Get Tag From Here");
+			//Debug.Log("Telelport Navmesh Code - Get Tag From Here");
 
             hitPoint = hit.point;
             NavMeshHit navHit;
