@@ -63,6 +63,27 @@ public class PipeInteraction2 : MonoBehaviour {
             }
         }
     }
+
+
+
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "Wrench")
+        {
+            rigidBody.isKinematic = false;
+        }
+
+    }
+
+    private void OnTriggerExit(Collider col)
+    {
+        if (col.gameObject.tag == "Wrench")
+        {
+            rigidBody.isKinematic = true;
+        }
+
+    }
+
 }
 
 

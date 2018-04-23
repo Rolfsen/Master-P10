@@ -3,20 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PipeWin : MonoBehaviour {
-   [SerializeField]
-    GameObject pipeObject1, pipeObject2, pipeObject3, pipeObject4;
-    // Use this for initialization
-    PipeInteractions pipe1,pipe3;
-    PipeInteraction2 pipe2, pipe4;
-    public int count;
+   
+    [SerializeField]
+    PipeInteractions pipe1,pipe3, pipe5;
+    [SerializeField]
+    PipeInteraction2 pipe2, pipe4, pipe6;
     
+    public int count;
+    [SerializeField]
+    AudioClip musicClip;
+    [SerializeField]
+    AudioSource audioSource;
     void Start () {
         
-            pipe1 = pipeObject1.GetComponent<PipeInteractions>();
-            pipe2 = pipeObject2.GetComponent<PipeInteraction2>();
-            pipe3 = pipeObject3.GetComponent<PipeInteractions>();
-            pipe4 = pipeObject4.GetComponent<PipeInteraction2>();
-        
+            
+            audioSource.clip = musicClip;
+            audioSource.Play();
+        pip1 = false;
+        pip2 = false;
+        pip3 = false;
+        pip4 = false;
     }
 	
 	// Update is called once per frame
@@ -25,34 +31,39 @@ public class PipeWin : MonoBehaviour {
         {
             WinConditionPipeGame();
         }
+        
     }
-
+    bool pip1, pip2, pip3, pip4;
     void WinConditionPipeGame()
     {
         if (pipe1.isFixed == true)
         {
-            count++;
-            pipe1 = null;
+            pip1 = true;
+            //pipe1.gameObject.GetComponent<PipeInteractions>().enabled = false;
         }
-        else if (pipe2.isFixed == true )
+        if (pipe2.isFixed == true )
         {
-            count++;
-            pipe2 = null;
+            pip2 = true;
+            //pipe2.gameObject.GetComponent<PipeInteraction2>().enabled = false;
         }
-        else if (pipe3.isFixed == true )
+        if (pipe3.isFixed == true )
         {
-            count++;
-            pipe3 = null;
+            pip3 = true;
+            //pipe3.gameObject.GetComponent<PipeInteractions>().enabled = false;
         }
-        else if (pipe4.isFixed == true)
+        if (pipe4.isFixed == true)
         {
-            count++;
-            pipe4 = null;
+            pip4 = true;
+            //pipe4.gameObject.GetComponent<PipeInteraction2>().enabled = false;
+            
         }
 
-        if(count == 4)
+        if (pip1 && pip2 && pip3 && pip4)
         {
+            audioSource.Stop();
+            Debug.Log("WIN THE GAME");
             EventBus.TriggerEvent(this, new MinigameEvents.EndMinigamEvent());
+            gameObject.GetComponent<PipeWin>().enabled = false;
         }
         
     }

@@ -127,6 +127,7 @@ public class SoapInteractions : MonoBehaviour {
             if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
                 simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
+                col.GetComponent<Interactions>().enabled = false;
                 colin = col;
                 deltaRotation = colin.gameObject.transform.rotation;
                 isInRange = true;
@@ -163,7 +164,7 @@ public class SoapInteractions : MonoBehaviour {
             {
                 isInRange = true;
                 simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
-
+                col.GetComponent<Interactions>().enabled = false;
                 if (col.gameObject.name == "torso" && waterParticle.isWet == true)
                 {
                     Debug.Log("THEY ARE GOOD CONDITIONS");
@@ -191,6 +192,11 @@ public class SoapInteractions : MonoBehaviour {
                 EventBus.TriggerEvent(this, new GameStateEvent.StopCleaningSelf());
                 // EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You stopped cleaning ur self"));
             }
+            if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+            {
+                col.GetComponent<Interactions>().enabled = enabled;
+            }
+
         }
     }
 }
