@@ -10,6 +10,7 @@ public class MiniGameManager : MonoBehaviour
     public static bool isHeadShowerGameRunning = true;
     public static bool isCleaningGameRunning = true;
     public static bool isShowerGameRunning = true;
+	public static bool isToiletGameRunning = true;
 
 
     private void Awake()
@@ -53,6 +54,12 @@ public class MiniGameManager : MonoBehaviour
                     isShowerGameRunning = true;
                     break;
                 }
+			case 5:
+				{
+					ResetAll();
+					isToiletGameRunning = true;
+					break;
+				}
         }
     }
 
