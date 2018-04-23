@@ -1,18 +1,19 @@
 // Shader created with Shader Forge v1.38 
 // Shader Forge (c) Neat Corporation / Joachim Holmer - http://www.acegikmo.com/shaderforge/
 // Note: Manually altering this data may prevent you from opening it in Shader Forge
-/*SF_DATA;ver:1.38;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,cgin:,lico:1,lgpr:1,limd:3,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:False,hqlp:False,rprd:False,enco:False,rmgx:True,imps:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:0,bsrc:0,bdst:1,dpts:2,wrdp:True,dith:0,atcv:False,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:False,qofs:0,qpre:1,rntp:1,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,atwp:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False,fsmp:False;n:type:ShaderForge.SFN_Final,id:4013,x:32695,y:32758,varname:node_4013,prsc:2|diff-9538-OUT,spec-177-OUT,gloss-3533-OUT,normal-9320-OUT,emission-7434-OUT;n:type:ShaderForge.SFN_Multiply,id:191,x:32142,y:32600,varname:node_191,prsc:2|A-2589-RGB,B-7243-OUT,C-8352-OUT;n:type:ShaderForge.SFN_Color,id:2589,x:31949,y:32600,ptovrint:False,ptlb:Fresnel Color,ptin:_FresnelColor,varname:node_2589,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:0,c2:1,c3:0,c4:1;n:type:ShaderForge.SFN_Fresnel,id:7243,x:31949,y:32752,varname:node_7243,prsc:2;n:type:ShaderForge.SFN_Add,id:9538,x:32433,y:32582,varname:node_9538,prsc:2|A-6507-OUT,B-191-OUT;n:type:ShaderForge.SFN_Slider,id:8352,x:31792,y:32903,ptovrint:False,ptlb:Silhouette Intensity,ptin:_SilhouetteIntensity,varname:node_8352,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:1,max:10;n:type:ShaderForge.SFN_Multiply,id:6507,x:32142,y:32339,varname:node_6507,prsc:2|A-4572-RGB,B-6816-RGB;n:type:ShaderForge.SFN_Color,id:6816,x:31949,y:32432,ptovrint:False,ptlb:Maintex Color,ptin:_MaintexColor,varname:_Color,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:1,c2:1,c3:1,c4:1;n:type:ShaderForge.SFN_Tex2d,id:4572,x:31949,y:32247,ptovrint:True,ptlb:Maintex,ptin:_MainTex,varname:_MainTex,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:04d7b27c75e251246b1c87f0a92b46fc,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Slider,id:177,x:32276,y:32799,ptovrint:False,ptlb:Metallic,ptin:_Metallic,varname:node_358,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:1;n:type:ShaderForge.SFN_Slider,id:3533,x:32276,y:32901,ptovrint:False,ptlb:Gloss,ptin:_Gloss,varname:_Metallic_copy,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:1;n:type:ShaderForge.SFN_Slider,id:4118,x:32276,y:33149,ptovrint:False,ptlb:Maintex Normal Intensity,ptin:_MaintexNormalIntensity,varname:node_9862,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:1;n:type:ShaderForge.SFN_Lerp,id:9320,x:32433,y:32992,varname:node_9320,prsc:2|A-6272-OUT,B-585-RGB,T-4118-OUT;n:type:ShaderForge.SFN_Vector3,id:6272,x:31947,y:32984,varname:node_6272,prsc:2,v1:0,v2:0,v3:1;n:type:ShaderForge.SFN_Tex2d,id:5157,x:32098,y:33362,ptovrint:False,ptlb:Maintex Emission Map,ptin:_MaintexEmissionMap,varname:node_2964,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Tex2d,id:585,x:31947,y:33105,ptovrint:False,ptlb:Maintex Normal Map,ptin:_MaintexNormalMap,varname:node_7940,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:3,isnm:True;n:type:ShaderForge.SFN_Lerp,id:7434,x:32428,y:33318,varname:node_7434,prsc:2|A-2305-OUT,B-5157-RGB,T-9260-OUT;n:type:ShaderForge.SFN_Slider,id:9260,x:31941,y:33540,ptovrint:False,ptlb:Maintex Emission Intensity,ptin:_MaintexEmissionIntensity,varname:node_3275,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:1;n:type:ShaderForge.SFN_Vector3,id:2305,x:32098,y:33245,varname:node_2305,prsc:2,v1:0,v2:0,v3:0;proporder:2589-8352-6816-4572-177-3533-4118-585-5157-9260;pass:END;sub:END;*/
+/*SF_DATA;ver:1.38;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,cgin:,lico:1,lgpr:1,limd:3,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:False,hqlp:False,rprd:False,enco:False,rmgx:True,imps:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:0,bsrc:0,bdst:1,dpts:2,wrdp:True,dith:0,atcv:False,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:False,qofs:0,qpre:1,rntp:1,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,atwp:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False,fsmp:False;n:type:ShaderForge.SFN_Final,id:4013,x:32695,y:32758,varname:node_4013,prsc:2|diff-9538-OUT,spec-177-OUT,gloss-3533-OUT,normal-9320-OUT,emission-246-OUT;n:type:ShaderForge.SFN_Multiply,id:191,x:32142,y:32600,varname:node_191,prsc:2|A-2589-RGB,B-7243-OUT,C-8352-OUT;n:type:ShaderForge.SFN_Color,id:2589,x:31949,y:32600,ptovrint:False,ptlb:Silhouette Color,ptin:_SilhouetteColor,varname:node_2589,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:1,c2:1,c3:1,c4:1;n:type:ShaderForge.SFN_Fresnel,id:7243,x:31949,y:32752,varname:node_7243,prsc:2;n:type:ShaderForge.SFN_Add,id:9538,x:32433,y:32582,varname:node_9538,prsc:2|A-6507-OUT,B-191-OUT;n:type:ShaderForge.SFN_Slider,id:8352,x:31792,y:32903,ptovrint:False,ptlb:Silhouette Intensity,ptin:_SilhouetteIntensity,varname:node_8352,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:10;n:type:ShaderForge.SFN_Multiply,id:6507,x:32142,y:32339,varname:node_6507,prsc:2|A-4572-RGB,B-6816-RGB;n:type:ShaderForge.SFN_Color,id:6816,x:31949,y:32432,ptovrint:False,ptlb:Maintex Color,ptin:_MaintexColor,varname:_Color,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:1,c2:1,c3:1,c4:1;n:type:ShaderForge.SFN_Tex2d,id:4572,x:31949,y:32247,ptovrint:True,ptlb:Maintex,ptin:_MainTex,varname:_MainTex,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:04d7b27c75e251246b1c87f0a92b46fc,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Slider,id:177,x:32276,y:32799,ptovrint:False,ptlb:Metallic,ptin:_Metallic,varname:node_358,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:1;n:type:ShaderForge.SFN_Slider,id:3533,x:32276,y:32901,ptovrint:False,ptlb:Gloss,ptin:_Gloss,varname:_Metallic_copy,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:1;n:type:ShaderForge.SFN_Slider,id:4118,x:32276,y:33149,ptovrint:False,ptlb:Maintex Normal Intensity,ptin:_MaintexNormalIntensity,varname:node_9862,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:1;n:type:ShaderForge.SFN_Lerp,id:9320,x:32433,y:32992,varname:node_9320,prsc:2|A-6272-OUT,B-585-RGB,T-4118-OUT;n:type:ShaderForge.SFN_Vector3,id:6272,x:31947,y:32984,varname:node_6272,prsc:2,v1:0,v2:0,v3:1;n:type:ShaderForge.SFN_Tex2d,id:5157,x:32098,y:33362,ptovrint:False,ptlb:Maintex Emission Map,ptin:_MaintexEmissionMap,varname:node_2964,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Tex2d,id:585,x:31947,y:33105,ptovrint:False,ptlb:Maintex Normal Map,ptin:_MaintexNormalMap,varname:node_7940,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:3,isnm:True;n:type:ShaderForge.SFN_Slider,id:9260,x:31941,y:33732,ptovrint:False,ptlb:Maintex Emission Intensity,ptin:_MaintexEmissionIntensity,varname:node_3275,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:1;n:type:ShaderForge.SFN_Color,id:9313,x:32098,y:33556,ptovrint:False,ptlb:Maintex Emission Color,ptin:_MaintexEmissionColor,varname:node_9313,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:1,c2:1,c3:1,c4:1;n:type:ShaderForge.SFN_Multiply,id:9126,x:32276,y:33362,varname:node_9126,prsc:2|A-5157-RGB,B-9313-RGB;n:type:ShaderForge.SFN_Multiply,id:246,x:32505,y:33362,varname:node_246,prsc:2|A-9126-OUT,B-9260-OUT;proporder:2589-8352-6816-4572-177-3533-585-4118-9313-5157-9260;pass:END;sub:END;*/
 
 Shader "DCC/Silhouette Enhancement" {
     Properties {
-        _FresnelColor ("Fresnel Color", Color) = (0,1,0,1)
-        _SilhouetteIntensity ("Silhouette Intensity", Range(0, 10)) = 1
+        _SilhouetteColor ("Silhouette Color", Color) = (1,1,1,1)
+        _SilhouetteIntensity ("Silhouette Intensity", Range(0, 10)) = 0
         _MaintexColor ("Maintex Color", Color) = (1,1,1,1)
         _MainTex ("Maintex", 2D) = "white" {}
         _Metallic ("Metallic", Range(0, 1)) = 0
         _Gloss ("Gloss", Range(0, 1)) = 0
-        _MaintexNormalIntensity ("Maintex Normal Intensity", Range(0, 1)) = 0
         _MaintexNormalMap ("Maintex Normal Map", 2D) = "bump" {}
+        _MaintexNormalIntensity ("Maintex Normal Intensity", Range(0, 1)) = 0
+        _MaintexEmissionColor ("Maintex Emission Color", Color) = (1,1,1,1)
         _MaintexEmissionMap ("Maintex Emission Map", 2D) = "white" {}
         _MaintexEmissionIntensity ("Maintex Emission Intensity", Range(0, 1)) = 0
     }
@@ -39,7 +40,7 @@ Shader "DCC/Silhouette Enhancement" {
             #pragma multi_compile_fog
             #pragma only_renderers d3d9 d3d11 glcore gles n3ds wiiu 
             #pragma target 3.0
-            uniform float4 _FresnelColor;
+            uniform float4 _SilhouetteColor;
             uniform float _SilhouetteIntensity;
             uniform float4 _MaintexColor;
             uniform sampler2D _MainTex; uniform float4 _MainTex_ST;
@@ -49,6 +50,7 @@ Shader "DCC/Silhouette Enhancement" {
             uniform sampler2D _MaintexEmissionMap; uniform float4 _MaintexEmissionMap_ST;
             uniform sampler2D _MaintexNormalMap; uniform float4 _MaintexNormalMap_ST;
             uniform float _MaintexEmissionIntensity;
+            uniform float4 _MaintexEmissionColor;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
@@ -127,7 +129,7 @@ Shader "DCC/Silhouette Enhancement" {
                 float3 specularColor = _Metallic;
                 float specularMonochrome;
                 float4 _MainTex_var = tex2D(_MainTex,TRANSFORM_TEX(i.uv0, _MainTex));
-                float3 diffuseColor = ((_MainTex_var.rgb*_MaintexColor.rgb)+(_FresnelColor.rgb*(1.0-max(0,dot(normalDirection, viewDirection)))*_SilhouetteIntensity)); // Need this for specular when using metallic
+                float3 diffuseColor = ((_MainTex_var.rgb*_MaintexColor.rgb)+(_SilhouetteColor.rgb*(1.0-max(0,dot(normalDirection, viewDirection)))*_SilhouetteIntensity)); // Need this for specular when using metallic
                 diffuseColor = DiffuseAndSpecularFromMetallic( diffuseColor, specularColor, specularColor, specularMonochrome );
                 specularMonochrome = 1.0-specularMonochrome;
                 float NdotV = abs(dot( normalDirection, viewDirection ));
@@ -157,7 +159,7 @@ Shader "DCC/Silhouette Enhancement" {
                 float3 diffuse = (directDiffuse + indirectDiffuse) * diffuseColor;
 ////// Emissive:
                 float4 _MaintexEmissionMap_var = tex2D(_MaintexEmissionMap,TRANSFORM_TEX(i.uv0, _MaintexEmissionMap));
-                float3 emissive = lerp(float3(0,0,0),_MaintexEmissionMap_var.rgb,_MaintexEmissionIntensity);
+                float3 emissive = ((_MaintexEmissionMap_var.rgb*_MaintexEmissionColor.rgb)*_MaintexEmissionIntensity);
 /// Final Color:
                 float3 finalColor = diffuse + specular + emissive;
                 fixed4 finalRGBA = fixed4(finalColor,1);
@@ -186,7 +188,7 @@ Shader "DCC/Silhouette Enhancement" {
             #pragma multi_compile_fog
             #pragma only_renderers d3d9 d3d11 glcore gles n3ds wiiu 
             #pragma target 3.0
-            uniform float4 _FresnelColor;
+            uniform float4 _SilhouetteColor;
             uniform float _SilhouetteIntensity;
             uniform float4 _MaintexColor;
             uniform sampler2D _MainTex; uniform float4 _MainTex_ST;
@@ -196,6 +198,7 @@ Shader "DCC/Silhouette Enhancement" {
             uniform sampler2D _MaintexEmissionMap; uniform float4 _MaintexEmissionMap_ST;
             uniform sampler2D _MaintexNormalMap; uniform float4 _MaintexNormalMap_ST;
             uniform float _MaintexEmissionIntensity;
+            uniform float4 _MaintexEmissionColor;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
@@ -251,7 +254,7 @@ Shader "DCC/Silhouette Enhancement" {
                 float3 specularColor = _Metallic;
                 float specularMonochrome;
                 float4 _MainTex_var = tex2D(_MainTex,TRANSFORM_TEX(i.uv0, _MainTex));
-                float3 diffuseColor = ((_MainTex_var.rgb*_MaintexColor.rgb)+(_FresnelColor.rgb*(1.0-max(0,dot(normalDirection, viewDirection)))*_SilhouetteIntensity)); // Need this for specular when using metallic
+                float3 diffuseColor = ((_MainTex_var.rgb*_MaintexColor.rgb)+(_SilhouetteColor.rgb*(1.0-max(0,dot(normalDirection, viewDirection)))*_SilhouetteIntensity)); // Need this for specular when using metallic
                 diffuseColor = DiffuseAndSpecularFromMetallic( diffuseColor, specularColor, specularColor, specularMonochrome );
                 specularMonochrome = 1.0-specularMonochrome;
                 float NdotV = abs(dot( normalDirection, viewDirection ));
