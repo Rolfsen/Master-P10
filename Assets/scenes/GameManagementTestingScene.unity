@@ -264,6 +264,11 @@ Prefab:
       propertyPath: waterUsedText
       value: 
       objectReference: {fileID: 755290689}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: waterUsingTask
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
   m_IsPrefabParent: 0
@@ -510,6 +515,7 @@ MonoBehaviour:
   pingVal: 0.3
   slowVal: 1
   minVal: 0.1
+  baseMaterialIndex: 0
 --- !u!23 &1750697782
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -661,6 +667,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1275906717459260, guid: a2c061a238afbd94fb83805fb9f6dc96, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114981290948970316, guid: a2c061a238afbd94fb83805fb9f6dc96,
+        type: 2}
+      propertyPath: waterUsingTask
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -868,8 +879,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76332566689b0ed4d835102259c31965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bath: {fileID: 0}
-  fixing: {fileID: 0}
   rate: 1
   volume: 100
   voiceID: 1
