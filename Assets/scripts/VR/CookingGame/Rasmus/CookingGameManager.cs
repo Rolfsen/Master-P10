@@ -8,7 +8,7 @@ public class CookingGameManager : MonoBehaviour {
 
 	[SerializeField]
 	int numberOfPotatoes;
-    [SerializeField]
+    [SerializeField,Multiline]
     string allPotatoesHaveBeenPeeledText;
 
 	int readyPotatoes;
