@@ -23,34 +23,22 @@ public class GameManager : MonoBehaviour {
 		StartCoroutine(StartFirstMinigame());
 	}
 
-	private void Update()
-	{
-		// Debug
-		//print(currentID);
-		//print(isPlaying);
-	}
 
 	void UpdateGameStatus (object sender, MinigameEvents.ChangeActiveMinigameEvent e)
 	{
 		currentID = e.newID;
 		isPlaying = false;
 
-		// Debug Narration Event: Delete For Final Test
-		//EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Debug Narration Event: New Active Minigame with ID " + e.newID));
 	}
 
 	void StartMinigame (object sender, MinigameEvents.StartMinigameEvent e)
 	{
-		print("Started Minigame");
 		isPlaying = true;
-		// Debug Narration Event: Delete For Final Test
-		//EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Debug Narration Event: Minigame Initiated with ID: " + currentID ));
 	}
 
 	IEnumerator StartFirstMinigame ()
 	{
 		yield return new WaitForSeconds(1);
-		EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("DEBUG ME MEMEMEMEMME"));
 		EventBus.TriggerEvent(this, new MinigameEvents.ChangeActiveMinigameEvent(firstMinigame));
 	}
 }

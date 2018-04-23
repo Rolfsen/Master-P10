@@ -35,6 +35,13 @@ public class ToggleObjectHighlight : MonoBehaviour {
 		startVal = rend.material.GetFloat(floatName);
 	}
 
+	private void Update()
+	{
+		float adjustFloat = Mathf.PingPong(Time.time / slowVal, pingVal - minVal) + minVal;
+		rend.material.SetFloat(floatName, adjustFloat);
+
+	}
+
 	private void OnTriggerStay(Collider other)
 	{
 		if (other.CompareTag("Player"))
