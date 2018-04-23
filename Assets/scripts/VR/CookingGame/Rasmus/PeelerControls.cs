@@ -7,7 +7,6 @@ public class PeelerControls : MonoBehaviour
 
     public bool isCurrentlyBeingCarried;
 
-    bool tmpCheck;
 
     SimpleInteractions controller;
     Transform followController;
@@ -51,7 +50,6 @@ public class PeelerControls : MonoBehaviour
                         controller.isHoldingSomething = true;
                         isCurrentlyBeingCarried = true;
                         followController = other.transform;
-                        tmpCheck = true; // Don't know if this is needed, but i but it here to prevent auto put the peeler back, at pickup
                     }
                 }
             }

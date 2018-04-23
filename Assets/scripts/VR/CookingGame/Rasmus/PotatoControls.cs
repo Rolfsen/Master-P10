@@ -41,7 +41,7 @@ public class PotatoControls : MonoBehaviour
     Transform objectToFollow;
 
 
-    int b = 0;
+
 
     private void Start()
     {
