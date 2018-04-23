@@ -57,8 +57,8 @@ public class SoapInteractions : MonoBehaviour {
                 {
                     // soapHandlerCollider = soapHandler.GetComponent<Collider>();
                     // soapHandlerCollider.enabled = false;
-                    transformer.position = colin.gameObject.transform.position;
-                    transformer.rotation = colin.gameObject.transform.rotation;
+                    transformer.position = colin.transform.position;
+                    transformer.rotation = colin.transform.rotation;
                     if (isPlayedSound == false)
                     {
                         EventBus.TriggerEvent(this, new GameStateEvent.GettingTheSoap());
@@ -71,8 +71,8 @@ public class SoapInteractions : MonoBehaviour {
 
                 if (simpleInteractions.isPressed == false)
                 {
-                    transformer.position = colin.gameObject.transform.position;
-                    transformer.rotation = colin.gameObject.transform.rotation;
+                    transformer.position = colin.transform.position;
+                    transformer.rotation = colin.transform.rotation;
                 }
 
                 if (simpleInteractions.isPressed == false && isOnRightSpot == true)
