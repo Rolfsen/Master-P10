@@ -19,17 +19,20 @@ public class ToggleObjectHighlight : MonoBehaviour {
 	[SerializeField]
 	float minVal;
 
-
+	[SerializeField]
+	int baseMaterialIndex; 
 
 	Renderer rend;
 	float startVal;
+	Material mat;
 
 	private void Start()
 	{
 		rend = GetComponent<Renderer>();
-		rend.material.shader = Shader.Find(shaderName);
+		mat = new Material(rend.materials[baseMaterialIndex]);
+		mat.shader = Shader.Find(shaderName);
+		rend.materials[baseMaterialIndex] = mat;
 		startVal = rend.material.GetFloat(floatName);
-		
 	}
 
 	private void OnTriggerStay(Collider other)
@@ -46,6 +49,5 @@ public class ToggleObjectHighlight : MonoBehaviour {
 		{
 			rend.material.SetFloat(floatName, startVal);
 		}
-
 	}
 }
