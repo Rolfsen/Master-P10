@@ -44,8 +44,11 @@ public class MinigameData : MonoBehaviour
     [SerializeField]
     GameObject RestartMinigame;
 
-    [SerializeField]
+    
     Renderer progressRenderer;
+
+	[SerializeField]
+	GameObject progressBar;
 
     bool active;
 
@@ -76,12 +79,14 @@ public class MinigameData : MonoBehaviour
     {
         if (waterUsingTask)
         {
+			progressRenderer = progressBar.GetComponent<Renderer>();
             progressRenderer.material.shader = Shader.Find("DCC/3d Progress Bar");
         }
     }
 
     private void Update()
     {
+	
         if (isWaterRunning)
         {
             waterUsed += waterUsedPerSecond * Time.deltaTime;
@@ -178,6 +183,7 @@ public class MinigameData : MonoBehaviour
     {
         float progress = Mathf.Min(waterUsed / maxProgressVal, 1f);
         progressRenderer.material.SetFloat("_Progress", progress);
+		progressBar.transform.localScale = new Vector3(1,progress,1);
     }
 
     private void OnTriggerEnter(Collider other)
