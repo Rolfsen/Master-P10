@@ -10,15 +10,18 @@ public class PipeInteractions : MonoBehaviour {
     private int count;
     Rigidbody rigidBody;
 
-    public bool isFixed = false;
+    public bool isFixed;
     [SerializeField]
     private GameObject pipeGameManagerObject;
     private PipeWin pipeWin;
     // Use this for initialization
     void Start () {
+        isFixed = false;
         transformer = GetComponent<Transform>();
         rigidBody = GetComponent<Rigidbody>();
         pipeWin = pipeGameManagerObject.GetComponent<PipeWin>();
+
+        rigidBody.isKinematic = true;
 
     }
 
@@ -30,9 +33,10 @@ public class PipeInteractions : MonoBehaviour {
     void IsDoneWithRotating()
     {
         //SOUND OF DRIPPING WATER 
-
+       
         if (MiniGameManager.isPipeGameRunning)
         {
+           
             rotationDelta = transformer.rotation;
 
             if (rotationDelta.x > 0.8 || rotationDelta.x < -0.8)
@@ -58,5 +62,27 @@ public class PipeInteractions : MonoBehaviour {
 
             }
         }
+    }
+
+    void IsWrenchInRange()
+    {
+
+    }
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "Wrench")
+        {
+            rigidBody.isKinematic = false;
+        }
+
+    }
+
+    private void OnTriggerExit(Collider col)
+    {
+        if (col.gameObject.tag == "Wrench")
+        {
+            rigidBody.isKinematic = true;
+        }
+
     }
 }

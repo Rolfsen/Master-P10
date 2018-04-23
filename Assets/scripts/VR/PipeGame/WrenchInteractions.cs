@@ -20,6 +20,7 @@ public class WrenchInteractions : MonoBehaviour
         , rightSpotZ;
     void Start()
     {
+        musicSource.clip = musicClip;
         transformer = gameObject.GetComponent<Transform>();
     }
     void Update()
@@ -28,15 +29,39 @@ public class WrenchInteractions : MonoBehaviour
         WrenchIsHeld();
         
     }
+    [SerializeField]
+    private AudioClip musicClip;
+    [SerializeField]
+    public AudioSource musicSource;
+    void WrenchSounds()
+    {
 
+
+    }
     void WrenchIsHeld()
     {
         if(MiniGameManager.isPipeGameRunning)
-        { 
+        {
             if (isHeld == true)
             {
-                transformer.position = new Vector3(colin.gameObject.transform.position.x, colin.gameObject.transform.position.y, colin.gameObject.transform.position.z);
-                transformer.rotation = Quaternion.Euler(new Vector3(colin.gameObject.transform.rotation.eulerAngles.x, colin.gameObject.transform.rotation.eulerAngles.y, colin.gameObject.transform.rotation.eulerAngles.z));
+                if (colin.gameObject.name == "Controller (left)" )
+                { 
+                    transformer.position = new Vector3(colin.gameObject.transform.position.x, colin.gameObject.transform.position.y, colin.gameObject.transform.position.z);
+                    transformer.rotation = Quaternion.Euler(new Vector3(colin.gameObject.transform.rotation.eulerAngles.x, colin.gameObject.transform.rotation.eulerAngles.y, colin.gameObject.transform.rotation.eulerAngles.z));
+                    if(simpleInteractions.isPressed)
+                    {
+                        musicSource.Play();
+                    }
+                }
+                else if(colin.gameObject.name == "Controller (right)")
+                {
+                    transformer.position = new Vector3(colin.gameObject.transform.position.x, colin.gameObject.transform.position.y, colin.gameObject.transform.position.z);
+                    transformer.rotation = Quaternion.Euler(new Vector3(colin.gameObject.transform.rotation.eulerAngles.x, colin.gameObject.transform.rotation.eulerAngles.y, colin.gameObject.transform.rotation.eulerAngles.z));
+                    if (simpleInteractions.isPressed)
+                    {
+                        musicSource.Play();
+                    }
+                }
                 if (isPlayedSound == false)
                 {
                     EventBus.TriggerEvent(this, new GameStateEvent.AfterPickUpWrench());

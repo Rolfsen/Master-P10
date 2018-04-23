@@ -15,6 +15,7 @@ public class SimpleInteractions : MonoBehaviour
     private Valve.VR.EVRButtonId triggerButton = Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
     public bool isPressed = false;
     public bool isHoldingSomething = false;
+    public bool isHolding;
     SphereCollider[] myColliders;
     void Start()
     {
@@ -22,6 +23,7 @@ public class SimpleInteractions : MonoBehaviour
         myColliders = gameObject.GetComponents<SphereCollider>();
         leftHand = leftHandObj.GetComponent<LeftHand>();
         rightHand = rightHandObj.GetComponent<RightHand>();
+        isHolding = false;
     }
     void IsPressed()
     {

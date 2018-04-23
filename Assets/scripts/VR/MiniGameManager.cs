@@ -5,11 +5,11 @@ using UnityEngine;
 public class MiniGameManager : MonoBehaviour
 {
 
-    public static bool isPipeGameRunning;
+    public static bool isPipeGameRunning = true;
     public static bool isCookingGameRunning = true;
-    public static bool isHeadShowerGameRunning;
-    public static bool isCleaningGameRunning;
-    public static bool isShowerGameRunning;
+    public static bool isHeadShowerGameRunning = true;
+    public static bool isCleaningGameRunning = true;
+    public static bool isShowerGameRunning = true;
 
 
     private void Awake()
