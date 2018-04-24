@@ -40,13 +40,16 @@ public class PotatoControls : MonoBehaviour
     SimpleInteractions controller;
     Transform objectToFollow;
 
-
+	Vector3 startPos;
+	Quaternion startRot;
 
 
     private void Start()
     {
         rend = GetComponent<Renderer>();
         rend.material.shader = Shader.Find("DCC/Dissolve V2");
+		startPos = transform.position;
+		startRot = transform.rotation;
     }
 
     private void Update()
@@ -157,6 +160,9 @@ public class PotatoControls : MonoBehaviour
                     objectToFollow = null;
 
                     isReady = true;
+
+					transform.position = startPos;
+					transform.rotation = startRot;
 
                     Debug.Log("Potato Done");
                 }
