@@ -6,7 +6,7 @@ public class WrenchInteractions : MonoBehaviour
 {
     Collider colin;
     Transform transformer;
-    bool isHeld=false;
+    bool isInRange = false;
     bool isPlayedSound = false;
     Vector3 rotEu;
 
@@ -18,6 +18,7 @@ public class WrenchInteractions : MonoBehaviour
     float rightSpotX
         , rightSpotY
         , rightSpotZ;
+    bool isHeld = false;
     void Start()
     {
         musicSource.clip = musicClip;
@@ -27,12 +28,13 @@ public class WrenchInteractions : MonoBehaviour
     {
 
         WrenchIsHeld();
-        
+
     }
     [SerializeField]
     private AudioClip musicClip;
     [SerializeField]
-    public AudioSource musicSource;
+    private AudioSource musicSource;
+    private bool isItPressed;
     void WrenchSounds()
     {
 
@@ -40,20 +42,12 @@ public class WrenchInteractions : MonoBehaviour
     }
     void WrenchIsHeld()
     {
-        if(MiniGameManager.isPipeGameRunning)
+        if (MiniGameManager.isPipeGameRunning)
         {
-            if (isHeld == true)
+            if (isInRange == true)
             {
-                if (colin.gameObject.name == "Controller (left)" )
-                { 
-                    transformer.position = new Vector3(colin.gameObject.transform.position.x, colin.gameObject.transform.position.y, colin.gameObject.transform.position.z);
-                    transformer.rotation = Quaternion.Euler(new Vector3(colin.gameObject.transform.rotation.eulerAngles.x, colin.gameObject.transform.rotation.eulerAngles.y, colin.gameObject.transform.rotation.eulerAngles.z));
-                    if(simpleInteractions.isPressed)
-                    {
-                        musicSource.Play();
-                    }
-                }
-                else if(colin.gameObject.name == "Controller (right)")
+                if (colin.gameObject.name == "Controller (left)" && isItPressed == true)
+
                 {
                     transformer.position = new Vector3(colin.gameObject.transform.position.x, colin.gameObject.transform.position.y, colin.gameObject.transform.position.z);
                     transformer.rotation = Quaternion.Euler(new Vector3(colin.gameObject.transform.rotation.eulerAngles.x, colin.gameObject.transform.rotation.eulerAngles.y, colin.gameObject.transform.rotation.eulerAngles.z));
@@ -61,6 +55,19 @@ public class WrenchInteractions : MonoBehaviour
                     {
                         musicSource.Play();
                     }
+                    isHeld = true;
+
+
+                }
+                else if (colin.gameObject.name == "Controller (right)" && isItPressed == true)
+                {
+                    transformer.position = new Vector3(colin.gameObject.transform.position.x, colin.gameObject.transform.position.y, colin.gameObject.transform.position.z);
+                    transformer.rotation = Quaternion.Euler(new Vector3(colin.gameObject.transform.rotation.eulerAngles.x, colin.gameObject.transform.rotation.eulerAngles.y, colin.gameObject.transform.rotation.eulerAngles.z));
+                    if (simpleInteractions.isPressed)
+                    {
+                        musicSource.Play();
+                    }
+                    isHeld = true;
                 }
                 if (isPlayedSound == false)
                 {
@@ -68,13 +75,15 @@ public class WrenchInteractions : MonoBehaviour
                     EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Now fix the pipes boiiiiiiii"));
                     isPlayedSound = true;
                 }
-                if (simpleInteractions.isPressed == false && isOnRightSpot == true)
+                if (isHeld == true && simpleInteractions.isPressed == false && isOnRightSpot == true)
                 {
 
                     transformer.position = new Vector3(rightSpotX, rightSpotY, rightSpotZ);
                     transformer.rotation = new Quaternion(0f, 0f, 0f, 0f);
-                    isHeld = false;
                     isOnRightSpot = false;
+                    isInRange = false;
+                    isItPressed = false;
+                    isHeld = false;
                 }
             }
         }
@@ -87,9 +96,8 @@ public class WrenchInteractions : MonoBehaviour
             {
                 simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
                 colin = col;
+                isInRange = true;
 
-                isHeld = true;
-                //col.GetComponent<Collider>().enabled = false;
             }
             else if (col.gameObject.tag == "WrenchPlace")
             {
@@ -103,17 +111,21 @@ public class WrenchInteractions : MonoBehaviour
         {
             if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
-
                 simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
+                if (simpleInteractions.isPressed == true)
+                {
+                    Debug.Log("i am working actually");
+                    isItPressed = true;
+                }
             }
         }
     }
 
     private void OnTriggerExit(Collider col)
     {
-          if (col.gameObject.tag == "WrenchPlace")
+        if (col.gameObject.tag == "WrenchPlace")
         {
-           //mistake prone
+            //mistake prone
         }//col.GetComponent<Collider>().enabled = false;
     }
 }

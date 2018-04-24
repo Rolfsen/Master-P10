@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MopHandler : MonoBehaviour {
+public class MopHandler : MonoBehaviour
+{
 
     Collider colin;
     Rigidbody rigidBody;

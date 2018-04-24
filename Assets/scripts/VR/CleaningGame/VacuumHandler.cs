@@ -13,16 +13,12 @@ public class VacuumHandler : MonoBehaviour
     bool isOnRightSpot = false;
     bool isInRange = false;
     bool isPlayedSound = false;
-   
+    private bool isItPressed;
+    private bool isHeld = false;
 
-   public bool isControllerPressed = false;
-    // Use this for initialization
-    void Start()
-    {
+    public bool isControllerPressed = false;
 
-    }
 
-    // Update is called once per frame
     void Update()
     {
         IsHeld();
@@ -35,20 +31,26 @@ public class VacuumHandler : MonoBehaviour
     }
     private void IsHeld()
     {
-        if(MiniGameManager.isCleaningGameRunning)
-        { 
+        if (MiniGameManager.isCleaningGameRunning)
+        {
             if (isInRange == true)
             {
-                if (simpleInteractions.isPressed == true)
+                if (isItPressed == true)
                 {
                     // soapHandlerCollider = soapHandler.GetComponent<Collider>();
                     // soapHandlerCollider.enabled = false;
                     transform.position = new Vector3(colin.gameObject.transform.position.x, 1.190f, colin.gameObject.transform.position.z);
                     transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, colin.gameObject.transform.rotation.eulerAngles.y - 50f, transform.rotation.eulerAngles.z));
-            
+                    isHeld = true;
+                    if (isPlayedSound == false)
+                    {
+                        EventBus.TriggerEvent(this, new GameStateEvent.VacuumIsBeingHeld());
+                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop the vacuum"));
+                        isPlayedSound = true;
+                    }
 
                 }
-            
+                /*
                 if (simpleInteractions.isPressed == false)
                 {
                     transform.position = new Vector3(colin.gameObject.transform.position.x, 1.193f, colin.gameObject.transform.position.z);
@@ -59,22 +61,21 @@ public class VacuumHandler : MonoBehaviour
                         EventBus.TriggerEvent(this, new GameStateEvent.VacuumIsBeingHeld());
                         EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop the vacuum"));
                         isPlayedSound = true;
-                    }
-                    //transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y+transform.rotation.y, transform.rotation.z, transform.rotation.w);
-                }
+                    }*/
+                //transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y+transform.rotation.y, transform.rotation.z, transform.rotation.w);
+            }
 
-                if (simpleInteractions.isPressed == false && isOnRightSpot == true)
-                {
+            if (isHeld == true && simpleInteractions.isPressed == false && isOnRightSpot == true)
+            {
 
-                    transform.position = new Vector3(0.363f, 0.435f, 2.056f);
-                    transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
-               
-                    isInRange = false;
-                }
+                transform.position = new Vector3(0.363f, 1.00f, 2.056f);
+                transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
+                isItPressed = false;
+                isInRange = false;
             }
         }
     }
-    
+
     private void OnTriggerEnter(Collider col)
     {
 
@@ -105,10 +106,16 @@ public class VacuumHandler : MonoBehaviour
         {
             if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
-                isControllerPressed = simpleInteractions.isPressed;
+
                 colin = col;
                 isInRange = true;
                 simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
+                isControllerPressed = simpleInteractions.isPressed;
+                if (simpleInteractions.isPressed == true)
+                {
+                    Debug.Log("i am working actually");
+                    isItPressed = true;
+                }
 
             }
             else if (col.gameObject.tag == "VacuumRightSpot")
@@ -133,34 +140,34 @@ public class VacuumHandler : MonoBehaviour
                 isOnRightSpot = false;
             }
         }
-       
+
     }
 }
-    /*
-        private void OnTriggerEnter(Collider col)
+/*
+    private void OnTriggerEnter(Collider col)
+{
+    if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
     {
-        if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
-        {
-            Debug.Log("i entered");
-            if (col.gameObject.GetComponent<SimpleInteractions>().isPressed == true)
-            { 
-                //col.gameObject.transform.SetParent(transform, true);
-                transform.position = new Vector3(col.gameObject.transform.position.x, 1.193f, col.gameObject.transform.position.z);
-            }
-        }
-    }
-    private void OnTriggerStay(Collider col)
-    {
-        Debug.Log("i am inside");
+        Debug.Log("i entered");
         if (col.gameObject.GetComponent<SimpleInteractions>().isPressed == true)
-        {
+        { 
             //col.gameObject.transform.SetParent(transform, true);
             transform.position = new Vector3(col.gameObject.transform.position.x, 1.193f, col.gameObject.transform.position.z);
         }
     }
-
-    private void OnTriggerExit(Collider col)
+}
+private void OnTriggerStay(Collider col)
+{
+    Debug.Log("i am inside");
+    if (col.gameObject.GetComponent<SimpleInteractions>().isPressed == true)
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        //col.gameObject.transform.SetParent(transform, true);
+        transform.position = new Vector3(col.gameObject.transform.position.x, 1.193f, col.gameObject.transform.position.z);
     }
-    */
+}
+
+private void OnTriggerExit(Collider col)
+{
+    transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+}
+*/
