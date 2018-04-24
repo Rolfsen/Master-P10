@@ -24,6 +24,9 @@ TagManager:
   - Mop
   - Vacuum
   - Soap
+  - Bolt
+  - Flower
+  - Table
   layers:
   - Default
   - TransparentFX
