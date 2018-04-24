@@ -30,6 +30,7 @@ public class VacuumCleaning : MonoBehaviour
     {
         musicSource.clip = musicClip;
         vacuumHandler = vacuumHandle.GetComponent<VacuumHandler>();
+        isMusicStarted = false;
     }
 
     // Update is called once per frame
@@ -41,6 +42,7 @@ public class VacuumCleaning : MonoBehaviour
         //Debug.Log(count);
 
     }
+    bool isMusicStarted;
     void IsVacuumOn()
     {
         if (MiniGameManager.isCleaningGameRunning)
@@ -67,7 +69,12 @@ public class VacuumCleaning : MonoBehaviour
         {
             if (correctSurface == true && vacuumHandler.isControllerPressed == true)
             {
+                if(!isMusicStarted)
+                {
 
+                    musicSource.Play();
+                    isMusicStarted = true;
+                }
                 if (isCleaningNowSound == false)
                 {
 
@@ -88,6 +95,7 @@ public class VacuumCleaning : MonoBehaviour
                     isCleaningNowSound = false;
                     count = 0;
                     musicSource.Stop();
+                    isMusicStarted = false;
                 }
             }
         }

@@ -19,6 +19,11 @@ public class WrenchInteractions : MonoBehaviour
         , rightSpotY
         , rightSpotZ;
     bool isHeld = false;
+    [SerializeField]
+    private AudioClip musicClip;
+    [SerializeField]
+    private AudioSource musicSource;
+    private bool isItPressed;
     void Start()
     {
         musicSource.clip = musicClip;
@@ -30,16 +35,8 @@ public class WrenchInteractions : MonoBehaviour
         WrenchIsHeld();
 
     }
-    [SerializeField]
-    private AudioClip musicClip;
-    [SerializeField]
-    private AudioSource musicSource;
-    private bool isItPressed;
-    void WrenchSounds()
-    {
+    
 
-
-    }
     void WrenchIsHeld()
     {
         if (MiniGameManager.isPipeGameRunning)
