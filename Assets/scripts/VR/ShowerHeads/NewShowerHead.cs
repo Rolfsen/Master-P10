@@ -14,9 +14,14 @@ public class NewShowerHead : MonoBehaviour {
     bool isHeld = false;
     Collider colin;
     ObjectInteraction OI;
-    
+    [SerializeField]
+    AudioSource musicSource;
+    [SerializeField]
+    AudioClip musicClip;
 
-    void Start () {
+    void Start ()
+    {
+        musicSource.clip = musicClip;
         OI = gameObject.GetComponent<ObjectInteraction>();
         transformer = gameObject.GetComponent<Transform>();
         rigidBody = gameObject.GetComponent<Rigidbody>();
@@ -49,6 +54,10 @@ public class NewShowerHead : MonoBehaviour {
             //SOUND OF ROTATING ON
             if (rotationDelta.y > 0.8 || rotationDelta.y < -0.8)
             {
+                if(pluggedIn)
+                { 
+                    musicSource.Play();
+                }
                 count++;
                 if (count > 50)
                 {
@@ -61,7 +70,7 @@ public class NewShowerHead : MonoBehaviour {
                     pluggedIn = true;
                     rigidBody.isKinematic = true;
                     EventBus.TriggerEvent(this, new MinigameEvents.EndMinigamEvent());
-
+                    musicSource.Stop();
                 }
             }
         }

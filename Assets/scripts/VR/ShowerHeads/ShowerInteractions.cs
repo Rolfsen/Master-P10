@@ -13,8 +13,13 @@ public class ShowerInteractions : MonoBehaviour {
     Collider sphery;
     public bool unPluged = false;
     ObjectInteraction OI;
-    void Start() {
+    [SerializeField]
+    AudioSource musicSource;
+    [SerializeField]
+    AudioClip musicClip;
 
+    void Start() {
+        musicSource.clip = musicClip;
         rigidBody = GetComponent<Rigidbody>();
         OI = gameObject.GetComponent<ObjectInteraction>();
         transformer = gameObject.GetComponent<Transform>();
@@ -61,10 +66,14 @@ public class ShowerInteractions : MonoBehaviour {
         //SOUND OF ROTATING
         if (rotationDelta.y > 0.8 || rotationDelta.y < -0.8)
         {
+            
+               
+            
             //Debug.Log("tuka ne sum vlqzal");
-            if(unPluged == false)
+            if (unPluged == false)
             { 
                 count++;
+                musicSource.Play();
             }
 
             if (count > 50)
@@ -76,6 +85,8 @@ public class ShowerInteractions : MonoBehaviour {
                 EventBus.TriggerEvent(this,new GameStateEvent.ShowerHeadScrewedOffEvent());
                 EventBus.TriggerEvent(this,new NarrativeEvent.TextToSpeechNarratorEvent("You took the shower head off, place it in the box"));
                 //unfreeze them now
+                rotationDelta.y = 0f;
+                musicSource.Stop();
             }
         }
     }

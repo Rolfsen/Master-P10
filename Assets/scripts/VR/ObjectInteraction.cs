@@ -53,7 +53,7 @@ public class ObjectInteraction : MonoBehaviour {
 
             if(angle>180)
             {
-                Debug.Log("does this ever happen");
+                //Debug.Log("does this ever happen");
                 angle -= 360;
             }
             

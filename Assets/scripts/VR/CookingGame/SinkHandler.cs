@@ -15,20 +15,42 @@ public class SinkHandler : MonoBehaviour {
     private Rigidbody rigidBody;
     SimpleInteractions simpleInteractions;
     bool isItHoldingSomething = false;
-
+    bool isItOnMusic = false;
     private Transform simpleInteractionsTransform;
+    [SerializeField]
+    AudioSource musicSource;
+    [SerializeField]
+    AudioClip musicClip;
     // Use this for initialization
     void Start () {
         rigidBody = GetComponent<Rigidbody>();
         colin = new Collider();
+        musicSource.clip = musicClip;
     }
 	
 	// Update is called once per frame
 	void Update () {
         IsWaterOn();
         IsWaterOff();
+        IsItRotatingSound();
     }
+    void IsItRotatingSound()
+    {
+        if (simpleInteractions.isPressed)
+        {
+            if (!isItOnMusic)
+            {
+                musicSource.Play();
+                isItOnMusic = true;
+            }
+        }
+        else if (!simpleInteractions.isPressed)
+        {
+            musicSource.Stop();
 
+            isItOnMusic = false;
+        }
+    }
     void IsWaterOn()
     { 
         if (MiniGameManager.isCookingGameRunning)
@@ -54,6 +76,7 @@ public class SinkHandler : MonoBehaviour {
                         sinkParticle.SetActive(true);
                         count = 0;
                         isWaterRunning = true;
+                        isItOnMusic = false;
                         //Debug.Log("its on baby");
                     }
                 }
@@ -96,12 +119,16 @@ public class SinkHandler : MonoBehaviour {
         {
             if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
-                if (col.gameObject.tag == "IsHolding")
+                simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
+
+                colin = col;
+
+                if (simpleInteractions.isHoldingTool == true)
                 {
+
                     isItHoldingSomething = true;
 
                 }
-                colin = col;
                 ControllerInRange = true;
             }
         }
@@ -123,6 +150,13 @@ public class SinkHandler : MonoBehaviour {
                 {
                     isTriggerPressed = false;
                 }
+
+                if (simpleInteractions.isHoldingTool == true)
+                {
+
+                    isItHoldingSomething = true;
+
+                }
             }
         }
     }
@@ -133,7 +167,7 @@ public class SinkHandler : MonoBehaviour {
         {
             if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
-                if (col.gameObject.tag == "IsHolding")
+                if (simpleInteractions.isHoldingTool == true)
                 {
                     isItHoldingSomething = false;
 
@@ -143,7 +177,7 @@ public class SinkHandler : MonoBehaviour {
                 simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
                 //base.transform.rotation = new Quaternion(base.transform.rotation.x, base.transform.rotation.y, base.transform.rotation.z, base.transform.rotation.w);
                 //isTriggerPressed = false; //MAYBE NOT!!!!!!!!!!!!!!!!!!!!!!!!!!
-                col.gameObject.GetComponent<Interactions>().enabled = true;
+                //col.gameObject.GetComponent<Interactions>().enabled = true;
                 Debug.Log("Stop shining");//highlight
                                           //gameObject.transform.parent.position = new Vector3(0f, 0f, 0f);
             }

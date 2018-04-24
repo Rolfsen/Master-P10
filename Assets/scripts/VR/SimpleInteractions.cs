@@ -15,7 +15,7 @@ public class SimpleInteractions : MonoBehaviour
     private Valve.VR.EVRButtonId triggerButton = Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
     public bool isPressed = false;
     public bool isHoldingSomething = false;
-    public bool isHolding;
+    public bool isHoldingTool;
     SphereCollider[] myColliders;
     void Start()
     {
@@ -23,7 +23,7 @@ public class SimpleInteractions : MonoBehaviour
         myColliders = gameObject.GetComponents<SphereCollider>();
         leftHand = leftHandObj.GetComponent<LeftHand>();
         rightHand = rightHandObj.GetComponent<RightHand>();
-        isHolding = false;
+        isHoldingTool = false;
     }
     void IsPressed()
     {
@@ -38,9 +38,22 @@ public class SimpleInteractions : MonoBehaviour
 
 
     }
+    void IsItHolding()
+    {
+        if(isHoldingTool)
+        {
+            gameObject.GetComponent<Interactions>().enabled = false;
+        }
+        else
+        {
+            gameObject.GetComponent<Interactions>().enabled = true;
+        }
+    }
     void Update()
     {
         IsPressed();
+        IsItHolding();
+        //Debug.Log(isHolding);
     }
 
 
@@ -71,6 +84,7 @@ public class SimpleInteractions : MonoBehaviour
 
         if (col.gameObject.tag == "Wrench")
         {
+            isHoldingTool = true;
             if (gameObject.GetComponent<RightHand>() == true)
             {
                 rightHand.closeHandRight.SetActive(true);
@@ -90,6 +104,7 @@ public class SimpleInteractions : MonoBehaviour
         }
         else if (col.gameObject.tag == "Peeler")
         {
+            isHoldingTool = true;
             if (gameObject.GetComponent<RightHand>() == true)
             {
                 rightHand.closeHandRight.SetActive(true);
@@ -109,6 +124,7 @@ public class SimpleInteractions : MonoBehaviour
         }
         else if (col.gameObject.tag == "OldShowerHead" && col.gameObject.GetComponent<ShowerInteractions>().unPluged==true)
         {
+            isHoldingTool = true;
             if (gameObject.GetComponent<RightHand>() == true)
             {
                 rightHand.closeHandRight.SetActive(true);
@@ -129,6 +145,7 @@ public class SimpleInteractions : MonoBehaviour
 
         else if (col.gameObject.tag == "NewShowerHead" && col.gameObject.GetComponent<NewShowerHead>().pluggedIn == false)
         {
+            isHoldingTool = true;
             if (gameObject.GetComponent<RightHand>() == true)
             {
                 rightHand.closeHandRight.SetActive(true);
@@ -148,7 +165,8 @@ public class SimpleInteractions : MonoBehaviour
         }
         else if (col.gameObject.tag == "Mop")
         {
-            if(gameObject.GetComponent<RightHand>()==true)
+            isHoldingTool = true;
+            if (gameObject.GetComponent<RightHand>()==true)
             {
                 rightHand.closeHandRight.SetActive(true);
                 rightHand.openHandRight.SetActive(false);
@@ -167,6 +185,7 @@ public class SimpleInteractions : MonoBehaviour
         }
         else if (col.gameObject.tag == "Vacuum")
         {
+            isHoldingTool = true;
             if (gameObject.GetComponent<RightHand>() == true)
             {
                 rightHand.closeHandRight.SetActive(true);
@@ -186,6 +205,7 @@ public class SimpleInteractions : MonoBehaviour
         }
         else if (col.gameObject.tag == "Soap")
         {
+            isHoldingTool = true;
             if (gameObject.GetComponent<RightHand>() == true)
             {
                 rightHand.closeHandRight.SetActive(true);
@@ -215,6 +235,7 @@ public class SimpleInteractions : MonoBehaviour
         
         if (col.gameObject.tag == "Wrench")
         {
+            isHoldingTool = false;
             myColliders[0].enabled = true;
             myColliders[1].enabled = false;
             if (gameObject.GetComponent<RightHand>() == true)
@@ -242,7 +263,7 @@ public class SimpleInteractions : MonoBehaviour
         
             if (gameObject.GetComponent<RightHand>() == true)
             {
-
+                isHoldingTool = false;
                 rightHand.closeHandRight.SetActive(false);
                 rightHand.openHandRight.SetActive(true);
                 rightHand.enabled = true;
@@ -251,6 +272,7 @@ public class SimpleInteractions : MonoBehaviour
             }
             if (gameObject.GetComponent<LeftHand>() == true)
             {
+                isHoldingTool = false;
                 leftHand.closeHandLeft.SetActive(false);
                 leftHand.openHandLeft.SetActive(true);
                 leftHand.enabled = true;
@@ -263,7 +285,7 @@ public class SimpleInteractions : MonoBehaviour
 
             if (gameObject.GetComponent<RightHand>() == true)
             {
-
+                isHoldingTool = false;
                 rightHand.closeHandRight.SetActive(false);
                 rightHand.openHandRight.SetActive(true);
                 rightHand.enabled = true;
@@ -272,6 +294,7 @@ public class SimpleInteractions : MonoBehaviour
             }
             if (gameObject.GetComponent<LeftHand>() == true)
             {
+                isHoldingTool = false;
                 leftHand.closeHandLeft.SetActive(false);
                 leftHand.openHandLeft.SetActive(true);
                 leftHand.enabled = true;
@@ -282,10 +305,10 @@ public class SimpleInteractions : MonoBehaviour
 
         else if (col.gameObject.tag == "Potato")
         {
-
+            isHoldingTool = false;
             if (gameObject.GetComponent<RightHand>() == true)
             {
-
+                isHoldingTool = false;
                 rightHand.closeHandRight.SetActive(false);
                 rightHand.openHandRight.SetActive(true);
                 rightHand.enabled = true;
@@ -294,6 +317,7 @@ public class SimpleInteractions : MonoBehaviour
             }
             if (gameObject.GetComponent<LeftHand>() == true)
             {
+                isHoldingTool = false;
                 leftHand.closeHandLeft.SetActive(false);
                 leftHand.openHandLeft.SetActive(true);
                 leftHand.enabled = true;
@@ -304,7 +328,7 @@ public class SimpleInteractions : MonoBehaviour
 
         else if (col.gameObject.tag == "OldShowerHead")
         {
-
+            isHoldingTool = false;
             if (gameObject.GetComponent<RightHand>() == true)
             {
                 rightHand.closeHandRight.SetActive(false);
@@ -324,6 +348,7 @@ public class SimpleInteractions : MonoBehaviour
         }
         else if (col.gameObject.tag == "NewShowerHead")
         {
+            isHoldingTool = false;
             if (gameObject.GetComponent<RightHand>() == true)
             {
                 rightHand.closeHandRight.SetActive(false);
@@ -343,7 +368,7 @@ public class SimpleInteractions : MonoBehaviour
         }
         else if (col.gameObject.tag == "Vacuum")
         {
-           
+            isHoldingTool = false;
             if (gameObject.GetComponent<RightHand>() == true)
             {
                 rightHand.closeHandRight.SetActive(false);
@@ -363,6 +388,7 @@ public class SimpleInteractions : MonoBehaviour
         }
         else if (col.gameObject.tag == "Soap")
         {
+            isHoldingTool = false;
             if (gameObject.GetComponent<RightHand>() == true)
             {
                 rightHand.closeHandRight.SetActive(false);

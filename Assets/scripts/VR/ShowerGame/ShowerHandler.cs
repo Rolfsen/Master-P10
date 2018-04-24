@@ -23,6 +23,7 @@ public class ShowerHandler : MonoBehaviour {
     AudioSource musicSource;
     [SerializeField]
     AudioClip musicClip;
+    bool isItOnMusic = false;
     // Use this for initialization
     void Start()
     {
@@ -40,7 +41,7 @@ public class ShowerHandler : MonoBehaviour {
         //IsDoneWithRotating();
         IsItRotatingSound();
     }
-    bool isItOnMusic=false;
+    
     void IsItRotatingSound()
     {
         if (simpleInteractions.isPressed)
