@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoapInteractions : MonoBehaviour {
+public class SoapInteractions : MonoBehaviour
+{
 
     Collider colin;
     Transform transformer;
@@ -11,7 +12,7 @@ public class SoapInteractions : MonoBehaviour {
     SimpleInteractions simpleInteractions;
     [SerializeField]
     private GameObject RightHand, LeftHand;
-   
+
     [SerializeField]
     GameObject waterParticleObject;
     WaterParticle waterParticle;
@@ -23,9 +24,9 @@ public class SoapInteractions : MonoBehaviour {
     bool isOnRightSpot = false;
     bool isInRange = false;
     bool isPlayedSound = false;
-    bool isHeld = false;
+    bool isHeld;
     private bool getWetSound = false;
-
+    private bool isItPressed;
     [SerializeField]
     private ShowerHandler showerhandler;
 
@@ -34,7 +35,8 @@ public class SoapInteractions : MonoBehaviour {
     {
         transformer = gameObject.GetComponent<Transform>();
         rigidBody = gameObject.GetComponent<Rigidbody>();
-       
+        isItPressed = false;
+        isHeld = false;
     }
 
     // Update is called once per frame
@@ -44,21 +46,33 @@ public class SoapInteractions : MonoBehaviour {
         //SimpleInteractionsQualities();
         IsHeld();
         IsDoneCleaningSelf();
+        //IsItPressed();
+        IsGameDone();
     }
 
-  
     private void IsHeld()
     {
         if (MiniGameManager.isShowerGameRunning)
         {
             if (isInRange == true)
             {
-                if (simpleInteractions.isPressed == true)
+                if (isHeld == true && isItPressed == true && isOnRightSpot == true)
+                {
+
+                    transformer.position = new Vector3(-3.8109f, 1.2155f, 4.2846f);
+                    transformer.rotation = new Quaternion(0f, 0f, 0f, 0f);
+                    isItPressed = false;
+                    isHeld = false;
+                    isInRange = false;
+
+                }
+                else if (isItPressed == true)
                 {
                     // soapHandlerCollider = soapHandler.GetComponent<Collider>();
                     // soapHandlerCollider.enabled = false;
-                    transformer.position = colin.transform.position;
-                    transformer.rotation = colin.transform.rotation;
+                    transformer.position = colin.gameObject.transform.position;
+                    transformer.rotation = colin.gameObject.transform.rotation;
+
                     if (isPlayedSound == false)
                     {
                         EventBus.TriggerEvent(this, new GameStateEvent.GettingTheSoap());
@@ -66,58 +80,61 @@ public class SoapInteractions : MonoBehaviour {
                         isPlayedSound = true;
                     }
                     isHeld = true;
-
                 }
 
-                if (simpleInteractions.isPressed == false)
+
+
+
+                /*
+                else if (simpleInteractions.isPressed == false)
                 {
-                    transformer.position = colin.transform.position;
-                    transformer.rotation = colin.transform.rotation;
+                    transformer.position = colin.gameObject.transform.position;
+                    transformer.rotation = colin.gameObject.transform.rotation;
                 }
 
-                if (simpleInteractions.isPressed == false && isOnRightSpot == true)
+            if (isHeld == true && simpleInteractions.isPressed == false && isOnRightSpot == true && isItPressed == true)
                 {
 
                     transformer.position = new Vector3(-3.8109f, 1.2155f, 4.2846f);
                     transformer.rotation = new Quaternion(0f, 0f, 0f, 0f);
+                    isItPressed = false;
                     isHeld = false;
                     isInRange = false;
+                    
                 }
+                */
             }
         }
     }
-
+    bool isWety;
     private void IsDoneCleaningSelf()
     {
         if (MiniGameManager.isShowerGameRunning)
         {
-            if (isRightConditionsForCleaning == true)
+            if (isRightConditionsForCleaning)
             {
                 //SOUND OF HAVING URSELF CLEAN
-                Debug.Log("i AM CLEANing myself");
                 count++;
                 if (count > 100)
                 {
                     Debug.Log("i AM CLEAN NOW");
                     isDoneCleaningSelf = true;
+                    waterParticle.isWet = false;
                     count = 0;
 
                 }
             }
         }
     }
-    
-
-
-    void isGameDone()
+    void IsGameDone()
     {
-        if(isDoneCleaningSelf && !showerhandler.isWaterRunning)
+        if (isDoneCleaningSelf && !showerhandler.isWaterRunning && waterParticle.isWet == true)//fail
         {
-            EventBus.TriggerEvent(this,new MinigameEvents.EndMinigamEvent());
+            EventBus.TriggerEvent(this, new MinigameEvents.EndMinigamEvent());
+            Debug.Log("Game done");
+
         }
     }
-
-
 
     private void OnTriggerEnter(Collider col)
     {
@@ -127,15 +144,20 @@ public class SoapInteractions : MonoBehaviour {
             if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
                 simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
+
                 col.GetComponent<Interactions>().enabled = false;
                 colin = col;
                 deltaRotation = colin.gameObject.transform.rotation;
                 isInRange = true;
                 //GetComponent<Collider>().enabled = true;
-
+                if (simpleInteractions.isPressed == true)
+                {
+                    isItPressed = true;
+                }
             }
             if (col.gameObject.name == "soap_holder")
             {
+
                 isOnRightSpot = true;
             }
 
@@ -149,13 +171,14 @@ public class SoapInteractions : MonoBehaviour {
             }
             else if (col.gameObject.name == "torso" && waterParticle.isWet == false && getWetSound == false)
             {
+                Debug.Log("WE ARE not STARTING CLEANING");
                 EventBus.TriggerEvent(this, new GameStateEvent.NudgePlayerToGetWet());
                 EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You need to get wet"));
                 getWetSound = true;
             }
         }
     }
-    
+
     private void OnTriggerStay(Collider col)
     {
         if (MiniGameManager.isShowerGameRunning)
@@ -163,14 +186,25 @@ public class SoapInteractions : MonoBehaviour {
             if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
                 isInRange = true;
+                colin = col;
                 simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
                 col.GetComponent<Interactions>().enabled = false;
+
+                if (col.gameObject.name == "soap_holder")
+                {
+
+                    isOnRightSpot = true;
+                }
+
                 if (col.gameObject.name == "torso" && waterParticle.isWet == true)
                 {
                     Debug.Log("THEY ARE GOOD CONDITIONS");
                     isRightConditionsForCleaning = true;
                 }
-
+                if (simpleInteractions.isPressed == true)
+                {
+                    isItPressed = true;
+                }
             }
         }
     }
@@ -179,10 +213,12 @@ public class SoapInteractions : MonoBehaviour {
     {
         if (MiniGameManager.isShowerGameRunning)
         {
+
             if (col.gameObject.name == "soap_holder")
             {
                 isOnRightSpot = false;
-
+                //isItPressed = false;
+                //isItPressed = false;
             }
 
             if (col.gameObject.name == "torso")
@@ -195,6 +231,8 @@ public class SoapInteractions : MonoBehaviour {
             if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
                 col.GetComponent<Interactions>().enabled = enabled;
+                isItPressed = false;
+
             }
 
         }

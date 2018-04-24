@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VacuumCleaning : MonoBehaviour {
+public class VacuumCleaning : MonoBehaviour
+{
     [SerializeField]
     int count = 0;
     Collider colin;
@@ -11,7 +12,7 @@ public class VacuumCleaning : MonoBehaviour {
     [SerializeField]
     bool wrongSurface = false;
     [SerializeField]
-    GameObject dustObject, vacuumHandle;
+    GameObject liquidObject, vacuumHandle;
     VacuumHandler vacuumHandler;
     [SerializeField]
     int howLongToClean = 200;
@@ -20,10 +21,14 @@ public class VacuumCleaning : MonoBehaviour {
     bool isCleaningNowSound = false;
     bool isWrongSurfaceSound = false;
     bool isItOn = false;
-
+    [SerializeField]
+    AudioSource musicSource;
+    [SerializeField]
+    AudioClip musicClip;
     // Use this for initialization
     void Start()
     {
+        musicSource.clip = musicClip;
         vacuumHandler = vacuumHandle.GetComponent<VacuumHandler>();
     }
 
@@ -65,7 +70,7 @@ public class VacuumCleaning : MonoBehaviour {
 
                 if (isCleaningNowSound == false)
                 {
-                    
+
                     EventBus.TriggerEvent(this, new GameStateEvent.VacuumCleaningASpot());
                     EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You are cleaning a spot"));
                     isCleaningNowSound = true;
@@ -82,10 +87,11 @@ public class VacuumCleaning : MonoBehaviour {
                     correctSurface = false;
                     isCleaningNowSound = false;
                     count = 0;
+                    musicSource.Stop();
                 }
             }
         }
-        
+
     }
     void IsNotOnRightSurface()
     {
@@ -106,7 +112,7 @@ public class VacuumCleaning : MonoBehaviour {
                     EventBus.TriggerEvent(this, new GameStateEvent.VacuumSpotIsClear());
 
                     count = 0;
-                    Instantiate(dustObject, new Vector3(transform.position.x + Random.Range(-0.5f, 0.5f), 0.142f, transform.position.z + Random.Range(-1.0f, 1.0f)),
+                    Instantiate(liquidObject, new Vector3(transform.position.x + Random.Range(-0.5f, 0.5f), 0.142f, transform.position.z + Random.Range(-1.0f, 1.0f)),
                         new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w));
 
                     // Instantiate(dustObject, new Vector3(transform.position.x + Random.Range(-2.0f, 2.0f), transform.position.y, transform.position.z + Random.Range(-2.0f, 2.0f)), Quaternion.identity);
@@ -140,7 +146,7 @@ public class VacuumCleaning : MonoBehaviour {
             }
         }
     }
-   
+
     private void OnTriggerEnter(Collider col)
     {
         if (MiniGameManager.isCleaningGameRunning)
@@ -179,6 +185,7 @@ public class VacuumCleaning : MonoBehaviour {
                 correctSurface = false;
                 wrongSurface = false;
                 isWrongSurfaceSound = false;
+                musicSource.Stop();
             }
         }
     }
