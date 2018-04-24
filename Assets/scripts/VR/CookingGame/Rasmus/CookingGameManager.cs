@@ -16,7 +16,7 @@ public class CookingGameManager : MonoBehaviour {
 	private void Awake()
 	{
 		EventBus.AddListener<GameStateEvent.PotatoComplete>(PotatoComplete);
-        isPlayingCookingGame = false;
+        isPlayingCookingGame = true;
 	}
 
 	private void PotatoComplete (object sender, GameStateEvent.PotatoComplete e)
