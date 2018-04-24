@@ -15,13 +15,22 @@ public class PeelerControls : MonoBehaviour
 
     bool playingCookingGame;
 
+	Vector3 startPos;
+	Quaternion startRot;
 
     private void Awake()
     {
         EventBus.AddListener<GameStateEvent.AllPotatoesComplete>(WaitForPlayerToPutDownPeeleder);
     }
 
-    private void Update()
+	private void Start()
+	{
+		startPos = transform.position;
+		startRot = transform.rotation;
+	}
+
+
+	private void Update()
     {
         if (followController != null)
         {
@@ -65,6 +74,9 @@ public class PeelerControls : MonoBehaviour
                 followController = null;
                 controller.isHoldingSomething = false;
                 isCurrentlyBeingCarried = false;
+
+				transform.position = startPos;
+				transform.rotation = startRot;
 
                 if (waitForPeeler)
                 {
