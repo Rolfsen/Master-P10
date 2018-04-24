@@ -19,11 +19,15 @@ public class ShowerHandler : MonoBehaviour {
     private Rigidbody rigidBody;
     private float speed = 200f;
     private bool hasItBeenOn = false;
+    [SerializeField]
+    AudioSource musicSource;
+    [SerializeField]
+    AudioClip musicClip;
     // Use this for initialization
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
-
+        musicSource.clip = musicClip;
     }
 
     // Update is called once per frame
@@ -34,8 +38,40 @@ public class ShowerHandler : MonoBehaviour {
         //RotatingRigidBody();
         //RotateObject();
         //IsDoneWithRotating();
+        IsItRotatingSound();
     }
+    bool isItOnMusic=false;
+    void IsItRotatingSound()
+    {
+        if (simpleInteractions.isPressed)
+        {
+            if (!isItOnMusic)
+            {
+                musicSource.Play();
+                isItOnMusic = true;
+            }
+        }
+        else if(!simpleInteractions.isPressed)
+        {
+            musicSource.Stop();
 
+            isItOnMusic = false;
+        }
+        /*
+        if (isTriggerPressed && ControllerInRange|| isTriggerPressed && ControllerInRange)
+        {
+            if(!isItOnMusic)
+            {
+                musicSource.Play();
+                isItOnMusic = true;
+            }
+        }
+        else if (rigidBody.isKinematic==true && isItOnMusic && !isTriggerPressed)
+        {
+            musicSource.Stop();
+            isItOnMusic = false;
+        }*/
+    }
     void IsWaterOn()
     {
         if (MiniGameManager.isShowerGameRunning)
@@ -46,6 +82,7 @@ public class ShowerHandler : MonoBehaviour {
                 rigidBody.isKinematic = false;
                 if (transform.rotation.x > 0.8 || transform.rotation.x < -0.8)
                 {
+                    //musicSource.Play();
                     //SOUND OF ROTATING
                     count++;
                     if (count > 50)
@@ -56,14 +93,15 @@ public class ShowerHandler : MonoBehaviour {
                             EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Good job. You saved like the whales."));
                         }
                         //SOUND OF ROTATING ENDS
-                        //WATER SOUND ON
                         rigidBody.isKinematic = true;
                         transform.rotation = new Quaternion(0f, transform.rotation.y, transform.rotation.z, transform.rotation.w);
                         hasItBeenOn = true;
                         sinkParticle.SetActive(true);
                         count = 0;
                         isWaterRunning = true;
-                        
+                        musicSource.Stop();
+
+                        isItOnMusic = false;
                         //Debug.Log("its on baby");
                     }
                 }
@@ -106,7 +144,7 @@ public class ShowerHandler : MonoBehaviour {
         if (MiniGameManager.isShowerGameRunning)
         {
             if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
-            {
+                {
                     colin = col;
                     ControllerInRange = true;
                 }
@@ -126,9 +164,6 @@ public class ShowerHandler : MonoBehaviour {
             if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
                 simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
-                //simpleInteractionsTransform = col.gameObject.GetComponent<Transform>();
-                //handleRotation = simpleInteractionsTransform.rotation;
-                //col.gameObject.GetComponent<Interactions>().enabled = false;
                 if (simpleInteractions.isPressed)
                 {
                     isTriggerPressed = true;
@@ -151,14 +186,10 @@ public class ShowerHandler : MonoBehaviour {
         {
             if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
-
                 colin = col;
                 ControllerInRange = false;
                 simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
-                //isTriggerPressed = false; //MAYBE NOT!!!!!!!!!!!!!!!!!!!!!!!!!!
                 col.gameObject.GetComponent<Interactions>().enabled = true;
-
-
             }
         }
         else if (col.gameObject.tag == "Soap")

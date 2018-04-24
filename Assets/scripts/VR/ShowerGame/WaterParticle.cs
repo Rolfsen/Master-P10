@@ -6,17 +6,23 @@ public class WaterParticle : MonoBehaviour {
     [SerializeField]
     private int count = 0;
     public bool isWet = false;
-   
+    [SerializeField]
+    AudioSource musicSource;
+    [SerializeField]
+    AudioClip musicClip;
     [SerializeField]
     bool rightPlace = false;
     // Use this for initialization
     void Start () {
-		
-	}
+
+        musicSource.clip = musicClip;
+        musicSource.Play();
+    }
 	
 	// Update is called once per frame
 	void Update () {
         IsGettingWet();
+        //musicSource.Play();
 
     }
 

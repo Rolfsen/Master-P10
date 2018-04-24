@@ -15,9 +15,17 @@ public class MopCleaning : MonoBehaviour {
     GameObject rodObject;
     bool isMopDirty = false;
     MopHandler mopHandler;
+    [SerializeField]
+    AudioSource musicSource;
+    [SerializeField]
+    AudioClip musicClip;
+
+    bool isMusicStarted;
     // Use this for initialization
     void Start () {
         mopHandler = rodObject.GetComponent<MopHandler>();
+        musicSource.clip = musicClip;
+        isMusicStarted = false;
     }
 	
 	// Update is called once per frame
@@ -61,6 +69,11 @@ public class MopCleaning : MonoBehaviour {
             {
                 if (correctSurface == true && mopHandler.isControllerPressed == true)
                 {
+                    if (!isMusicStarted)
+                    {
+                        musicSource.Play();
+                        isMusicStarted = true;
+                    }
                     if (isCleaningNowSound == false)
                     {
                         //Sound of being on
@@ -81,7 +94,16 @@ public class MopCleaning : MonoBehaviour {
                         EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("The spot is clear"));
                         isCleaningNowSound = false;
                         count = 0;
+
+                        musicSource.Stop();
+                        isMusicStarted = false;
                     }
+                }
+                else if (correctSurface && !mopHandler.isControllerPressed)
+                {
+                    musicSource.Stop();
+
+                    isMusicStarted = false;
                 }
             }
         }
@@ -150,7 +172,8 @@ public class MopCleaning : MonoBehaviour {
             if (col.gameObject.tag == "Dust" || col.gameObject.tag == "Liquid")
             {
                 colin = null;
-
+                musicSource.Stop();
+                isMusicStarted = false;//maybe
             }
         }
     }

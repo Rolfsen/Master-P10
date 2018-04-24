@@ -25,12 +25,15 @@ public class VacuumCleaning : MonoBehaviour
     AudioSource musicSource;
     [SerializeField]
     AudioClip musicClip;
+
+    bool isMusicStarted;
     // Use this for initialization
     void Start()
     {
         musicSource.clip = musicClip;
-        vacuumHandler = vacuumHandle.GetComponent<VacuumHandler>();
         isMusicStarted = false;
+        vacuumHandler = vacuumHandle.GetComponent<VacuumHandler>();
+        
     }
 
     // Update is called once per frame
@@ -42,7 +45,6 @@ public class VacuumCleaning : MonoBehaviour
         //Debug.Log(count);
 
     }
-    bool isMusicStarted;
     void IsVacuumOn()
     {
         if (MiniGameManager.isCleaningGameRunning)
@@ -98,6 +100,7 @@ public class VacuumCleaning : MonoBehaviour
                     isMusicStarted = false;
                 }
             }
+            
         }
 
     }
@@ -194,6 +197,8 @@ public class VacuumCleaning : MonoBehaviour
                 wrongSurface = false;
                 isWrongSurfaceSound = false;
                 musicSource.Stop();
+
+                isMusicStarted = false;//maybe
             }
         }
     }
