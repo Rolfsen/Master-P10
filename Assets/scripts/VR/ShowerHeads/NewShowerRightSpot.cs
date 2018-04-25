@@ -51,7 +51,7 @@ public class NewShowerRightSpot : MonoBehaviour {
 
 
 
-                col.GetComponent<SphereCollider>().enabled = false;
+                //col.GetComponent<SphereCollider>().enabled = false;
                 // rigidBody.isKinematic = false;
                 //rigidBody.constraints = RigidbodyConstraints.FreezePositionZ;
             }
