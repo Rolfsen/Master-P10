@@ -29,6 +29,8 @@ public class SoapInteractions : MonoBehaviour
     private bool isItPressed;
     [SerializeField]
     private ShowerHandler showerhandler;
+    [SerializeField]
+    Collider soapAreaCol;
 
     // Use this for initialization
     void Start()
@@ -64,6 +66,7 @@ public class SoapInteractions : MonoBehaviour
                     isItPressed = false;
                     isHeld = false;
                     isInRange = false;
+                    soapAreaCol.enabled = false;
 
                 }
                 else if (isItPressed == true)
@@ -80,6 +83,7 @@ public class SoapInteractions : MonoBehaviour
                         isPlayedSound = true;
                     }
                     isHeld = true;
+                    soapAreaCol.enabled = true;
                 }
 
 
