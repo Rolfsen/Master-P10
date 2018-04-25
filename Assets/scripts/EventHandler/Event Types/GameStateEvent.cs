@@ -183,7 +183,7 @@ public abstract class GameStateEvent : BaseEvent
     {
 
     }
-    public class VacuumSpotIsClear : GameStateEvent
+    public class CleaningSpotClear : GameStateEvent
     {
 
     }

@@ -17,6 +17,8 @@ public class MopHandler : MonoBehaviour
     // bool isHeld = false;
     bool isOnRightSpot = false;
     public bool isControllerPressed = false;
+
+    public bool isHeld = false;
     // Use this for initialization
     void Start()
     {
@@ -54,7 +56,7 @@ public class MopHandler : MonoBehaviour
                     transform.position = new Vector3(colin.gameObject.transform.position.x, 0.156f, colin.gameObject.transform.position.z);
                     transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
 
-                    //isHeld = true;
+                    isHeld = true;
 
                 }
 
@@ -63,6 +65,7 @@ public class MopHandler : MonoBehaviour
                     transform.position = new Vector3(colin.gameObject.transform.position.x, 0.2f, colin.gameObject.transform.position.z);
                     transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
                     EventBus.TriggerEvent(this, new GameStateEvent.MopIsBeingHeld());
+                    isHeld = false;
                 }
 
             }
@@ -122,6 +125,7 @@ public class MopHandler : MonoBehaviour
             if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
                 isInRange = false;
+                isHeld = false;
                 transform.position = new Vector3(transform.position.x, 0.1f, transform.position.z);
                 transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w);
                 EventBus.TriggerEvent(this, new GameStateEvent.MopIsNotBeingHeld());

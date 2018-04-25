@@ -14,7 +14,7 @@ public class VacuumHandler : MonoBehaviour
     bool isInRange = false;
     bool isPlayedSound = false;
     private bool isItPressed;
-    private bool isHeld = false;
+    public bool isHeld = false;
 
     public bool isControllerPressed = false;
 
@@ -23,6 +23,7 @@ public class VacuumHandler : MonoBehaviour
     {
         IsHeld();
         //IsControllerPressed();
+
     }
 
     void IsControllerPressed()

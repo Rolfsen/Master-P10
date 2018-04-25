@@ -43,6 +43,10 @@ public class PotatoControls : MonoBehaviour
 	Vector3 startPos;
 	Quaternion startRot;
 
+    [SerializeField]
+    AudioSource musicSource;
+    [SerializeField]
+    AudioClip musicClip;
 
     private void Start()
     {
@@ -50,6 +54,7 @@ public class PotatoControls : MonoBehaviour
         rend.material.shader = Shader.Find("DCC/Dissolve V2");
 		startPos = transform.position;
 		startRot = transform.rotation;
+        musicSource.clip = musicClip;
     }
 
     private void Update()
@@ -122,7 +127,7 @@ public class PotatoControls : MonoBehaviour
             }
         }
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if (CookingGameManager.isPlayingCookingGame)
@@ -136,6 +141,7 @@ public class PotatoControls : MonoBehaviour
                 if (other.GetComponent<PeelerControls>().isCurrentlyBeingCarried)
                 {
                     peeledOff++;
+                    musicSource.Play();
                     if (peeledOff == peels)
                     {
                         Debug.Log("The Potato is now peeled");
@@ -176,6 +182,16 @@ public class PotatoControls : MonoBehaviour
                     Debug.Log("Potato unwashed");
                     EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(warningPotatoNotClean));
                 }
+            }
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (CookingGameManager.isPlayingCookingGame)
+        {
+          if (other.CompareTag("Peeler") && isCurrentlyCarried && peeledOff < peels)
+            {
+                    musicSource.Stop();
             }
         }
     }

@@ -18,7 +18,7 @@ public class NewShowerHead : MonoBehaviour {
     AudioSource musicSource;
     [SerializeField]
     AudioClip musicClip;
-
+    bool isMusicPlaying = false;
     void Start ()
     {
         musicSource.clip = musicClip;
@@ -54,9 +54,10 @@ public class NewShowerHead : MonoBehaviour {
             //SOUND OF ROTATING ON
             if (rotationDelta.y > 0.8 || rotationDelta.y < -0.8)
             {
-                if(pluggedIn)
+                if (isMusicPlaying == false)
                 { 
                     musicSource.Play();
+                    isMusicPlaying = true;
                 }
                 count++;
                 if (count > 50)

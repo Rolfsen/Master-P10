@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MopCleaning : MonoBehaviour {
+public class MopCleaning : MonoBehaviour
+{
     [SerializeField]
     int count = 0;
     Collider colin;
     bool correctSurface = false;
-    int mopCleanMeter=0;
+    int mopCleanMeter = 0;
     bool isCleaningNowSound = false;
     bool isMopDirtySound = false;
     bool isMopCleanNowSound = false;
@@ -22,18 +23,20 @@ public class MopCleaning : MonoBehaviour {
 
     bool isMusicStarted;
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         mopHandler = rodObject.GetComponent<MopHandler>();
         musicSource.clip = musicClip;
         isMusicStarted = false;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         IsOnRightSurface();
-        
+
         IsMopDirty();
-        
+
     }
 
     bool isItOn = false;
@@ -43,7 +46,7 @@ public class MopCleaning : MonoBehaviour {
         {
             if (mopHandler.isControllerPressed == true)
             {
-                
+
 
                 Debug.Log("starting music");
                 //EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("m"));
@@ -90,7 +93,7 @@ public class MopCleaning : MonoBehaviour {
                         Debug.Log(mopCleanMeter);
                         colin.gameObject.SetActive(false);
                         correctSurface = false;
-                        EventBus.TriggerEvent(this, new GameStateEvent.MopSpotClear());
+                        EventBus.TriggerEvent(this, new GameStateEvent.CleaningSpotClear());
                         EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("The spot is clear"));
                         isCleaningNowSound = false;
                         count = 0;
@@ -108,7 +111,7 @@ public class MopCleaning : MonoBehaviour {
             }
         }
     }
-    
+
     void IsMopDirty()
     {
         if (MiniGameManager.isCleaningGameRunning)
@@ -163,7 +166,7 @@ public class MopCleaning : MonoBehaviour {
             }
         }
     }
-    
+
     private void OnTriggerExit(Collider col)
     {
         if (MiniGameManager.isCleaningGameRunning)

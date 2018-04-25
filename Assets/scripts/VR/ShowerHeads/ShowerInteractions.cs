@@ -17,7 +17,8 @@ public class ShowerInteractions : MonoBehaviour {
     AudioSource musicSource;
     [SerializeField]
     AudioClip musicClip;
-
+    SimpleInteractions simpleInteractions;
+    bool isMusicPlaying = false;
     void Start() {
         musicSource.clip = musicClip;
         rigidBody = GetComponent<Rigidbody>();
@@ -34,7 +35,7 @@ public class ShowerInteractions : MonoBehaviour {
             if (unPluged == true)
             {
 
-                transformer.position = colin.transform.position;
+                transform.position = colin.transform.position;
                 transform.rotation = colin.transform.rotation;//Return BACK TO NORMAL
             }
             showerUnPlug();
@@ -55,38 +56,59 @@ public class ShowerInteractions : MonoBehaviour {
             }
         }
     }
-   
 
-   
-    
+    private void OnTriggerExit(Collider col)
+    {
+        if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+        {
+            colin = col;
+            
+            if (isMusicPlaying == false)
+            {
+                musicSource.Play();
+                isMusicPlaying = true;
+            }
+        }
+        if (col.gameObject.name == "Right_Area_For_Old_Head")
+        {
+            unPluged = false;
+        }
+    }
+
+  
     void showerUnPlug()
     {
         rotationDelta = transformer.rotation;
-
-        //SOUND OF ROTATING
-        if (rotationDelta.y > 0.8 || rotationDelta.y < -0.8)
-        {
-            
-               
-            
-            //Debug.Log("tuka ne sum vlqzal");
-            if (unPluged == false)
-            { 
-                count++;
-                musicSource.Play();
-            }
-
-            if (count > 50)
+        if(rotationDelta.y>0|| rotationDelta.y < 0)
+        //SOUND OF ROTATING]
+        { 
+       
+            if (rotationDelta.y > 0.8 || rotationDelta.y < -0.8)
             {
-                Debug.Log("Angle is too high");
-                unPluged = true;
-                rigidBody.isKinematic = true;
-                count = 0;
-                EventBus.TriggerEvent(this,new GameStateEvent.ShowerHeadScrewedOffEvent());
-                EventBus.TriggerEvent(this,new NarrativeEvent.TextToSpeechNarratorEvent("You took the shower head off, place it in the box"));
-                //unfreeze them now
-                rotationDelta.y = 0f;
-                musicSource.Stop();
+            
+
+
+                //Debug.Log("tuka ne sum vlqzal");
+                if (unPluged == false)
+                { 
+                    count++;
+
+                
+                }
+
+                if (count > 50)
+                {
+                    Debug.Log("Angle is too high");
+                    unPluged = true;
+                    rigidBody.isKinematic = true;
+                    count = 0;
+                    EventBus.TriggerEvent(this,new GameStateEvent.ShowerHeadScrewedOffEvent());
+                    EventBus.TriggerEvent(this,new NarrativeEvent.TextToSpeechNarratorEvent("You took the shower head off, place it in the box"));
+                    //unfreeze them now
+                    rotationDelta.y = 0f;
+                    musicSource.Stop();
+               
+                }
             }
         }
     }

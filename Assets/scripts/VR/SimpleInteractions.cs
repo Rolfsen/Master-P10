@@ -54,6 +54,8 @@ public class SimpleInteractions : MonoBehaviour
         IsPressed();
         IsItHolding();
         //Debug.Log(isHolding);
+
+        
     }
 
 
@@ -84,7 +86,6 @@ public class SimpleInteractions : MonoBehaviour
 
         if (col.gameObject.tag == "Wrench")
         {
-            isHoldingTool = true;
             if (gameObject.GetComponent<RightHand>() == true)
             {
                 rightHand.closeHandRight.SetActive(true);
@@ -235,7 +236,7 @@ public class SimpleInteractions : MonoBehaviour
         
         if (col.gameObject.tag == "Wrench")
         {
-            isHoldingTool = false;
+            
             myColliders[0].enabled = true;
             myColliders[1].enabled = false;
             if (gameObject.GetComponent<RightHand>() == true)

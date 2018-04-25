@@ -90,7 +90,7 @@ public class VacuumCleaning : MonoBehaviour
                 if (count > howLongToClean)
                 {
                     //SOUND OF SPOT CLEAR
-                    EventBus.TriggerEvent(this, new GameStateEvent.VacuumSpotIsClear());
+                    EventBus.TriggerEvent(this, new GameStateEvent.CleaningSpotClear());
                     EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("It's clean now"));
                     colin.gameObject.SetActive(false);
                     correctSurface = false;
@@ -120,7 +120,7 @@ public class VacuumCleaning : MonoBehaviour
                 if (count > howLongToCleanDirt)
                 {
 
-                    EventBus.TriggerEvent(this, new GameStateEvent.VacuumSpotIsClear());
+                    EventBus.TriggerEvent(this, new GameStateEvent.CleaningSpotClear());
 
                     count = 0;
                     Instantiate(liquidObject, new Vector3(transform.position.x + Random.Range(-0.5f, 0.5f), 0.142f, transform.position.z + Random.Range(-1.0f, 1.0f)),

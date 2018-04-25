@@ -81,6 +81,7 @@ public class PeelerControls : MonoBehaviour
                 if (waitForPeeler)
                 {
                     CookingGameManager.isPlayingCookingGame = false;
+                    EventBus.TriggerEvent(this, new MinigameEvents.EndMinigamEvent());
                     Debug.Log("Game Is Done");
                 }
             }
