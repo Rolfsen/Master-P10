@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 65625123500311226}
   - component: {fileID: 114285316724254218}
   - component: {fileID: 114504430116028214}
+  - component: {fileID: 82263866663781280}
   m_Layer: 0
   m_Name: shower_handle
   m_TagString: Untagged
@@ -146,6 +147,7 @@ GameObject:
   - component: {fileID: 199580511555672210}
   - component: {fileID: 65899873866213248}
   - component: {fileID: 114932079809400076}
+  - component: {fileID: 82710255954314982}
   m_Layer: 0
   m_Name: particles_water
   m_TagString: Untagged
@@ -480,7 +482,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5417866fd88251c4ca30892c4c824b82, type: 2}
+  - {fileID: 2100000, guid: 2628d9e0126dd844f9514b4337fe7072, type: 2}
   - {fileID: 2100000, guid: 5ff3c6fbf406b0d49ada2fc3a710acae, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -566,7 +568,7 @@ BoxCollider:
   m_GameObject: {fileID: 1790137119770764}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.120000005, y: 0.052716613, z: 0.18}
   m_Center: {x: 0.17999999, y: 1.0900321, z: 0.28533706}
@@ -594,6 +596,166 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.785046, y: 0.8410147, z: 2.9936562}
   m_Center: {x: 0.39252666, y: 0.049370363, z: 0.996826}
+--- !u!82 &82263866663781280
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1436253844071004}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!82 &82710255954314982
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1858634234801460}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c9db8e6dfd49b4143bf5eb93f59471d7, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95100149675055596
 Animator:
   serializedVersion: 3
@@ -641,6 +803,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sinkParticle: {fileID: 1858634234801460}
   count: 0
+  isWaterRunning: 0
+  musicSource: {fileID: 82263866663781280}
+  musicClip: {fileID: 8300000, guid: c1fac6bf87ca02744b15952365546911, type: 3}
 --- !u!114 &114504430116028214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -671,6 +836,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   count: 0
   isWet: 0
+  musicSource: {fileID: 82710255954314982}
+  musicClip: {fileID: 8300000, guid: c9db8e6dfd49b4143bf5eb93f59471d7, type: 3}
   rightPlace: 0
 --- !u!135 &135630902006346954
 SphereCollider:
