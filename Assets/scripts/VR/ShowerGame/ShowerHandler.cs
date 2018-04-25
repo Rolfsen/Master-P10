@@ -24,6 +24,7 @@ public class ShowerHandler : MonoBehaviour {
     [SerializeField]
     AudioClip musicClip;
     bool isItOnMusic = false;
+    bool isItHolding = false;
     // Use this for initialization
     void Start()
     {
@@ -44,7 +45,7 @@ public class ShowerHandler : MonoBehaviour {
     
     void IsItRotatingSound()
     {
-        if (simpleInteractions.isPressed)
+        if(isTriggerPressed && ControllerInRange && !isItHolding)
         {
             if (!isItOnMusic)
             {
@@ -52,7 +53,7 @@ public class ShowerHandler : MonoBehaviour {
                 isItOnMusic = true;
             }
         }
-        else if(!simpleInteractions.isPressed)
+        else if(!isTriggerPressed)
         {
             musicSource.Stop();
 
@@ -173,6 +174,15 @@ public class ShowerHandler : MonoBehaviour {
                 else
                 {
                     isTriggerPressed = false;
+                }
+
+                if(simpleInteractions.isHoldingTool)
+                {
+                    isItHolding = true;
+                }
+                else
+                {
+                    isItHolding = false;
                 }
             }
             else if (col.gameObject.tag == "Soap")

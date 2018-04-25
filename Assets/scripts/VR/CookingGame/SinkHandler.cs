@@ -36,7 +36,7 @@ public class SinkHandler : MonoBehaviour {
     }
     void IsItRotatingSound()
     {
-        if (simpleInteractions.isPressed)
+        if (isTriggerPressed && ControllerInRange && !isItHoldingSomething)
         {
             if (!isItOnMusic)
             {
@@ -44,7 +44,7 @@ public class SinkHandler : MonoBehaviour {
                 isItOnMusic = true;
             }
         }
-        else if (!simpleInteractions.isPressed)
+        else if (!isTriggerPressed)
         {
             musicSource.Stop();
 
@@ -129,6 +129,10 @@ public class SinkHandler : MonoBehaviour {
                     isItHoldingSomething = true;
 
                 }
+                else
+                {
+                    isItHoldingSomething = false;
+                }
                 ControllerInRange = true;
             }
         }
@@ -156,6 +160,10 @@ public class SinkHandler : MonoBehaviour {
 
                     isItHoldingSomething = true;
 
+                }
+                else
+                {
+                    isItHoldingSomething = false;
                 }
             }
         }
