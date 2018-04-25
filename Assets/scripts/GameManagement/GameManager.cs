@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
 	{
 		EventBus.AddListener<MinigameEvents.ChangeActiveMinigameEvent>(UpdateGameStatus);
 		EventBus.AddListener<MinigameEvents.StartMinigameEvent>(StartMinigame);
+
 	}
 
 	private void Start()

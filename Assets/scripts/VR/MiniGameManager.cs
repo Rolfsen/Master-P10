@@ -10,12 +10,17 @@ public class MiniGameManager : MonoBehaviour
     public static bool isHeadShowerGameRunning = true;
     public static bool isCleaningGameRunning = true;
     public static bool isShowerGameRunning = true;
-	public static bool isToiletGameRunning = true;
-	public static bool isFlowerWateringGameRunning = true;
+    public static bool isToiletGameRunning = true;
+    public static bool isFlowerWateringGameRunning = true;
 
+    [SerializeField] bool DebugMode;
 
     private void Awake()
     {
+        if (!DebugMode)
+        {
+            ResetAll();
+        }
         EventBus.AddListener<MinigameEvents.StartMinigameEvent>(ActivateMinigame);
     }
 
@@ -55,18 +60,18 @@ public class MiniGameManager : MonoBehaviour
                     isShowerGameRunning = true;
                     break;
                 }
-			case 5:
-				{
-					ResetAll();
-					isToiletGameRunning = true;
-					break;
-				}
-			case 6:
-				{
-					ResetAll();
-					isFlowerWateringGameRunning = true;
-					break;
-				}
+            case 5:
+                {
+                    ResetAll();
+                    isToiletGameRunning = true;
+                    break;
+                }
+            case 6:
+                {
+                    ResetAll();
+                    isFlowerWateringGameRunning = true;
+                    break;
+                }
         }
     }
 
@@ -78,7 +83,7 @@ public class MiniGameManager : MonoBehaviour
         isHeadShowerGameRunning = false;
         isCleaningGameRunning = false;
         isShowerGameRunning = false;
-		isFlowerWateringGameRunning = false;
+        isFlowerWateringGameRunning = false;
 
     }
 }

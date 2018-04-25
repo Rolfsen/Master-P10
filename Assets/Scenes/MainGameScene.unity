@@ -669,6 +669,128 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 38669965}
   m_Script: {fileID: 11500000, guid: 4fab14c273ccf644493c840d4ecf5ab2, type: 3}
+--- !u!1001 &144106506
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4160880334827426, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -4.359
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160880334827426, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.811
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160880334827426, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.082
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160880334827426, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160880334827426, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160880334827426, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160880334827426, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160880334827426, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_RootOrder
+      value: 59
+      objectReference: {fileID: 0}
+    - target: {fileID: 65979151458824724, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 65979151458824724, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 65979151458824724, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: m_Size.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: gameName
+      value: Flushing Toilet
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573365952031622, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_Name
+      value: MinigameInitiation (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: id
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: IdOfNextMinigame
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: replayable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: waterUsingTask
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573365952031622, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797017297400416, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573365952031622, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1575218436330812, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024387052053010, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039003249073988, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562282075601352, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726924450734226, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767949553418332, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &207335801
 Prefab:
   m_ObjectHideFlags: 0
@@ -12565,6 +12687,128 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f375df024924869449e306367788e2f6, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &2113680485
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4160880334827426, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -4.359
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160880334827426, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.811
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160880334827426, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.082
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160880334827426, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160880334827426, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160880334827426, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160880334827426, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160880334827426, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_RootOrder
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 65979151458824724, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 65979151458824724, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 65979151458824724, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: m_Size.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: gameName
+      value: Water Plant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573365952031622, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_Name
+      value: MinigameInitiation (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: id
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: IdOfNextMinigame
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: replayable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: waterUsingTask
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573365952031622, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797017297400416, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573365952031622, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1575218436330812, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024387052053010, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039003249073988, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562282075601352, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726924450734226, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767949553418332, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &2118664241
 Prefab:
