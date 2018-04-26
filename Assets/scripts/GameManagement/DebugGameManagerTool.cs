@@ -11,6 +11,8 @@ public class DebugGameManagerTool : MonoBehaviour {
 	[SerializeField]
 	float amountOfWater;
 
+	[SerializeField]
+	List<int> waypoints;
 
 	private void Update()
 	{
@@ -36,6 +38,11 @@ public class DebugGameManagerTool : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Alpha4))
 		{
 			EventBus.TriggerEvent(this, new MinigameEvents.SingleExecuteWaterUsageEvent(amountOfWater));
+		}
+
+		if (Input.GetKeyDown(KeyCode.Alpha5))
+		{
+			EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(waypoints));
 		}
 	}
 }
