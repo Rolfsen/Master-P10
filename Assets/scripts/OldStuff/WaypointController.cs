@@ -7,6 +7,7 @@ public class WaypointController : MonoBehaviour {
 	[SerializeField]
 	int ID = 0;
 
+	[SerializeField]
 	BoxCollider col;
 
 	Material mat;
@@ -22,7 +23,6 @@ public class WaypointController : MonoBehaviour {
 
 	private void Start()
 	{
-		col = GetComponent<BoxCollider>();
 
 		rend = GetComponent<Renderer>();
 		mat = mat = new Material(rend.materials[0]);
