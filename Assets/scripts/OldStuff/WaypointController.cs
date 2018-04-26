@@ -34,6 +34,7 @@ public class WaypointController : MonoBehaviour {
 
 	private void SetActiveState (object sender, GameStateEvent.SetWayPointStateEvent e)
 	{
+        print("Changing waypoints");
 		if (e.activeIDs.Contains(ID))
 		{
 			col.enabled = false;

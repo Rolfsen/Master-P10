@@ -28,6 +28,7 @@ TagManager:
   - Flower
   - Table
   - LeaveSoapPlace
+  - HardLiquid
   layers:
   - Default
   - TransparentFX

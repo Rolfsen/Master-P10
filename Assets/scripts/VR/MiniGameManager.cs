@@ -28,6 +28,53 @@ public class MiniGameManager : MonoBehaviour
             ResetAll();
         }
         EventBus.AddListener<MinigameEvents.StartMinigameEvent>(ActivateMinigame);
+        EventBus.AddListener<MinigameEvents.ChangeActiveMinigameEvent>(ActivateWaypoint);
+    }
+
+    private void ActivateWaypoint (object sender, MinigameEvents.ChangeActiveMinigameEvent e)
+    {
+        switch (GameManager.currentID)
+        {
+            case 0:
+                {
+                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 2, 3 }));
+                    break;
+                }
+            case 1:
+                {
+                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 1, 2, 4 }));
+                    break;
+                }
+            case 2:
+                {
+                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 0, 1, 5 }));
+
+                    break;
+                }
+            case 3:
+                {
+                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 1, 5, 6 }));
+                    break;
+                }
+            case 4:
+                {
+                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 2, 3 }));
+
+                    break;
+                }
+            case 5:
+                {
+                    ResetAll();
+                    isToiletGameRunning = true;
+                    break;
+                }
+            case 6:
+                {
+                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 0, 1, 2, 5 }));
+                    break;
+                }
+        }
+
     }
 
     private void ActivateMinigame(object sender, MinigameEvents.StartMinigameEvent e)
@@ -38,12 +85,14 @@ public class MiniGameManager : MonoBehaviour
                 {
                     ResetAll();
                     isHeadShowerGameRunning = true;
+                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> {2,3}));
                     break;
                 }
             case 1:
                 {
                     ResetAll();
                     isPipeGameRunning = true;
+                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> {1, 2, 4 }));
                     break;
                 }
             case 2:
@@ -51,18 +100,24 @@ public class MiniGameManager : MonoBehaviour
                     ResetAll();
                     CookingGameManager.isPlayingCookingGame = true;
                     isCookingGameRunning = true;
+                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 0, 1, 5 }));
+
                     break;
                 }
             case 3:
                 {
                     ResetAll();
                     isCleaningGameRunning = true;
+                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 1, 5, 6 }));
+
                     break;
                 }
             case 4:
                 {
                     ResetAll();
                     isShowerGameRunning = true;
+                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 2,3}));
+
                     break;
                 }
             case 5:
@@ -75,6 +130,8 @@ public class MiniGameManager : MonoBehaviour
                 {
                     ResetAll();
                     isFlowerWateringGameRunning = true;
+                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> {0 ,1,2, 5}));
+
                     break;
                 }
         }
