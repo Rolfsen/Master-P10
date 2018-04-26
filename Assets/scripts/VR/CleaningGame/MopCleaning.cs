@@ -20,8 +20,12 @@ public class MopCleaning : MonoBehaviour
     AudioSource musicSource;
     [SerializeField]
     AudioClip musicClip;
-
+    [SerializeField]
+    int mopCleanCount;
+    [SerializeField]
+    int howLongToClean=100;
     bool isMusicStarted;
+   
     // Use this for initialization
     void Start()
     {
@@ -40,28 +44,6 @@ public class MopCleaning : MonoBehaviour
     }
 
     bool isItOn = false;
-    void IsMopOn()
-    {
-        if (MiniGameManager.isCleaningGameRunning)
-        {
-            if (mopHandler.isControllerPressed == true)
-            {
-
-
-                Debug.Log("starting music");
-                //EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("m"));
-
-                isItOn = true;
-            }
-            else if (isItOn == true && mopHandler.isControllerPressed == false)
-            {
-                //Sound of being on cleaned
-                isItOn = false;
-                Debug.Log("it stopping");
-                //EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("oomm"));
-            }
-        }
-    }
 
 
     void IsOnRightSurface()
@@ -86,7 +68,7 @@ public class MopCleaning : MonoBehaviour
                     }
                     count++;
 
-                    if (count > 200)
+                    if (count > howLongToClean)
                     {
                         //SOUND OF BEING COMPLETE
                         mopCleanMeter++;
@@ -116,7 +98,7 @@ public class MopCleaning : MonoBehaviour
     {
         if (MiniGameManager.isCleaningGameRunning)
         {
-            if (mopCleanMeter > 4)
+            if (mopCleanMeter > mopCleanCount)
             {
 
                 if (isMopDirtySound == false)
@@ -134,10 +116,18 @@ public class MopCleaning : MonoBehaviour
     {
         if (MiniGameManager.isCleaningGameRunning)
         {
-            if (col.gameObject.tag == "Dust" && mopCleanMeter <= 5 || col.gameObject.tag == "Liquid" && mopCleanMeter <= 5)
+            if (col.gameObject.tag == "Dust" && mopCleanMeter <= mopCleanCount || col.gameObject.tag == "Liquid" && mopCleanMeter <= mopCleanCount)
             {
+                howLongToClean = 100;
                 correctSurface = true;
                 colin = col;
+            }
+           else if(col.gameObject.tag == "HardLiquid" && mopCleanMeter <= mopCleanCount)
+            {
+                howLongToClean = 200;
+                correctSurface = true;
+                colin = col;
+
             }
         }
     }
@@ -145,12 +135,8 @@ public class MopCleaning : MonoBehaviour
     {
         if (MiniGameManager.isCleaningGameRunning)
         {
-            if (col.gameObject.tag == "Dust" && mopCleanMeter <= 5 || col.gameObject.tag == "Liquid" && mopCleanMeter <= 5)
-            {
-                correctSurface = true;
-                colin = col;
-            }
-            else if (col.gameObject.tag == "Bucket")
+            
+            if (col.gameObject.tag == "Bucket" && isMopDirty )
             {
                 EventBus.TriggerEvent(this, new GameStateEvent.MopIsCleanNow());
                 //SOUND OF HAVING A CLEAN MOP
@@ -180,4 +166,28 @@ public class MopCleaning : MonoBehaviour
             }
         }
     }
+
+    void IsMopOn()
+    {
+        if (MiniGameManager.isCleaningGameRunning)
+        {
+            if (mopHandler.isControllerPressed == true)
+            {
+
+
+                Debug.Log("starting music");
+                //EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("m"));
+
+                isItOn = true;
+            }
+            else if (isItOn == true && mopHandler.isControllerPressed == false)
+            {
+                //Sound of being on cleaned
+                isItOn = false;
+                Debug.Log("it stopping");
+                //EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("oomm"));
+            }
+        }
+    }
+
 }

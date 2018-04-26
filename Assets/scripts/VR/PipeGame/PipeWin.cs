@@ -18,7 +18,10 @@ public class PipeWin : MonoBehaviour {
         
             
             audioSource.clip = musicClip;
+        if (MiniGameManager.isPipeGameRunning)
+        {
             audioSource.Play();
+        }
         pip1 = false;
         pip2 = false;
         pip3 = false;

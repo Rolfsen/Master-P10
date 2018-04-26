@@ -15,7 +15,7 @@ public class VacuumCleaning : MonoBehaviour
     GameObject liquidObject, vacuumHandle;
     VacuumHandler vacuumHandler;
     [SerializeField]
-    int howLongToClean = 200;
+    int howLongToClean = 100;
     int howLongToCleanDirt = 200;
     [SerializeField]
     bool isCleaningNowSound = false;
@@ -25,7 +25,7 @@ public class VacuumCleaning : MonoBehaviour
     AudioSource musicSource;
     [SerializeField]
     AudioClip musicClip;
-
+    bool dirtPlaceNow = false;
     bool isMusicStarted;
     // Use this for initialization
     void Start()
@@ -110,6 +110,11 @@ public class VacuumCleaning : MonoBehaviour
         {
             if (wrongSurface == true && vacuumHandler.isControllerPressed == true)
             {
+                if (!isMusicStarted)
+                {
+                    musicSource.Play();
+                    isMusicStarted = true;
+                }
                 if (isWrongSurfaceSound == true)
                 {
                     EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Thats the wrong surface"));
@@ -117,19 +122,19 @@ public class VacuumCleaning : MonoBehaviour
                 }
                 //SOUND OF CLEARING THE WRONG SURFACE
                 count++;
-                if (count > howLongToCleanDirt)
+                if (count > howLongToClean)
                 {
-
+                    Debug.Log("its harder now");
                     EventBus.TriggerEvent(this, new GameStateEvent.CleaningSpotClear());
-
+                    dirtPlaceNow = true;
                     count = 0;
-                    Instantiate(liquidObject, new Vector3(transform.position.x + Random.Range(-0.5f, 0.5f), 0.142f, transform.position.z + Random.Range(-1.0f, 1.0f)),
-                        new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w));
+                    //Instantiate(liquidObject, new Vector3(transform.position.x + Random.Range(-0.5f, 0.5f), 0.142f, transform.position.z + Random.Range(-1.0f, 1.0f)),
+                    //new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w));
 
                     // Instantiate(dustObject, new Vector3(transform.position.x + Random.Range(-2.0f, 2.0f), transform.position.y, transform.position.z + Random.Range(-2.0f, 2.0f)), Quaternion.identity);
                     //Instantiate(dustObject, new Vector3(transform.position.x + Random.Range(-2.0f, 2.0f), transform.position.y, transform.position.z + Random.Range(-2.0f, 2.0f)), Quaternion.identity);
                     wrongSurface = false;
-
+                    musicSource.Stop();
 
                 }
             }
@@ -150,6 +155,11 @@ public class VacuumCleaning : MonoBehaviour
             {
                 wrongSurface = true;
                 colin = col;
+                if(dirtPlaceNow)
+                {
+                    col.gameObject.tag = "HardLiquid";
+                    
+                }
             }
             else
             {

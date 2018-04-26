@@ -23,6 +23,8 @@ public class PipeInteraction2 : MonoBehaviour {
         pipeWin = pipeGameManagerObject.GetComponent<PipeWin>();
         rigidBody = GetComponent<Rigidbody>();
         isFixed = false;
+
+        rigidBody.isKinematic = true;
     }
 
     // Update is called once per frame

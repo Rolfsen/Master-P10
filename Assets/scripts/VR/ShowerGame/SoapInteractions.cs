@@ -33,8 +33,9 @@ public class SoapInteractions : MonoBehaviour
     Collider soapAreaCol;
 
     bool canPutDown;
-    bool ifPreviouslyPressed;
 
+    bool isPickedUp;
+    bool isOnPlace = true;
     // Use this for initialization
     void Start()
     {
@@ -43,6 +44,8 @@ public class SoapInteractions : MonoBehaviour
         isItPressed = false;
         isHeld = false;
         canPutDown = false;
+
+        isPickedUp = false;
     }
 
     // Update is called once per frame
@@ -65,39 +68,6 @@ public class SoapInteractions : MonoBehaviour
         else
         {
             gameObject.GetComponent<ObjectInteraction>().enabled = true;
-        }
-    }
-    private void IsHeld()
-    {
-        if (MiniGameManager.isShowerGameRunning)
-        {
-            if (isInRange == true)
-            {
-                if (isHeld == true && isItPressed == true && isOnRightSpot == true)
-                {
-
-                    transformer.position = new Vector3(-3.8109f, 1.2155f, 4.2846f);
-                    transformer.rotation = new Quaternion(0f, 0f, 0f, 0f);
-                    isItPressed = false;
-                    isHeld = false;
-                    isInRange = false;
-
-                }
-                else if (isItPressed == true)
-                {
-                    
-                    transformer.position = colin.gameObject.transform.position;
-                    transformer.rotation = colin.gameObject.transform.rotation;
-
-                    if (isPlayedSound == false)
-                    {
-                        EventBus.TriggerEvent(this, new GameStateEvent.GettingTheSoap());
-                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop it now"));
-                        isPlayedSound = true;
-                    }
-                    isHeld = true;
-                }
-            }
         }
     }
     bool isWety;
@@ -130,17 +100,52 @@ public class SoapInteractions : MonoBehaviour
         }
     }
 
+    private void IsHeld()
+    {
+        if (MiniGameManager.isShowerGameRunning)
+        {
+            if (isInRange == true)
+            {
+                if (isHeld == true && isItPressed == true && isOnRightSpot == true && !isOnPlace)
+                {
+
+                    transformer.position = new Vector3(-3.8109f, 1.2155f, 4.2846f);
+                    transformer.rotation = new Quaternion(0f, 0f, 0f, 0f);
+                    isItPressed = false;
+                    isHeld = false;
+                    isInRange = false;
+                    isOnPlace = true;
+
+                }
+                else if (isItPressed == true)
+                {
+
+                    transformer.position = colin.gameObject.transform.position;
+                    transformer.rotation = colin.gameObject.transform.rotation;
+                   
+                    if (isPlayedSound == false)
+                    {
+                        EventBus.TriggerEvent(this, new GameStateEvent.GettingTheSoap());
+                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop it now"));
+                        isPlayedSound = true;
+                    }
+                    isHeld = true;
+                    
+                }
+            }
+        }
+    }
     private void OnTriggerEnter(Collider col)
     {
 
         if (MiniGameManager.isShowerGameRunning)
         {
-            if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+            /*if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
-                simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
+                simpleInteractions = col.GetComponent<SimpleInteractions>();
                 colin = col;
                 isInRange = true;
-            }
+            }*/
             if (col.gameObject.name == "soap_holder" && canPutDown)
             {
                 canPutDown = false;
@@ -169,42 +174,29 @@ public class SoapInteractions : MonoBehaviour
     {
         if (MiniGameManager.isShowerGameRunning)
         {
-            if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+            if (col.CompareTag("Player") && !isPickedUp)
             {
-                isInRange = true;
-                colin = col;
-                simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
-                //col.GetComponent<Interactions>().enabled = false;
+                simpleInteractions = col.GetComponent<SimpleInteractions>();
                 if (simpleInteractions.isPressed == true)
                 {
+                    isInRange = true;
+                    colin = col;
                     isItPressed = true;
                 }
-                if (!ifPreviouslyPressed)
-                {
-                    ifPreviouslyPressed = true;
-                    canPutDown = false;                   
-                }
             }
-            else if (col.gameObject.name == "soap_holder" && canPutDown)
+            else if (col.gameObject.name == "soap_holder" && !isOnPlace)
             {
                 isOnRightSpot = true;
                 canPutDown = false;
+                isPickedUp = false;
             }
-            else if (col.gameObject.name == "soap_holder")
-            {
-                print(canPutDown);
-            }
-
 
             else if (col.gameObject.name == "torso" && waterParticle.isWet == true)
             {
                 Debug.Log("THEY ARE GOOD CONDITIONS");
                 isRightConditionsForCleaning = true;
             }
-
-           
         }
-
     }
 
     private void OnTriggerExit(Collider col)
@@ -215,8 +207,7 @@ public class SoapInteractions : MonoBehaviour
             if (col.gameObject.name == "soap_holder")
             {
                 isOnRightSpot = false;
-                //isItPressed = false;
-                //isItPressed = false;
+                isOnPlace = false;
             }
             if (col.CompareTag("LeaveSoapPlace"))
             {
@@ -226,16 +217,14 @@ public class SoapInteractions : MonoBehaviour
             if (col.gameObject.name == "torso")
             {
                 isRightConditionsForCleaning = false;
-                //EVENT FOR CLEANING STOPPED
                 EventBus.TriggerEvent(this, new GameStateEvent.StopCleaningSelf());
                 // EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You stopped cleaning ur self"));
             }
-            if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
+            /*if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
                 //col.GetComponent<Interactions>().enabled = enabled;
                 isItPressed = false;
-                ifPreviouslyPressed = false;
-            }
+            }*/
 
         }
     }

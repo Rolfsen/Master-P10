@@ -63,11 +63,7 @@ public class PipeInteractions : MonoBehaviour {
             }
         }
     }
-
-    void IsWrenchInRange()
-    {
-
-    }
+    
     private void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Wrench")

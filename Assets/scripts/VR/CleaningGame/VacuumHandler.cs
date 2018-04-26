@@ -73,6 +73,7 @@ public class VacuumHandler : MonoBehaviour
                 transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
                 isItPressed = false;
                 isInRange = false;
+                isHeld = false;
             }
         }
     }
@@ -133,6 +134,7 @@ public class VacuumHandler : MonoBehaviour
             if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
                 isInRange = false;
+                isItPressed = false;
                 EventBus.TriggerEvent(this, new GameStateEvent.VacuumIsNotHeld());
             }
 

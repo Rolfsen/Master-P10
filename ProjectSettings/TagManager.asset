@@ -27,6 +27,7 @@ TagManager:
   - Bolt
   - Flower
   - Table
+  - LeaveSoapPlace
   layers:
   - Default
   - TransparentFX

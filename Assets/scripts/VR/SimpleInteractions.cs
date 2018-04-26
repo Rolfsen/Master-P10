@@ -17,13 +17,20 @@ public class SimpleInteractions : MonoBehaviour
     public bool isHoldingSomething = false;
     public bool isHoldingTool;
     SphereCollider[] myColliders;
+    [SerializeField]
+    AudioClip audioClip;
+    [SerializeField]
+    AudioSource musicSource;
+    bool isHoldingWrench;
     void Start()
     {
+        musicSource.clip = audioClip;
         trackedObj = GetComponent<SteamVR_TrackedObject>();
         myColliders = gameObject.GetComponents<SphereCollider>();
         leftHand = leftHandObj.GetComponent<LeftHand>();
         rightHand = rightHandObj.GetComponent<RightHand>();
         isHoldingTool = false;
+        isHoldingWrench = false;
     }
     void IsPressed()
     {
@@ -80,12 +87,18 @@ public class SimpleInteractions : MonoBehaviour
     {
         if(col.gameObject.tag=="Bolt")
         {
+            if(isPressed == true && isHoldingWrench && !musicSource.isPlaying)
+            {
+                musicSource.Play();
+                
+            }
             //MAKE SOUND FOR WHEN SCREWING THE BOLTS ON
         }
 
 
         if (col.gameObject.tag == "Wrench")
         {
+            isHoldingWrench = true;
             if (gameObject.GetComponent<RightHand>() == true)
             {
                 rightHand.closeHandRight.SetActive(true);
@@ -236,7 +249,7 @@ public class SimpleInteractions : MonoBehaviour
         
         if (col.gameObject.tag == "Wrench")
         {
-            
+            isHoldingWrench = false;
             myColliders[0].enabled = true;
             myColliders[1].enabled = false;
             if (gameObject.GetComponent<RightHand>() == true)
