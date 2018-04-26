@@ -36,19 +36,22 @@ public class SinkHandler : MonoBehaviour {
     }
     void IsItRotatingSound()
     {
-        if (isTriggerPressed && ControllerInRange && !isItHoldingSomething)
+        if (MiniGameManager.isShowerGameRunning)
         {
-            if (!isItOnMusic)
+            if (isTriggerPressed && ControllerInRange && !isItHoldingSomething)
             {
-                musicSource.Play();
-                isItOnMusic = true;
+                if (!isItOnMusic)
+                {
+                    musicSource.Play();
+                    isItOnMusic = true;
+                }
             }
-        }
-        else if (!isTriggerPressed)
-        {
-            musicSource.Stop();
+            else if (!isTriggerPressed)
+            {
+                musicSource.Stop();
 
-            isItOnMusic = false;
+                isItOnMusic = false;
+            }
         }
     }
     void IsWaterOn()
@@ -75,6 +78,7 @@ public class SinkHandler : MonoBehaviour {
                         hasItBeenOn = true;
                         sinkParticle.SetActive(true);
                         count = 0;
+                        musicSource.Stop();
                         isWaterRunning = true;
                         isItOnMusic = false;
                         //Debug.Log("its on baby");

@@ -188,7 +188,6 @@ public class MinigameData : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Enter Play Area " + other.tag + " " + active + " " + GameManager.isPlaying + " " + complete);
         if (other.CompareTag("Player") && active && !GameManager.isPlaying && !complete)
         {
             EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("The Game Begun" + GameManager.currentID));
@@ -196,7 +195,7 @@ public class MinigameData : MonoBehaviour
         }
         else
         {
-            Debug.Log(active + " " + complete);
+          //  Debug.Log(active + " " + complete);
         }
     }
 }

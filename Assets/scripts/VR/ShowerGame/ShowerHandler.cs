@@ -30,6 +30,7 @@ public class ShowerHandler : MonoBehaviour {
     {
         rigidBody = GetComponent<Rigidbody>();
         musicSource.clip = musicClip;
+        isItHoldingSomething = false;
     }
 
     // Update is called once per frame
@@ -45,47 +46,48 @@ public class ShowerHandler : MonoBehaviour {
     
     void IsItRotatingSound()
     {
-        if(isTriggerPressed && ControllerInRange && !isItHolding)
+        if (MiniGameManager.isShowerGameRunning)
         {
-            if (!isItOnMusic)
+            if (isTriggerPressed && ControllerInRange && !isItHolding)
             {
-                musicSource.Play();
-                isItOnMusic = true;
+                if (!isItOnMusic)
+                {
+                    musicSource.Play();
+                    isItOnMusic = true;
+                }
+            }
+            else if (!isTriggerPressed)
+            {
+                musicSource.Stop();
+                isItOnMusic = false;
             }
         }
-        else if(!isTriggerPressed)
-        {
-            musicSource.Stop();
-
-            isItOnMusic = false;
-        }
-        /*
-        if (isTriggerPressed && ControllerInRange|| isTriggerPressed && ControllerInRange)
-        {
-            if(!isItOnMusic)
-            {
-                musicSource.Play();
-                isItOnMusic = true;
-            }
-        }
-        else if (rigidBody.isKinematic==true && isItOnMusic && !isTriggerPressed)
-        {
-            musicSource.Stop();
-            isItOnMusic = false;
-        }*/
     }
+    /*
+    if (isTriggerPressed && ControllerInRange|| isTriggerPressed && ControllerInRange)
+    {
+        if(!isItOnMusic)
+        {
+            musicSource.Play();
+            isItOnMusic = true;
+        }
+    }
+    else if (rigidBody.isKinematic==true && isItOnMusic && !isTriggerPressed)
+    {
+        musicSource.Stop();
+        isItOnMusic = false;
+    }*/
+    bool isItHoldingSomething;
     void IsWaterOn()
     {
         if (MiniGameManager.isShowerGameRunning)
         {
 
-            if (hasItBeenOn == false)
+            if (hasItBeenOn == false && isItHoldingSomething == false)
             {
                 rigidBody.isKinematic = false;
                 if (transform.rotation.x > 0.8 || transform.rotation.x < -0.8)
                 {
-                    //musicSource.Play();
-                    //SOUND OF ROTATING
                     count++;
                     if (count > 50)
                     {
@@ -115,7 +117,7 @@ public class ShowerHandler : MonoBehaviour {
     {
         if (MiniGameManager.isShowerGameRunning)
         {
-            if (isWaterRunning == true)
+            if (isWaterRunning == true && isItHoldingSomething == false)
             {
                 rigidBody.isKinematic = false;
 
@@ -147,15 +149,27 @@ public class ShowerHandler : MonoBehaviour {
         {
             if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
                 {
-                    colin = col;
-                    ControllerInRange = true;
+                simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
+                colin = col;
+                if (simpleInteractions.isHoldingTool == true)
+                {
+
+                    isItHoldingSomething = true;
+
+                }
+                else
+                {
+                    isItHoldingSomething = false;
+                }
+                ControllerInRange = true;
+
                 }
             }
 
-        else if (col.gameObject.tag == "Soap")
-        {
-            rigidBody.isKinematic = true;
-        }
+        //else if (col.gameObject.tag == "Soap")
+        //{
+        //    rigidBody.isKinematic = true;
+        //}
 
        
     }
@@ -165,6 +179,7 @@ public class ShowerHandler : MonoBehaviour {
         {
             if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
+                
                 simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
                 if (simpleInteractions.isPressed)
                 {
@@ -197,9 +212,14 @@ public class ShowerHandler : MonoBehaviour {
         {
             if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
+                simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
+
+                if (simpleInteractions.isHoldingTool == true)
+                {
+                    isItHoldingSomething = false;//mistake prone
+                }
                 colin = col;
                 ControllerInRange = false;
-                simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
                 col.gameObject.GetComponent<Interactions>().enabled = true;
             }
         }

@@ -32,6 +32,9 @@ public class SoapInteractions : MonoBehaviour
     [SerializeField]
     Collider soapAreaCol;
 
+    bool canPutDown;
+    bool ifPreviouslyPressed;
+
     // Use this for initialization
     void Start()
     {
@@ -39,6 +42,7 @@ public class SoapInteractions : MonoBehaviour
         rigidBody = gameObject.GetComponent<Rigidbody>();
         isItPressed = false;
         isHeld = false;
+        canPutDown = false;
     }
 
     // Update is called once per frame
@@ -49,9 +53,20 @@ public class SoapInteractions : MonoBehaviour
         IsHeld();
         IsDoneCleaningSelf();
         //IsItPressed();
-        IsGameDone();
+        //IsGameDone();
     }
+    void isTheGameOn()
+    {
+        if (MiniGameManager.isShowerGameRunning)
+        {
+            gameObject.GetComponent<ObjectInteraction>().enabled = false;
+        }
 
+        else
+        {
+            gameObject.GetComponent<ObjectInteraction>().enabled = true;
+        }
+    }
     private void IsHeld()
     {
         if (MiniGameManager.isShowerGameRunning)
@@ -66,13 +81,11 @@ public class SoapInteractions : MonoBehaviour
                     isItPressed = false;
                     isHeld = false;
                     isInRange = false;
-                    soapAreaCol.enabled = false;
 
                 }
                 else if (isItPressed == true)
                 {
-                    // soapHandlerCollider = soapHandler.GetComponent<Collider>();
-                    // soapHandlerCollider.enabled = false;
+                    
                     transformer.position = colin.gameObject.transform.position;
                     transformer.rotation = colin.gameObject.transform.rotation;
 
@@ -83,30 +96,7 @@ public class SoapInteractions : MonoBehaviour
                         isPlayedSound = true;
                     }
                     isHeld = true;
-                    soapAreaCol.enabled = true;
                 }
-
-
-
-
-                /*
-                else if (simpleInteractions.isPressed == false)
-                {
-                    transformer.position = colin.gameObject.transform.position;
-                    transformer.rotation = colin.gameObject.transform.rotation;
-                }
-
-            if (isHeld == true && simpleInteractions.isPressed == false && isOnRightSpot == true && isItPressed == true)
-                {
-
-                    transformer.position = new Vector3(-3.8109f, 1.2155f, 4.2846f);
-                    transformer.rotation = new Quaternion(0f, 0f, 0f, 0f);
-                    isItPressed = false;
-                    isHeld = false;
-                    isInRange = false;
-                    
-                }
-                */
             }
         }
     }
@@ -148,20 +138,12 @@ public class SoapInteractions : MonoBehaviour
             if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
                 simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
-
-                col.GetComponent<Interactions>().enabled = false;
                 colin = col;
-                deltaRotation = colin.gameObject.transform.rotation;
                 isInRange = true;
-                //GetComponent<Collider>().enabled = true;
-                if (simpleInteractions.isPressed == true)
-                {
-                    isItPressed = true;
-                }
             }
-            if (col.gameObject.name == "soap_holder")
+            if (col.gameObject.name == "soap_holder" && canPutDown)
             {
-
+                canPutDown = false;
                 isOnRightSpot = true;
             }
 
@@ -192,25 +174,37 @@ public class SoapInteractions : MonoBehaviour
                 isInRange = true;
                 colin = col;
                 simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
-                col.GetComponent<Interactions>().enabled = false;
-
-                if (col.gameObject.name == "soap_holder")
-                {
-
-                    isOnRightSpot = true;
-                }
-
-                if (col.gameObject.name == "torso" && waterParticle.isWet == true)
-                {
-                    Debug.Log("THEY ARE GOOD CONDITIONS");
-                    isRightConditionsForCleaning = true;
-                }
+                //col.GetComponent<Interactions>().enabled = false;
                 if (simpleInteractions.isPressed == true)
                 {
                     isItPressed = true;
                 }
+                if (!ifPreviouslyPressed)
+                {
+                    ifPreviouslyPressed = true;
+                    canPutDown = false;                   
+                }
             }
+            else if (col.gameObject.name == "soap_holder" && canPutDown)
+            {
+                isOnRightSpot = true;
+                canPutDown = false;
+            }
+            else if (col.gameObject.name == "soap_holder")
+            {
+                print(canPutDown);
+            }
+
+
+            else if (col.gameObject.name == "torso" && waterParticle.isWet == true)
+            {
+                Debug.Log("THEY ARE GOOD CONDITIONS");
+                isRightConditionsForCleaning = true;
+            }
+
+           
         }
+
     }
 
     private void OnTriggerExit(Collider col)
@@ -224,7 +218,11 @@ public class SoapInteractions : MonoBehaviour
                 //isItPressed = false;
                 //isItPressed = false;
             }
-
+            if (col.CompareTag("LeaveSoapPlace"))
+            {
+                Debug.Log("Left Area");
+                canPutDown = true;
+            }
             if (col.gameObject.name == "torso")
             {
                 isRightConditionsForCleaning = false;
@@ -234,9 +232,9 @@ public class SoapInteractions : MonoBehaviour
             }
             if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
-                col.GetComponent<Interactions>().enabled = enabled;
+                //col.GetComponent<Interactions>().enabled = enabled;
                 isItPressed = false;
-
+                ifPreviouslyPressed = false;
             }
 
         }

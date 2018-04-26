@@ -5,14 +5,20 @@ using UnityEngine;
 public class MiniGameManager : MonoBehaviour
 {
 
-    public static bool isPipeGameRunning = true;
+    public static bool isPipeGameRunning;
+    public static bool isCookingGameRunning;
+    public static bool isHeadShowerGameRunning;
+    public static bool isCleaningGameRunning;
+    public static bool isShowerGameRunning;
+    public static bool isToiletGameRunning;
+    public static bool isFlowerWateringGameRunning;
+    /*public static bool isPipeGameRunning = true;
     public static bool isCookingGameRunning = true;
     public static bool isHeadShowerGameRunning = true;
     public static bool isCleaningGameRunning = true;
     public static bool isShowerGameRunning = true;
     public static bool isToiletGameRunning = true;
-    public static bool isFlowerWateringGameRunning = true;
-
+    public static bool isFlowerWateringGameRunning = true;*/
     [SerializeField] bool DebugMode;
 
     private void Awake()
@@ -26,7 +32,6 @@ public class MiniGameManager : MonoBehaviour
 
     private void ActivateMinigame(object sender, MinigameEvents.StartMinigameEvent e)
     {
-        Debug.Log("Started Minigame" + GameManager.currentID);
         switch (GameManager.currentID)
         {
             case 0:
