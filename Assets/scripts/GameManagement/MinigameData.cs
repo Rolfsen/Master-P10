@@ -80,6 +80,8 @@ public class MinigameData : MonoBehaviour
         if (waterUsingTask)
         {
             progressRenderer = progressBar.GetComponent<Renderer>();
+			Material mat = new Material(progressRenderer.material);
+			progressRenderer.material = mat;
             progressRenderer.material.shader = Shader.Find("DCC/3d Progress Bar");
         }
     }
