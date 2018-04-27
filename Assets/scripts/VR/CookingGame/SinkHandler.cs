@@ -62,7 +62,7 @@ public class SinkHandler : MonoBehaviour {
             {
 
                 rigidBody.isKinematic = false;
-                if (transform.rotation.x > 0.8 || transform.rotation.x < -0.8)
+                if (transform.rotation.x > 0.1|| transform.rotation.x < -0.1)
                 {
                     count++;
                     if (count > 50)
@@ -92,11 +92,11 @@ public class SinkHandler : MonoBehaviour {
     {
         if (MiniGameManager.isCookingGameRunning)
         {
-            if (isWaterRunning == true && isItHoldingSomething == false)
+            if (isWaterRunning == true && isItHoldingSomething == false && hasItBeenOn == true)
             {
                 rigidBody.isKinematic = false;
 
-                if (transform.rotation.x > 0.8 || transform.rotation.x < -0.8)
+                if (transform.rotation.x > 0.1 || transform.rotation.x < -0.1)
                 {
                     count++;
                     if (count > 50)

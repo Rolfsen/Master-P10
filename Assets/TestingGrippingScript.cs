@@ -54,6 +54,7 @@ public class TestingGrippingScript : MonoBehaviour
 
 		else if (isHold && other.CompareTag("Flavor"))
 		{
+            //transform.SetParent(null);
 
 		}
 	}
