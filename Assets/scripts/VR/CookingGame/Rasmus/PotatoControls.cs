@@ -81,13 +81,14 @@ public class PotatoControls : MonoBehaviour
 
     private void Update()
     {
-
+        /*
         if (objectToFollow != null)
         {
             // You can replace this with something VR Friendly 
             transform.position = objectToFollow.position;
             transform.rotation = objectToFollow.rotation;
         }
+        */
     }
 
     private void WashingUnPeeledPotato()
@@ -124,10 +125,9 @@ public class PotatoControls : MonoBehaviour
                 {
                     controller = other.GetComponent<SimpleInteractions>();
 
-                    if (!controller.isHoldingSomething)
+                    if (!controller.isHoldingSomething && !isReady)
                     {
                         
-
                         if (other.GetComponent<TestingGrippingHand>().isLeftHand)
                         {
                             offsetVector = leftHandGrip.position;
@@ -206,6 +206,7 @@ public class PotatoControls : MonoBehaviour
                     controller = null;
                     objectToFollow = null;
 
+                    transform.parent = null;
                     isReady = true;
 
 					transform.position = startPos;

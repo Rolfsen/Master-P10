@@ -17,16 +17,16 @@ public class TestingGrippingHand : MonoBehaviour {
 
 	private void Start()
 	{
-		//myMesh = GetComponent<MeshFilter>();
+		myMesh = GetComponent<MeshFilter>();
 	}
 
 	public void HoldObject ()
 	{
-		//myMesh.mesh = holding;
+		myMesh.mesh = holding;
 	}
 
 	public void StopHoldindObject()
 	{
-		//myMesh.mesh = notHolding;
+		myMesh.mesh = notHolding;
 	}
 }
