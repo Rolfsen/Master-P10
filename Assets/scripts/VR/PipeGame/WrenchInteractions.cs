@@ -78,7 +78,7 @@ public class WrenchInteractions : MonoBehaviour
                 {
 
                     transformer.position = new Vector3(rightSpotX, rightSpotY, rightSpotZ);
-                    transformer.rotation = new Quaternion(0f, 0f, 0f, 0f);
+                    transformer.rotation = new Quaternion(0f, 0f, 0f, 90f);
                     isOnRightSpot = false;
                     isInRange = false;
                     isItPressed = false;

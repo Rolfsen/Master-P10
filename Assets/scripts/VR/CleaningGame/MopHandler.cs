@@ -126,7 +126,7 @@ public class MopHandler : MonoBehaviour
             {
                 isInRange = false;
                 isHeld = false;
-                transform.position = new Vector3(transform.position.x, 0.1f, transform.position.z);
+                transform.position = new Vector3(transform.position.x, 0.156f, transform.position.z);
                 transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w);
                 EventBus.TriggerEvent(this, new GameStateEvent.MopIsNotBeingHeld());
 
