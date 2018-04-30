@@ -570,6 +570,136 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3c9c79379b798f04cabc0964d45be5e9, type: 3}
   m_IsPrefabParent: 0
+--- !u!43 &66082716
+Mesh:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  serializedVersion: 8
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 24
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 8
+    localAABB:
+      m_Center: {x: 0, y: 0.01, z: 0}
+      m_Extent: {x: 1.65, y: 0, z: 1.275}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 000004000100010004000500010005000200020005000600020006000300030006000700030007000000000007000400
+  m_Skin: []
+  m_VertexData:
+    m_CurrentChannels: 13
+    m_VertexCount: 8
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 28
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 288
+    _typelessdata: 0000c03f0ad7233c000090bf000000000000803f0000803f0000803f00000000000000000000c0bf0ad7233c000090bf000000000000803f0000803f0000803f0000803f000000000000c0bf0ad7233c0000903f000000000000803f0000803f0000803f00000000000000000000c03f0ad7233c0000903f000000000000803f0000803f0000803f0000803f000000003333d33f0ad7233c3333a3bf000000000000803f0000803f00000000000000000000803f3333d3bf0ad7233c3333a3bf000000000000803f0000803f000000000000803f0000803f3333d3bf0ad7233c3333a33f000000000000803f0000803f00000000000000000000803f3333d33f0ad7233c3333a33f000000000000803f0000803f000000000000803f0000803f
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0.01, z: 0}
+    m_Extent: {x: 1.65, y: 0, z: 1.275}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshOptimized: 0
 --- !u!1 &80786712 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1874411616047010, guid: 8b8d1bf287dc6964f8cb23b01292ae87,
@@ -1002,6 +1132,22 @@ Prefab:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: startMinigameText
+      value: Now you only have one task left for today, go into the bathroom and flush
+        the toilet, as you seemed to have forgotten to do so this morning.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: afterGameText
+      value: "You might want to consider getting a new toilet, it is possible to save
+        water by replacing old toilets with modern ones.\r\n\r\nWhere old toilets
+        use 9 liters or more, modern toilets with multiple flushing options can use
+        as little as 2 liters of water for a small flush and 4 for a big flush.\r\n\r\nAgain,
+        you can also reuse water to flush the toilet, as well as flushing the toilet
+        less in general.\r\n\r\nIf it is yellow, let it mellow, as they say.\r\n"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
   m_IsPrefabParent: 0
@@ -1156,7 +1302,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.001, z: 1}
+  m_Size: {x: 1, y: 0.01, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &213396577
 Transform:
@@ -1171,39 +1317,6 @@ Transform:
   m_Father: {fileID: 1767307834}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &215526704
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: Sprites/Default
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - PixelSnap: 0
-    - _EnableExternalAlpha: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &236421467
 Prefab:
   m_ObjectHideFlags: 0
@@ -1335,7 +1448,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.001, z: 1}
+  m_Size: {x: 1, y: 0.01, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &258971980
 Transform:
@@ -1547,7 +1660,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.001, z: 1}
+  m_Size: {x: 1, y: 0.01, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &268437191
 Transform:
@@ -1604,7 +1717,7 @@ Prefab:
     - target: {fileID: 114101819417858064, guid: 3c4b1907919841a44a4b9de670679524,
         type: 2}
       propertyPath: firstMinigame
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3c4b1907919841a44a4b9de670679524, type: 2}
@@ -1782,6 +1895,39 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d28b5d0a96dc3954b8e00f66c7fb7428, type: 3}
   m_IsPrefabParent: 0
+--- !u!21 &342924759
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &373028088
 GameObject:
   m_ObjectHideFlags: 0
@@ -2310,7 +2456,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.001, z: 1}
+  m_Size: {x: 1, y: 0.01, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &505786876
 Transform:
@@ -2509,7 +2655,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.001, z: 1}
+  m_Size: {x: 1, y: 0.01, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &533303374
 Transform:
@@ -2533,7 +2679,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 00ad8d36a39a157438d70a3beb8adb0f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.066
+      value: 4.339
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 00ad8d36a39a157438d70a3beb8adb0f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2602,136 +2748,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 00ad8d36a39a157438d70a3beb8adb0f, type: 3}
   m_IsPrefabParent: 0
---- !u!43 &569547834
-Mesh:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  serializedVersion: 8
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 0
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 0
-    localAABB:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0, y: 0, z: 0}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 
-  m_Skin: []
-  m_VertexData:
-    m_CurrentChannels: 0
-    m_VertexCount: 0
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 0
-    _typelessdata: 
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
-  m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshOptimized: 0
 --- !u!1 &592204540 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1338420522299298, guid: fd28ea821ea5cb9479f70fa351f543c8,
@@ -3174,136 +3190,6 @@ Rigidbody:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 00ad8d36a39a157438d70a3beb8adb0f, type: 3}
   m_PrefabInternal: {fileID: 561828205}
---- !u!43 &750327566
-Mesh:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  serializedVersion: 8
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 24
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 8
-    localAABB:
-      m_Center: {x: 0, y: 0.01, z: 0}
-      m_Extent: {x: 1.65, y: 0, z: 1.275}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 000004000100010004000500010005000200020005000600020006000300030006000700030007000000000007000400
-  m_Skin: []
-  m_VertexData:
-    m_CurrentChannels: 13
-    m_VertexCount: 8
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 28
-      format: 0
-      dimension: 2
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 288
-    _typelessdata: 0000c03f0ad7233c000090bf000000000000803f0000803f0000803f00000000000000000000c0bf0ad7233c000090bf000000000000803f0000803f0000803f0000803f000000000000c0bf0ad7233c0000903f000000000000803f0000803f0000803f00000000000000000000c03f0ad7233c0000903f000000000000803f0000803f0000803f0000803f000000003333d33f0ad7233c3333a3bf000000000000803f0000803f00000000000000000000803f3333d3bf0ad7233c3333a3bf000000000000803f0000803f000000000000803f0000803f3333d3bf0ad7233c3333a33f000000000000803f0000803f00000000000000000000803f3333d33f0ad7233c3333a33f000000000000803f0000803f000000000000803f0000803f
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0.01, z: 0}
-    m_Extent: {x: 1.65, y: 0, z: 1.275}
-  m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshOptimized: 0
 --- !u!1 &796537009 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 39d09e61ea227f146a1d9de8713efb2c, type: 3}
@@ -4293,6 +4179,24 @@ Prefab:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: startMinigameText
+      value: "I know you have had a rough day, but i can\u2019t help but notice that
+        the house is rather dirty.\r\n\r\nI suggest you to go and get some cleaning
+        utensils to resolve the matter."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: afterGameText
+      value: In general you can reduce water consumption for cleaning by only using
+        it when needed
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: replayable
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
   m_IsPrefabParent: 0
@@ -4988,6 +4892,26 @@ Prefab:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: startMinigameText
+      value: Now, that was the last of your tasks for today, why not take a shower
+        to relax and clean yourself?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: afterGameText
+      value: "Using a bathtub consumes a lot of water, with a general estimation of
+        120 liters of water used.\r\n\r\nA shower uses less in general, but you can
+        reduce the water consumption further by turning of the water while soaping
+        yourself in.\r\n\r\nGood, with all that out of the way, i suggest you to go
+        to the living room and review your day at the projektor.\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: replayable
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
   m_IsPrefabParent: 0
@@ -5171,7 +5095,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4996975993188306, guid: 3d677b32d99cadf4b9a7bdffbefeb9cd, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 3.888
+      value: 3.28
       objectReference: {fileID: 0}
     - target: {fileID: 4996975993188306, guid: 3d677b32d99cadf4b9a7bdffbefeb9cd, type: 2}
       propertyPath: m_LocalRotation.x
@@ -5205,7 +5129,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1307472486862366, guid: 3d677b32d99cadf4b9a7bdffbefeb9cd, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d677b32d99cadf4b9a7bdffbefeb9cd, type: 2}
@@ -5851,7 +5775,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1247792262}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.31, y: 0.225, z: -0.056}
+  m_LocalPosition: {x: 0.008, y: 0.331, z: -0.194}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1578145482}
@@ -5995,7 +5919,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.001, z: 1}
+  m_Size: {x: 1, y: 0.01, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1331413014
 Transform:
@@ -6175,7 +6099,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.001, z: 1}
+  m_Size: {x: 1, y: 0.01, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1404216585
 Transform:
@@ -6235,7 +6159,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: a531119ac9f3c6140a39c8870dfaccc4, type: 2}
     - target: {fileID: 100000, guid: 00ad8d36a39a157438d70a3beb8adb0f, type: 3}
       propertyPath: m_TagString
-      value: PotatoPlace
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 00ad8d36a39a157438d70a3beb8adb0f, type: 3}
       propertyPath: m_Controller
@@ -6278,7 +6202,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.18985057, y: 0.040458083, z: 0.106460094}
+  m_Size: {x: 0.2, y: 0.15, z: 0.25}
   m_Center: {x: 0.0068696737, y: 0.01987356, z: 0.039074183}
 --- !u!4 &1404315609 stripped
 Transform:
@@ -6315,7 +6239,7 @@ MonoBehaviour:
   putThePotBackText: 
   pickThePotUpText: 
   PourTheWaterOnPlantText: 
-  animPos: {fileID: 0}
+  animPos: {fileID: 1247792263}
 --- !u!1001 &1437986795
 Prefab:
   m_ObjectHideFlags: 0
@@ -6992,6 +6916,21 @@ Prefab:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: afterGameText
+      value: Did you know, that water-reducing shower heads can reduce water consumption
+        to around 6 to 10 liters of water per minute, whereas non water-reducing shower
+        heads can use 16 to 18 liters of water per minute
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: startMinigameText
+      value: "Welcome home, everything is exactly as you left it this morning before
+        you headed out.\r\nAs per your request, i would like to remind you that you
+        wanted to install a new shower head in the bathroom, may i suggest you get
+        it done right away?\r\n"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
   m_IsPrefabParent: 0
@@ -7161,6 +7100,136 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1586596182}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!43 &1594487078
+Mesh:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  serializedVersion: 8
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 0
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 0
+    localAABB:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0, y: 0, z: 0}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 
+  m_Skin: []
+  m_VertexData:
+    m_CurrentChannels: 0
+    m_VertexCount: 0
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 0
+    _typelessdata: 
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshOptimized: 0
 --- !u!1 &1619298729
 GameObject:
   m_ObjectHideFlags: 0
@@ -11556,6 +11625,21 @@ Prefab:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: afterGameText
+      value: You look rather famished, may i suggest you go prepare lunch in the kitchen.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: startMinigameText
+      value: You look rather famished, may i suggest you go prepare lunch in the kitchen.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: replayable
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
   m_IsPrefabParent: 0
@@ -12324,6 +12408,21 @@ Prefab:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: startMinigameText
+      value: "You also wanted me to remind you, that you had some issues with your
+        pipes in the boiler room.\r\nI suggest you go and take care of it right away
+        before it escalates.\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: afterGameText
+      value: 'Did you know, that in major cities, leaking pipes are a huge problem,
+        where up to 80% of the water pumped out into the water system is lost due
+        to leaking pipes. In a city like London, this means that around a thousand
+        million liters of water is wasted each day! '
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
   m_IsPrefabParent: 0
@@ -12444,16 +12543,16 @@ Prefab:
         type: 2}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 750327566}
+      objectReference: {fileID: 66082716}
     - target: {fileID: 23269528544811700, guid: 8b8d1bf287dc6964f8cb23b01292ae87,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 215526704}
+      objectReference: {fileID: 342924759}
     - target: {fileID: 23509907967835794, guid: 8b8d1bf287dc6964f8cb23b01292ae87,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114701599054158846, guid: 8b8d1bf287dc6964f8cb23b01292ae87,
         type: 2}
@@ -12504,6 +12603,11 @@ Prefab:
     - target: {fileID: 4635451629918416, guid: 8b8d1bf287dc6964f8cb23b01292ae87, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114232773959842136, guid: 8b8d1bf287dc6964f8cb23b01292ae87,
+        type: 2}
+      propertyPath: posY
+      value: -1.74
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114754826415120128, guid: 8b8d1bf287dc6964f8cb23b01292ae87, type: 2}
@@ -14967,7 +15071,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4160880334827426, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4.359
+      value: 3.476
       objectReference: {fileID: 0}
     - target: {fileID: 4160880334827426, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
       propertyPath: m_LocalPosition.y
@@ -14975,7 +15079,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4160880334827426, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0.082
+      value: 3.788
       objectReference: {fileID: 0}
     - target: {fileID: 4160880334827426, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
       propertyPath: m_LocalRotation.x
@@ -15076,6 +15180,20 @@ Prefab:
     - target: {fileID: 1767949553418332, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: startMinigameText
+      value: Oh right, you wanted to use the water from your meal yesterday to water
+        the plants, go ahead and pour the water from the cooking pot into the plant
+        pot.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688336256182368, guid: c2ea97df31d3b184c8a86f092ad8d396,
+        type: 2}
+      propertyPath: afterGameText
+      value: "You can reuse water that was used for cooking, bathing and more, just
+        like you can use rainwater in various situations that don\u2019t involve consuming
+        the water."
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2ea97df31d3b184c8a86f092ad8d396, type: 2}

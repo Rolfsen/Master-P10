@@ -22,18 +22,17 @@ public class Torso : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         RotateBasedOnJoysticks();
-       
-
+        transform.position = new Vector3(transformer.position.x, transformer.position.y - 1.74f, transformer.position.z);
     }
 
     void RotateBasedOnJoysticks()
     {
         if (gameObject.transform.position != Vector3.zero)
         {
-            // Do the rotation here
-            //transform.position = new Vector3(transformer.position.x, transformer.position.y - 1.74f, transformer.position.z);
+            
+            
 
-            transform.position = new Vector3(transformer.position.x - posX, transformer.position.y - posY, transformer.position.z - posZ);
+            //transform.position = new Vector3(transformer.position.x - posX, transformer.position.y - posY, transformer.position.z - posZ);
 
             noY = Vector3.Cross(rightHand.transform.position - gameObject.transform.position, leftHand.transform.position - gameObject.transform.position).normalized;
             noY.y = 0f;

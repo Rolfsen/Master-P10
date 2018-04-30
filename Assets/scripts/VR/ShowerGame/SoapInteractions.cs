@@ -70,7 +70,7 @@ public class SoapInteractions : MonoBehaviour
         //IsHeld();
         IsDoneCleaningSelf();
         //IsItPressed();
-        //IsGameDone();
+        IsGameDone();
     }
    
     private void IsDoneCleaningSelf()
@@ -92,13 +92,16 @@ public class SoapInteractions : MonoBehaviour
             }
         }
     }
+    bool oneWin = false;
     void IsGameDone()
     {
         if (isDoneCleaningSelf && !showerhandler.isWaterRunning && waterParticle.isWet == true)//fail
         {
-            EventBus.TriggerEvent(this, new MinigameEvents.EndMinigamEvent());
-            Debug.Log("Game done");
-
+            if (!oneWin) { 
+                EventBus.TriggerEvent(this, new MinigameEvents.EndMinigamEvent());
+                Debug.Log("Game done");
+                oneWin = true;
+            }
         }
     }
 
@@ -235,7 +238,7 @@ public class SoapInteractions : MonoBehaviour
                 isOnPlace = true;
 
             }
-            else if (col.gameObject.name == "torso" && waterParticle.isWet == true)
+            if (col.gameObject.name == "torso" && waterParticle.isWet == true)
             {
                 Debug.Log("THEY ARE GOOD CONDITIONS");
                 isRightConditionsForCleaning = true;

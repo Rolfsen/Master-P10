@@ -19,6 +19,8 @@ public class NewShowerHead : MonoBehaviour {
     [SerializeField]
     AudioClip musicClip;
     bool isMusicPlaying = false;
+    bool winOnce = false;
+
     void Start ()
     {
         musicSource.clip = musicClip;
@@ -70,13 +72,16 @@ public class NewShowerHead : MonoBehaviour {
                     //SOUND OF ROTATING OFF
                     pluggedIn = true;
                     rigidBody.isKinematic = true;
-                    EventBus.TriggerEvent(this, new MinigameEvents.EndMinigamEvent());
+                    if(!winOnce)
+                    { 
+                        EventBus.TriggerEvent(this, new MinigameEvents.EndMinigamEvent());
+                        winOnce = true;
+                    }
                     musicSource.Stop();
                 }
             }
         }
     }
-
     void OnTriggerEnter(Collider col)
     {
         if (MiniGameManager.isHeadShowerGameRunning)

@@ -37,8 +37,16 @@ public class Narrator : MonoBehaviour
 		ttsVoice.Voice = ttsVoice.GetVoices().Item(voiceID);
 	}
 
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Alpha9))
+        {
+            ttsVoice.Skip("Sentence", 1);
+        }
+    }
 
-	private void PrepareForNextGame(object sender, MinigameEvents.PrepareForNextMinigameEvent e)
+
+    private void PrepareForNextGame(object sender, MinigameEvents.PrepareForNextMinigameEvent e)
 	{
 		StartCoroutine(SoundQuarantine(e.nextGame));
 	}
