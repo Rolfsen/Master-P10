@@ -7,6 +7,8 @@ public class ManagaProjector : MonoBehaviour {
 	[SerializeField]
 	List<Text> uiText;
 
+	int index = 0;
+
 	private void Awake()
 	{
 		EventBus.AddListener<MinigameEvents.UpdateWaterUsage>(UpdateUIText);
@@ -14,6 +16,7 @@ public class ManagaProjector : MonoBehaviour {
 
 	private void UpdateUIText (object sender, MinigameEvents.UpdateWaterUsage e)
 	{
-		uiText[GameManager.currentID].text = e.gameName + " " + (int)e.bestWaterUsage + "L";
+		uiText[index].text = e.gameName + " " + (int)e.bestWaterUsage + "L";
+		index++;
 	} 
 }
