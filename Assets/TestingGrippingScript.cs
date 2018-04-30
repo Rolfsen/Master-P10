@@ -12,15 +12,15 @@ public class TestingGrippingScript : MonoBehaviour
 	Transform rightHandGrip;
 
 	Vector3 offsetVector;
+    [SerializeField]
+    Transform leftHand;
 
-	bool isHold;
+    [SerializeField]
+    Transform rightHand;
 
-	[SerializeField]
-	Transform leftHand;
+    bool isHold;
 
-	[SerializeField]
-	Transform rightHand;
-
+	
 	Transform usingTrans;
 
 	Vector3 offset;
