@@ -95,8 +95,10 @@ public class ShowerHandler : MonoBehaviour {
                         {
                             EventBus.TriggerEvent(this, new GameStateEvent.NewShowerHeadScrewedOnEvent());
                             EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Good job. You saved like the whales."));
+                            EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
                         }
                         //SOUND OF ROTATING ENDS
+                        
                         rigidBody.isKinematic = true;
                         transform.rotation = new Quaternion(0f, transform.rotation.y, transform.rotation.z, transform.rotation.w);
                         hasItBeenOn = true;
@@ -130,6 +132,7 @@ public class ShowerHandler : MonoBehaviour {
                         {
                             EventBus.TriggerEvent(this, new GameStateEvent.WaterInShowerRunning());//Water is off
                             EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Good job. You saved like the whales."));
+                            EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
                         }
                         //WATER SOUND OFF
                         rigidBody.isKinematic = true;

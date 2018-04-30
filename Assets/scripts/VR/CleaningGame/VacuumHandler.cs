@@ -135,6 +135,7 @@ public class VacuumHandler : MonoBehaviour
             {
                 isInRange = false;
                 isItPressed = false;
+                isHeld = false;
                 EventBus.TriggerEvent(this, new GameStateEvent.VacuumIsNotHeld());
             }
 

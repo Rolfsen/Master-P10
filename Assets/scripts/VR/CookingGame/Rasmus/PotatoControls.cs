@@ -57,6 +57,8 @@ public class PotatoControls : MonoBehaviour
 
     bool isReady;
 
+    bool warningCooldown; 
+
     Renderer rend;
 
     SimpleInteractions controller;
@@ -69,7 +71,8 @@ public class PotatoControls : MonoBehaviour
     AudioSource musicSource;
     [SerializeField]
     AudioClip musicClip;
-
+    [SerializeField]
+    float cooldownTime = 2;
     private void Start()
     {
         rend = GetComponent<Renderer>();
@@ -214,19 +217,22 @@ public class PotatoControls : MonoBehaviour
 
                     Debug.Log("Potato Done");
                 }
-                else if (!isPotatoPeeled)
+                else if (!isPotatoPeeled && !warningCooldown)
                 {
                     Debug.Log("Potato Unpeeled");
+                    StartCoroutine(WarningCooldown());
                     EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(warningPotatoNotPeeled));
                 }
-                else if (!isPotatoClean)
+                else if (!isPotatoClean && !warningCooldown)
                 {
                     Debug.Log("Potato unwashed");
+                    StartCoroutine(WarningCooldown());
                     EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(warningPotatoNotClean));
                 }
             }
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (CookingGameManager.isPlayingCookingGame)
@@ -236,6 +242,15 @@ public class PotatoControls : MonoBehaviour
                     musicSource.Stop();
             }
         }
+    }
+
+
+    
+    IEnumerator WarningCooldown ()
+    {
+        warningCooldown = true;
+        yield return new WaitForSeconds(cooldownTime);
+        warningCooldown = false;
     }
 }
 

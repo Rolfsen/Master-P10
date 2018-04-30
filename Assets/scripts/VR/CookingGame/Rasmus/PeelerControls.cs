@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PeelerControls : MonoBehaviour
 {
+    [SerializeField]
+    SinkHandler sinkHandler;
 
     public bool isCurrentlyBeingCarried;
 
@@ -14,6 +16,9 @@ public class PeelerControls : MonoBehaviour
     bool waitForPeeler = false;
 
     bool playingCookingGame;
+
+    bool isWaitingForTurningWater;
+    bool endGameOnce;
 
 	Vector3 startPos;
 	Quaternion startRot;
@@ -37,6 +42,12 @@ public class PeelerControls : MonoBehaviour
             // You can replace this with something VR Friendly 
             transform.position = followController.position;
             transform.rotation = followController.rotation;
+        }
+        if (isWaitingForTurningWater && !endGameOnce && !sinkHandler.isWaterRunning)
+        {
+            CookingGameManager.isPlayingCookingGame = false;
+            EventBus.TriggerEvent(this, new MinigameEvents.EndMinigamEvent());
+            endGameOnce = true;
         }
     }
 
@@ -78,11 +89,15 @@ public class PeelerControls : MonoBehaviour
 				transform.position = startPos;
 				transform.rotation = startRot;
 
-                if (waitForPeeler)
+                if (waitForPeeler && !sinkHandler.isWaterRunning)
                 {
                     CookingGameManager.isPlayingCookingGame = false;
                     EventBus.TriggerEvent(this, new MinigameEvents.EndMinigamEvent());
                     Debug.Log("Game Is Done");
+                }
+                else if (waitForPeeler && sinkHandler.isWaterRunning)
+                {
+                    isWaitingForTurningWater = true;
                 }
             }
         }

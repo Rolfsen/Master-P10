@@ -24,7 +24,7 @@ public class ShowerInteractions : MonoBehaviour {
         rigidBody = GetComponent<Rigidbody>();
         OI = gameObject.GetComponent<ObjectInteraction>();
         transformer = gameObject.GetComponent<Transform>();
-        
+        gameObject.GetComponent<ObjectInteraction>().enabled = false;
     }
     Collider colin;
     // Update is called once per frame
@@ -32,6 +32,7 @@ public class ShowerInteractions : MonoBehaviour {
 
         if (MiniGameManager.isHeadShowerGameRunning)
         {
+            gameObject.GetComponent<ObjectInteraction>().enabled = true;
             if (unPluged == true)
             {
 

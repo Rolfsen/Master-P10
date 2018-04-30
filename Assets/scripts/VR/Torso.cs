@@ -15,12 +15,25 @@ public class Torso : MonoBehaviour {
     [SerializeField]
     float posZ;
 
+    MeshRenderer renderer;
+
     void Start () {
         transformer = Camera.main.transform;
+
+        renderer = GetComponent<MeshRenderer>() ;
+        renderer.enabled = false;
     }
 
     // Update is called once per frame
     void Update () {
+        if (MiniGameManager.isShowerGameRunning)
+        {
+            renderer.enabled = true;
+        }
+        else
+        {
+            renderer.enabled = false;
+        }
         RotateBasedOnJoysticks();
         transform.position = new Vector3(transformer.position.x, transformer.position.y - 1.74f, transformer.position.z);
     }

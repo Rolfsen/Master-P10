@@ -51,9 +51,10 @@ public class WrenchInteractions : MonoBehaviour
                     if (simpleInteractions.isPressed)
                     {
                         musicSource.Play();
+                       
                     }
                     isHeld = true;
-
+                    
 
                 }
                 else if (colin.gameObject.name == "Controller (right)" && isItPressed == true)
@@ -63,6 +64,7 @@ public class WrenchInteractions : MonoBehaviour
                     if (simpleInteractions.isPressed)
                     {
                         musicSource.Play();
+                        
                     }
                     isHeld = true;
                 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿/*
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -37,8 +38,8 @@ public class ToggleObjectHighlight : MonoBehaviour {
 
 	private void Update()
 	{
-		float adjustFloat = Mathf.PingPong(Time.time / slowVal, pingVal - minVal) + minVal;
-		rend.material.SetFloat(floatName, adjustFloat);
+		//float adjustFloat = Mathf.PingPong(Time.time / slowVal, pingVal - minVal) + minVal;
+		//rend.material.SetFloat(floatName, adjustFloat);
 
 	}
 
@@ -57,4 +58,4 @@ public class ToggleObjectHighlight : MonoBehaviour {
 			rend.material.SetFloat(floatName, startVal);
 		}
 	}
-}
+}*/

@@ -29,6 +29,7 @@ TagManager:
   - Table
   - LeaveSoapPlace
   - HardLiquid
+  - Torso
   layers:
   - Default
   - TransparentFX

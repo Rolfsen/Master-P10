@@ -42,8 +42,11 @@ public class SimpleInteractions : MonoBehaviour
         {
             isPressed = false;
         }
-
-
+    }
+    
+   public void IsItVibrating(ushort vibreateStrenght)
+    {
+        controller.TriggerHapticPulse(vibreateStrenght);
     }
     void IsItHolding()
     {
@@ -61,8 +64,9 @@ public class SimpleInteractions : MonoBehaviour
         IsPressed();
         IsItHolding();
         //Debug.Log(isHolding);
+        //IsItVibrating(250);
 
-        
+
     }
 
 
@@ -90,7 +94,7 @@ public class SimpleInteractions : MonoBehaviour
             if(isPressed == true && isHoldingWrench && !musicSource.isPlaying)
             {
                 musicSource.Play();
-                
+                IsItVibrating(500);
             }
             //MAKE SOUND FOR WHEN SCREWING THE BOLTS ON
         }

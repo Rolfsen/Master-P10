@@ -7,7 +7,7 @@ public class SinkHandler : MonoBehaviour {
     Quaternion rotationDelta;
     [SerializeField]
     private int count;
-    private bool isWaterRunning = false;
+    public bool isWaterRunning = false;
     private bool ControllerInRange = false;
     private bool isTriggerPressed = false;
     private Collider colin = new Collider();
@@ -33,7 +33,9 @@ public class SinkHandler : MonoBehaviour {
         IsWaterOn();
         IsWaterOff();
         IsItRotatingSound();
-    }
+       
+
+        }
     void IsItRotatingSound()
     {
         if (MiniGameManager.isShowerGameRunning)
@@ -71,8 +73,9 @@ public class SinkHandler : MonoBehaviour {
                         {
                             EventBus.TriggerEvent(this, new GameStateEvent.NewShowerHeadScrewedOnEvent());
                             EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Good job. You saved like the whales."));
-                        }
+                            EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
 
+                        }
                         rigidBody.isKinematic = true;
                         transform.rotation = new Quaternion(0f, transform.rotation.y, transform.rotation.z, transform.rotation.w);
                         hasItBeenOn = true;
@@ -105,6 +108,8 @@ public class SinkHandler : MonoBehaviour {
                         {
                             EventBus.TriggerEvent(this, new GameStateEvent.WaterInShowerRunning());//Water is off
                             EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Good job. You saved like the whales."));
+                            EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
+
                         }
                         rigidBody.isKinematic = true;
                         transform.rotation = new Quaternion(0f, transform.rotation.y, transform.rotation.z, transform.rotation.w);//Or destroy the one we have and make a new one, works everytime

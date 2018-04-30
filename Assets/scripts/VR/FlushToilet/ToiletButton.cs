@@ -24,7 +24,7 @@ public class ToiletButton : MonoBehaviour
 	{
 		if (MiniGameManager.isToiletGameRunning)
 		{
-			if (other.CompareTag("Player") && haveToiletbeenFlushed)
+			if (other.CompareTag("Player") && !haveToiletbeenFlushed)
 			{
 				if (other.GetComponent<SimpleInteractions>().isPressed)
 				{

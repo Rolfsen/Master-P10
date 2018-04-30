@@ -27,12 +27,16 @@ public class NewShowerHead : MonoBehaviour {
         OI = gameObject.GetComponent<ObjectInteraction>();
         transformer = gameObject.GetComponent<Transform>();
         rigidBody = gameObject.GetComponent<Rigidbody>();
+        gameObject.GetComponent<ObjectInteraction>().enabled = false;
+
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
         if (MiniGameManager.isHeadShowerGameRunning)
         {
+            gameObject.GetComponent<ObjectInteraction>().enabled = true;
+
             if (isHeld == true)
             {
                 rigidBody.isKinematic = true;

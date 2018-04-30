@@ -50,6 +50,8 @@ public class SoapInteractions : MonoBehaviour
     bool isPickedUp;
     bool isOnPlace = true;
 
+    bool canBeReturnedToSoapHolder;
+
     // Use this for initialization
     void Start()
     {
@@ -178,6 +180,12 @@ public class SoapInteractions : MonoBehaviour
     {
         if (MiniGameManager.isShowerGameRunning)
         {
+            if (col.CompareTag("Torso") && waterParticle.isWet == true)
+            {
+                Debug.Log("THEY ARE GOOD CONDITIONS");
+                isRightConditionsForCleaning = true;
+            }
+
             if (col.CompareTag("Player") && !isPickedUp)
             {
                 simpleInteractions = col.GetComponent<SimpleInteractions>();
@@ -214,19 +222,19 @@ public class SoapInteractions : MonoBehaviour
                                 }
                            
                             offset = (usingTrans.position - col.transform.position) + (offsetVector - transform.position);
-
                             transform.position = col.transform.position - offset;
-
                             isHeld = true;
                             isOnPlace = false;
                             holdingHand = col.gameObject;
                             transform.SetParent(holdingHand.transform);
                             col.GetComponent<TestingGrippingHand>().HoldObject();
+                        canBeReturnedToSoapHolder = false;
+                        StartCoroutine(BanSoapFromBeingReturned());
                         }
                     }
                 }
 
-            else if (isHeld == true && isItPressed == true && col.gameObject.name == "soap_holder" && !isOnPlace)
+            else if (isHeld == true && isItPressed == true && col.gameObject.name == "soap_holder" && !isOnPlace && canBeReturnedToSoapHolder)
             {
                 transform.parent = null;
                 transformer.position = new Vector3(-3.8109f, 1.2155f, 4.2846f);
@@ -236,13 +244,9 @@ public class SoapInteractions : MonoBehaviour
                 canPutDown = false;
                 isInRange = false;
                 isOnPlace = true;
-
+                transform.SetParent(null);
             }
-            if (col.gameObject.name == "torso" && waterParticle.isWet == true)
-            {
-                Debug.Log("THEY ARE GOOD CONDITIONS");
-                isRightConditionsForCleaning = true;
-            }
+            
         }
     }
 
@@ -353,6 +357,14 @@ public class SoapInteractions : MonoBehaviour
             }
 
         }
+    }
+
+    [SerializeField]
+    float banTime;
+    IEnumerator BanSoapFromBeingReturned ()
+    {
+        yield return new WaitForSeconds(banTime);
+        canBeReturnedToSoapHolder = true;
     }
 }
 /*

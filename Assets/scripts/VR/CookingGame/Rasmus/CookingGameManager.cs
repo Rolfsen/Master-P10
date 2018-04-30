@@ -11,6 +11,7 @@ public class CookingGameManager : MonoBehaviour {
     [SerializeField,Multiline]
     string allPotatoesHaveBeenPeeledText;
 
+
 	int readyPotatoes;
 
 	private void Awake()
