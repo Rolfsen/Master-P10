@@ -192,7 +192,7 @@ public class MinigameData : MonoBehaviour
     {
         if (other.CompareTag("Player") && active && !GameManager.isPlaying && !complete)
         {
-            EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("The Game Begun" + GameManager.currentID));
+            //EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("The Game Begun" + GameManager.currentID));
             EventBus.TriggerEvent(this, new MinigameEvents.StartMinigameEvent());
         }
         else

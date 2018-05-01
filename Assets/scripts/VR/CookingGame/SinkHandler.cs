@@ -72,7 +72,7 @@ public class SinkHandler : MonoBehaviour {
                         if (isWaterRunning == false)
                         {
                             EventBus.TriggerEvent(this, new GameStateEvent.NewShowerHeadScrewedOnEvent());
-                            EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Good job. You saved like the whales."));
+                            //EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Good job. You saved like the whales."));
                             EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
 
                         }
@@ -107,7 +107,7 @@ public class SinkHandler : MonoBehaviour {
                         if (isWaterRunning == true)
                         {
                             EventBus.TriggerEvent(this, new GameStateEvent.WaterInShowerRunning());//Water is off
-                            EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Good job. You saved like the whales."));
+                           // EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Good job. You saved like the whales."));
                             EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
 
                         }

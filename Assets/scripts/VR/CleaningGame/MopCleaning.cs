@@ -63,7 +63,7 @@ public class MopCleaning : MonoBehaviour
                     {
                         //Sound of being on
                         EventBus.TriggerEvent(this, new GameStateEvent.MopIsCleaning());
-                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You are cleaning a spot"));
+                        //EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You are cleaning a spot"));
                         isCleaningNowSound = true;
                     }
                     count++;

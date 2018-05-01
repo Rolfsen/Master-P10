@@ -133,7 +133,7 @@ public class SoapInteractions : MonoBehaviour
                     if (isPlayedSound == false)
                     {
                         EventBus.TriggerEvent(this, new GameStateEvent.GettingTheSoap());
-                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop it now"));
+                        //EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop it now"));
                         isPlayedSound = true;
                     }
                     isHeld = true;

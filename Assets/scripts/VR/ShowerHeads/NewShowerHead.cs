@@ -71,7 +71,7 @@ public class NewShowerHead : MonoBehaviour {
                     if (pluggedIn == false)
                     {
                         EventBus.TriggerEvent(this, new GameStateEvent.NewShowerHeadScrewedOnEvent());
-                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Good job. You saved like the whales."));
+                       // EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Good job. You saved like the whales."));
                     }
                     //SOUND OF ROTATING OFF
                     pluggedIn = true;

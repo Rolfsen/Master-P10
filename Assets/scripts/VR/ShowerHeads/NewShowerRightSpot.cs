@@ -40,7 +40,7 @@ public class NewShowerRightSpot : MonoBehaviour {
                 {
 
                     EventBus.TriggerEvent(this, new GameStateEvent.NewShowerHeadScrewedOnEvent());
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You screwed the shit on!"));
+                    //EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You screwed the shit on!"));
 
                 }
                 isOnPlace = true;
