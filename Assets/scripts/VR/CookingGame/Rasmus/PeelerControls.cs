@@ -9,6 +9,9 @@ public class PeelerControls : MonoBehaviour
 
     public bool isCurrentlyBeingCarried;
 
+    [SerializeField]
+    ParticleSystem potatoParticleSystem;
+
 
     SimpleInteractions controller;
     Transform followController;
@@ -20,22 +23,22 @@ public class PeelerControls : MonoBehaviour
     bool isWaitingForTurningWater;
     bool endGameOnce;
 
-	Vector3 startPos;
-	Quaternion startRot;
+    Vector3 startPos;
+    Quaternion startRot;
 
     private void Awake()
     {
         EventBus.AddListener<GameStateEvent.AllPotatoesComplete>(WaitForPlayerToPutDownPeeleder);
     }
 
-	private void Start()
-	{
-		startPos = transform.position;
-		startRot = transform.rotation;
-	}
+    private void Start()
+    {
+        startPos = transform.position;
+        startRot = transform.rotation;
+    }
 
 
-	private void Update()
+    private void Update()
     {
         if (followController != null)
         {
@@ -86,8 +89,8 @@ public class PeelerControls : MonoBehaviour
                 controller.isHoldingSomething = false;
                 isCurrentlyBeingCarried = false;
 
-				transform.position = startPos;
-				transform.rotation = startRot;
+                transform.position = startPos;
+                transform.rotation = startRot;
 
                 if (waitForPeeler && !sinkHandler.isWaterRunning)
                 {
@@ -100,6 +103,14 @@ public class PeelerControls : MonoBehaviour
                     isWaitingForTurningWater = true;
                 }
             }
+            else if (other.CompareTag("Potato") && isCurrentlyBeingCarried)
+            {
+                if (!other.GetComponent<PotatoControls>().isPotatoPeeled)
+                {
+                    potatoParticleSystem.Play();
+                }
+            }
+
         }
     }
 }

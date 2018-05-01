@@ -52,7 +52,7 @@ public class PotatoControls : MonoBehaviour
 
     bool isCurrentlyCarried;
 
-    bool isPotatoPeeled;
+    public bool isPotatoPeeled;
     bool isPotatoClean;
 
     bool isReady;
@@ -186,8 +186,11 @@ public class PotatoControls : MonoBehaviour
                 {
                     peeledOff++;
                     musicSource.Play();
+                    // spawn particles :<
+
                     if (peeledOff == peels)
                     {
+                        rend.material.SetFloat("_DissolveAmount", dissolveValues[3]);
                         Debug.Log("The Potato is now peeled");
                         isPotatoPeeled = true;
                     }
