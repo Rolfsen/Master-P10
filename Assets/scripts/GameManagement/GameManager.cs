@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour {
 	{
 		currentID = e.newID;
 		isPlaying = false;
-
+		EventBus.TriggerEvent(this, new MinigameEvents.UpdatedCurrentID());
 	}
 
 	void StartMinigame (object sender, MinigameEvents.StartMinigameEvent e)
