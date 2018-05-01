@@ -25,6 +25,8 @@ public class MopCleaning : MonoBehaviour
     [SerializeField]
     int howLongToClean=100;
     bool isMusicStarted;
+
+	string cleaningTag;
    
     // Use this for initialization
     void Start()
@@ -103,7 +105,7 @@ public class MopCleaning : MonoBehaviour
 
                 if (isMopDirtySound == false)
                 {
-                    EventBus.TriggerEvent(this, new GameStateEvent.MopIsDirty());
+                    EventBus.TriggerEvent(this, new GameStateEvent.MopIsDirty(cleaningTag));
                     //SOUND OF MOP BEING DIRTY
                     EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("The mop is dirty now"));
                     isMopDirtySound = true;
@@ -121,15 +123,17 @@ public class MopCleaning : MonoBehaviour
                 howLongToClean = 100;
                 correctSurface = true;
                 colin = col;
+				cleaningTag = col.tag;
             }
            else if(col.gameObject.tag == "HardLiquid" && mopCleanMeter <= mopCleanCount)
             {
                 howLongToClean = 200;
                 correctSurface = true;
                 colin = col;
+				cleaningTag = col.tag;
 
-            }
-        }
+			}
+		}
     }
     private void OnTriggerEnter(Collider col)
     {
@@ -145,7 +149,7 @@ public class MopCleaning : MonoBehaviour
                 isMopDirtySound = false;
                 mopCleanMeter = 0;
                 //PUT THE WATER HERE
-                EventBus.TriggerEvent(this, new MinigameEvents.SingleExecuteWaterUsageEvent(4)); //SMT SMT
+                EventBus.TriggerEvent(this, new MinigameEvents.SingleExecuteWaterUsageEvent(1)); //SMT SMT
                                                                                                  //EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent()); when water is turned on
 
                 Debug.Log("ur mop is clean now");
