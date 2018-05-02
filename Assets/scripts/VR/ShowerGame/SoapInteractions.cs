@@ -165,13 +165,11 @@ public class SoapInteractions : MonoBehaviour
                 Debug.Log("WE ARE STARTING CLEANING");
                 isRightConditionsForCleaning = true;
                 EventBus.TriggerEvent(this, new GameStateEvent.StartCleaningSelf());
-                EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You are getting cleaner, good job!"));
             }
             else if (col.gameObject.name == "torso" && waterParticle.isWet == false && getWetSound == false)
             {
                 Debug.Log("WE ARE not STARTING CLEANING");
                 EventBus.TriggerEvent(this, new GameStateEvent.NudgePlayerToGetWet());
-                EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You need to get wet"));
                 getWetSound = true;
             }
         }
@@ -204,7 +202,6 @@ public class SoapInteractions : MonoBehaviour
                                     if (isPlayedSound == false)
                                     {
                                         EventBus.TriggerEvent(this, new GameStateEvent.GettingTheSoap());
-                                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop it now"));
                                         isPlayedSound = true;
                                     }
                                 }
@@ -215,7 +212,6 @@ public class SoapInteractions : MonoBehaviour
                                     if (isPlayedSound == false)
                                     {
                                         EventBus.TriggerEvent(this, new GameStateEvent.GettingTheSoap());
-                                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop it now"));
                                         isPlayedSound = true;
                                     }
 

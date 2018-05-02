@@ -78,7 +78,6 @@ public class MopCleaning : MonoBehaviour
                         colin.gameObject.SetActive(false);
                         correctSurface = false;
                         EventBus.TriggerEvent(this, new GameStateEvent.CleaningSpotClear());
-                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("The spot is clear"));
                         isCleaningNowSound = false;
                         count = 0;
 
@@ -107,7 +106,6 @@ public class MopCleaning : MonoBehaviour
                 {
                     EventBus.TriggerEvent(this, new GameStateEvent.MopIsDirty(cleaningTag));
                     //SOUND OF MOP BEING DIRTY
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("The mop is dirty now"));
                     isMopDirtySound = true;
                 }
                 isMopDirty = true;
@@ -144,7 +142,6 @@ public class MopCleaning : MonoBehaviour
             {
                 EventBus.TriggerEvent(this, new GameStateEvent.MopIsCleanNow());
                 //SOUND OF HAVING A CLEAN MOP
-                EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("The mop is clean now"));
                 isMopDirty = false;
                 isMopDirtySound = false;
                 mopCleanMeter = 0;

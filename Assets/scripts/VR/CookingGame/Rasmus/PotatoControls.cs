@@ -224,13 +224,13 @@ public class PotatoControls : MonoBehaviour
                 {
                     Debug.Log("Potato Unpeeled");
                     StartCoroutine(WarningCooldown());
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(warningPotatoNotPeeled));
+                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false,warningPotatoNotPeeled));
                 }
                 else if (!isPotatoClean && !warningCooldown)
                 {
                     Debug.Log("Potato unwashed");
                     StartCoroutine(WarningCooldown());
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(warningPotatoNotClean));
+                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false,warningPotatoNotClean));
                 }
             }
         }

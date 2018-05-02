@@ -46,7 +46,6 @@ public class VacuumHandler : MonoBehaviour
                     if (isPlayedSound == false)
                     {
                         EventBus.TriggerEvent(this, new GameStateEvent.VacuumIsBeingHeld());
-                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop the vacuum"));
                         isPlayedSound = true;
                     }
 

@@ -41,7 +41,6 @@ public class MopHandler : MonoBehaviour
                 if (isPlayedSound == false)
                 {
 
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop the mop now"));
                     isPlayedSound = true;
                 }
 

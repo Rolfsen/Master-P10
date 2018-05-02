@@ -44,7 +44,7 @@ public class MinigameControl : MonoBehaviour
 		if (active && other.CompareTag("Player") && !GameState.isMinigameRunning)
 		{
 			EventBus.TriggerEvent(this, new GamePlayEvent.PlayerEnteredActiveMinigameArea());
-			EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You are entering the area for starting the " + minigameName + " game"));
+			EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false,"You are entering the area for starting the " + minigameName + " game"));
 
 		}
 	}
@@ -54,7 +54,7 @@ public class MinigameControl : MonoBehaviour
 		if (active && other.CompareTag("Player") && !GameState.isMinigameRunning)
 		{
 			EventBus.TriggerEvent(this, new GamePlayEvent.PlayerLeftActiveMinigameArea());
-			EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You are leaving the area for starting the " + minigameName + " game"));
+			EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false,"You are leaving the area for starting the " + minigameName + " game"));
 		}
 	}
 }

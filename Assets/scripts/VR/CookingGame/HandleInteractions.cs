@@ -122,7 +122,6 @@ public class HandleInteractions : MonoBehaviour {
                 if (isFixed == false)
                 {
                     EventBus.TriggerEvent(this, new GameStateEvent.TheSinkIsOn());
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("the water is on"));
                 }
                 Debug.Log("succesfull rotation");
                 isFixed = true;
@@ -142,7 +141,6 @@ public class HandleInteractions : MonoBehaviour {
                 if (isFixed == false)
                 {
                     EventBus.TriggerEvent(this, new GameStateEvent.TheSinkIsOff());
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("the water is on"));
                 }
                 Debug.Log("succesfull rotation");
                 isFixed = true;

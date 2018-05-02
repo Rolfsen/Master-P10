@@ -30,7 +30,7 @@ public class CleaningManager : MonoBehaviour {
         {
             if (!vaccum.isHeld && !mob.isHeld && !triggerOnce)
             {
-                EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Neat, that was the last remaining dirt, and the cleaning utensils have been put back into their place."));
+                EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false,"Neat, that was the last remaining dirt, and the cleaning utensils have been put back into their place."));
                 EventBus.TriggerEvent(this, new MinigameEvents.EndMinigamEvent());
                 triggerOnce = true;
             }

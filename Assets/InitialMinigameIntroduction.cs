@@ -16,6 +16,6 @@ public class InitialMinigameIntroduction : MonoBehaviour {
 
     private void StartTextEvent (object sender, MinigameEvents.StartMinigameEvent e)
     {
-        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(introductionText[GameManager.currentID]));
+        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(true,introductionText[GameManager.currentID]));
     }
 }

@@ -48,7 +48,6 @@ public class PeelerInteractions : MonoBehaviour {
                 if (isPlayedSound == false)
                 {
                     EventBus.TriggerEvent(this, new GameStateEvent.GettingTheSoap());
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop the mop now"));
                     isPlayedSound = true;
                 }
                 isHeld = true;

@@ -52,7 +52,7 @@ public class PickUpPot : MonoBehaviour
     {
         if (MiniGameManager.isFlowerWateringGameRunning)
         {
-            EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(pickThePotUpText));
+            EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false,pickThePotUpText));
         }
     }
 
@@ -68,7 +68,7 @@ public class PickUpPot : MonoBehaviour
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("Empty"))
             {
                 playingAnim = false;
-                EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(putThePotBackText));
+                EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false,putThePotBackText));
             }
             else if (anim.GetCurrentAnimatorStateInfo(0).IsName("StayStill"))
             {

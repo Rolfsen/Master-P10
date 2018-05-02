@@ -30,6 +30,6 @@ public class TestingEvents : MonoBehaviour {
 
 	void StartingMinigame (object sender, GamePlayEvent.StartMinigame e )
 	{
-		EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Minigame " + e.id + " started"));
+		//EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false,"Minigame " + e.id + " started"));
 	}
 }

@@ -71,7 +71,7 @@ public class NewShowerHead : MonoBehaviour {
                     if (pluggedIn == false)
                     {
                         EventBus.TriggerEvent(this, new GameStateEvent.NewShowerHeadScrewedOnEvent());
-                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("All right, the new shower head should be able to last a long time."));
+                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false,"All right, the new shower head should be able to last a long time."));
                     }
                     //SOUND OF ROTATING OFF
                     pluggedIn = true;
@@ -111,7 +111,7 @@ public class NewShowerHead : MonoBehaviour {
                 if (isItOnSpot == false)
                 {
                     EventBus.TriggerEvent(this, new GameStateEvent.NewShowerHeadRightPlaceEvent());
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Now turn it around."));
+                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false,"Now turn it around."));
                 }
 
                 isHeld = false;

@@ -104,7 +104,7 @@ public class ShowerInteractions : MonoBehaviour {
                     rigidBody.isKinematic = true;
                     count = 0;
                     EventBus.TriggerEvent(this,new GameStateEvent.ShowerHeadScrewedOffEvent());
-                    EventBus.TriggerEvent(this,new NarrativeEvent.TextToSpeechNarratorEvent("Good, now put the old shower head into the box."));
+                    EventBus.TriggerEvent(this,new NarrativeEvent.TextToSpeechNarratorEvent(false,"Good, now put the old shower head into the box."));
                     //unfreeze them now
                     rotationDelta.y = 0f;
                     musicSource.Stop();

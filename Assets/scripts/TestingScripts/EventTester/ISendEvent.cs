@@ -21,7 +21,7 @@ public class ISendEvent : MonoBehaviour
 		}
 		if (Input.GetKeyDown(KeyCode.S))
 		{
-			EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(narrativeText));
+			EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false,narrativeText));
 		}
 	}
 }

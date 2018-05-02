@@ -51,7 +51,7 @@ public class PipeWin : MonoBehaviour {
 
     void UpdatePipe ()
     {
-        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(pipeLeft[count]));
+        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false,pipeLeft[count]));
         count++;
     }
 

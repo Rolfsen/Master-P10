@@ -101,7 +101,7 @@ public class MinigameData : MonoBehaviour
     {
         if (e.newID == id)
         {
-            EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(startMinigameText));
+            EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(true,startMinigameText));
             if (waterUsingTask)
             {
                 waterUsedText.text = (int)waterUsed + "L";
@@ -129,12 +129,12 @@ public class MinigameData : MonoBehaviour
                 EventBus.TriggerEvent(this, new MinigameEvents.UpdateWaterUsage(bestWaterUsage, gameName));
             }
 
-            EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(afterGameText));
+            EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false,afterGameText));
 
             if (replayable && !replayed)
             {
                 // Can Replay Game
-                EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Do you wanna retry this minigame?"));
+                EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false,"Do you wanna retry this minigame?"));
                 EventBus.TriggerEvent(this, new MinigameEvents.WaitForReplayCurrentGameActionEvent(RestartMinigame));
             }
             else
@@ -158,10 +158,10 @@ public class MinigameData : MonoBehaviour
                 isWaterRunning = true;
             }
         }
-        else if (!waterUsingTask && GameManager.currentID == id)
+        /*else if (!waterUsingTask && GameManager.currentID == id)
         {
             EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Debug Narration Event: Trying to turn water on for a task that dont use water"));
-        }
+        }*/
     }
 
     private void SingleTimeWaterEvent(object sender, MinigameEvents.SingleExecuteWaterUsageEvent e)

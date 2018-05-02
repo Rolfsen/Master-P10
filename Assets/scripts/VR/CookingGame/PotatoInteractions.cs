@@ -82,7 +82,6 @@ public class PotatoInteractions : MonoBehaviour
                 {
 
                     EventBus.TriggerEvent(this, new GameStateEvent.GettingTheSoap());
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop the potato now"));
                     isPlayedSound = true;
                 }
 

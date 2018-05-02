@@ -81,7 +81,6 @@ public class VacuumCleaning : MonoBehaviour
                 {
 
                     EventBus.TriggerEvent(this, new GameStateEvent.VacuumCleaningASpot());
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You are cleaning a spot"));
                     isCleaningNowSound = true;
 
                 }
@@ -91,7 +90,6 @@ public class VacuumCleaning : MonoBehaviour
                 {
                     //SOUND OF SPOT CLEAR
                     EventBus.TriggerEvent(this, new GameStateEvent.CleaningSpotClear());
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("It's clean now"));
                     colin.gameObject.SetActive(false);
                     correctSurface = false;
                     isCleaningNowSound = false;
@@ -115,9 +113,8 @@ public class VacuumCleaning : MonoBehaviour
                     musicSource.Play();
                     isMusicStarted = true;
                 }
-                if (isWrongSurfaceSound == true)
+                if (isWrongSurfaceSound)
                 {
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Thats the wrong surface"));
                     isWrongSurfaceSound = false;
                 }
                 //SOUND OF CLEARING THE WRONG SURFACE
