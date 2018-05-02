@@ -117,4 +117,9 @@ public abstract class GamePlayEvent : BaseEvent
 		
 
 	}
+
+    public class FixedABolt : GamePlayEvent
+    {
+
+    }
 }

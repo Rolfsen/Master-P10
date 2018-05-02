@@ -71,7 +71,7 @@ public class WrenchInteractions : MonoBehaviour
                 if (isPlayedSound == false)
                 {
                     EventBus.TriggerEvent(this, new GameStateEvent.AfterPickUpWrench());
-                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Now fix the pipes"));
+                    EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Great, now you can use the wrench to tighten the bolts which should fix your leakage."));
                     isPlayedSound = true;
                 }
                 if (isHeld == true && simpleInteractions.isPressed == false && isOnRightSpot == true)

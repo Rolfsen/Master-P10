@@ -15,7 +15,7 @@ public class RightPlaceForOldHead : MonoBehaviour {
                 col.gameObject.transform.position = new Vector3(-3.6176f, 0.707f, 5.0939f);//change here for position of the obj
                 col.gameObject.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
                 EventBus.TriggerEvent(this, new GameStateEvent.OldShowerHeadInPlacedInBoxEvent());
-                EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You placed the head on the right spot."));
+                EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Neat, now you just have to pick up the new shower head and screw it in clockwise."));
 
             }
         }

@@ -49,12 +49,10 @@ public class PipeInteraction2 : MonoBehaviour {
                     if (isFixed == false && pipeWin.count <= 3)
                     {
                         EventBus.TriggerEvent(this, new GameStateEvent.APipeIsFixed());
-                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Now fix the rest"));
                     }
                     else if (isFixed == false && pipeWin.count == 4) //FINAL WIN EVENT MAYBE CHANGE IT TO pipewin
                     {
                         EventBus.TriggerEvent(this, new GameStateEvent.APipeIsFixed());
-                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You finished the game"));
                     }
                     Debug.Log("succesfull rotation");
                     rigidBody.isKinematic = true;
