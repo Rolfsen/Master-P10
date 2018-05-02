@@ -88,7 +88,7 @@ Material:
     - _Cutoff: 0.5
     - _Detail: 2
     - _DetailNormalMapScale: 1
-    - _DissolveAmount: 0.6
+    - _DissolveAmount: 1
     - _DissolveColorIntensity: 1
     - _DissolveDetail: 2
     - _DissolveMax: 5
@@ -110,7 +110,7 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OverlayIntensity: 1
+    - _OverlayIntensity: 0
     - _OverlayMaskIntensity: 5
     - _OverlayMaskSpeed: 1.6
     - _OverlaySpeed: 0.4
