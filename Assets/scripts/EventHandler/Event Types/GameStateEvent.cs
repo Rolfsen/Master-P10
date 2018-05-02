@@ -212,6 +212,12 @@ public abstract class GameStateEvent : BaseEvent
     }
     public class MopIsDirty : GameStateEvent
     {
+		public MopIsDirty(string typeOfDirt)
+		{
+			this.typeOfDirt = typeOfDirt;
+		}
+
+		public string typeOfDirt { get; private set; }
 
     }
     public class MopIsCleanNow : GameStateEvent

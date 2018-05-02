@@ -15,6 +15,10 @@ public class MinigameEvents : BaseEvent {
 
 	}
 
+	public class UpdatedCurrentID  : MinigameEvents
+	{
+	}
+
 	public class ChangeActiveMinigameEvent : MinigameEvents
 	{
 		public ChangeActiveMinigameEvent(int newID)
