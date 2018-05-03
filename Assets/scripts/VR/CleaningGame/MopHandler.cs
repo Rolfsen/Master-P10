@@ -17,18 +17,25 @@ public class MopHandler : MonoBehaviour
     // bool isHeld = false;
     bool isOnRightSpot = false;
     public bool isControllerPressed = false;
-
+    Vector3 startPos;
+    Quaternion startRot;
     public bool isHeld = false;
     // Use this for initialization
     void Start()
     {
-
+        startPos = transform.position;
+        startRot = transform.rotation;
     }
 
     // Update is called once per frame
     void Update()
     {
         IsHeld();
+        if(CleaningManager.isHouseClean)
+        {
+            transform.position = startPos;
+            transform.rotation = startRot;
+        }
     }
 
 

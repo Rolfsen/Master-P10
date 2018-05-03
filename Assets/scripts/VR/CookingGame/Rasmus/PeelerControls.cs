@@ -52,8 +52,17 @@ public class PeelerControls : MonoBehaviour
             EventBus.TriggerEvent(this, new MinigameEvents.EndMinigamEvent());
             endGameOnce = true;
         }
+        if (CookingGameManager.isCookingDone)
+        {
+            ResetToStartPosition();
+        }
     }
 
+    private void ResetToStartPosition()
+    {
+        transform.position = startPos;
+        transform.rotation = startRot;
+    }
     void WaitForPlayerToPutDownPeeleder(object sender, GameStateEvent.AllPotatoesComplete e)
     {
         waitForPeeler = true;

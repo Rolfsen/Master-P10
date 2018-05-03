@@ -15,15 +15,24 @@ public class VacuumHandler : MonoBehaviour
     bool isPlayedSound = false;
     private bool isItPressed;
     public bool isHeld = false;
-
+    Vector3 startPos;
+    Quaternion startRot;
     public bool isControllerPressed = false;
-
+    void Start()
+    {
+        startPos = transform.position;
+        startRot = transform.rotation;
+    }
 
     void Update()
     {
         IsHeld();
         //IsControllerPressed();
-
+        if (CleaningManager.isHouseClean)
+        {
+            transform.position = startPos;
+            transform.rotation = startRot;
+        }
     }
 
     void IsControllerPressed()
