@@ -53,9 +53,16 @@ public class SoapInteractions : MonoBehaviour
     bool isOnPlace = true;
     bool canBeReturnedToSoapHolder;
 
+    bool isParticlePlaying;
+    [SerializeField]
+    float timeBetweenBubbles;
+    [SerializeField]
+    List<ParticleSystem> bubbleParticles;
+
     // Use this for initialization
     void Start()
     {
+
         transformer = gameObject.GetComponent<Transform>();
         rigidBody = gameObject.GetComponent<Rigidbody>();
         waterParticle = waterParticleObject.GetComponent<WaterParticle>();
@@ -79,6 +86,7 @@ public class SoapInteractions : MonoBehaviour
         {
             if (isRightConditionsForCleaning)
             {
+
                 //SOUND OF HAVING URSELF CLEAN
                 if (!isDoneCleaningSelf)
                 {
@@ -138,6 +146,7 @@ public class SoapInteractions : MonoBehaviour
             }
         }
     }
+
     private void OnTriggerEnter(Collider col)
     {
 
@@ -156,6 +165,9 @@ public class SoapInteractions : MonoBehaviour
                 Debug.Log("WE ARE STARTING CLEANING");
                 isRightConditionsForCleaning = true;
                 EventBus.TriggerEvent(this, new GameStateEvent.StartCleaningSelf());
+
+
+
             }
             else if (col.gameObject.name == "torso" && waterParticle.isWet == false && getWetSound == false)
             {
@@ -165,6 +177,8 @@ public class SoapInteractions : MonoBehaviour
             }
         }
     }
+
+    bool particlesEnabled;
     private void OnTriggerStay(Collider col)
     {
         if (MiniGameManager.isShowerGameRunning)
@@ -173,6 +187,17 @@ public class SoapInteractions : MonoBehaviour
             {
                 Debug.Log("THEY ARE GOOD CONDITIONS");
                 isRightConditionsForCleaning = true;
+
+                if (!particlesEnabled)
+                {
+                    foreach (var particleSystem in bubbleParticles)
+                    {
+                        var emitter = particleSystem.emission;
+                        emitter.enabled = true;
+                    }
+                    particlesEnabled = true;
+                }
+
             }
 
             if (col.CompareTag("Player") && !isPickedUp)
@@ -254,6 +279,13 @@ public class SoapInteractions : MonoBehaviour
             }
             if (col.gameObject.name == "torso")
             {
+
+                foreach (var particleSystem in bubbleParticles)
+                {
+                    var emitter = particleSystem.emission;
+                    emitter.enabled = false;
+                }
+                particlesEnabled = false;
                 isRightConditionsForCleaning = false;
                 EventBus.TriggerEvent(this, new GameStateEvent.StopCleaningSelf());
                 // EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("You stopped cleaning ur self"));
