@@ -79,10 +79,8 @@ public class PickUpPot : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);
         if (MiniGameManager.isFlowerWateringGameRunning)
         {
-            Debug.Log(other.tag);
             switch (other.tag)
             {
                 case ("Player"):

@@ -14,25 +14,30 @@ public class Torso : MonoBehaviour {
     float posY;
     [SerializeField]
     float posZ;
+    [SerializeField]
+    Transform offset;
 
-    MeshRenderer renderer;
+
+
+    MeshRenderer rend;
 
     void Start () {
         cameraTransform = Camera.main.transform;
 
-        renderer = GetComponent<MeshRenderer>() ;
-        renderer.enabled = false;
+        rend = GetComponent<MeshRenderer>() ;
+        rend.enabled = false;
+
     }
 
     // Update is called once per frame
     void Update () {
         if (MiniGameManager.isShowerGameRunning)
         {
-            renderer.enabled = true;
+            rend.enabled = true;
         }
         else
         {
-            renderer.enabled = false;
+            rend.enabled = false;
         }
         RotateBasedOnJoysticks();
         transform.position = new Vector3(cameraTransform.position.x + posX, cameraTransform.position.y + posY, cameraTransform.position.z + posZ);
@@ -43,14 +48,9 @@ public class Torso : MonoBehaviour {
     {
         if (gameObject.transform.position != Vector3.zero)
         {
-            
-            
-
-            //transform.position = new Vector3(transformer.position.x - posX, transformer.position.y - posY, transformer.position.z - posZ);
-
-            noY = Vector3.Cross(rightHand.transform.position - gameObject.transform.position, leftHand.transform.position - gameObject.transform.position).normalized;
+            noY = Vector3.Cross(rightHand.transform.position - offset.transform.position, leftHand.transform.position - offset.transform.position).normalized;
             noY.y = 0f;
-            gameObject.transform.forward = noY;
+            transform.forward = noY;
 
         }
     }
