@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterParticle : MonoBehaviour {
+public class WaterParticle : MonoBehaviour
+{
     [SerializeField]
-    private int count = 0;
+    private float count = 0;
+    [SerializeField]
+    private float timeToGetWet = 5;
     public bool isWet = false;
     [SerializeField]
     AudioSource musicSource;
@@ -12,18 +15,36 @@ public class WaterParticle : MonoBehaviour {
     AudioClip musicClip;
     [SerializeField]
     bool rightPlace = false;
+    bool doneApplyingSoap;
+
+    [SerializeField]
+    Showering showering;
+
+    private void Awake()
+    {
+        EventBus.AddListener<PlayerEvent.PlayerWasSoaped>(PlayerGotSoaped);
+    }
+
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
 
         musicSource.clip = musicClip;
         musicSource.Play();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         IsGettingWet();
         //musicSource.Play();
 
+    }
+
+    void PlayerGotSoaped(object sender, PlayerEvent.PlayerWasSoaped e)
+    {
+        isWet = false;
+        doneApplyingSoap = true;
     }
 
     private void OnTriggerEnter(Collider col)
@@ -59,21 +80,28 @@ public class WaterParticle : MonoBehaviour {
         }
     }
 
+    bool haveBeenTouchedByWater;
+
     void IsGettingWet()
     {
         if (MiniGameManager.isShowerGameRunning)
         {
-            if (rightPlace == true)
+            if (rightPlace == true && !isWet)
             {
 
-                //PUT THE WATER HERE, HOW MUCH HE USES
-                count++;
-                if (count > 100)
+                count += Time.deltaTime;
+                if (!doneApplyingSoap)
+                {
+                    //PUT THE WATER HERE, HOW MUCH HE USES
+                    showering.IsGettingWatered(Mathf.Min(count / timeToGetWet, 1));
+                }
+                else
+                {
+                    showering.WashingOfSoap((Mathf.Min(count / timeToGetWet, 1)));
+                }
+                if (count > timeToGetWet)
                 {
                     isWet = true;
-                    //gameObject.SetActive(false);
-                    //GUY IS WET;
-                    Debug.Log("i am wet now");
                     count = 0;
                 }
             }

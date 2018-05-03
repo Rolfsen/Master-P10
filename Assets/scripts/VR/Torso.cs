@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Torso : MonoBehaviour {
 
-    Transform transformer;
+    Transform cameraTransform;
     [SerializeField]
     private GameObject rightHand, leftHand;
     private Vector3 noY;
@@ -18,7 +18,7 @@ public class Torso : MonoBehaviour {
     MeshRenderer renderer;
 
     void Start () {
-        transformer = Camera.main.transform;
+        cameraTransform = Camera.main.transform;
 
         renderer = GetComponent<MeshRenderer>() ;
         renderer.enabled = false;
@@ -35,7 +35,8 @@ public class Torso : MonoBehaviour {
             renderer.enabled = false;
         }
         RotateBasedOnJoysticks();
-        transform.position = new Vector3(transformer.position.x, transformer.position.y - 1.74f, transformer.position.z);
+        transform.position = new Vector3(cameraTransform.position.x + posX, cameraTransform.position.y + posY, cameraTransform.position.z + posZ);
+
     }
 
     void RotateBasedOnJoysticks()
