@@ -5,7 +5,7 @@ using UnityEngine;
 public class CookingGameManager : MonoBehaviour {
 
     public static bool isPlayingCookingGame;
-
+    public static bool isCookingDone;
 	[SerializeField]
 	int numberOfPotatoes;
     [SerializeField,Multiline]
@@ -17,6 +17,7 @@ public class CookingGameManager : MonoBehaviour {
 	private void Awake()
 	{
 		EventBus.AddListener<GameStateEvent.PotatoComplete>(PotatoComplete);
+        isCookingDone = false;
 	}
 
 	private void PotatoComplete (object sender, GameStateEvent.PotatoComplete e)
@@ -28,6 +29,8 @@ public class CookingGameManager : MonoBehaviour {
 		{
            // EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(allPotatoesHaveBeenPeeledText));
 			EventBus.TriggerEvent(this, new GameStateEvent.AllPotatoesComplete());
-		}
+            isCookingDone = true;
+
+        }
 	}
 }
