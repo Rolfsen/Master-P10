@@ -31,7 +31,10 @@ public class SimpleInteractions : MonoBehaviour
         rightHand = rightHandObj.GetComponent<RightHand>();
         isHoldingTool = false;
         isHoldingWrench = false;
+
+        StartCoroutine(Vibrate(60500, 30 ,0.05f));
     }
+
     void IsPressed()
     {
         if (controller.GetPressDown(triggerButton))
@@ -43,11 +46,7 @@ public class SimpleInteractions : MonoBehaviour
             isPressed = false;
         }
     }
-    
-   public void IsItVibrating(ushort vibreateStrenght)
-    {
-        controller.TriggerHapticPulse(vibreateStrenght);
-    }
+
     void IsItHolding()
     {
         if(isHoldingTool)
@@ -63,10 +62,32 @@ public class SimpleInteractions : MonoBehaviour
     {
         IsPressed();
         IsItHolding();
-        //Debug.Log(isHolding);
-        //IsItVibrating(250);
 
 
+    }
+
+
+    float time;
+
+    [SerializeField]
+    AnimationCurve curve;
+    IEnumerator Vibrate (ushort vibstrenght, float viblenght, float timeBetweenPulses)
+    {
+        bool wait = true;
+        time = 0;
+
+        while (wait)
+        {
+            controller.TriggerHapticPulse(vibstrenght);
+
+            time += Time.deltaTime;
+            if (time > viblenght)
+            {
+                wait = false;
+            }
+            float waitTime = timeBetweenPulses + curve.Evaluate(time);
+            yield return new WaitForSeconds(waitTime);
+        }
     }
 
 
@@ -79,12 +100,7 @@ public class SimpleInteractions : MonoBehaviour
             myColliders[0].enabled = false;
         }
 
-        //pickUp = collider.gameObject;
-        // ObjectInteraction collidedItem = col.GetComponent<ObjectInteraction>();
-        //if (collidedItem)
-        // {
-        //     //objectsHoveringOverList.Add(collidedItem);
-        // }
+   
         
     }
     private void OnTriggerStay(Collider col)
@@ -94,7 +110,7 @@ public class SimpleInteractions : MonoBehaviour
             if(isPressed == true && isHoldingWrench && !musicSource.isPlaying)
             {
                 musicSource.Play();
-                IsItVibrating(500);
+               // IsItVibrating(500);
             }
             //MAKE SOUND FOR WHEN SCREWING THE BOLTS ON
         }
@@ -427,22 +443,3 @@ public class SimpleInteractions : MonoBehaviour
 
 
 
-
-
-/*
-            leftHand.closeHandLeft.SetActive(true);
-            rightHand.closeHandRight.SetActive(true);
-            leftHand.openHandLeft.SetActive(false);
-            rightHand.openHandRight.SetActive(false);
-            leftHand.enabled = false;
-            rightHand.enabled = false;
-
-
-        leftHand.enabled = true;
-            rightHand.enabled = true;
-            ///MAKING THE HANDS STAY IN PLACE
-            leftHand.closeHandLeft.SetActive(false);
-            rightHand.closeHandRight.SetActive(false);
-            leftHand.openHandLeft.SetActive(true);
-            rightHand.openHandRight.SetActive(true);
-            */

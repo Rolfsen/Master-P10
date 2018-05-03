@@ -105,6 +105,7 @@ public class PotatoControls : MonoBehaviour
         if (waterCollidedWithPotatoUnPeeled > waterNeededForUnPeeledPotato && !halfClean)
         {
             rend.material = potatoHalfClean;
+            rend.material.SetFloat("_DissolveAmount", dissolveValues[peeledOff]);
             halfClean = true;
         }
     }
@@ -116,6 +117,7 @@ public class PotatoControls : MonoBehaviour
         {
             isPotatoClean = true;
             rend.material = potatoAllClean;
+            rend.material.SetFloat("_DissolveAmount", dissolveValues[3]);
         }
     }
 
@@ -168,7 +170,7 @@ public class PotatoControls : MonoBehaviour
                     {
                         WashingPeeledPotato();
                     }
-                    else if (!isPotatoPeeled && waterNeededForUnPeeledPotato < waterCollidedWithPotatoUnPeeled)
+                    else if (!isPotatoPeeled && waterCollidedWithPotatoUnPeeled<waterNeededForUnPeeledPotato)
                     {
                         WashingUnPeeledPotato();
                     }

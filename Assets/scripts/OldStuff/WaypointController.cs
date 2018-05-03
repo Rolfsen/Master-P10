@@ -25,7 +25,7 @@ public class WaypointController : MonoBehaviour {
 	{
 
 		rend = GetComponent<Renderer>();
-		mat = mat = new Material(rend.materials[0]);
+		mat = new Material(rend.materials[0]);
 		mat.shader = Shader.Find("Standard");
 		rend.materials[0] = mat;
 		startCol = rend.material.GetColor("_Color");

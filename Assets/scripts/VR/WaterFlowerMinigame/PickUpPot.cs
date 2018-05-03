@@ -143,7 +143,6 @@ public class PickUpPot : MonoBehaviour
     void SpawnParticles()
     {
         // If we want particles let it happen here
-        Debug.LogError("WHY Y NO SPAWN PARTICLES");
     }
 
 }

@@ -52,10 +52,10 @@ public class PeelerControls : MonoBehaviour
             EventBus.TriggerEvent(this, new MinigameEvents.EndMinigamEvent());
             endGameOnce = true;
         }
-        if (CookingGameManager.isCookingDone)
+        /*if (CookingGameManager.isCookingDone)
         {
             ResetToStartPosition();
-        }
+        }*/
     }
 
     private void ResetToStartPosition()
@@ -65,7 +65,19 @@ public class PeelerControls : MonoBehaviour
     }
     void WaitForPlayerToPutDownPeeleder(object sender, GameStateEvent.AllPotatoesComplete e)
     {
-        waitForPeeler = true;
+        if (controller == null && !sinkHandler.isWaterRunning)
+        {
+            CookingGameManager.isPlayingCookingGame = false;
+            EventBus.TriggerEvent(this, new MinigameEvents.EndMinigamEvent());
+        }
+        else if (controller != null)
+        {
+            waitForPeeler = true;
+        }
+        else if (controller == null && sinkHandler.isWaterRunning)
+        {
+            isWaitingForTurningWater = true;
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -105,7 +117,6 @@ public class PeelerControls : MonoBehaviour
                 {
                     CookingGameManager.isPlayingCookingGame = false;
                     EventBus.TriggerEvent(this, new MinigameEvents.EndMinigamEvent());
-                    Debug.Log("Game Is Done");
                 }
                 else if (waitForPeeler && sinkHandler.isWaterRunning)
                 {
