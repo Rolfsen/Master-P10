@@ -24,8 +24,13 @@ public class WrenchInteractions : MonoBehaviour
     [SerializeField]
     private AudioSource musicSource;
     private bool isItPressed;
+    private Vector3 startPos;
+    private Quaternion startRotation;
+    public bool resetWrench = false;
     void Start()
     {
+        startPos = transform.position;
+        startRotation = transform.rotation;
         musicSource.clip = musicClip;
         transformer = gameObject.GetComponent<Transform>();
     }
@@ -33,7 +38,16 @@ public class WrenchInteractions : MonoBehaviour
     {
 
         WrenchIsHeld();
-
+        if (resetWrench)
+        {
+            transformer.position = startPos;
+            transformer.rotation = startRotation;
+            isOnRightSpot = false;
+            isInRange = false;
+            isItPressed = false;
+            isHeld = false;
+            resetWrench = false;
+        }
     }
     
 
@@ -77,8 +91,8 @@ public class WrenchInteractions : MonoBehaviour
                 if (isHeld == true && simpleInteractions.isPressed == false && isOnRightSpot == true)
                 {
 
-                    transformer.position = new Vector3(rightSpotX, rightSpotY, rightSpotZ);
-                    transformer.rotation = new Quaternion(0f, 0f, 0f, 90f);
+                    transformer.position = startPos;
+                    transformer.rotation = startRotation;
                     isOnRightSpot = false;
                     isInRange = false;
                     isItPressed = false;
