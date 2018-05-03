@@ -17,12 +17,15 @@ public class PipeWin : MonoBehaviour {
     AudioClip musicClip;
     [SerializeField]
     AudioSource audioSource;
+    [SerializeField]
+    WrenchInteractions wrenchInteraction;
     public bool isGameWon = false;
     bool pip1, pip2, pip3, pip4;
 
     void Start () {
-        
-            
+        //wrenchInteraction = GetComponent<WrenchInteractions>();
+
+
             audioSource.clip = musicClip;
         if (MiniGameManager.isPipeGameRunning)
         {
@@ -93,6 +96,7 @@ public class PipeWin : MonoBehaviour {
 
         if (pip1 && pip2 && pip3 && pip4)
         {
+            wrenchInteraction.resetWrench = true;
             isGameWon = true;
             audioSource.Stop();
             Debug.Log("WIN THE GAME");

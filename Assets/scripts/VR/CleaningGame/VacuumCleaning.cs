@@ -73,16 +73,13 @@ public class VacuumCleaning : MonoBehaviour
             {
                 if(!isMusicStarted)
                 {
-
                     musicSource.Play();
                     isMusicStarted = true;
                 }
                 if (isCleaningNowSound == false)
                 {
-
                     EventBus.TriggerEvent(this, new GameStateEvent.VacuumCleaningASpot());
                     isCleaningNowSound = true;
-
                 }
                 //SOUND OF CLEARING THE SPOT
                 count++;
@@ -98,7 +95,12 @@ public class VacuumCleaning : MonoBehaviour
                     isMusicStarted = false;
                 }
             }
-            
+            else if (correctSurface && !vacuumHandler.isControllerPressed)
+            {
+                musicSource.Stop();
+
+                isMusicStarted = false;
+            }
         }
 
     }
@@ -112,10 +114,6 @@ public class VacuumCleaning : MonoBehaviour
                 {
                     musicSource.Play();
                     isMusicStarted = true;
-                }
-                if (isWrongSurfaceSound)
-                {
-                    isWrongSurfaceSound = false;
                 }
                 //SOUND OF CLEARING THE WRONG SURFACE
                 count++;
@@ -155,7 +153,6 @@ public class VacuumCleaning : MonoBehaviour
                 if(dirtPlaceNow)
                 {
                     col.gameObject.tag = "HardLiquid";
-                    
                 }
             }
             else
@@ -173,14 +170,16 @@ public class VacuumCleaning : MonoBehaviour
             {
                 correctSurface = true;
                 colin = col;
-
             }
 
             else if (col.gameObject.tag == "Liquid")
             {
                 wrongSurface = true;
                 colin = col;
-                isWrongSurfaceSound = true;
+                if (dirtPlaceNow)
+                {
+                    col.gameObject.tag = "HardLiquid";
+                }
             }
             else
             {
@@ -197,7 +196,7 @@ public class VacuumCleaning : MonoBehaviour
         {
 
 
-            if (col.gameObject.tag == "Dust" || col.gameObject.tag == "Liquid")
+            if (col.gameObject.tag == "Dust" || col.gameObject.tag == "Liquid" || col.gameObject.tag == "HardLiquid")
             {
                 colin = null;
                 correctSurface = false;

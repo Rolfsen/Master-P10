@@ -80,7 +80,6 @@ public class MopCleaning : MonoBehaviour
                         EventBus.TriggerEvent(this, new GameStateEvent.CleaningSpotClear());
                         isCleaningNowSound = false;
                         count = 0;
-
                         musicSource.Stop();
                         isMusicStarted = false;
                     }
@@ -159,7 +158,7 @@ public class MopCleaning : MonoBehaviour
         if (MiniGameManager.isCleaningGameRunning)
         {
             correctSurface = false;
-            if (col.gameObject.tag == "Dust" || col.gameObject.tag == "Liquid")
+            if (col.gameObject.tag == "Dust" || col.gameObject.tag == "Liquid" || col.gameObject.tag == "HardLiquid")
             {
                 colin = null;
                 musicSource.Stop();

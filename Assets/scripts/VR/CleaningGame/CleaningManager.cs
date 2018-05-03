@@ -46,7 +46,7 @@ public class CleaningManager : MonoBehaviour {
 
     private void SpotCleared (object sender, GameStateEvent.CleaningSpotClear e)
     {
-        if (GameObject.FindGameObjectsWithTag("Liquid").Length == 0 && GameObject.FindGameObjectsWithTag("Dust").Length == 0)
+        if (GameObject.FindGameObjectsWithTag("Liquid").Length == 0 && GameObject.FindGameObjectsWithTag("Dust").Length == 0 && GameObject.FindGameObjectsWithTag("HardLiquid").Length == 0)
         {
             isHouseClean = true;
         }
