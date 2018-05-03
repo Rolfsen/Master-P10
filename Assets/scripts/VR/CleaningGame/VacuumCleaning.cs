@@ -98,7 +98,12 @@ public class VacuumCleaning : MonoBehaviour
                     isMusicStarted = false;
                 }
             }
-            
+            else if (correctSurface && !vacuumHandler.isControllerPressed)
+            {
+                musicSource.Stop();
+
+                isMusicStarted = false;
+            }
         }
 
     }
@@ -197,7 +202,7 @@ public class VacuumCleaning : MonoBehaviour
         {
 
 
-            if (col.gameObject.tag == "Dust" || col.gameObject.tag == "Liquid")
+            if (col.gameObject.tag == "Dust" || col.gameObject.tag == "Liquid" || col.gameObject.tag == "HardLiquid")
             {
                 colin = null;
                 correctSurface = false;

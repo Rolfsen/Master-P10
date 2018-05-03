@@ -80,7 +80,6 @@ public class MopCleaning : MonoBehaviour
                         EventBus.TriggerEvent(this, new GameStateEvent.CleaningSpotClear());
                         isCleaningNowSound = false;
                         count = 0;
-
                         musicSource.Stop();
                         isMusicStarted = false;
                     }
