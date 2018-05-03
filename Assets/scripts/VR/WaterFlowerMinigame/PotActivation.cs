@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PotActivation : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
+    [SerializeField]
+    GameObject pot;
+	void Awake () {
+        pot.SetActive(false);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    
+    void Update()
+    {
+        if (MiniGameManager.isFlowerWateringGameRunning)
+        {
+            pot.SetActive(true);
+        }
+    }
 }
