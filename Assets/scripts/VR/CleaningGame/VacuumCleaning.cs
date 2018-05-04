@@ -20,7 +20,7 @@ public class VacuumCleaning : MonoBehaviour
     [SerializeField]
     bool isCleaningNowSound = false;
     bool isWrongSurfaceSound = false;
-    bool isItOn = false;
+    bool isMusicOn = false;
     [SerializeField]
     AudioSource musicSource;
     [SerializeField]
@@ -56,11 +56,11 @@ public class VacuumCleaning : MonoBehaviour
                 Debug.Log("starting music");
                 //EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("m"));
 
-                isItOn = true;
+                isMusicOn = true;
             }
-            else if (isItOn == true && vacuumHandler.isControllerPressed == false)
+            else if (isMusicOn == true && vacuumHandler.isControllerPressed == false)
             {
-                isItOn = false;
+                isMusicOn = false;
                 //EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("oomm"));
             }
         }

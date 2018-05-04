@@ -12,13 +12,7 @@ public class MiniGameManager : MonoBehaviour
     public static bool isShowerGameRunning;
     public static bool isToiletGameRunning;
     public static bool isFlowerWateringGameRunning;
-    /*public static bool isPipeGameRunning = true;
-    public static bool isCookingGameRunning = true;
-    public static bool isHeadShowerGameRunning = true;
-    public static bool isCleaningGameRunning = true;
-    public static bool isShowerGameRunning = true;
-    public static bool isToiletGameRunning = true;
-    public static bool isFlowerWateringGameRunning = true;*/
+   
     [SerializeField] bool DebugMode;
 
     private void Awake()
@@ -70,7 +64,7 @@ public class MiniGameManager : MonoBehaviour
                 }
             case 6:
                 {
-                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 0, 1, 2, 5 }));
+                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 0, 1, 2, 5,8 }));
                     break;
                 }
         }
