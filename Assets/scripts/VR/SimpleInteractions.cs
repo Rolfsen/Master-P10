@@ -22,6 +22,15 @@ public class SimpleInteractions : MonoBehaviour
     [SerializeField]
     AudioSource musicSource;
     bool isHoldingWrench;
+
+
+    Coroutine vibrationCoroutine;
+    bool isVibrationRunning;
+
+
+    [SerializeField]
+    AnimationCurve curve;
+
     void Start()
     {
         musicSource.clip = audioClip;
@@ -32,7 +41,7 @@ public class SimpleInteractions : MonoBehaviour
         isHoldingTool = false;
         isHoldingWrench = false;
 
-        StartCoroutine(Vibrate(60500, 30 ,0.05f));
+
     }
 
     void IsPressed()
@@ -49,7 +58,7 @@ public class SimpleInteractions : MonoBehaviour
 
     void IsItHolding()
     {
-        if(isHoldingTool)
+        if (isHoldingTool)
         {
             gameObject.GetComponent<Interactions>().enabled = false;
         }
@@ -63,30 +72,72 @@ public class SimpleInteractions : MonoBehaviour
         IsPressed();
         IsItHolding();
 
-
     }
 
 
-    float time;
-
-    [SerializeField]
-    AnimationCurve curve;
-    IEnumerator Vibrate (ushort vibstrenght, float viblenght, float timeBetweenPulses)
+    private IEnumerator AnimatedTimeBasedVibration(ushort vibrationStrenght, float VibrationPeriod, float timeBetweenPulses, AnimationCurve animationCurve)
     {
         bool wait = true;
-        time = 0;
-
+        float startTime = Time.time;
         while (wait)
         {
-            controller.TriggerHapticPulse(vibstrenght);
+            controller.TriggerHapticPulse(vibrationStrenght);
 
-            time += Time.deltaTime;
-            if (time > viblenght)
+            if (Time.time - startTime > VibrationPeriod)
             {
                 wait = false;
             }
-            float waitTime = timeBetweenPulses + curve.Evaluate(time);
+            float waitTime = timeBetweenPulses * animationCurve.Evaluate((Time.time - startTime) / VibrationPeriod);
+
             yield return new WaitForSeconds(waitTime);
+        }
+        isVibrationRunning = false;
+        print("Vibration Over");
+    }
+
+    public void AnimTimeBasedVibration(ushort vibrationStrenght, float VibrationPeriod, float timeBetweenPulses, AnimationCurve animationCurve)
+    {
+        if (!isVibrationRunning)
+        {
+            isVibrationRunning = true;
+            vibrationCoroutine = StartCoroutine(AnimatedTimeBasedVibration(vibrationStrenght, VibrationPeriod, timeBetweenPulses, animationCurve));
+        }
+    }
+
+    public void SingleVibrationPulse(ushort vibrationStrenght)
+    {
+        controller.TriggerHapticPulse(vibrationStrenght);
+    }
+
+    private IEnumerator RandomizedIntensityVibration(ushort minVibrationStrenght, ushort maxVibrationStrenght, float VibrationPeriod, float timeBetweenPulses)
+    {
+        bool wait = true;
+        float startTime = Time.time;
+        while (wait)
+        {
+
+            if (Time.time - startTime > VibrationPeriod)
+            {
+                wait = false;
+            }
+            ushort strenght = (ushort)Random.Range(minVibrationStrenght,maxVibrationStrenght) ;
+            controller.TriggerHapticPulse(strenght);
+            print(strenght);
+
+            yield return new WaitForSeconds(timeBetweenPulses);
+        }
+        isVibrationRunning = false;
+        print("Vibration Over");
+    }
+
+
+    public void RandomIntensityBasedVibration(ushort minVibStr, ushort maxVibStr, float VibrationPeriod, float timeBetweenPulses)
+    {
+        if (!isVibrationRunning)
+        {
+            print("Starting Vibration");
+            isVibrationRunning = true;
+            vibrationCoroutine = StartCoroutine(RandomizedIntensityVibration(minVibStr, maxVibStr, VibrationPeriod, timeBetweenPulses));
         }
     }
 
@@ -100,17 +151,17 @@ public class SimpleInteractions : MonoBehaviour
             myColliders[0].enabled = false;
         }
 
-   
-        
+
+
     }
     private void OnTriggerStay(Collider col)
     {
-        if(col.gameObject.tag=="Bolt")
+        if (col.gameObject.tag == "Bolt")
         {
-            if(isPressed == true && isHoldingWrench && !musicSource.isPlaying)
+            if (isPressed == true && isHoldingWrench && !musicSource.isPlaying)
             {
                 musicSource.Play();
-               // IsItVibrating(500);
+                // IsItVibrating(500);
             }
             //MAKE SOUND FOR WHEN SCREWING THE BOLTS ON
         }
@@ -156,9 +207,9 @@ public class SimpleInteractions : MonoBehaviour
 
             }
         }
-        else if (col.gameObject.tag == "OldShowerHead" && col.gameObject.GetComponent<ShowerInteractions>().unPluged==true)
+        else if (col.gameObject.tag == "OldShowerHead" && col.gameObject.GetComponent<ShowerInteractions>().unPluged == true)
         {
-            
+
             if (gameObject.GetComponent<RightHand>() == true)
             {
                 rightHand.closeHandRight.SetActive(true);
@@ -179,7 +230,7 @@ public class SimpleInteractions : MonoBehaviour
 
         else if (col.gameObject.tag == "NewShowerHead" && col.gameObject.GetComponent<NewShowerHead>().pluggedIn == false)
         {
-            
+
             if (gameObject.GetComponent<RightHand>() == true)
             {
                 rightHand.closeHandRight.SetActive(true);
@@ -200,7 +251,7 @@ public class SimpleInteractions : MonoBehaviour
         else if (col.gameObject.tag == "Mop")
         {
             isHoldingTool = true;
-            if (gameObject.GetComponent<RightHand>()==true)
+            if (gameObject.GetComponent<RightHand>() == true)
             {
                 rightHand.closeHandRight.SetActive(true);
                 rightHand.openHandRight.SetActive(false);
@@ -257,7 +308,7 @@ public class SimpleInteractions : MonoBehaviour
 
             }
         }
-        
+
     }
     private void OnTriggerExit(Collider col)
     {
@@ -266,7 +317,7 @@ public class SimpleInteractions : MonoBehaviour
         {
             //objectsHoveringOverList.Remove(collidedItem);
         }
-        
+
         if (col.gameObject.tag == "Wrench")
         {
             isHoldingWrench = false;
@@ -294,7 +345,7 @@ public class SimpleInteractions : MonoBehaviour
 
         else if (col.gameObject.tag == "Mop")
         {
-        
+
             if (gameObject.GetComponent<RightHand>() == true)
             {
                 isHoldingTool = false;
@@ -442,4 +493,28 @@ public class SimpleInteractions : MonoBehaviour
 }
 
 
+/* 
+ * 
+ * 
+ * ÒLD BACKUP CODE :>
+private IEnumerator AnimatedIntensityVibration(ushort vibrationStrenght, float VibrationPeriod, float timeBetweenPulses, AnimationCurve animationCurve)
+{
+    bool wait = true;
+    float startTime = Time.time;
+    while (wait)
+    {
 
+        if (Time.time - startTime > VibrationPeriod)
+        {
+            wait = false;
+        }
+        ushort strenght = (ushort)(vibrationStrenght * animationCurve.Evaluate((Time.time - startTime) / VibrationPeriod));
+        controller.TriggerHapticPulse(strenght);
+        print(strenght);
+
+        yield return new WaitForSeconds(timeBetweenPulses);
+    }
+    isVibrationRunning = false;
+} 
+
+ */
