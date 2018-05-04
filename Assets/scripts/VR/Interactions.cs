@@ -127,23 +127,3 @@ public class Interactions : MonoBehaviour {
 }
 
 
-/*
-             if (controller.GetPressDown(gripButton))
-             {
-                 Debug.Log("Grip Button was just pressed");
-             }
-
-             if (controller.GetPressDown(triggerButton) && pickUp != null)
-             {
-                 pickUp.transform.parent = transform;
-                 pickUp.GetComponent<Rigidbody>().isKinematic = true;
-
-             }
-
-             if (controller.GetPressUp(triggerButton) && pickUp != null)
-             {
-                 pickUp.transform.parent = null;
-
-                 pickUp.GetComponent<Rigidbody>().isKinematic = false;
-             }
-             */

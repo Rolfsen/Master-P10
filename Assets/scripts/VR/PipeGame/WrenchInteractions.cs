@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class WrenchInteractions : MonoBehaviour
 {
+
+    static public bool resetWrench = false;
+
     Collider colin;
     Transform transformer;
     bool isInRange = false;
@@ -26,7 +29,6 @@ public class WrenchInteractions : MonoBehaviour
     private bool isItPressed;
     private Vector3 startPos;
     private Quaternion startRotation;
-    public bool resetWrench = false;
     void Start()
     {
         startPos = transform.position;

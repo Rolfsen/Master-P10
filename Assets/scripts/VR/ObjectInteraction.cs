@@ -51,11 +51,7 @@ public class ObjectInteraction : MonoBehaviour {
             rotationDelta = attachedJoystick.transform.rotation * Quaternion.Inverse(interactionPoint.rotation); //giving rotation of the joystick
             rotationDelta.ToAngleAxis(out angle, out axis); //angle and axis to rotate around
 
-            if(angle>180)
-            {
-                //Debug.Log("does this ever happen");
-                angle -= 360;
-            }
+          
             
                 this.rigidBody.angularVelocity = (Time.fixedDeltaTime * angle * axis) * rotationFactor;
             

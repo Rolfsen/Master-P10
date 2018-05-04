@@ -58,6 +58,7 @@ public class MiniGameManager : MonoBehaviour
                 }
             case 5:
                 {
+                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 7 }));
                     ResetAll();
                     isToiletGameRunning = true;
                     break;

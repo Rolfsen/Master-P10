@@ -96,7 +96,7 @@ public class PipeWin : MonoBehaviour {
 
         if (pip1 && pip2 && pip3 && pip4)
         {
-            wrenchInteraction.resetWrench = true;
+            WrenchInteractions.resetWrench = true;
             isGameWon = true;
             audioSource.Stop();
             Debug.Log("WIN THE GAME");

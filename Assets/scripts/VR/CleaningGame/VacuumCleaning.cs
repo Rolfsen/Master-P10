@@ -123,11 +123,6 @@ public class VacuumCleaning : MonoBehaviour
                     EventBus.TriggerEvent(this, new GameStateEvent.CleaningSpotClear());
                     dirtPlaceNow = true;
                     count = 0;
-                    //Instantiate(liquidObject, new Vector3(transform.position.x + Random.Range(-0.5f, 0.5f), 0.142f, transform.position.z + Random.Range(-1.0f, 1.0f)),
-                    //new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w));
-
-                    // Instantiate(dustObject, new Vector3(transform.position.x + Random.Range(-2.0f, 2.0f), transform.position.y, transform.position.z + Random.Range(-2.0f, 2.0f)), Quaternion.identity);
-                    //Instantiate(dustObject, new Vector3(transform.position.x + Random.Range(-2.0f, 2.0f), transform.position.y, transform.position.z + Random.Range(-2.0f, 2.0f)), Quaternion.identity);
                     wrongSurface = false;
                     musicSource.Stop();
 
@@ -135,6 +130,10 @@ public class VacuumCleaning : MonoBehaviour
             }
         }
     }
+
+    [SerializeField]
+    Material hardLiquid;
+
     private void OnTriggerStay(Collider col)
     {
         if (MiniGameManager.isCleaningGameRunning)
@@ -152,7 +151,9 @@ public class VacuumCleaning : MonoBehaviour
                 colin = col;
                 if(dirtPlaceNow)
                 {
+                    col.GetComponent<Renderer>().material = hardLiquid;
                     col.gameObject.tag = "HardLiquid";
+                    dirtPlaceNow = false;
                 }
             }
             else
@@ -178,7 +179,9 @@ public class VacuumCleaning : MonoBehaviour
                 colin = col;
                 if (dirtPlaceNow)
                 {
+                    col.GetComponent<Renderer>().material = hardLiquid;
                     col.gameObject.tag = "HardLiquid";
+                    dirtPlaceNow = false;
                 }
             }
             else
