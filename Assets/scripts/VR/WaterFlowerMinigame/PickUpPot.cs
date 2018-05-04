@@ -28,7 +28,8 @@ public class PickUpPot : MonoBehaviour
     bool playingAnim;
     bool haveFlowerBeenWatered;
 
-
+    [SerializeField] Renderer waterRenderer;
+    [SerializeField] Material invisibleMat;
 
 
 
@@ -67,6 +68,7 @@ public class PickUpPot : MonoBehaviour
         {
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("Empty"))
             {
+                waterRenderer.material = invisibleMat;
                 playingAnim = false;
                 EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false,putThePotBackText));
             }
