@@ -25,7 +25,7 @@ public class SimpleInteractions : MonoBehaviour
 
 
     Coroutine vibrationCoroutine;
-    bool isVibrationRunning;
+    public bool isVibrationRunning;
 
 
     [SerializeField]
@@ -154,14 +154,22 @@ public class SimpleInteractions : MonoBehaviour
 
 
     }
-    private void OnTriggerStay(Collider col)
+
+	[SerializeField]
+	float wrenchPulse;
+
+	[SerializeField]
+	ushort wrenchMinPw, wrenchMaxPw;
+
+	private void OnTriggerStay(Collider col)
     {
         if (col.gameObject.tag == "Bolt")
         {
             if (isPressed == true && isHoldingWrench && !musicSource.isPlaying)
             {
                 musicSource.Play();
-                // IsItVibrating(500);
+				// IsItVibrating(500);
+				RandomIntensityBasedVibration(wrenchMinPw,wrenchMaxPw,musicSource.clip.length, wrenchPulse);
             }
             //MAKE SOUND FOR WHEN SCREWING THE BOLTS ON
         }
