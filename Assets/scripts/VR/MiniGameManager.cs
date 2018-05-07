@@ -47,7 +47,7 @@ public class MiniGameManager : MonoBehaviour
                 }
             case 3:
                 {
-                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 1, 5, 6 }));
+                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 1, 5 }));
                     break;
                 }
             case 4:
@@ -58,14 +58,13 @@ public class MiniGameManager : MonoBehaviour
                 }
             case 5:
                 {
-                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 7 }));
+                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 1,2,5,7 }));
                     ResetAll();
-                    isToiletGameRunning = true;
                     break;
                 }
             case 6:
                 {
-                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 0, 1, 2, 5,8 }));
+                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 0,8 }));
                     break;
                 }
         }
@@ -80,14 +79,14 @@ public class MiniGameManager : MonoBehaviour
                 {
                     ResetAll();
                     isHeadShowerGameRunning = true;
-                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> {2,3}));
+                   // EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> {2,3}));
                     break;
                 }
             case 1:
                 {
                     ResetAll();
                     isPipeGameRunning = true;
-                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> {1, 2, 4 }));
+                   // EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> {1, 2, 4 }));
                     break;
                 }
             case 2:
@@ -95,7 +94,7 @@ public class MiniGameManager : MonoBehaviour
                     ResetAll();
                     CookingGameManager.isPlayingCookingGame = true;
                     isCookingGameRunning = true;
-                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 0, 1, 5 }));
+                   // EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 0, 1, 5 }));
 
                     break;
                 }
@@ -103,7 +102,7 @@ public class MiniGameManager : MonoBehaviour
                 {
                     ResetAll();
                     isCleaningGameRunning = true;
-                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 1, 5, 6 }));
+                    //EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 1, 5, 6 }));
 
                     break;
                 }
@@ -111,7 +110,7 @@ public class MiniGameManager : MonoBehaviour
                 {
                     ResetAll();
                     isShowerGameRunning = true;
-                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 2,3}));
+                   // EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 2,3}));
 
                     break;
                 }
@@ -119,7 +118,7 @@ public class MiniGameManager : MonoBehaviour
                 {
                     ResetAll();
                     isToiletGameRunning = true;
-                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> {7}));
+                   // EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> {7}));
 
                     break;
                 }
@@ -127,7 +126,7 @@ public class MiniGameManager : MonoBehaviour
                 {
                     ResetAll();
                     isFlowerWateringGameRunning = true;
-                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> {0 ,1,2, 5}));
+                    //EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> {0 ,1,2, 5}));
 
                     break;
                 }

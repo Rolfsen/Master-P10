@@ -11,10 +11,16 @@ public class ToiletButton : MonoBehaviour
 	float waitTime = 2;
 
 	List<SimpleInteractions> interaction;
-
+    [SerializeField]
+    AudioClip musicClip;
+    [SerializeField]
+    AudioSource musicSource;
 	bool haveToiletbeenFlushed = false;
-
-	IEnumerator WaitForFlush()
+    private void Start()
+    {
+        musicSource.clip = musicClip;
+    }
+    IEnumerator WaitForFlush()
 	{
 		yield return new WaitForSeconds(2);
 		EventBus.TriggerEvent(this, new MinigameEvents.EndMinigamEvent());
@@ -29,7 +35,8 @@ public class ToiletButton : MonoBehaviour
 				if (other.GetComponent<SimpleInteractions>().isPressed)
 				{
 					haveToiletbeenFlushed = true;
-					// Play flushing sound;
+                    // Play flushing sound;
+                    musicSource.Play();
 					StartCoroutine(WaitForFlush());
 				}
 			}
