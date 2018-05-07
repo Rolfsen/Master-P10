@@ -14,12 +14,13 @@ public class MopHandler : MonoBehaviour
     //bool isOnRightSpot = false;
     bool isInRange = false;
     bool isPlayedSound = false;
-    // bool isHeld = false;
     bool isOnRightSpot = false;
     public bool isControllerPressed = false;
     Vector3 startPos;
     Quaternion startRot;
     public bool isHeld = false;
+
+    private bool isCurrentlyCollidingWithHand;
     // Use this for initialization
     void Start()
     {
@@ -69,7 +70,7 @@ public class MopHandler : MonoBehaviour
                     transform.position = new Vector3(colin.gameObject.transform.position.x, 0.2f, colin.gameObject.transform.position.z);
                     transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
                     EventBus.TriggerEvent(this, new GameStateEvent.MopIsBeingHeld());
-                    isHeld = false;
+                    isHeld = true;
                 }
 
             }
@@ -83,6 +84,8 @@ public class MopHandler : MonoBehaviour
         {
             if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
+                isCurrentlyCollidingWithHand = true;
+
                 simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
                 isControllerPressed = simpleInteractions.isPressed;
                 colin = col;
@@ -128,13 +131,29 @@ public class MopHandler : MonoBehaviour
             }
             if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
-                isInRange = false;
-                isHeld = false;
-                transform.position = new Vector3(transform.position.x, 0.156f, transform.position.z);
-                transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w);
-                EventBus.TriggerEvent(this, new GameStateEvent.MopIsNotBeingHeld());
-
-            }
+                isCurrentlyCollidingWithHand = false;
+                if (!isCurrentlyCounting)
+                {
+                    leftCounter = StartCoroutine(CheckIfPlayerLeft());
+                }
+            } 
         }
+    }
+
+    Coroutine leftCounter;
+    bool isCurrentlyCounting;
+
+    IEnumerator CheckIfPlayerLeft ()
+    {
+        isCurrentlyCounting = true;
+        yield return new WaitForSeconds(0.2f);
+        if (!isCurrentlyCollidingWithHand)
+        {
+            isInRange = false;
+            isHeld = false;
+            transform.position = new Vector3(transform.position.x, 0.156f, transform.position.z);
+            EventBus.TriggerEvent(this, new GameStateEvent.MopIsNotBeingHeld());
+        }
+        isCurrentlyCounting = false;
     }
 }

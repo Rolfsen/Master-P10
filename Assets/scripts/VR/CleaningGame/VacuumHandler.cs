@@ -99,6 +99,8 @@ public class VacuumHandler : MonoBehaviour
                 //deltaRotation = colin.gameObject.transform.rotation;
                 isInRange = true;
                 //GetComponent<Collider>().enabled = true;
+                isCurrentlyCollidingWithHand = true;
+
 
 
             }
@@ -123,7 +125,6 @@ public class VacuumHandler : MonoBehaviour
                 isControllerPressed = simpleInteractions.isPressed;
                 if (simpleInteractions.isPressed == true)
                 {
-                    Debug.Log("i am working actually");
                     isItPressed = true;
                 }
 
@@ -141,10 +142,12 @@ public class VacuumHandler : MonoBehaviour
         {
             if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
-                isInRange = false;
-                isItPressed = false;
-                isHeld = false;
-                EventBus.TriggerEvent(this, new GameStateEvent.VacuumIsNotHeld());
+                isCurrentlyCollidingWithHand = false;
+                if (!isCurrentlyCounting)
+                {
+                    leftCounter = StartCoroutine(CheckIfPlayerLeft());
+                }
+
             }
 
             else if (col.gameObject.tag == "VacuumRightSpot")
@@ -154,32 +157,23 @@ public class VacuumHandler : MonoBehaviour
         }
 
     }
-}
-/*
-    private void OnTriggerEnter(Collider col)
-{
-    if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
-    {
-        Debug.Log("i entered");
-        if (col.gameObject.GetComponent<SimpleInteractions>().isPressed == true)
-        { 
-            //col.gameObject.transform.SetParent(transform, true);
-            transform.position = new Vector3(col.gameObject.transform.position.x, 1.193f, col.gameObject.transform.position.z);
-        }
-    }
-}
-private void OnTriggerStay(Collider col)
-{
-    Debug.Log("i am inside");
-    if (col.gameObject.GetComponent<SimpleInteractions>().isPressed == true)
-    {
-        //col.gameObject.transform.SetParent(transform, true);
-        transform.position = new Vector3(col.gameObject.transform.position.x, 1.193f, col.gameObject.transform.position.z);
-    }
-}
 
-private void OnTriggerExit(Collider col)
-{
-    transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+    Coroutine leftCounter;
+    private bool isCurrentlyCollidingWithHand;
+    bool isCurrentlyCounting;
+
+
+    IEnumerator CheckIfPlayerLeft()
+    {
+        isCurrentlyCounting = true;
+        yield return new WaitForSeconds(0.2f);
+        if (!isCurrentlyCollidingWithHand)
+        {
+            isInRange = false;
+            isItPressed = false;
+            isHeld = false;
+            EventBus.TriggerEvent(this, new GameStateEvent.VacuumIsNotHeld());
+        }
+        isCurrentlyCounting = false;
+    }
 }
-*/

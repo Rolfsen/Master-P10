@@ -86,8 +86,8 @@ public class VacuumCleaning : MonoBehaviour
                 if (count > howLongToClean)
                 {
                     //SOUND OF SPOT CLEAR
-                    EventBus.TriggerEvent(this, new GameStateEvent.CleaningSpotClear());
                     colin.gameObject.SetActive(false);
+                    EventBus.TriggerEvent(this, new GameStateEvent.CleaningSpotClear());
                     correctSurface = false;
                     isCleaningNowSound = false;
                     count = 0;
