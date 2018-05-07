@@ -23,7 +23,6 @@ public class CookingGameManager : MonoBehaviour {
 	private void PotatoComplete (object sender, GameStateEvent.PotatoComplete e)
 	{
 		readyPotatoes++;
-        Debug.Log(readyPotatoes);
 
 		if (numberOfPotatoes == readyPotatoes)
 		{

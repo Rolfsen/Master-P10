@@ -26,6 +26,7 @@ public class SimpleInteractions : MonoBehaviour
 
     Coroutine vibrationCoroutine;
     public bool isVibrationRunning;
+    public bool isLeftHand;
 
 
     [SerializeField]
@@ -92,7 +93,6 @@ public class SimpleInteractions : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
         }
         isVibrationRunning = false;
-        print("Vibration Over");
     }
 
     public void AnimTimeBasedVibration(ushort vibrationStrenght, float VibrationPeriod, float timeBetweenPulses, AnimationCurve animationCurve)
@@ -122,12 +122,10 @@ public class SimpleInteractions : MonoBehaviour
             }
             ushort strenght = (ushort)Random.Range(minVibrationStrenght,maxVibrationStrenght) ;
             controller.TriggerHapticPulse(strenght);
-            print(strenght);
 
             yield return new WaitForSeconds(timeBetweenPulses);
         }
         isVibrationRunning = false;
-        print("Vibration Over");
     }
 
 
@@ -135,7 +133,6 @@ public class SimpleInteractions : MonoBehaviour
     {
         if (!isVibrationRunning)
         {
-            print("Starting Vibration");
             isVibrationRunning = true;
             vibrationCoroutine = StartCoroutine(RandomizedIntensityVibration(minVibStr, maxVibStr, VibrationPeriod, timeBetweenPulses));
         }

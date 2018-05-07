@@ -18,16 +18,28 @@ public class CollideWithPlayerVibration : MonoBehaviour
 	[SerializeField]
 	AnimationCurve powerCurve;
 
-	// SimpleInteractions playerHand;
+    [SerializeField]
+	SimpleInteractions leftHand;
+    [SerializeField]
+    SimpleInteractions rightHand;
 
+    SimpleInteractions playerHand;
 
 	private void OnTriggerStay(Collider other)
 	{
 		if (other.CompareTag("Player"))
 		{
-			var playerHand = GetComponent<SimpleInteractions>();
+            /*if (other.GetComponent<SimpleInteractions>().isLeftHand)
+            {
+                playerHand = leftHand;
+            }
+            else
+            {
+                playerHand = rightHand;
+            }*/
 
-			if (!playerHand.isVibrationRunning)
+            playerHand = other.GetComponent<SimpleInteractions>();
+            if (!playerHand.isVibrationRunning)
 			{
 				switch (typeOfVibration)
 				{

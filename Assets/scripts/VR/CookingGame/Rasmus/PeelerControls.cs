@@ -52,10 +52,7 @@ public class PeelerControls : MonoBehaviour
             EventBus.TriggerEvent(this, new MinigameEvents.EndMinigamEvent());
             endGameOnce = true;
         }
-        /*if (CookingGameManager.isCookingDone)
-        {
-            ResetToStartPosition();
-        }*/
+
     }
 
     private void ResetToStartPosition()
@@ -127,6 +124,7 @@ public class PeelerControls : MonoBehaviour
             {
                 if (!other.GetComponent<PotatoControls>().isPotatoPeeled)
                 {
+                    controller.SingleVibrationPulse(500);
                     potatoParticleSystem.Play();
                 }
             }
