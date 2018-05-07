@@ -15,6 +15,8 @@ public class WaypointController : MonoBehaviour {
 	Renderer rend;
 
 	Color startCol;
+    [SerializeField]
+    Color inactiveColor;
 
 	private void Awake()
 	{
@@ -43,7 +45,7 @@ public class WaypointController : MonoBehaviour {
 		}
 		else
 		{
-			rend.material.SetColor("_Color", Color.red);
+			rend.material.SetColor("_Color", inactiveColor);
 			rend.material.SetColor("_EmissionColor", Color.red);
 			col.enabled = true;
 		}
