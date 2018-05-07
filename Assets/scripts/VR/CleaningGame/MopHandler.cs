@@ -36,6 +36,9 @@ public class MopHandler : MonoBehaviour
             transform.position = startPos;
             transform.rotation = startRot;
         }
+
+
+
     }
 
 
@@ -54,11 +57,6 @@ public class MopHandler : MonoBehaviour
                 if (simpleInteractions.isPressed == true)
                 {
                     EventBus.TriggerEvent(this, new GameStateEvent.MopIsBeingHeld());
-                    //transform.position = new Vector3(colin.gameObject.transform.position.x, 
-                    //  colin.gameObject.transform.position.y, colin.gameObject.transform.position.z);
-                    //transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
-                    // transform.rotation = new Quaternion(colin.gameObject.transform.rotation.x, 
-                    //   colin.gameObject.transform.rotation.y, colin.gameObject.transform.rotation.z, colin.gameObject.transform.rotation.w);
                     transform.position = new Vector3(colin.gameObject.transform.position.x, 0.156f, colin.gameObject.transform.position.z);
                     transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
 
@@ -102,11 +100,11 @@ public class MopHandler : MonoBehaviour
         {
             if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
-
+                simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
                 isControllerPressed = simpleInteractions.isPressed;
                 colin = col;
                 isInRange = true;
-                simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
+                
 
             }
             else if (col.gameObject.tag == "Bucket")
