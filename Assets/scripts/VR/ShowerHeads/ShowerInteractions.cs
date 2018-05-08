@@ -64,10 +64,10 @@ public class ShowerInteractions : MonoBehaviour {
         {
             colin = col;
             
-            if (isMusicPlaying == false)
+            if (isMusicPlaying == true)
             {
-                musicSource.Play();
-                isMusicPlaying = true;
+                musicSource.Stop();
+                isMusicPlaying = false;
             }
         }
         if (col.gameObject.name == "Right_Area_For_Old_Head")
@@ -81,20 +81,20 @@ public class ShowerInteractions : MonoBehaviour {
     {
         rotationDelta = transformer.rotation;
         if(rotationDelta.y>0|| rotationDelta.y < 0)
-        //SOUND OF ROTATING]
-        { 
-       
+            //SOUND OF ROTATING]
+            
+        {
+            if (isMusicPlaying == false)
+            {
+                musicSource.Play();
+                isMusicPlaying = true;
+            }
             if (rotationDelta.y > 0.8 || rotationDelta.y < -0.8)
             {
-            
 
-
-                //Debug.Log("tuka ne sum vlqzal");
                 if (unPluged == false)
                 { 
                     count++;
-
-                
                 }
 
                 if (count > 50)
