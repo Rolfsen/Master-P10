@@ -168,6 +168,7 @@ public class MinigameData : MonoBehaviour
     {
         if (id == GameManager.currentID && !complete && waterUsingTask && GameManager.isPlaying)
         {
+            print("I should update progress bar");
             waterUsed += e.waterAmount;
             waterUsedText.text = (int)waterUsed + "L";
             UpdateProgressBar();

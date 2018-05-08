@@ -20,7 +20,6 @@ public class CleaningManager : MonoBehaviour {
         EventBus.AddListener<MinigameEvents.ReplyCurrentMinigameSelectedEvent>(resetVars);
         isHouseClean = false;
         triggerOnce = false;
-        
 
     }
 
