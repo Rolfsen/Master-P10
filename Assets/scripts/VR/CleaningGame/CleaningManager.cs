@@ -12,6 +12,9 @@ public class CleaningManager : MonoBehaviour {
     [SerializeField]
     MopHandler mob;
 
+    [SerializeField]
+    MopCleaning mobcleaning;
+
     bool triggerOnce;
 
     private void Awake()
