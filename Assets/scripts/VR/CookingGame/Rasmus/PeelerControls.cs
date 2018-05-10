@@ -26,6 +26,8 @@ public class PeelerControls : MonoBehaviour
     Vector3 startPos;
     Quaternion startRot;
 
+    bool isReadyToReturnToPeelerPlace;
+
     private void Awake()
     {
         EventBus.AddListener<GameStateEvent.AllPotatoesComplete>(WaitForPlayerToPutDownPeeleder);
@@ -101,8 +103,9 @@ public class PeelerControls : MonoBehaviour
     {
         if (CookingGameManager.isPlayingCookingGame)
         {
-            if (other.CompareTag("PeelerPlace") && isCurrentlyBeingCarried)
+            if (other.CompareTag("PeelerPlace") && isCurrentlyBeingCarried && isReadyToReturnToPeelerPlace)
             {
+                isReadyToReturnToPeelerPlace = false;
                 followController = null;
                 controller.isHoldingSomething = false;
                 isCurrentlyBeingCarried = false;
@@ -129,6 +132,14 @@ public class PeelerControls : MonoBehaviour
                 }
             }
 
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("PeelerPlaceExit"))
+        {
+            isReadyToReturnToPeelerPlace = true;
         }
     }
 }

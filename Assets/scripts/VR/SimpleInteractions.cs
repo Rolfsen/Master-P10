@@ -23,6 +23,8 @@ public class SimpleInteractions : MonoBehaviour
     AudioSource musicSource;
     bool isHoldingWrench;
 
+    [SerializeField]
+    GameObject TempWaterHandVibration;
 
     Coroutine vibrationCoroutine;
     public bool isVibrationRunning;
@@ -144,8 +146,13 @@ public class SimpleInteractions : MonoBehaviour
 
         if (col.gameObject.tag == "Wrench")
         {
-            myColliders[1].enabled = true;
-            myColliders[0].enabled = false;
+            if (!col.GetComponent<WrenchInteractions>().isHoldingWrench)
+            {
+                print("Handle true + Tip False");
+                myColliders[1].enabled = false;
+                myColliders[0].enabled = true;
+                TempWaterHandVibration.SetActive(false);
+            }
         }
 
 
@@ -158,6 +165,8 @@ public class SimpleInteractions : MonoBehaviour
 	[SerializeField]
 	ushort wrenchMinPw, wrenchMaxPw;
 
+
+    bool togglecollidersonce;
 	private void OnTriggerStay(Collider col)
     {
         if (col.gameObject.tag == "Bolt")
@@ -191,6 +200,16 @@ public class SimpleInteractions : MonoBehaviour
                 EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsHoldingWrench());
 
             }
+
+            if (!togglecollidersonce && col.GetComponent<WrenchInteractions>().isHoldingWrench)
+            {
+                print("Handle false + Tip true");
+                myColliders[1].enabled = true;
+                myColliders[0].enabled = false;
+                togglecollidersonce = true;
+                TempWaterHandVibration.SetActive(true);
+            }
+            
         }
         else if (col.gameObject.tag == "Peeler")
         {
@@ -328,6 +347,9 @@ public class SimpleInteractions : MonoBehaviour
             isHoldingWrench = false;
             myColliders[0].enabled = true;
             myColliders[1].enabled = false;
+            TempWaterHandVibration.SetActive(false);
+            print("Exit Handle true + Tip False");
+            togglecollidersonce = false;
             if (gameObject.GetComponent<RightHand>() == true)
             {
                 rightHand.closeHandRight.SetActive(false);

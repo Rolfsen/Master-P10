@@ -30,6 +30,8 @@ TagManager:
   - LeaveSoapPlace
   - HardLiquid
   - Torso
+  - TemparyHand
+  - PeelerPlaceExit
   layers:
   - Default
   - TransparentFX

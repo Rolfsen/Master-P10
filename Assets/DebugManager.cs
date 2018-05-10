@@ -18,7 +18,6 @@ public class DebugManager : MonoBehaviour {
     }
     void MinigameStart(object sender, MinigameEvents.StartMinigameEvent e)
     {
-        print("Minigame Started" + GameManager.currentID);
     }
 
 

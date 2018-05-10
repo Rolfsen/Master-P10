@@ -54,7 +54,6 @@ public class PipeInteraction2 : MonoBehaviour {
                     {
                         EventBus.TriggerEvent(this, new GameStateEvent.APipeIsFixed());
                     }
-                    Debug.Log("succesfull rotation");
                     rigidBody.isKinematic = true;
                     isFixed = true;
                     pipeParticle.SetActive(false);

@@ -22,8 +22,8 @@ public class ObjectInteraction : MonoBehaviour {
     void Start () {
         rigidBody = GetComponent<Rigidbody>();
         interactionPoint = new GameObject().transform;
-        velocityFactor /= rigidBody.mass;
-        rotationFactor /= rigidBody.mass;
+        //velocityFactor /= rigidBody.mass;
+       // rotationFactor /= rigidBody.mass;
 	}
 	
 	// Update is called once per frame

@@ -29,17 +29,9 @@ public class CollideWithPlayerVibration : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-            /*if (other.GetComponent<SimpleInteractions>().isLeftHand)
-            {
-                playerHand = leftHand;
-            }
-            else
-            {
-                playerHand = rightHand;
-            }*/
 
             playerHand = other.GetComponent<SimpleInteractions>();
-            if (!playerHand.isVibrationRunning)
+            if (!playerHand.isVibrationRunning )
 			{
 				switch (typeOfVibration)
 				{
@@ -61,5 +53,9 @@ public class CollideWithPlayerVibration : MonoBehaviour
 				}
 			}
 		}
+        else if (other.CompareTag("TemparyHand"))
+        {
+            other.GetComponentInParent<SimpleInteractions>().RandomIntensityBasedVibration(minPower, maxPower, duration, timeBetweenPulses);
+        }
 	}
 }
