@@ -125,7 +125,7 @@ public class PeelerControls : MonoBehaviour
             }
             else if (other.CompareTag("Potato") && isCurrentlyBeingCarried)
             {
-                if (!other.GetComponent<PotatoControls>().isPotatoPeeled)
+                if (!other.GetComponent<PotatoControls>().isPotatoPeeled && other.GetComponent<PotatoControls>().isCurrentlyCarried)
                 {
                     controller.SingleVibrationPulse(500);
                     potatoParticleSystem.Play();

@@ -50,7 +50,7 @@ public class PotatoControls : MonoBehaviour
     float waterCollidedWithPotatoUnPeeled;
     float waterCollidedWithPotatoPeeled;
 
-    bool isCurrentlyCarried;
+   public bool isCurrentlyCarried;
 
     public bool isPotatoPeeled;
     bool isPotatoClean;
@@ -129,11 +129,12 @@ public class PotatoControls : MonoBehaviour
             {
                 // Do nothing
             }
-            else if (other.CompareTag("Player") && !isCurrentlyCarried) // Change this with a tag both controllers has
+            else if (other.CompareTag("Player") && !isCurrentlyCarried) 
             {
                 if (other.GetComponent<SimpleInteractions>().isPressed)
                 {
                     controller = other.GetComponent<SimpleInteractions>();
+                    
 
                     if (!controller.isHoldingSomething && !isReady)
                     {
@@ -180,6 +181,21 @@ public class PotatoControls : MonoBehaviour
         }
     }
     
+    private void ReturnToStart ()
+    {
+
+        controller.isHoldingSomething = false;
+
+        controller = null;
+        objectToFollow = null;
+
+        transform.parent = null;
+        //isReady = true;
+
+        transform.position = startPos;
+        transform.rotation = startRot;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (CookingGameManager.isPlayingCookingGame)
@@ -210,10 +226,12 @@ public class PotatoControls : MonoBehaviour
             {
                 if (isPotatoClean && isPotatoPeeled && isCurrentlyCarried)
                 {
-                    // Potato is correctly peeled and ready
                     EventBus.TriggerEvent(this, new GameStateEvent.PotatoComplete());
+                    ReturnToStart();
+                    isReady = true;
 
-                    controller.isHoldingSomething = false;
+                    // Potato is correctly peeled and ready
+                    /*controller.isHoldingSomething = false;
 
                     controller = null;
                     objectToFollow = null;
@@ -222,16 +240,21 @@ public class PotatoControls : MonoBehaviour
                     isReady = true;
 
 					transform.position = startPos;
-					transform.rotation = startRot;
+					transform.rotation = startRot;*/
+
 
                 }
                 else if (!isPotatoPeeled && !warningCooldown)
                 {
+                    ReturnToStart();
+                    isCurrentlyCarried = false;
                     StartCoroutine(WarningCooldown());
                     EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false,warningPotatoNotPeeled));
                 }
                 else if (!isPotatoClean && !warningCooldown)
                 {
+                    ReturnToStart();
+                    isCurrentlyCarried = false;
                     StartCoroutine(WarningCooldown());
                     EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false,warningPotatoNotClean));
                 }
