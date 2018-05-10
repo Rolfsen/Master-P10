@@ -55,7 +55,7 @@ public class PotatoControls : MonoBehaviour
     public bool isPotatoPeeled;
     bool isPotatoClean;
 
-    bool isReady;
+    bool potatoIsDone;
 
     bool warningCooldown;
 
@@ -125,7 +125,7 @@ public class PotatoControls : MonoBehaviour
     {
         if (CookingGameManager.isPlayingCookingGame)
         {
-            if (isReady)
+            if (potatoIsDone)
             {
                 // Do nothing
             }
@@ -136,7 +136,7 @@ public class PotatoControls : MonoBehaviour
                     controller = other.GetComponent<SimpleInteractions>();
                     
 
-                    if (!controller.isHoldingSomething && !isReady)
+                    if (!controller.isHoldingSomething && !potatoIsDone)
                     {
                         
                         if (other.GetComponent<TestingGrippingHand>().isLeftHand)
@@ -200,7 +200,7 @@ public class PotatoControls : MonoBehaviour
     {
         if (CookingGameManager.isPlayingCookingGame)
         {
-            if (isReady)
+            if (potatoIsDone)
             {
                 // Do Nothing
             }
@@ -228,7 +228,7 @@ public class PotatoControls : MonoBehaviour
                 {
                     EventBus.TriggerEvent(this, new GameStateEvent.PotatoComplete());
                     ReturnToStart();
-                    isReady = true;
+                    potatoIsDone = true;
 
                     // Potato is correctly peeled and ready
                     /*controller.isHoldingSomething = false;
