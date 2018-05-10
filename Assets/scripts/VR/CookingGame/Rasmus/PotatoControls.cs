@@ -158,6 +158,7 @@ public class PotatoControls : MonoBehaviour
                         controller.isHoldingSomething = true;
                         holdingHand = other.gameObject;
                         transform.SetParent(holdingHand.transform);
+                        transform.localEulerAngles = new Vector3(0, 0, -90f);
                         other.GetComponent<TestingGrippingHand>().HoldObject();
                     }
                 }

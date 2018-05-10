@@ -59,9 +59,16 @@ public class SoapInteractions : MonoBehaviour
     [SerializeField]
     List<ParticleSystem> bubbleParticles;
 
+    Vector3 startPos;
+    Quaternion startRot;
+
+    bool KOMBAW;
+
     // Use this for initialization
     void Start()
     {
+        startPos = transform.position;
+        startRot = transform.rotation;
 
         transformer = gameObject.GetComponent<Transform>();
         rigidBody = gameObject.GetComponent<Rigidbody>();
@@ -76,6 +83,7 @@ public class SoapInteractions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         IsDoneCleaningSelf();
         IsGameDone();
     }
@@ -104,13 +112,17 @@ public class SoapInteractions : MonoBehaviour
     bool oneWin = false;
     void IsGameDone()
     {
-        if (isDoneCleaningSelf && !showerhandler.isWaterRunning && waterParticle.isWet == true)//fail
+        if (isDoneCleaningSelf && !showerhandler.turnWaterOn && waterParticle.isWet == true)//fail
         {
             if (!oneWin)
             {
                 EventBus.TriggerEvent(this, new MinigameEvents.EndMinigamEvent());
                 Debug.Log("Game done");
                 oneWin = true;
+                transform.SetParent(null);
+                transform.position = startPos;
+                transform.rotation = startRot;
+                KOMBAW = true;
             }
         }
     }
@@ -124,8 +136,8 @@ public class SoapInteractions : MonoBehaviour
                 if (isHeld == true && isItPressed == true && isOnRightSpot == true && !isOnPlace)
                 {
                     transform.parent = null;
-                    transformer.position = new Vector3(-3.8109f, 1.2155f, 4.2846f);
-                    transformer.rotation = new Quaternion(0f, 0f, 0f, 0f);
+                    transformer.position = startPos;
+                    transformer.rotation = startRot;
                     isItPressed = false;
                     isHeld = false;
                     isInRange = false;
@@ -185,7 +197,6 @@ public class SoapInteractions : MonoBehaviour
         {
             if (col.CompareTag("Torso") && waterParticle.isWet == true)
             {
-                Debug.Log("THEY ARE GOOD CONDITIONS");
                 isRightConditionsForCleaning = true;
 
                 if (!particlesEnabled)
@@ -200,7 +211,7 @@ public class SoapInteractions : MonoBehaviour
 
             }
 
-            if (col.CompareTag("Player") && !isPickedUp)
+            if (col.CompareTag("Player") && !isPickedUp && !KOMBAW)
             {
                 simpleInteractions = col.GetComponent<SimpleInteractions>();
                 if (simpleInteractions.isPressed)
@@ -239,6 +250,7 @@ public class SoapInteractions : MonoBehaviour
                         isOnPlace = false;
                         holdingHand = col.gameObject;
                         transform.SetParent(holdingHand.transform);
+                        transform.localEulerAngles = new Vector3(0, 0, -90f);
                         col.GetComponent<TestingGrippingHand>().HoldObject();
                         canBeReturnedToSoapHolder = false;
                         StartCoroutine(BanSoapFromBeingReturned());
@@ -249,8 +261,8 @@ public class SoapInteractions : MonoBehaviour
             else if (isHeld == true && isItPressed == true && col.gameObject.name == "soap_holder" && !isOnPlace && canBeReturnedToSoapHolder)
             {
                 transform.parent = null;
-                transformer.position = new Vector3(-3.8109f, 1.2155f, 4.2846f);
-                transformer.rotation = new Quaternion(0f, 0f, 0f, 0f);
+                transformer.position = startPos;
+                transformer.rotation = startRot;
                 isItPressed = false;
                 isHeld = false;
                 canPutDown = false;

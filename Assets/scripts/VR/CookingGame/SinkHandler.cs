@@ -57,12 +57,6 @@ public class SinkHandler : MonoBehaviour
         IsWaterOff();
         IsItRotatingSound();
 
-        /* THIS KINDOF WORKS :>
-        if (transform.eulerAngles.x > 90)
-        {
-            print("boom");
-            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, transform.eulerAngles.z);
-        }*/
         if (isAHandle)
         {
 
@@ -75,7 +69,7 @@ public class SinkHandler : MonoBehaviour
 
             rotationX = Mathf.Clamp(rotationX, minClampVal, maxClampVal);
 
-            print(rotationX);
+
 
             transform.localEulerAngles = new Vector3(rotationX, transform.localEulerAngles.y, transform.localEulerAngles.z);
 

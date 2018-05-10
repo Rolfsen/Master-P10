@@ -25,7 +25,28 @@ public class ShowerHandler : MonoBehaviour {
     AudioClip musicClip;
     bool isItOnMusic = false;
     bool isItHolding = false;
+
+    private float rotationX = 0f;
+
+    [SerializeField]
+    float waterOffX = -10;
+    [SerializeField]
+    float waterOnX = 10;
+    [HideInInspector]
+    public bool turnWaterOn = false;
+
+    [SerializeField]
+    float maxClampVal;
+
+    [SerializeField]
+    float minClampVal;
+
+    [SerializeField]
+    bool isAHandle;
+
     // Use this for initialization
+
+
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -38,10 +59,38 @@ public class ShowerHandler : MonoBehaviour {
     {
         IsWaterOn();
         IsWaterOff();
-        //RotatingRigidBody();
-        //RotateObject();
-        //IsDoneWithRotating();
+
         IsItRotatingSound();
+
+        if (isAHandle)
+        {
+
+
+            rotationX = transform.eulerAngles.x;
+            if (rotationX > 180)
+            {
+                rotationX -= 360;
+            }
+
+            rotationX = Mathf.Clamp(rotationX, minClampVal, maxClampVal);
+
+
+
+            transform.localEulerAngles = new Vector3(rotationX, transform.localEulerAngles.y, transform.localEulerAngles.z);
+
+            if (rotationX > waterOnX && !turnWaterOn)
+            {
+                sinkParticle.SetActive(true);
+                turnWaterOn = true;
+                EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
+            }
+            else if (rotationX < waterOffX && turnWaterOn)
+            {
+                EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
+                sinkParticle.SetActive(false);
+                turnWaterOn = false;
+            }
+        }
     }
     
     void IsItRotatingSound()
@@ -63,20 +112,7 @@ public class ShowerHandler : MonoBehaviour {
             }
         }
     }
-    /*
-    if (isTriggerPressed && ControllerInRange|| isTriggerPressed && ControllerInRange)
-    {
-        if(!isItOnMusic)
-        {
-            musicSource.Play();
-            isItOnMusic = true;
-        }
-    }
-    else if (rigidBody.isKinematic==true && isItOnMusic && !isTriggerPressed)
-    {
-        musicSource.Stop();
-        isItOnMusic = false;
-    }*/
+
     bool isItHoldingSomething;
     void IsWaterOn()
     {
@@ -93,16 +129,16 @@ public class ShowerHandler : MonoBehaviour {
                     {
                         if (isWaterRunning == false)
                         {
-                            EventBus.TriggerEvent(this, new GameStateEvent.NewShowerHeadScrewedOnEvent());
+                            //EventBus.TriggerEvent(this, new GameStateEvent.NewShowerHeadScrewedOnEvent());
                             //EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Good job. You saved like the whales."));
-                            EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
+                           // EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
                         }
                         //SOUND OF ROTATING ENDS
                         
                         rigidBody.isKinematic = true;
-                        transform.rotation = new Quaternion(0f, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+                        //transform.rotation = new Quaternion(0f, transform.rotation.y, transform.rotation.z, transform.rotation.w);
                         hasItBeenOn = true;
-                        sinkParticle.SetActive(true);
+                       // sinkParticle.SetActive(true);
                         count = 0;
                         isWaterRunning = true;
                         musicSource.Stop();
@@ -130,14 +166,14 @@ public class ShowerHandler : MonoBehaviour {
                     {
                         if (isWaterRunning == true)
                         {
-                            EventBus.TriggerEvent(this, new GameStateEvent.WaterInShowerRunning());//Water is off
+                            //EventBus.TriggerEvent(this, new GameStateEvent.WaterInShowerRunning());//Water is off
                            // EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Good job. You saved like the whales."));
-                            EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
+                            //EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
                         }
                         //WATER SOUND OFF
                         rigidBody.isKinematic = true;
-                        transform.rotation = new Quaternion(0f, transform.rotation.y, transform.rotation.z, transform.rotation.w);//Or destroy the one we have and make a new one, works everytime
-                        sinkParticle.SetActive(false);
+                        //transform.rotation = new Quaternion(0f, transform.rotation.y, transform.rotation.z, transform.rotation.w);//Or destroy the one we have and make a new one, works everytime
+                        //sinkParticle.SetActive(false);
                         count = 0;
                         isWaterRunning = false;
                         hasItBeenOn = false;
@@ -239,52 +275,11 @@ public class ShowerHandler : MonoBehaviour {
         if (isTriggerPressed)
         {
             if (isWaterRunning == false)
-            //if (isWaterRunning == false && transform.rotation.x >= -180f)
             {
-                // Debug.Log("never been here before");
-                //transformer.rotation = new Quaternion(transformer.rotation.x+1f, transformer.rotation.y, transformer.rotation.z, transformer.rotation.w);
-                //Old!  // transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(180, 0, 0), speed * Time.deltaTime);
 
-                //base.transform.rotation = new Quaternion(base.transform.rotation.x + simpleInteractionsTransform.rotation.x, base.transform.rotation.y, base.transform.rotation.z, base.transform.rotation.w);
-                base.transform.rotation = new Quaternion(simpleInteractionsTransform.rotation.x + base.transform.rotation.x, base.transform.rotation.y, base.transform.rotation.z, base.transform.rotation.w);
+               // base.transform.rotation = new Quaternion(simpleInteractionsTransform.rotation.x + base.transform.rotation.x, base.transform.rotation.y, base.transform.rotation.z, base.transform.rotation.w);
 
-                //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(transform.rotation.x+simpleInteractionsTransform.rotation.x*100, 0, 0), speed * Time.deltaTime);
-                //Debug.Log(simpleInteractionsTransform.rotation.x);
             }
-
-            /* transform.rotation = new Quaternion(transform.rotation.x + simpleInteractionsTransform.rotation.x, 
-                   transform.rotation.y + simpleInteractionsTransform.rotation.y, 
-                   transform.rotation.z + simpleInteractionsTransform.rotation.z, 
-                   transform.rotation.w + simpleInteractionsTransform.rotation.w);
-
-               if (base.transform.rotation.x == -180)
-                {
-                    Debug.Log("water runs now");
-
-                    sinkParticle.SetActive(true);
-                    isWaterRunning = true;
-                }
-
-               if (transform.rotation.x <= -180f && isWaterRunning == true)
-            {
-                Debug.Log("voda nqma ama rabotq");
-                base.transform.rotation = Quaternion.RotateTowards(base.transform.rotation, Quaternion.Euler(0, 0, 0), speed * Time.deltaTime);
-
-                if (transform.rotation.x == 0)
-                {
-
-                    Debug.Log("voda nqma ama rabotq");
-
-                    sinkParticle.SetActive(false);
-                    isWaterRunning = false;
-                }
-            }
-
-
-             */
-
-
-
         }
     }
     private void RotateObject()
@@ -301,7 +296,7 @@ public class ShowerHandler : MonoBehaviour {
                     //Old!  // transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(180, 0, 0), speed * Time.deltaTime);
 
                     //base.transform.rotation = new Quaternion(base.transform.rotation.x + simpleInteractionsTransform.rotation.x, base.transform.rotation.y, base.transform.rotation.z, base.transform.rotation.w);
-                    base.transform.rotation = new Quaternion(simpleInteractionsTransform.rotation.x + base.transform.rotation.x, base.transform.rotation.y, base.transform.rotation.z, base.transform.rotation.w);
+                   // base.transform.rotation = new Quaternion(simpleInteractionsTransform.rotation.x + base.transform.rotation.x, base.transform.rotation.y, base.transform.rotation.z, base.transform.rotation.w);
 
                     //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(transform.rotation.x+simpleInteractionsTransform.rotation.x*100, 0, 0), speed * Time.deltaTime);
                     //Debug.Log(simpleInteractionsTransform.rotation.x);

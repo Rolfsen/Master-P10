@@ -27,6 +27,10 @@ ModelImporter:
     100038: hand_left_open_001
     100040: hand_right_closed_001
     100042: hand_right_open_001
+    100044: Sphere
+    100046: Sphere_001
+    100048: Sphere_002
+    100050: Sphere_003
     400000: //RootNode
     400002: hand_left_closed
     400004: hand_left_open
@@ -49,6 +53,10 @@ ModelImporter:
     400038: hand_left_open_001
     400040: hand_right_closed_001
     400042: hand_right_open_001
+    400044: Sphere
+    400046: Sphere_001
+    400048: Sphere_002
+    400050: Sphere_003
     2100000: body_skin_material
     2100002: body_black_material
     2100004: characteer_reference_material
@@ -74,6 +82,10 @@ ModelImporter:
     2300036: hand_left_open_001
     2300038: hand_right_closed_001
     2300040: hand_right_open_001
+    2300042: Sphere
+    2300044: Sphere_001
+    2300046: Sphere_002
+    2300048: Sphere_003
     3300000: hand_left_closed
     3300002: hand_left_open
     3300004: hand_right_closed
@@ -95,6 +107,10 @@ ModelImporter:
     3300036: hand_left_open_001
     3300038: hand_right_closed_001
     3300040: hand_right_open_001
+    3300042: Sphere
+    3300044: Sphere_001
+    3300046: Sphere_002
+    3300048: Sphere_003
     4300000: torso_001
     4300002: hand_left_open
     4300004: hand_left_closed
@@ -116,6 +132,10 @@ ModelImporter:
     4300036: hand_right_closed_001
     4300038: hand_left_closed_001
     4300040: hand_left_open_001
+    4300042: Sphere_003
+    4300044: Sphere_002
+    4300046: Sphere_001
+    4300048: Sphere
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
@@ -129,6 +149,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: body_skin_material
     second: {fileID: 2100000, guid: 0289622a347569245ab7a5c8254d0c89, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: unnamed
+    second: {fileID: 2100000, guid: e0480bef26b660b408a5c229ff832c8e, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
