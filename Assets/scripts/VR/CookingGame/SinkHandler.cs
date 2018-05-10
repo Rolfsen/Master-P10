@@ -25,8 +25,10 @@ public class SinkHandler : MonoBehaviour
 
     private float rotationX = 0f;
 
-    float waterOffX = -20;
-    float waterOnX = 20;
+    [SerializeField]
+    float waterOffX = -10;
+    [SerializeField]
+    float waterOnX = 10;
 
     bool turnWaterOn = false;
 
@@ -36,12 +38,16 @@ public class SinkHandler : MonoBehaviour
     [SerializeField]
     float minClampVal;
 
+    [SerializeField]
+    bool isAHandle;
+
     // Use this for initialization
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
         colin = new Collider();
         musicSource.clip = musicClip;
+
     }
 
     // Update is called once per frame
@@ -57,30 +63,36 @@ public class SinkHandler : MonoBehaviour
             print("boom");
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, transform.eulerAngles.z);
         }*/
-
-        rotationX = transform.eulerAngles.x ;
-        if (rotationX > 180)
+        if (isAHandle)
         {
-            rotationX -= 360;
-        }
 
-        rotationX = Mathf.Clamp(rotationX, minClampVal, maxClampVal);
 
-        transform.localEulerAngles = new Vector3(rotationX, transform.localEulerAngles.y, transform.localEulerAngles.z);
+            rotationX = transform.eulerAngles.x;
+            if (rotationX > 180)
+            {
+                rotationX -= 360;
+            }
 
-        if (rotationX > waterOnX && !turnWaterOn)
-        {
-            sinkParticle.SetActive(true);
-            turnWaterOn = true;
-            print("turn water on");
-            EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
-        }
-        else if (rotationX < waterOffX && turnWaterOn)
-        {
-            EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
-            sinkParticle.SetActive(false);
-            turnWaterOn = false;
-            print("turn water off");
+            rotationX = Mathf.Clamp(rotationX, minClampVal, maxClampVal);
+
+            print(rotationX);
+
+            transform.localEulerAngles = new Vector3(rotationX, transform.localEulerAngles.y, transform.localEulerAngles.z);
+
+            if (rotationX > waterOnX && !turnWaterOn)
+            {
+                sinkParticle.SetActive(true);
+                turnWaterOn = true;
+                print("turn water on");
+                EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
+            }
+            else if (rotationX < waterOffX && turnWaterOn)
+            {
+                EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
+                sinkParticle.SetActive(false);
+                turnWaterOn = false;
+                print("turn water off");
+            }
         }
     }
     void IsItRotatingSound()
@@ -123,7 +135,7 @@ public class SinkHandler : MonoBehaviour
 
                         }
                         rigidBody.isKinematic = true;
-                        transform.rotation = new Quaternion(0f, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+                        //transform.rotation = new Quaternion(0f, transform.rotation.y, transform.rotation.z, transform.rotation.w);
                         hasItBeenOn = true;
                         //sinkParticle.SetActive(true);
                         count = 0;
@@ -153,13 +165,13 @@ public class SinkHandler : MonoBehaviour
                         if (isWaterRunning == true)
                         {
                             //EventBus.TriggerEvent(this, new GameStateEvent.WaterInShowerRunning());//Water is off
-                                                                                                   // EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Good job. You saved like the whales."));
+                            // EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Good job. You saved like the whales."));
                             //EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
 
                         }
                         rigidBody.isKinematic = true;
-                        transform.rotation = new Quaternion(0f, transform.rotation.y, transform.rotation.z, transform.rotation.w);//Or destroy the one we have and make a new one, works everytime
-                       // sinkParticle.SetActive(false);
+                        //transform.rotation = new Quaternion(0f, transform.rotation.y, transform.rotation.z, transform.rotation.w);//Or destroy the one we have and make a new one, works everytime
+                                                                                                                                  // sinkParticle.SetActive(false);
                         count = 0;
                         isWaterRunning = false;
                         hasItBeenOn = false;
