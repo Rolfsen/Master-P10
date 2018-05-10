@@ -263,6 +263,8 @@ ModelImporter:
     100514: wrench
     100516: toilet_flush_001
     100518: tp_cube
+    100520: tp_cube_001
+    100522: tp_area
     400000: AIwater
     400002: asdasd
     400004: bathtub
@@ -523,6 +525,8 @@ ModelImporter:
     400514: wrench
     400516: toilet_flush_001
     400518: tp_cube
+    400520: tp_cube_001
+    400522: tp_area
     2100000: wall_05_material
     2100002: wall_exterior_01_material
     2100004: wall_inner_01_material
@@ -608,6 +612,7 @@ ModelImporter:
     2100164: flush_01_material
     2100166: oven_hatch_01_material
     2100168: invisible_material
+    2100170: tp_area_material
     2300000: AIwater
     2300002: asdasd
     2300004: bathtub
@@ -867,6 +872,8 @@ ModelImporter:
     2300512: wrench
     2300514: toilet_flush_001
     2300516: tp_cube
+    2300518: tp_cube_001
+    2300520: tp_area
     3300000: AIwater
     3300002: asdasd
     3300004: bathtub
@@ -1126,6 +1133,8 @@ ModelImporter:
     3300512: wrench
     3300514: toilet_flush_001
     3300516: tp_cube
+    3300518: tp_cube_001
+    3300520: tp_area
     4300000: house
     4300002: vacuum_001
     4300004: projektor
@@ -1385,6 +1394,8 @@ ModelImporter:
     4300512: torso
     4300514: toilet_flush_001
     4300516: tp_cube
+    4300518: tp_cube_001
+    4300520: tp_area
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
