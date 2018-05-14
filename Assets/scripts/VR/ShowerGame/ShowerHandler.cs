@@ -52,43 +52,48 @@ public class ShowerHandler : MonoBehaviour {
         rigidBody = GetComponent<Rigidbody>();
         musicSource.clip = musicClip;
         isItHoldingSomething = false;
+        rigidBody.isKinematic = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        IsWaterOn();
-        IsWaterOff();
-
-        IsItRotatingSound();
-
-        if (isAHandle)
+        if (MiniGameManager.isShowerGameRunning)
         {
+            rigidBody.isKinematic = false;
+            IsWaterOn();
+            IsWaterOff();
 
+            IsItRotatingSound();
 
-            rotationX = transform.eulerAngles.x;
-            if (rotationX > 180)
+            if (isAHandle)
             {
-                rotationX -= 360;
-            }
-
-            rotationX = Mathf.Clamp(rotationX, minClampVal, maxClampVal);
 
 
+                rotationX = transform.eulerAngles.x;
+                if (rotationX > 180)
+                {
+                    rotationX -= 360;
+                }
 
-            transform.localEulerAngles = new Vector3(rotationX, transform.localEulerAngles.y, transform.localEulerAngles.z);
+                rotationX = Mathf.Clamp(rotationX, minClampVal, maxClampVal);
 
-            if (rotationX > waterOnX && !turnWaterOn)
-            {
-                sinkParticle.SetActive(true);
-                turnWaterOn = true;
-                EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
-            }
-            else if (rotationX < waterOffX && turnWaterOn)
-            {
-                EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
-                sinkParticle.SetActive(false);
-                turnWaterOn = false;
+
+
+                transform.localEulerAngles = new Vector3(rotationX, transform.localEulerAngles.y, transform.localEulerAngles.z);
+
+                if (rotationX > waterOnX && !turnWaterOn)
+                {
+                    sinkParticle.SetActive(true);
+                    turnWaterOn = true;
+                    EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
+                }
+                else if (rotationX < waterOffX && turnWaterOn)
+                {
+                    EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
+                    sinkParticle.SetActive(false);
+                    turnWaterOn = false;
+                }
             }
         }
     }
