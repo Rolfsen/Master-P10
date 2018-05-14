@@ -19,7 +19,7 @@ public class MopHandler : MonoBehaviour
     Vector3 startPos;
     Quaternion startRot;
     public bool isHeld = false;
-
+    float yAxisMovement;
     private bool isCurrentlyCollidingWithHand;
     // Use this for initialization
     void Start()
@@ -54,20 +54,22 @@ public class MopHandler : MonoBehaviour
 
                     isPlayedSound = true;
                 }
-
+                /*
                 if (simpleInteractions.isPressed == true)
                 {
+                    yAxisMovement = Mathf.Clamp(colin.transform.position.y, 0f, 2f);
                     EventBus.TriggerEvent(this, new GameStateEvent.MopIsBeingHeld());
-                    transform.position = new Vector3(colin.gameObject.transform.position.x, 0.156f, colin.gameObject.transform.position.z);
+                    transform.position = new Vector3(colin.gameObject.transform.position.x, yAxisMovement, colin.gameObject.transform.position.z);
                     transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
 
                     isHeld = true;
 
                 }
-
-                else if (simpleInteractions.isPressed == false && isOnRightSpot == false)
+                */
+                 if (simpleInteractions.isPressed == false && isOnRightSpot == false)
                 {
-                    transform.position = new Vector3(colin.gameObject.transform.position.x, 0.2f, colin.gameObject.transform.position.z);
+                    yAxisMovement = Mathf.Clamp(colin.transform.position.y, 1.156f, 2f);
+                    transform.position = new Vector3(colin.gameObject.transform.position.x, yAxisMovement, colin.gameObject.transform.position.z);
                     transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
                     EventBus.TriggerEvent(this, new GameStateEvent.MopIsBeingHeld());
                     isHeld = true;
@@ -151,7 +153,7 @@ public class MopHandler : MonoBehaviour
         {
             isInRange = false;
             isHeld = false;
-            transform.position = new Vector3(transform.position.x, 0.156f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, 1.56f, transform.position.z);
             EventBus.TriggerEvent(this, new GameStateEvent.MopIsNotBeingHeld());
         }
         isCurrentlyCounting = false;
