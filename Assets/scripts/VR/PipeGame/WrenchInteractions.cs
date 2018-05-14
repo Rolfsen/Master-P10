@@ -62,6 +62,7 @@ public class WrenchInteractions : MonoBehaviour
         //WrenchIsHeld();
         if (resetWrench)
         {
+            transform.SetParent(null);
             transformer.position = startPos;
             transformer.rotation = startRotation;
             isOnRightSpot = false;

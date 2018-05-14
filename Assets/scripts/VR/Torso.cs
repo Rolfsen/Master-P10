@@ -18,13 +18,13 @@ public class Torso : MonoBehaviour {
     Transform offset;
 
 
-
+    [SerializeField]
     MeshRenderer rend;
 
     void Start () {
         cameraTransform = Camera.main.transform;
 
-        rend = GetComponent<MeshRenderer>() ;
+        //rend = GetComponent<MeshRenderer>() ;
         rend.enabled = false;
 
     }
@@ -39,8 +39,10 @@ public class Torso : MonoBehaviour {
         {
             rend.enabled = false;
         }
-        RotateBasedOnJoysticks();
+        //RotateBasedOnJoysticks();
+        transform.rotation= new Quaternion(0f, cameraTransform.rotation.y, 0f, cameraTransform.rotation.w);
         transform.position = new Vector3(cameraTransform.position.x + posX, cameraTransform.position.y + posY, cameraTransform.position.z + posZ);
+        //transform.localPosition = new Vector3(cameraTransform.position.x + posX, cameraTransform.position.y + posY, cameraTransform.position.z + posZ);
 
     }
 

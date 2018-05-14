@@ -8,7 +8,7 @@ public class MopCleaning : MonoBehaviour
     int count = 0;
     Collider colin;
     bool correctSurface = false;
-    int mopCleanMeter = 0;
+    
     bool isCleaningNowSound = false;
     bool isMopDirtySound = false;
     bool isMopCleanNowSound = false;
@@ -22,6 +22,7 @@ public class MopCleaning : MonoBehaviour
     AudioClip musicClip;
     [SerializeField]
     int mopCleanCount;
+    int mopCleanMeter = 0;
     [SerializeField]
     int howLongToClean=100;
     bool isMusicStarted;
@@ -98,7 +99,7 @@ public class MopCleaning : MonoBehaviour
     {
         if (MiniGameManager.isCleaningGameRunning)
         {
-            if (mopCleanMeter > mopCleanCount)
+            if (mopCleanMeter == mopCleanCount)
             {
 
                 if (isMopDirtySound == false)
@@ -117,6 +118,7 @@ public class MopCleaning : MonoBehaviour
         if (MiniGameManager.isCleaningGameRunning)
         {
             if (col.gameObject.tag == "Dust" && mopCleanMeter <= mopCleanCount || col.gameObject.tag == "Liquid" && mopCleanMeter <= mopCleanCount)
+           //if (col.gameObject.tag == "Dust" && mopCleanMeter <= mopCleanCount || col.gameObject.tag == "Liquid" && mopCleanMeter <= mopCleanCount)
             {
                 howLongToClean = 100;
                 correctSurface = true;
