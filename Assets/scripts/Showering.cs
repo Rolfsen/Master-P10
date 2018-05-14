@@ -36,7 +36,7 @@ public class Showering : MonoBehaviour {
         if (GameManager.currentID == 4)
         {
             rend.material.SetFloat("_OverlayIntensity",getDry);
-			GetComponent<Renderer>().enabled = false;
+			rend.enabled = false;
         }
     }
 
