@@ -44,7 +44,7 @@ public class ItemPickUp : MonoBehaviour
 
 	}
 
-	public virtual void AdjustLocaleTransform()
+	public virtual void AdjustLocaleTransform(Transform hand)
 	{
 
 	}
@@ -81,7 +81,7 @@ public class ItemPickUp : MonoBehaviour
 
 
 					transform.SetParent(other.transform);
-					AdjustLocaleTransform();
+					AdjustLocaleTransform(other.transform);
 				}
 			}
 			else if (other.gameObject == returnPosition && isItemCarried && interaction != null && leftOuterTrigger)
