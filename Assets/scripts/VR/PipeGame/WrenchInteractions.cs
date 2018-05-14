@@ -153,7 +153,7 @@ public class WrenchInteractions : MonoBehaviour
                     }
                     offset = (usingTrans.position - col.transform.position) + (offsetVector - transform.position);
                     transform.position = col.transform.position - offset;
-                    simpleInteractions.isHoldingSomething = true;
+                    //simpleInteractions.isHoldingSomething = true;
                     holdingHand = col.gameObject;
                     transform.SetParent(holdingHand.transform);
                     transform.localEulerAngles = new Vector3(0, 180f, 0f);
