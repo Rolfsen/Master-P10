@@ -54,7 +54,7 @@ public class MopCleaning : MonoBehaviour
         {
             if (isMopDirty == false)
             {
-                if (correctSurface == true && mopHandler.isControllerPressed == true)
+                if (correctSurface == true)
                 {
                     if (!isMusicStarted)
                     {
@@ -84,7 +84,7 @@ public class MopCleaning : MonoBehaviour
                         isMusicStarted = false;
                     }
                 }
-                else if (correctSurface && !mopHandler.isControllerPressed)
+                else if (!correctSurface)
                 {
                     musicSource.Stop();
 
@@ -106,6 +106,7 @@ public class MopCleaning : MonoBehaviour
                     EventBus.TriggerEvent(this, new GameStateEvent.MopIsDirty(cleaningTag));
                     //SOUND OF MOP BEING DIRTY
                     isMopDirtySound = true;
+                    //EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Mop is dirty now"));
                 }
                 isMopDirty = true;
             }

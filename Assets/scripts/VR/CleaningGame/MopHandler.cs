@@ -68,7 +68,7 @@ public class MopHandler : MonoBehaviour
                 */
                  if (simpleInteractions.isPressed == false && isOnRightSpot == false)
                 {
-                    yAxisMovement = Mathf.Clamp(colin.transform.position.y, 1.156f, 2f);
+                    yAxisMovement = Mathf.Clamp(colin.transform.position.y, 1.036f, 2f);
                     transform.position = new Vector3(colin.gameObject.transform.position.x, yAxisMovement, colin.gameObject.transform.position.z);
                     transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
                     EventBus.TriggerEvent(this, new GameStateEvent.MopIsBeingHeld());
@@ -116,7 +116,7 @@ public class MopHandler : MonoBehaviour
             {
 
                 isOnRightSpot = true;
-                transform.position = new Vector3(colin.gameObject.transform.position.x, 0.4f, colin.gameObject.transform.position.z);
+                transform.position = new Vector3(colin.gameObject.transform.position.x, colin.gameObject.transform.position.y, colin.gameObject.transform.position.z);
                 transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
             }
         }
@@ -153,7 +153,7 @@ public class MopHandler : MonoBehaviour
         {
             isInRange = false;
             isHeld = false;
-            transform.position = new Vector3(transform.position.x, 1.56f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, 1.036f, transform.position.z);
             EventBus.TriggerEvent(this, new GameStateEvent.MopIsNotBeingHeld());
         }
         isCurrentlyCounting = false;
