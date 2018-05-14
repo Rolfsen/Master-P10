@@ -82,7 +82,7 @@ public class PeelerControls : MonoBehaviour
 	{
 		if (CookingGameManager.isPlayingCookingGame)
 		{
-			if (other.CompareTag("Player") && isWaitingForTurningWater)
+			if (other.CompareTag("Player") && !isWaitingForTurningWater)
 			{
 				var tmpInteraction = other.GetComponent<SimpleInteractions>();
 				if (tmpInteraction.isPressed && !tmpInteraction.isHoldingSomething && !isCurrentlyBeingCarried)
