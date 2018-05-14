@@ -13,12 +13,16 @@ public class ItemPickUp : MonoBehaviour
 	Quaternion startRotation;
 
 	bool isMinigameActive;
+	bool leftOuterTrigger; // Prevent the player to return item at pickup
 
 	[SerializeField]
 	int minigameIndex;
 
 	[SerializeField]
 	GameObject returnPosition;
+
+	[SerializeField]
+	GameObject leaveStartPosition;
 
 	// Initiation Classes
 	public virtual void Awake()
@@ -46,11 +50,13 @@ public class ItemPickUp : MonoBehaviour
 	public virtual void ResetItem()
 	{
 		isItemCarried = false;
+		leftOuterTrigger = false;
 		if (interaction != null)
 		{
 			interaction.isHoldingSomething = false;
 			interaction = null;
 		}
+		transform.SetParent(null);
 
 		transform.position = startPosition;
 		transform.rotation = startRotation;
@@ -67,19 +73,31 @@ public class ItemPickUp : MonoBehaviour
 				{
 					interaction = tmpInteraction;
 					isItemCarried = true;
-
+					leftOuterTrigger = false;
 
 
 					transform.SetParent(other.transform);
 					AdjustLocaleTransform();
 				}
 			}
-			else if (other.gameObject == returnPosition && isItemCarried && interaction != null)
+			else if (other.gameObject == returnPosition && isItemCarried && interaction != null && leftOuterTrigger)
 			{
 				if (interaction.isPressed)
 				{
 					ResetItem();
 				}
+			}
+			
+		}
+	}
+
+	public virtual void OnTriggerExit(Collider other)
+	{
+		if (isMinigameActive)
+		{
+			if (other.gameObject == leaveStartPosition)
+			{
+				leftOuterTrigger = true;
 			}
 		}
 	}
@@ -97,5 +115,4 @@ public class ItemPickUp : MonoBehaviour
 			isMinigameActive = false;
 		}
 	}
-
 }
