@@ -22,10 +22,10 @@ public class MiniGameManager : MonoBehaviour
             ResetAll();
         }
         EventBus.AddListener<MinigameEvents.StartMinigameEvent>(ActivateMinigame);
-        EventBus.AddListener<MinigameEvents.ChangeActiveMinigameEvent>(ActivateWaypoint);
+        EventBus.AddListener<MinigameEvents.UpdatedCurrentID>(ActivateWaypoint);
     }
 
-    private void ActivateWaypoint (object sender, MinigameEvents.ChangeActiveMinigameEvent e)
+    private void ActivateWaypoint (object sender, MinigameEvents.UpdatedCurrentID e)
     {
         switch (GameManager.currentID)
         {

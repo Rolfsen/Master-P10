@@ -36,6 +36,7 @@ public class WaypointController : MonoBehaviour {
 
 	private void SetActiveState (object sender, GameStateEvent.SetWayPointStateEvent e)
 	{
+		print(e.activeIDs);
 		if (e.activeIDs.Contains(ID))
 		{
 			col.enabled = false;
