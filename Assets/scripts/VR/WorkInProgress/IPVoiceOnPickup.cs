@@ -5,7 +5,11 @@ using UnityEngine;
 public class IPVoiceOnPickup : IPFixTransform
 {
 
+	[SerializeField]
+	string pickUpLine;
+
 	bool playNarrationPickupClipOnce;
+
 
 	public override void OnPickUp()
 	{
@@ -13,7 +17,7 @@ public class IPVoiceOnPickup : IPFixTransform
 
 		if (!playNarrationPickupClipOnce)
 		{
-
+			EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false,pickUpLine));
 			playNarrationPickupClipOnce = true;
 		}
 
