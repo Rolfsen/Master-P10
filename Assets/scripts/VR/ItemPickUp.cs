@@ -24,6 +24,8 @@ public class ItemPickUp : MonoBehaviour
 	[SerializeField]
 	GameObject leaveStartPosition;
 
+
+
 	// Initiation Classes
 	public virtual void Awake()
 	{
@@ -60,6 +62,8 @@ public class ItemPickUp : MonoBehaviour
 
 		transform.position = startPosition;
 		transform.rotation = startRotation;
+
+
 	}
 
 	public virtual void OnTriggerStay(Collider other)
@@ -82,12 +86,11 @@ public class ItemPickUp : MonoBehaviour
 			}
 			else if (other.gameObject == returnPosition && isItemCarried && interaction != null && leftOuterTrigger)
 			{
-				if (interaction.isPressed)
-				{
-					ResetItem();
-				}
+
+				ResetItem();
+
 			}
-			
+
 		}
 	}
 
