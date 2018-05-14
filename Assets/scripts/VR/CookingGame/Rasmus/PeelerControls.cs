@@ -4,133 +4,132 @@ using UnityEngine;
 
 public class PeelerControls : MonoBehaviour
 {
-    [SerializeField]
-    SinkHandler sinkHandler;
+	[SerializeField]
+	SinkHandler sinkHandler;
 
-    public bool isCurrentlyBeingCarried;
+	public bool isCurrentlyBeingCarried;
 
-    [SerializeField]
-    ParticleSystem potatoParticleSystem;
-
-
-    SimpleInteractions controller;
-    Transform followController;
-
-    bool waitForPeeler = false;
-
-    bool playingCookingGame;
+	[SerializeField]
+	ParticleSystem potatoParticleSystem;
 
 
-    bool isWaitingForTurningWater;
-    bool endGameOnce;
+	SimpleInteractions controller;
+	Transform followController;
 
-    Vector3 startPos;
-    Quaternion startRot;
+	bool waitForPeeler = false;
 
-    bool isReadyToReturnToPeelerPlace;
-
-    private void Awake()
-    {
-        EventBus.AddListener<GameStateEvent.AllPotatoesComplete>(WaitForPlayerToPutDownPeeleder);
-    }
-
-    private void Start()
-    {
-        startPos = transform.position;
-        startRot = transform.rotation;
-    }
+	bool playingCookingGame;
 
 
-    private void Update()
-    {
-        if (followController != null)
-        {
-            // You can replace this with something VR Friendly 
-            transform.position = followController.position;
-            transform.rotation = followController.rotation;
-        }
-        if (isWaitingForTurningWater && !endGameOnce && !sinkHandler.isWaterRunning)
-        {
-            CookingGameManager.isPlayingCookingGame = false;
-            EventBus.TriggerEvent(this, new MinigameEvents.EndMinigamEvent());
-            endGameOnce = true;
-        }
+	bool isWaitingForTurningWater;
+	bool endGameOnce;
 
-    }
+	Vector3 startPos;
+	Quaternion startRot;
 
-    private void ResetToStartPosition()
-    {
-        transform.position = startPos;
-        transform.rotation = startRot;
-    }
-    void WaitForPlayerToPutDownPeeleder(object sender, GameStateEvent.AllPotatoesComplete e)
-    {
+	bool isReadyToReturnToPeelerPlace;
 
-        ResetToStartPosition();
-        isWaitingForTurningWater = true;
+	private void Awake()
+	{
+		EventBus.AddListener<GameStateEvent.AllPotatoesComplete>(WaitForPlayerToPutDownPeeleder);
+	}
 
-        isReadyToReturnToPeelerPlace = false;
-        followController = null;
-        isCurrentlyBeingCarried = false;
-        if (controller != null)
-        {
-            controller.isHoldingSomething = false;
-        }
-    }
+	private void Start()
+	{
+		startPos = transform.position;
+		startRot = transform.rotation;
+	}
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (CookingGameManager.isPlayingCookingGame)
-        {
-            if (other.CompareTag("Player"))
-            {
-                if (other.GetComponent<SimpleInteractions>().isPressed)
-                {
-                    controller = other.GetComponent<SimpleInteractions>();
-                    if (!controller.isHoldingSomething && !isCurrentlyBeingCarried)
-                    {
-                        controller.isHoldingSomething = true;
-                        isCurrentlyBeingCarried = true;
-                        followController = other.transform;
-                    }
-                }
-            }
-        }
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (CookingGameManager.isPlayingCookingGame)
-        {
-            if (other.CompareTag("PeelerPlace") && isCurrentlyBeingCarried && isReadyToReturnToPeelerPlace)
-            {
-                isReadyToReturnToPeelerPlace = false;
-                followController = null;
-                controller.isHoldingSomething = false;
-                isCurrentlyBeingCarried = false;
+	private void Update()
+	{
+		if (followController != null)
+		{
+			// You can replace this with something VR Friendly 
+			transform.position = followController.position;
+			transform.rotation = followController.rotation;
+		}
+		if (isWaitingForTurningWater && !endGameOnce && !sinkHandler.isWaterRunning)
+		{
+			CookingGameManager.isPlayingCookingGame = false;
+			EventBus.TriggerEvent(this, new MinigameEvents.EndMinigamEvent());
+			endGameOnce = true;
+		}
 
-                transform.position = startPos;
-                transform.rotation = startRot;
+	}
 
-            }
-            else if (other.CompareTag("Potato") && isCurrentlyBeingCarried)
-            {
-                if (!other.GetComponent<PotatoControls>().isPotatoPeeled && other.GetComponent<PotatoControls>().isCurrentlyCarried)
-                {
-                    controller.SingleVibrationPulse(500);
-                    potatoParticleSystem.Play();
-                }
-            }
+	private void ResetToStartPosition()
+	{
+		transform.position = startPos;
+		transform.rotation = startRot;
+	}
+	void WaitForPlayerToPutDownPeeleder(object sender, GameStateEvent.AllPotatoesComplete e)
+	{
 
-        }
-    }
+		isWaitingForTurningWater = true;
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("PeelerPlaceExit"))
-        {
-            isReadyToReturnToPeelerPlace = true;
-        }
-    }
+		isReadyToReturnToPeelerPlace = false;
+		followController = null;
+		isCurrentlyBeingCarried = false;
+		ResetToStartPosition();
+		if (controller != null)
+		{
+			controller.isHoldingSomething = false;
+		}
+	}
+
+	private void OnTriggerStay(Collider other)
+	{
+		if (CookingGameManager.isPlayingCookingGame)
+		{
+			if (other.CompareTag("Player"))
+			{
+				var tmpInteraction = other.GetComponent<SimpleInteractions>();
+				if (tmpInteraction.isPressed && !tmpInteraction.isHoldingSomething && !isCurrentlyBeingCarried)
+				{
+					controller = tmpInteraction;
+					controller.isHoldingSomething = true;
+					isCurrentlyBeingCarried = true;
+					followController = other.transform;
+
+				}
+			}
+		}
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (CookingGameManager.isPlayingCookingGame)
+		{
+			if (other.CompareTag("PeelerPlace") && isCurrentlyBeingCarried && isReadyToReturnToPeelerPlace)
+			{
+				isReadyToReturnToPeelerPlace = false;
+				followController = null;
+				controller.isHoldingSomething = false;
+				isCurrentlyBeingCarried = false;
+
+				transform.position = startPos;
+				transform.rotation = startRot;
+
+			}
+			else if (other.CompareTag("Potato") && isCurrentlyBeingCarried)
+			{
+				if (!other.GetComponent<PotatoControls>().isPotatoPeeled && other.GetComponent<PotatoControls>().isCurrentlyCarried)
+				{
+					controller.SingleVibrationPulse(500);
+					potatoParticleSystem.Play();
+				}
+			}
+
+		}
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		if (other.CompareTag("PeelerPlaceExit"))
+		{
+			isReadyToReturnToPeelerPlace = true;
+		}
+	}
 }
 
