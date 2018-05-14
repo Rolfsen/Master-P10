@@ -68,7 +68,7 @@ public class ItemPickUp : MonoBehaviour
 		{
 			if (other.CompareTag("Player") && !isItemCarried)
 			{
-				var tmpInteraction = GetComponent<SimpleInteractions>();
+				var tmpInteraction = other.GetComponent<SimpleInteractions>();
 				if (tmpInteraction.isPressed && tmpInteraction.isHoldingSomething)
 				{
 					interaction = tmpInteraction;
