@@ -339,6 +339,26 @@ public class SimpleInteractions : MonoBehaviour
 
             }
         }
+        else if (col.gameObject.tag == "Potato")
+        {
+            isHoldingTool = true;
+            if (gameObject.GetComponent<RightHand>() == true)
+            {
+                rightHand.closeHandRight.SetActive(true);
+                rightHand.openHandRight.SetActive(false);
+                rightHand.enabled = false;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsHoldingSoap());
+
+            }
+            if (gameObject.GetComponent<LeftHand>() == true)
+            {
+                leftHand.closeHandLeft.SetActive(true);
+                leftHand.openHandLeft.SetActive(false);
+                leftHand.enabled = false;
+                EventBus.TriggerEvent(this, new GameStateEvent.ControllerIsHoldingSoap());
+
+            }
+        }
 
     }
     private void OnTriggerExit(Collider col)
