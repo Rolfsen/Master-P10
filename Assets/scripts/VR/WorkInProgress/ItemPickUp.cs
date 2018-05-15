@@ -5,9 +5,19 @@ using UnityEngine;
 public class ItemPickUp : MonoBehaviour
 {
 
-	SimpleInteractions interaction;
+	[SerializeField]
+	int minigameIndex;
 
-	public bool isItemCarried { get; private set; }
+	//This can replaced with tag strings if desired
+	[SerializeField]
+	GameObject returnPosition;
+
+	[SerializeField]
+	GameObject leaveStartPosition;
+
+ 	public bool isItemCarried { get; private set; }
+
+	SimpleInteractions interaction;
 
 	Vector3 startPosition;
 	Quaternion startRotation;
@@ -15,14 +25,6 @@ public class ItemPickUp : MonoBehaviour
 	bool isMinigameActive;
 	bool leftOuterTrigger; // Prevent the player to return item at pickup
 
-	[SerializeField]
-	int minigameIndex;
-
-	[SerializeField]
-	GameObject returnPosition;
-
-	[SerializeField]
-	GameObject leaveStartPosition;
 
 
 
@@ -90,7 +92,6 @@ public class ItemPickUp : MonoBehaviour
 			{
 				ResetItem();
 			}
-
 		}
 	}
 
