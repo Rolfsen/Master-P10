@@ -96,6 +96,10 @@ public class ShowerHandler : MonoBehaviour {
                 }
             }
         }
+        else
+        {
+            rigidBody.isKinematic = true;//CHECK FOR IF ITS OUTSIDE OF THE GAME;
+        }
     }
     
     void IsItRotatingSound()
