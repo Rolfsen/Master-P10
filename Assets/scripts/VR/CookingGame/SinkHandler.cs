@@ -59,36 +59,53 @@ public class SinkHandler : MonoBehaviour
             IsWaterOn();
             IsWaterOff();
             IsItRotatingSound();
+            if(!CookingGameManager.isCookingDone)
+            { 
+                if (isAHandle)
+                {
 
-            if (isAHandle)
+
+                    rotationX = transform.eulerAngles.x;
+                    if (rotationX > 180)
+                    {
+                        rotationX -= 360;
+                    }
+
+                    rotationX = Mathf.Clamp(rotationX, minClampVal, maxClampVal);
+
+
+
+                    transform.localEulerAngles = new Vector3(rotationX, transform.localEulerAngles.y, transform.localEulerAngles.z);
+
+                    if (rotationX > waterOnX && !turnWaterOn)
+                    {
+                        sinkParticle.SetActive(true);
+                        turnWaterOn = true;
+                        print("turn water on");
+                        EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
+                    }
+                    else if (rotationX < waterOffX && turnWaterOn)
+                    {
+                        EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
+                        sinkParticle.SetActive(false);
+                        turnWaterOn = false;
+                        print("turn water off");
+                    }
+                }
+            }
+            if (CookingGameManager.isCookingDone)
             {
+                if(!turnWaterOn)
+                { 
 
-
-                rotationX = transform.eulerAngles.x;
-                if (rotationX > 180)
-                {
-                    rotationX -= 360;
+                    sinkParticle.SetActive(false);
+                    rigidBody.isKinematic = true;
                 }
-
-                rotationX = Mathf.Clamp(rotationX, minClampVal, maxClampVal);
-
-
-
-                transform.localEulerAngles = new Vector3(rotationX, transform.localEulerAngles.y, transform.localEulerAngles.z);
-
-                if (rotationX > waterOnX && !turnWaterOn)
-                {
-                    sinkParticle.SetActive(true);
-                    turnWaterOn = true;
-                    print("turn water on");
-                    EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
-                }
-                else if (rotationX < waterOffX && turnWaterOn)
+                else
                 {
                     EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
                     sinkParticle.SetActive(false);
-                    turnWaterOn = false;
-                    print("turn water off");
+                    rigidBody.isKinematic = true;
                 }
             }
         }
