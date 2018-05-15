@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SoapInteractions : MonoBehaviour
 {
+    public static bool isShowerGameOver = false;
 
     Collider colin;
     Transform transformer;
@@ -123,6 +124,7 @@ public class SoapInteractions : MonoBehaviour
                 transform.position = startPos;
                 transform.rotation = startRot;
                 KOMBAW = true;
+                isShowerGameOver = true;
             }
         }
     }

@@ -74,9 +74,16 @@ public class SimpleInteractions : MonoBehaviour
     {
         IsPressed();
         IsItHolding();
-
+        ResetHandsAfterWrenchGame();
     }
-
+    void ResetHandsAfterWrenchGame()
+    {
+        if(WrenchInteractions.resetWrench)
+        {
+            myColliders[1].enabled = false;
+            myColliders[0].enabled = true;
+        }
+    }
 
     private IEnumerator AnimatedTimeBasedVibration(ushort vibrationStrenght, float VibrationPeriod, float timeBetweenPulses, AnimationCurve animationCurve)
     {

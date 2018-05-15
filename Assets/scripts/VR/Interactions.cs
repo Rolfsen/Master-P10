@@ -62,7 +62,50 @@ public class Interactions : MonoBehaviour {
 
         IsPressed();
         ClosestItemInteract();
+        
+    }
 
+    private void WrenchSpecialInteractions()
+    {
+        if (controller == null)
+        {
+            Debug.Log("Controller Not Found");
+            return;
+        }
+            float distance;
+            foreach (ObjectInteraction item in objectsHoveringOverList)
+            {
+                distance = (item.transform.position - transform.position).sqrMagnitude;
+            if (item.gameObject.tag == "Bolt")
+            {
+                minDistance = float.MaxValue;
+            
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    closestItem = item;
+                }
+                interactingItem = closestItem;
+                closestItem = null;//if we get this off, we have unlimited touch, until new item
+            }
+            if (interactingItem != null) //testing if it interacts with another object
+                {
+                    if (interactingItem.isInteracting())
+                    {
+                        interactingItem.EndInteraction(this);
+                    }
+                    interactingItem.BeginInteraction(this);
+                }
+        }
+
+
+
+
+
+        if (controller.GetPressUp(triggerButton) && interactingItem != null)
+        {
+            interactingItem.EndInteraction(this);
+        }
     }
 
     private void ClosestItemInteract()
