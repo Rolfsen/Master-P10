@@ -23,6 +23,7 @@ public class MopHandler : MonoBehaviour
     private bool isCurrentlyCollidingWithHand;
     [SerializeField]
     GameObject mopPlace;
+    bool isItPressed = false;
     // Use this for initialization
     void Start()
     {
@@ -49,15 +50,17 @@ public class MopHandler : MonoBehaviour
     {
         if (MiniGameManager.isCleaningGameRunning)
         {
-            if (isInRange == true)
+            if (isInRange)
             {
-
-                yAxisMovement = Mathf.Clamp(colin.transform.position.y, 1.036f, 2f);
-                transform.position = new Vector3(colin.gameObject.transform.position.x, yAxisMovement, colin.gameObject.transform.position.z);
-                transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
-                EventBus.TriggerEvent(this, new GameStateEvent.MopIsBeingHeld());
-                isHeld = true;
-                
+                if (isItPressed)
+                {
+                    // yAxisMovement = Mathf.Clamp(colin.transform.position.y, 1.036f, 2f);
+                    yAxisMovement = Mathf.Clamp(colin.transform.position.y, 1.2f, 2f);
+                    transform.position = new Vector3(colin.gameObject.transform.position.x, yAxisMovement, colin.gameObject.transform.position.z);
+                    transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
+                    EventBus.TriggerEvent(this, new GameStateEvent.MopIsBeingHeld());
+                    isHeld = true;
+                }
                 /*
                 if (simpleInteractions.isPressed == true)
                 {
@@ -78,6 +81,23 @@ public class MopHandler : MonoBehaviour
         }
     }
 
+    Coroutine leftCounter;
+    bool isCurrentlyCounting;
+
+    IEnumerator CheckIfPlayerLeft()
+    {
+        isCurrentlyCounting = true;
+        yield return new WaitForSeconds(0.2f);
+        if (!isCurrentlyCollidingWithHand)
+        {
+            isInRange = false;
+            isHeld = false;
+            transform.position = new Vector3(transform.position.x, 1.2f, transform.position.z);
+            EventBus.TriggerEvent(this, new GameStateEvent.MopIsNotBeingHeld());
+        }
+        isCurrentlyCounting = false;
+    }
+
     private void OnTriggerEnter(Collider col)
     {
 
@@ -90,21 +110,19 @@ public class MopHandler : MonoBehaviour
                 simpleInteractions = col.gameObject.GetComponent<SimpleInteractions>();
                 isControllerPressed = simpleInteractions.isPressed;
                 colin = col;
-                //deltaRotation = colin.gameObject.transform.rotation;
                 isInRange = true;
-                // mopPlace.SetActive(true);
-                //GetComponent<Collider>().enabled = true;
+                
 
             }
-            if(col.gameObject.tag=="MopPlace")
+            if(col.gameObject.tag=="MopPlace" && isHeld)
             {
                 if(!isOnRightSpot)
                 { 
                     transform.position = startPos;
                     transform.rotation = startRot;
                     isInRange = false;
+                    isHeld = false;
                 }
-                //mopPlace.SetActive(false);
             }
         }
     }
@@ -119,13 +137,15 @@ public class MopHandler : MonoBehaviour
                 isControllerPressed = simpleInteractions.isPressed;
                 colin = col;
                 isInRange = true;
-                
+                if (simpleInteractions.isPressed == true)
+                {
+                    isItPressed = true;
+                }
 
             }
             else if (col.gameObject.tag == "Bucket")
             {
-
-                //isOnRightSpot = true;
+                
                 transform.position = new Vector3(colin.gameObject.transform.position.x, colin.gameObject.transform.position.y, colin.gameObject.transform.position.z);
                 transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
             }
@@ -137,10 +157,6 @@ public class MopHandler : MonoBehaviour
 
         if (MiniGameManager.isCleaningGameRunning)
         {
-            if (col.gameObject.tag == "Bucket")
-            {
-                //isOnRightSpot = false;
-            }
 
             if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
@@ -149,29 +165,16 @@ public class MopHandler : MonoBehaviour
                 {
                     leftCounter = StartCoroutine(CheckIfPlayerLeft());
                 }
+                isItPressed = false;
             }
 
             if (col.gameObject.tag == "MopPlace")
             {
                 isOnRightSpot = false;
+                
             }
             }
     }
 
-    Coroutine leftCounter;
-    bool isCurrentlyCounting;
-
-    IEnumerator CheckIfPlayerLeft ()
-    {
-        isCurrentlyCounting = true;
-        yield return new WaitForSeconds(0.2f);
-        if (!isCurrentlyCollidingWithHand)
-        {
-            isInRange = false;
-            isHeld = false;
-            transform.position = new Vector3(transform.position.x, 1.036f, transform.position.z);
-            EventBus.TriggerEvent(this, new GameStateEvent.MopIsNotBeingHeld());
-        }
-        isCurrentlyCounting = false;
-    }
+    
 }

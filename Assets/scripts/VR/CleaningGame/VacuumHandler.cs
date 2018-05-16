@@ -47,8 +47,6 @@ public class VacuumHandler : MonoBehaviour
             {
                 if (isItPressed == true)
                 {
-                    // soapHandlerCollider = soapHandler.GetComponent<Collider>();
-                    // soapHandlerCollider.enabled = false;
                     transform.position = new Vector3(colin.gameObject.transform.position.x, 1.190f, colin.gameObject.transform.position.z);
                     transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, colin.gameObject.transform.rotation.eulerAngles.y - 50f, transform.rotation.eulerAngles.z));
                     isHeld = true;
@@ -59,31 +57,19 @@ public class VacuumHandler : MonoBehaviour
                     }
 
                 }
-                /*
-                if (simpleInteractions.isPressed == false)
+                if (isHeld == true && isOnRightSpot == true)
                 {
-                    transform.position = new Vector3(colin.gameObject.transform.position.x, 1.193f, colin.gameObject.transform.position.z);
-                    transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, colin.gameObject.transform.rotation.eulerAngles.y-50f, transform.rotation.eulerAngles.z));
 
-                    if (isPlayedSound == false)
-                    {
-                        EventBus.TriggerEvent(this, new GameStateEvent.VacuumIsBeingHeld());
-                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Dont drop the vacuum"));
-                        isPlayedSound = true;
-                    }*/
-                //transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y+transform.rotation.y, transform.rotation.z, transform.rotation.w);
+                    transform.position = startPos;
+                    transform.rotation = startRot;
+                    isItPressed = false;
+                    isInRange = false;
+                    isHeld = false;
+                    isOnRightSpot = false;
+                }
             }
 
-            if (isHeld == true && isOnRightSpot == true)
-            {
-
-                transform.position = startPos;
-                transform.rotation = startRot;
-                isItPressed = false;
-                isInRange = false;
-                isHeld = false;
-                isOnRightSpot = false;
-            }
+           
         }
     }
 
