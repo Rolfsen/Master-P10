@@ -32,6 +32,7 @@ TagManager:
   - Torso
   - TemparyHand
   - PeelerPlaceExit
+  - MopPlace
   layers:
   - Default
   - TransparentFX

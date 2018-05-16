@@ -14,13 +14,15 @@ public class MopHandler : MonoBehaviour
     //bool isOnRightSpot = false;
     bool isInRange = false;
     bool isPlayedSound = false;
-    bool isOnRightSpot = false;
+    bool isOnRightSpot = true;
     public bool isControllerPressed = false;
     Vector3 startPos;
     Quaternion startRot;
     public bool isHeld = false;
     float yAxisMovement;
     private bool isCurrentlyCollidingWithHand;
+    [SerializeField]
+    GameObject mopPlace;
     // Use this for initialization
     void Start()
     {
@@ -49,11 +51,13 @@ public class MopHandler : MonoBehaviour
         {
             if (isInRange == true)
             {
-                if (isPlayedSound == false)
-                {
 
-                    isPlayedSound = true;
-                }
+                yAxisMovement = Mathf.Clamp(colin.transform.position.y, 1.036f, 2f);
+                transform.position = new Vector3(colin.gameObject.transform.position.x, yAxisMovement, colin.gameObject.transform.position.z);
+                transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
+                EventBus.TriggerEvent(this, new GameStateEvent.MopIsBeingHeld());
+                isHeld = true;
+                
                 /*
                 if (simpleInteractions.isPressed == true)
                 {
@@ -66,14 +70,9 @@ public class MopHandler : MonoBehaviour
 
                 }
                 */
-                 if (simpleInteractions.isPressed == false && isOnRightSpot == false)
-                {
-                    yAxisMovement = Mathf.Clamp(colin.transform.position.y, 1.036f, 2f);
-                    transform.position = new Vector3(colin.gameObject.transform.position.x, yAxisMovement, colin.gameObject.transform.position.z);
-                    transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
-                    EventBus.TriggerEvent(this, new GameStateEvent.MopIsBeingHeld());
-                    isHeld = true;
-                }
+
+
+
 
             }
         }
@@ -93,8 +92,19 @@ public class MopHandler : MonoBehaviour
                 colin = col;
                 //deltaRotation = colin.gameObject.transform.rotation;
                 isInRange = true;
+                // mopPlace.SetActive(true);
                 //GetComponent<Collider>().enabled = true;
 
+            }
+            if(col.gameObject.tag=="MopPlace")
+            {
+                if(!isOnRightSpot)
+                { 
+                    transform.position = startPos;
+                    transform.rotation = startRot;
+                    isInRange = false;
+                }
+                //mopPlace.SetActive(false);
             }
         }
     }
@@ -115,7 +125,7 @@ public class MopHandler : MonoBehaviour
             else if (col.gameObject.tag == "Bucket")
             {
 
-                isOnRightSpot = true;
+                //isOnRightSpot = true;
                 transform.position = new Vector3(colin.gameObject.transform.position.x, colin.gameObject.transform.position.y, colin.gameObject.transform.position.z);
                 transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y, transform.rotation.z, transform.rotation.w);
             }
@@ -129,8 +139,9 @@ public class MopHandler : MonoBehaviour
         {
             if (col.gameObject.tag == "Bucket")
             {
-                isOnRightSpot = false;
+                //isOnRightSpot = false;
             }
+
             if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
                 isCurrentlyCollidingWithHand = false;
@@ -138,8 +149,13 @@ public class MopHandler : MonoBehaviour
                 {
                     leftCounter = StartCoroutine(CheckIfPlayerLeft());
                 }
-            } 
-        }
+            }
+
+            if (col.gameObject.tag == "MopPlace")
+            {
+                isOnRightSpot = false;
+            }
+            }
     }
 
     Coroutine leftCounter;
