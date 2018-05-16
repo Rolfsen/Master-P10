@@ -47,7 +47,7 @@ public class MiniGameManager : MonoBehaviour
                 }
             case 3:
                 {
-                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 1, 5 }));
+                    EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> { 1, 5, 9 }));
                     break;
                 }
             case 4:

@@ -10,7 +10,7 @@ public class VacuumHandler : MonoBehaviour
     [SerializeField]
     private int count;
     [SerializeField]
-    bool isOnRightSpot = false;
+    bool isOnRightSpot = true;
     bool isInRange = false;
     bool isPlayedSound = false;
     private bool isItPressed;
@@ -74,14 +74,15 @@ public class VacuumHandler : MonoBehaviour
                 //transform.rotation = new Quaternion(transform.rotation.x, colin.gameObject.transform.rotation.y+transform.rotation.y, transform.rotation.z, transform.rotation.w);
             }
 
-            if (isHeld == true && simpleInteractions.isPressed == false && isOnRightSpot == true)
+            if (isHeld == true && isOnRightSpot == true)
             {
 
-                transform.position = new Vector3(0.363f, 1.00f, 2.056f);
-                transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
+                transform.position = startPos;
+                transform.rotation = startRot;
                 isItPressed = false;
                 isInRange = false;
                 isHeld = false;
+                isOnRightSpot = false;
             }
         }
     }
@@ -129,10 +130,7 @@ public class VacuumHandler : MonoBehaviour
                 }
 
             }
-            else if (col.gameObject.tag == "VacuumRightSpot")
-            {
-                isOnRightSpot = true;
-            }
+            
         }
     }
 
