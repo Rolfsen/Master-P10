@@ -5,9 +5,19 @@ using UnityEngine;
 public class ItemPickUp : MonoBehaviour
 {
 
-	SimpleInteractions interaction;
+	[SerializeField]
+	int minigameIndex;
 
-	public bool isItemCarried { get; private set; }
+	//This can replaced with tag strings if desired
+	[SerializeField]
+	GameObject returnPosition;
+
+	[SerializeField]
+	GameObject leaveStartPosition;
+
+ 	public bool isItemCarried { get; private set; }
+
+	SimpleInteractions interaction;
 
 	Vector3 startPosition;
 	Quaternion startRotation;
@@ -15,14 +25,6 @@ public class ItemPickUp : MonoBehaviour
 	bool isMinigameActive;
 	bool leftOuterTrigger; // Prevent the player to return item at pickup
 
-	[SerializeField]
-	int minigameIndex;
-
-	[SerializeField]
-	GameObject returnPosition;
-
-	[SerializeField]
-	GameObject leaveStartPosition;
 
 
 
@@ -40,11 +42,6 @@ public class ItemPickUp : MonoBehaviour
 
 	// Virtual Classes
 	public virtual void ItemBehavior()
-	{
-
-	}
-
-	public virtual void OnPickUp ()
 	{
 
 	}
@@ -67,8 +64,16 @@ public class ItemPickUp : MonoBehaviour
 
 		transform.position = startPosition;
 		transform.rotation = startRotation;
+	}
 
+	public virtual void OnItemPickup(SimpleInteractions hand, Collider collider)
+	{
+		interaction = hand;
+		isItemCarried = true;
+		interaction.isHoldingSomething = true;
 
+		transform.SetParent(collider.transform);
+		AdjustLocaleTransform(collider.transform);
 	}
 
 	public virtual void OnTriggerStay(Collider other)
@@ -80,24 +85,13 @@ public class ItemPickUp : MonoBehaviour
 				var tmpInteraction = other.GetComponent<SimpleInteractions>();
 				if (tmpInteraction.isPressed && tmpInteraction.isHoldingSomething)
 				{
-					interaction = tmpInteraction;
-					isItemCarried = true;
-					leftOuterTrigger = false;
-
-
-					transform.SetParent(other.transform);
-					AdjustLocaleTransform(other.transform);
-
-					OnPickUp();
+					OnItemPickup(tmpInteraction,other);
 				}
 			}
-			else if (other.gameObject == returnPosition && isItemCarried && interaction != null && leftOuterTrigger)
+			else if (other.gameObject == returnPosition && isItemCarried && leftOuterTrigger)
 			{
-
 				ResetItem();
-
 			}
-
 		}
 	}
 
@@ -111,7 +105,6 @@ public class ItemPickUp : MonoBehaviour
 			}
 		}
 	}
-
 
 	// Private Classes
 	void MinigameStarted(object sender, MinigameEvents.StartMinigameEvent e)

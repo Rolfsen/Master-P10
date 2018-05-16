@@ -11,17 +11,26 @@ public class IPVoiceOnPickup : IPFixTransform
 	bool playNarrationPickupClipOnce;
 
 
-	public override void OnPickUp()
-	{
-		base.OnPickUp();
+	/*	public override void OnItemPickup(SimpleInteractions hand, Collider collider)
+		{
+			base.OnItemPickup(hand,collider);
 
+			if (!playNarrationPickupClipOnce)
+			{
+				EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false,pickUpLine));
+				playNarrationPickupClipOnce = true;
+			}
+
+		}*/
+
+	public override void OnItemPickup(SimpleInteractions hand, Collider collider)
+	{
+		base.OnItemPickup(hand, collider);
 		if (!playNarrationPickupClipOnce)
 		{
-			EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false,pickUpLine));
+			EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false, pickUpLine));
 			playNarrationPickupClipOnce = true;
 		}
-
-
 	}
 
 }
