@@ -30,7 +30,7 @@ public class SinkHandler : MonoBehaviour
     [SerializeField]
     float waterOnX = 10;
 
-    bool turnWaterOn = false;
+    public bool turnWaterOn = false;
 
     [SerializeField]
     float maxClampVal;
@@ -40,6 +40,8 @@ public class SinkHandler : MonoBehaviour
 
     [SerializeField]
     bool isAHandle;
+
+    bool gameHasFinished;
 
     // Use this for initialization
     void Start()
@@ -59,7 +61,7 @@ public class SinkHandler : MonoBehaviour
             IsWaterOn();
             IsWaterOff();
             IsItRotatingSound();
-            if(!CookingGameManager.isCookingDone)
+            if(CookingGameManager.isPlayingCookingGame)
             { 
                 if (isAHandle)
                 {
@@ -93,22 +95,28 @@ public class SinkHandler : MonoBehaviour
                     }
                 }
             }
-            if (CookingGameManager.isCookingDone)
-            {
-                if(!turnWaterOn)
-                { 
-
-                    sinkParticle.SetActive(false);
-                    rigidBody.isKinematic = true;
-                }
-                else
-                {
-                    EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
-                    sinkParticle.SetActive(false);
-                    rigidBody.isKinematic = true;
-                }
-            }
+           
         }
+        /*
+         if (CookingGameManager.isCookingDone)
+         {
+             if (!turnWaterOn && !gameHasFinished)
+             {
+
+                 //sinkParticle.SetActive(false);
+                 rigidBody.isKinematic = true;
+                 turnWaterOn = false;
+             }
+             else if(turnWaterOn && !gameHasFinished)
+             {
+                 EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());
+                 sinkParticle.SetActive(false);
+                 rigidBody.isKinematic = true;
+                 turnWaterOn = false;
+             }
+             gameHasFinished = true;
+         }
+         */
     }
     void IsItRotatingSound()
     {
@@ -144,7 +152,7 @@ public class SinkHandler : MonoBehaviour
                     count++;
                     if (count > 50)
                     {
-                        if (isWaterRunning == false)
+                        if (isWaterRunning == false) 
                         {
                             //EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent("Good job. You saved like the whales."));
                             //EventBus.TriggerEvent(this, new MinigameEvents.ToggleWaterEvent());

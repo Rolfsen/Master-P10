@@ -90,6 +90,8 @@ public class MopHandler : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         if (!isCurrentlyCollidingWithHand)
         {
+            isItPressed = false;
+
             isInRange = false;
             isHeld = false;
             transform.position = new Vector3(transform.position.x, 1.2f, transform.position.z);
@@ -114,7 +116,7 @@ public class MopHandler : MonoBehaviour
                 
 
             }
-            if(col.gameObject.tag=="MopPlace" && isHeld)
+            if(col.gameObject.tag=="MopPlace")
             {
                 if(!isOnRightSpot)
                 { 
@@ -165,7 +167,6 @@ public class MopHandler : MonoBehaviour
                 {
                     leftCounter = StartCoroutine(CheckIfPlayerLeft());
                 }
-                isItPressed = false;
             }
 
             if (col.gameObject.tag == "MopPlace")

@@ -49,7 +49,7 @@ public class PeelerControls : MonoBehaviour
 			transform.position = followController.position;
 			transform.rotation = followController.rotation;
 		}
-		if (isWaitingForTurningWater && !endGameOnce && !sinkHandler.isWaterRunning)
+		if (isWaitingForTurningWater && !endGameOnce && !sinkHandler.turnWaterOn)//bug here, sinkha
 		{
 			CookingGameManager.isPlayingCookingGame = false;
 			EventBus.TriggerEvent(this, new MinigameEvents.EndMinigamEvent());

@@ -341,7 +341,7 @@ public class SimpleInteractions : MonoBehaviour
         }
         else if (col.gameObject.tag == "Potato")
         {
-            //isHoldingTool = true;
+            isHoldingTool = true;
             if (gameObject.GetComponent<RightHand>() == true)
             {
                 rightHand.closeHandRight.SetActive(true);

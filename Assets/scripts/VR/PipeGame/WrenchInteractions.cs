@@ -133,12 +133,12 @@ public class WrenchInteractions : MonoBehaviour
     private void OnTriggerStay(Collider col)
     {
         if (MiniGameManager.isPipeGameRunning)
-        { 
-            if (col.gameObject.name == "Controller (left)"  || col.gameObject.name == "Controller (right)")
+        {
+            if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
-                
+
                 simpleInteractions = col.GetComponent<SimpleInteractions>();
-                if(simpleInteractions.isPressed)
+                if (simpleInteractions.isPressed)
                 { 
 
                     if (col.GetComponent<TestingGrippingHand>().isLeftHand)

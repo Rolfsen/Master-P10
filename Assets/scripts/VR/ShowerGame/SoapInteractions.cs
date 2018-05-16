@@ -213,11 +213,12 @@ public class SoapInteractions : MonoBehaviour
 
             }
 
-            if (col.CompareTag("Player") && !isPickedUp && !KOMBAW)
+            if (col.CompareTag("Player") && !isPickedUp && !KOMBAW && !isHeld)
             {
-                simpleInteractions = col.GetComponent<SimpleInteractions>();
-                if (simpleInteractions.isPressed)
+                var tmpInteraction = col.GetComponent<SimpleInteractions>();
+                if (tmpInteraction.isPressed)
                 {
+                    simpleInteractions = tmpInteraction;
                     isInRange = true;
                     colin = col;
                     isItPressed = true;
