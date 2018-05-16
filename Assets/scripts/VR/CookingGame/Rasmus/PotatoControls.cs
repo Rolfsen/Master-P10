@@ -118,6 +118,7 @@ public class PotatoControls : MonoBehaviour
 			isPotatoClean = true;
 			rend.material = potatoAllClean;
 			rend.material.SetFloat("_DissolveAmount", dissolveValues[3]);
+			EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false, "Alright, that potato is peeled and clean, now put it back into the bowl."));
 		}
 	}
 
