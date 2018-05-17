@@ -45,6 +45,7 @@ public class MopHandler : MonoBehaviour
 
     }
 
+    bool firstPickupEvent;
 
     private void IsHeld()
     {
@@ -54,6 +55,11 @@ public class MopHandler : MonoBehaviour
             {
                 if (isItPressed)
                 {
+                    if (!firstPickupEvent)
+                    {
+                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false, ""));
+                        firstPickupEvent = true;
+                    }
                     // yAxisMovement = Mathf.Clamp(colin.transform.position.y, 1.036f, 2f);
                     yAxisMovement = Mathf.Clamp(colin.transform.position.y, 1.2f, 2f);
                     transform.position = new Vector3(colin.gameObject.transform.position.x, yAxisMovement, colin.gameObject.transform.position.z);

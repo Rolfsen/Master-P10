@@ -59,5 +59,6 @@ public class Showering : MonoBehaviour {
     public void IsCompletedlySoap (object sender, PlayerEvent.PlayerWasSoaped e)
     {
         rend.material.SetColor("_DissolveColor",soapedColor);
+        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false, "You are ready to wash of the soap"));
     }
 }

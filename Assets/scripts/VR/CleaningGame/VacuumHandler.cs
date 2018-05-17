@@ -39,6 +39,9 @@ public class VacuumHandler : MonoBehaviour
     {
         //isControllerPressed = simpleInteractions.isPressed;
     }
+
+    bool firstPickupEvent;
+
     private void IsHeld()
     {
         if (MiniGameManager.isCleaningGameRunning)
@@ -54,6 +57,12 @@ public class VacuumHandler : MonoBehaviour
                     {
                         EventBus.TriggerEvent(this, new GameStateEvent.VacuumIsBeingHeld());
                         isPlayedSound = true;
+
+                        if (!firstPickupEvent)
+                        {
+                            EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false, ""));
+                            firstPickupEvent = true;
+                        }
                     }
 
                 }

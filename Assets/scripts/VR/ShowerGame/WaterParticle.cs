@@ -82,6 +82,8 @@ public class WaterParticle : MonoBehaviour
 
     bool haveBeenTouchedByWater;
 
+    bool playerIsWetNarration;
+
     void IsGettingWet()
     {
         if (MiniGameManager.isShowerGameRunning)
@@ -101,6 +103,11 @@ public class WaterParticle : MonoBehaviour
                 }
                 if (count > timeToGetWet)
                 {
+                    if (!playerIsWetNarration)
+                    {
+                        playerIsWetNarration = true;
+                        EventBus.TriggerEvent(this, new NarrativeEvent.TextToSpeechNarratorEvent(false, "You are ready to apply soap now"));
+                    }
                     isWet = true;
                     count = 0;
                 }

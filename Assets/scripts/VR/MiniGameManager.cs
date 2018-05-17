@@ -123,7 +123,7 @@ public class MiniGameManager : MonoBehaviour
                 {
                     ResetAll();
                     isToiletGameRunning = true;
-                   // EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> {7}));
+                  EventBus.TriggerEvent(this, new GameStateEvent.SetWayPointStateEvent(new List<int> {}));
 
                     break;
                 }
