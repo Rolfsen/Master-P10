@@ -78,7 +78,6 @@ public class SoapInteractions : MonoBehaviour
         isItPressed = false;
         isHeld = false;
         canPutDown = false;
-        isPickedUp = false;
     }
 
     // Update is called once per frame
@@ -179,9 +178,7 @@ public class SoapInteractions : MonoBehaviour
                 Debug.Log("WE ARE STARTING CLEANING");
                 isRightConditionsForCleaning = true;
                 EventBus.TriggerEvent(this, new GameStateEvent.StartCleaningSelf());
-
-
-
+                
             }
             else if (col.gameObject.name == "torso" && waterParticle.isWet == false && getWetSound == false)
             {
@@ -191,7 +188,7 @@ public class SoapInteractions : MonoBehaviour
             }
         }
     }
-
+    bool isInHand = false;
     bool particlesEnabled;
     private void OnTriggerStay(Collider col)
     {
@@ -213,29 +210,30 @@ public class SoapInteractions : MonoBehaviour
 
             }
 
-            if (col.CompareTag("Player") && !isPickedUp && !KOMBAW && !isHeld)
+            if (col.CompareTag("Player") && !KOMBAW && !isHeld && !isInHand)
             {
                 var tmpInteraction = col.GetComponent<SimpleInteractions>();
-                if (tmpInteraction.isPressed)
-                {
+                
                     simpleInteractions = tmpInteraction;
                     isInRange = true;
-                    colin = col;
+                    //colin = col;
                     isItPressed = true;
-                    if (!isHeld && isOnPlace)
+                    if (!isHeld && isOnPlace && !isInHand)
                     {
 
-                        if (col.GetComponent<TestingGrippingHand>().isLeftHand)
+                        if (col.GetComponent<TestingGrippingHand>().isLeftHand && !isInHand)
                         {
                             offsetVector = leftHandGrip.position;
                             usingTrans = leftHand;
+
                             if (isPlayedSound == false)
                             {
                                 EventBus.TriggerEvent(this, new GameStateEvent.GettingTheSoap());
                                 isPlayedSound = true;
                             }
+                            isInHand = true;
                         }
-                        else
+                        else if(!col.GetComponent<TestingGrippingHand>().isLeftHand && !isInHand)
                         {
                             offsetVector = rightHandGrip.position;
                             usingTrans = rightHand;
@@ -244,7 +242,7 @@ public class SoapInteractions : MonoBehaviour
                                 EventBus.TriggerEvent(this, new GameStateEvent.GettingTheSoap());
                                 isPlayedSound = true;
                             }
-
+                            isInHand = true;
                         }
 
                         offset = (usingTrans.position - col.transform.position) + (offsetVector - transform.position);
@@ -258,7 +256,7 @@ public class SoapInteractions : MonoBehaviour
                         canBeReturnedToSoapHolder = false;
                         StartCoroutine(BanSoapFromBeingReturned());
                     }
-                }
+                
             }
 
             else if (isHeld == true && isItPressed == true && col.gameObject.name == "soap_holder" && !isOnPlace && canBeReturnedToSoapHolder)
@@ -308,6 +306,16 @@ public class SoapInteractions : MonoBehaviour
             if (col.gameObject.name == "Controller (left)" || col.gameObject.name == "Controller (right)")
             {
                 //col.GetComponent<Interactions>().enabled = enabled;
+                transform.parent = null;
+                transformer.position = startPos;
+                transformer.rotation = startRot;
+                isItPressed = false;
+                isHeld = false;
+                canPutDown = false;
+                isInRange = false;
+                isOnPlace = true;
+
+                isInHand = false;
                 isItPressed = false;
                 transform.SetParent(null);
             }
